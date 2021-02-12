@@ -4,7 +4,7 @@ public class DrinksData {
     private String spirit;
     private String size;
     private String taste;
-    private String strenght;
+    private String strength;
     private String name;
 
     public DrinksData(String name, String spirit, String size, String taste, String strenght) {
@@ -12,7 +12,7 @@ public class DrinksData {
         this.spirit = spirit;
         this.size = size;
         this.taste = taste;
-        this.strenght = strenght;
+        this.strength = strenght;
 
     }
     
