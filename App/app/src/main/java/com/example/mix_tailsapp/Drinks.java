@@ -30,6 +30,4 @@ public class Drinks {
         return this.cocktail.get(drinkIndex);
     }
 
-
-
 }
