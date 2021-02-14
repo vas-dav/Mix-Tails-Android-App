@@ -7,6 +7,7 @@ public class DrinksData {
     private String strength;
     private String name;
 
+
     public DrinksData(String name, String spirit, String size, String taste, String strenght) {
         this.name = name;
         this.spirit = spirit;
@@ -15,9 +16,28 @@ public class DrinksData {
         this.strength = strenght;
 
     }
-    
-    public String getName(){
-        return this.name;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSpirit() {
+        return spirit;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getTaste() {
+        return taste;
+    }
+
+    public String getStrength() {
+        return strength;
     }
 }
+
+
+
 
