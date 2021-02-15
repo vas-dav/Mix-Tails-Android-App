@@ -37,7 +37,7 @@
         tools:ignore="VectorDrawableCompat" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/decideBtn"
         android:layout_width="123dp"
         android:layout_height="53dp"
         android:background="@drawable/decide_btn"
@@ -55,36 +55,36 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="411dp"
-        android:layout_height="616dp"
+        android:layout_width="439dp"
+        android:layout_height="613dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/rectangle" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/signupBtn"
         android:layout_width="130dp"
         android:layout_height="65dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="60dp"
         android:background="@drawable/rounded_btn"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:backgroundTint="#E4992B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/signinBtn"
         android:layout_width="130dp"
         android:layout_height="65dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="68dp"
         android:background="@drawable/rounded_btn"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:backgroundTint="#E4992B"

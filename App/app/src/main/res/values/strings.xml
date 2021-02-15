@@ -10,6 +10,14 @@
     <string name="question5">Let\'s drink!</string>
     <string name="question6">Surprise me!</string>
     <string name="Img2">imgview</string>
+    <string name="passwordConfirm">Confirm your password</string>
+    <string name="password">Password</string>
+    <string name="e_mail">E-mail</string>
+    <string name="name">Name</string>
+    <string name="sign_up_text">SIGN UP</string>
+    <string name="confirmBtn">Confirm</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
 
     <string-array name="spirits">
         <item>Choose-one</item>
