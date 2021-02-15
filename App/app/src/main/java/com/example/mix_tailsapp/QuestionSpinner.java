@@ -11,6 +11,7 @@ import android.widget.Spinner;
 
 public class QuestionSpinner extends AppCompatActivity {
     private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,10 @@ public class QuestionSpinner extends AppCompatActivity {
             }
         }); */
     }
+
+    }
+}
+
     //a function for generating a random drink
     public void randomize(View view) {
         Drinks drinks = Drinks.getInstance();
@@ -63,3 +68,4 @@ public class QuestionSpinner extends AppCompatActivity {
         startActivity(randDrink);
     }
 }
+
