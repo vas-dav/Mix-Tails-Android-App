@@ -37,9 +37,11 @@ public class Drinks {
         DrinksData comparison = new DrinksData("Comp", inputSpirit, inputSize, inputTaste, inputStrenght);
         String yourDrink = null;
         for (int i = 0; i < cocktail.size(); i++) {
-            if (comparison.equals(cocktail.get(i))) {
+            if (cocktail.get(i).getSpirit() == comparison.getSpirit()
+                    && cocktail.get(i).getSize() == comparison.getSize()
+                    && cocktail.get(i).getTaste() == comparison.getTaste()
+                    && cocktail.get(i).getStrength() == comparison.getStrength() )
                 yourDrink = cocktail.get(i).getName();
-            }
 
         }
         return yourDrink;
