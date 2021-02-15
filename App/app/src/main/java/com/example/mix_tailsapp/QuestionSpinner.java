@@ -22,7 +22,6 @@ public class QuestionSpinner extends AppCompatActivity {
 
 
     private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
-    private Spinner spirit, size, taste, strength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
