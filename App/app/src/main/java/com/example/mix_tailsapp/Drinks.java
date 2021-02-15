@@ -37,11 +37,20 @@ public class Drinks {
         DrinksData comparison = new DrinksData("Comp", inputSpirit, inputSize, inputTaste, inputStrenght);
         String yourDrink = null;
         for (int i = 0; i < cocktail.size(); i++) {
-            if (comparison.equals(cocktail.get(i)) == true) {
+            if (comparison.equals(cocktail.get(i))) {
                 yourDrink = cocktail.get(i).getName();
             }
 
         }
         return yourDrink;
     }
+
+   //A method for randomizing drinks for "Surprise me" button
+
+   public String surprise(){
+       int b = (int)(Math.random()*(cocktail.size()+1));
+
+       return cocktail.get(b).getName();
+   }
+
 }
