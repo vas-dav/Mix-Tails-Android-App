@@ -2,11 +2,15 @@ package com.example.mix_tailsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+
 public class QuestionSpinner extends AppCompatActivity {
+    private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,5 +55,17 @@ public class QuestionSpinner extends AppCompatActivity {
             }
         }); */
     }
+
     }
 }
+
+    //a function for generating a random drink
+    public void randomize(View view) {
+        Drinks drinks = Drinks.getInstance();
+        String i = drinks.surprise();
+        Intent randDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
+        randDrink.putExtra(SURPRISE_KEY, i);
+        startActivity(randDrink);
+    }
+}
+
