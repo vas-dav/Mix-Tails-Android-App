@@ -6,6 +6,7 @@ import java.util.List;
 public class Drinks {
     private static final Drinks drinksInstance = new Drinks();
 
+    //Drinks with properties
     public static Drinks getInstance(){
         return drinksInstance;
     }
@@ -14,9 +15,14 @@ public class Drinks {
     DrinksData AngelFace = new DrinksData("Angel Face", "Gin", "S", "Boozy", "Strong");
     DrinksData Godfather = new DrinksData("GodFather", "Whiskey", "S", "Sweet", "Strong");
     DrinksData Godmother = new DrinksData("GodMother", "Vodka", "S", "Sweet", "Strong");
+    DrinksData Daiquiri = new DrinksData("Daiquiri", "Rum", "M", "Fresh", "Mild");
+    DrinksData WhiskeySour = new DrinksData("Whiskey Sour", "Whiskey", "L", "Sour", "Soft");
+    DrinksData Bacardi = new DrinksData("Bacardi", "Rum", "M", "Fresh", "Mild");
+    DrinksData DryMartini = new DrinksData("Dry Martini", "Gin", "M", "Boozy", "Strong");
 
     private List<DrinksData> cocktail;
 
+    //Adding Drinks to the List
     private Drinks(){
         cocktail = new ArrayList<>();
         cocktail.add(BlackVelvet);
@@ -24,6 +30,10 @@ public class Drinks {
         cocktail.add(AngelFace);
         cocktail.add(Godfather);
         cocktail.add(Godmother);
+        cocktail.add(Daiquiri);
+        cocktail.add(WhiskeySour);
+        cocktail.add(Bacardi);
+        cocktail.add(DryMartini);
     }
 
     //very first version of comparison algorithm (not tested yet)
