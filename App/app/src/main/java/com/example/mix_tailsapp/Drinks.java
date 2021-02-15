@@ -44,4 +44,13 @@ public class Drinks {
         }
         return yourDrink;
     }
+
+   //A method for randomizing drinks for "Surprise me" button
+
+   public String surprise(){
+       int b = (int)(Math.random()*(cocktail.size()-0+1));
+
+       return cocktail.get(b).getName();
+   }
+
 }
