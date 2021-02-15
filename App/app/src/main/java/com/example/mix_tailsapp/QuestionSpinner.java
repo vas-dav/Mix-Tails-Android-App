@@ -11,6 +11,7 @@ import android.widget.Spinner;
 
 public class QuestionSpinner extends AppCompatActivity {
     private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
+    private Spinner spirit, size, taste, strength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,8 @@ public class QuestionSpinner extends AppCompatActivity {
         setContentView(R.layout.activity_question_spinner);
 
         Spinner mySpirits = (Spinner) findViewById(R.id.spinner1);
+
+
 
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(QuestionSpinner.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spirits));
@@ -63,6 +66,16 @@ public class QuestionSpinner extends AppCompatActivity {
         Intent randDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
         randDrink.putExtra(SURPRISE_KEY, i);
         startActivity(randDrink);
+    }
+
+    public void send(View view){
+        Drinks drinks = Drinks.getInstance();
+        Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
+        String total = spiritChoice + " " + tasteChoice + " \n" + sizeChoice + " " + strengthChoice;
+        chosenDrink.putExtra("drinker", total);
+
+
+        startActivity(chosenDrink);
     }
 }
 
