@@ -9,6 +9,7 @@
     <string name="question4">Does size matter? ;)</string>
     <string name="question5">Let\'s drink!</string>
     <string name="question6">Surprise me!</string>
+    <string name="Img2">imgview</string>
 
     <string-array name="spirits">
         <item>Choose-one</item>
