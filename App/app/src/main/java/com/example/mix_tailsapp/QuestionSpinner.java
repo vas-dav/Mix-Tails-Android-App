@@ -56,9 +56,6 @@ public class QuestionSpinner extends AppCompatActivity {
         }); */
     }
 
-    }
-}
-
     //a function for generating a random drink
     public void randomize(View view) {
         Drinks drinks = Drinks.getInstance();
