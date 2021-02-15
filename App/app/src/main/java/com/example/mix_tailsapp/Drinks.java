@@ -26,8 +26,22 @@ public class Drinks {
         cocktail.add(Godmother);
     }
 
+    //very first version of comparison algorithm (not tested yet)
+
     public DrinksData getDrinkData(int drinkIndex){
         return this.cocktail.get(drinkIndex);
     }
 
+    public String compareDrinks(String inputSpirit, String inputSize, String inputTaste, String inputStrenght) {
+
+        DrinksData comparison = new DrinksData("Comp", inputSpirit, inputSize, inputTaste, inputStrenght);
+        String yourDrink = null;
+        for (int i = 0; i < cocktail.size(); i++) {
+            if (comparison.equals(cocktail.get(i)) == true) {
+                yourDrink = cocktail.get(i).getName();
+            }
+
+        }
+        return yourDrink;
+    }
 }
