@@ -48,7 +48,7 @@ public class Drinks {
    //A method for randomizing drinks for "Surprise me" button
 
    public String surprise(){
-       int b = (int)(Math.random()*(cocktail.size()+1));
+       int b = (int)(Math.random()*(cocktail.size()));
 
        return cocktail.get(b).getName();
    }
