@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
     }
-    //a function for generating a random drink
-    public void randomize(View view) {
-        Drinks drinks = Drinks.getInstance();
-        String i = drinks.surprise();
-        Intent randDrink = new Intent(MainActivity.this, ChosenDrink_SecondActivity.class);
-        randDrink.putExtra(SURPRISE_KEY, i);
 
+    public void decide(View view){
+        Intent questions = new Intent(MainActivity.this, QuestionSpinner.class);
+        startActivity(questions);
     }
+
 
 }
