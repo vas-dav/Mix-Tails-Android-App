@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(launchApp);
         }, 2000);
 
+
     }
 
 

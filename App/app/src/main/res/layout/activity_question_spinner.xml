@@ -111,7 +111,12 @@
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="@string/question5"
+
+        android:onClick="send"
+        android:text="Let's drink! "
+
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,10 +125,13 @@
 
     <Button
         android:id="@+id/surprise"
-        android:onClick="randomize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="@string/question6"
+
+        android:text="Surprise me!"
+
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
