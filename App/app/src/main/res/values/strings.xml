@@ -9,11 +9,12 @@
         <item>Gin</item>
         <item>Whiskey</item>
         <item>Bourbon</item>
+        <item>Prosecco</item>
     </string-array>
 
     <string-array name="taste">
         <item>Choose-one</item>
-        <item>Salty</item>
+        <item>Boozy</item>
         <item>Sweet</item>
         <item>Sour</item>
         <item>Bitter</item>
@@ -29,8 +30,8 @@
 
     <string-array name="strength">
         <item>Choose-one</item>
-        <item>Easy</item>
-        <item>Mid</item>
+        <item>Soft</item>
+        <item>Mild</item>
         <item>Strong</item>
     </string-array>
 
