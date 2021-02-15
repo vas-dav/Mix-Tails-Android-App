@@ -5,11 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 
 public class QuestionSpinner extends AppCompatActivity {
+
+    String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey", "Bourbon", "Prosecco"};
+    String[] taste = {"Choose-one", "Salty", "Sweet", "Sour", "Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
+    String[] size = {"Choose-one", "S", "M", "L"};
+    String[] strength = {"Choose-one", "Soft", "Mild", "Strong"};
+    String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
+
+
     private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     private Spinner spirit, size, taste, strength;
 
@@ -19,45 +30,95 @@ public class QuestionSpinner extends AppCompatActivity {
         setContentView(R.layout.activity_question_spinner);
 
         Spinner mySpirits = (Spinner) findViewById(R.id.spinner1);
-
-
-
-        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(QuestionSpinner.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spirits));
+        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, spirits);
         myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpirits.setAdapter(myAdapter1);
+        mySpirits.setOnItemSelectedListener(new spiritSpinnerClass());
 
         Spinner myTaste = (Spinner) findViewById(R.id.spinner2);
-
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(QuestionSpinner.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.taste));
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, taste);
         myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myTaste.setAdapter(myAdapter2);
+        myTaste.setOnItemSelectedListener(new tasteSpinnerClass());
 
         Spinner mySize = (Spinner) findViewById(R.id.spinner3);
-
-        ArrayAdapter<String> myAdapter3 = new ArrayAdapter<String>(QuestionSpinner.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.size));
+        ArrayAdapter<String> myAdapter3 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, size);
         myAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySize.setAdapter(myAdapter3);
+        mySize.setOnItemSelectedListener(new sizeSpinnerClass());
 
         Spinner myStrength = (Spinner) findViewById(R.id.spinner4);
-
-        ArrayAdapter<String> myAdapter4 = new ArrayAdapter<String>(QuestionSpinner.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.strength));
+        ArrayAdapter<String> myAdapter4 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, strength);
         myAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myStrength.setAdapter(myAdapter4);
+        myStrength.setOnItemSelectedListener(new strengthSpinnerClass());
 
-/*
-        AdapterView.OnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(Adapter<?> adapterView, View DrinksData, int i, long ) {
-                Intent nextActivity = new Intent(MainActivity.this, DrinksData.class);
-                nextActivity.putExtra(ListOfDrinks, i);
-                startActivity(nextActivity);
-            }
-        }); */
+
     }
+
+    class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+            Toast.makeText(v.getContext(), spirits[position], Toast.LENGTH_SHORT).show();
+            spiritsChoice = spirits[position];
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
+
+    class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+            Toast.makeText(v.getContext(), taste[position], Toast.LENGTH_SHORT).show();
+            tasteChoice = taste[position];
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
+
+    class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
+       public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+            Toast.makeText(v.getContext(), size[position], Toast.LENGTH_SHORT).show();
+            sizeChoice = size[position];
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
+
+    class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+            Toast.makeText(v.getContext(), strength[position], Toast.LENGTH_SHORT).show();
+            strengthChoice = strength[position];
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
+
+
+
+    public void send(View view) {
+        Drinks drinks = Drinks.getInstance();
+        Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
+        String total = drinks.compareDrinks(spiritsChoice, sizeChoice, tasteChoice, strengthChoice);
+        chosenDrink.putExtra("drinker", total);
+
+        startActivity(chosenDrink);
+    }
+
 
     //a function for generating a random drink
     public void randomize(View view) {
@@ -68,14 +129,5 @@ public class QuestionSpinner extends AppCompatActivity {
         startActivity(randDrink);
     }
 
-    public void send(View view){
-        Drinks drinks = Drinks.getInstance();
-        Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
-        String total = spiritChoice + " " + tasteChoice + " \n" + sizeChoice + " " + strengthChoice;
-        chosenDrink.putExtra("drinker", total);
-
-
-        startActivity(chosenDrink);
-    }
 }
 

@@ -124,7 +124,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Surprise me!"
-        android:onClick="randomize"
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

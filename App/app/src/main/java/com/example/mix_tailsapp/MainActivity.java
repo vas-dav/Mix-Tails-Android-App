@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public void decide(View view){
         Intent questions = new Intent(MainActivity.this, QuestionSpinner.class);
         startActivity(questions);
+
+
     }
 
 
