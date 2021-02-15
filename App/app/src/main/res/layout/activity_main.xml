@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/cabin_semibold"
         android:text="@string/decideBtn"
+        android:onClick="decide"
         android:textAllCaps="false"
         android:textColor="#130F0F"
         android:textSize="18sp"
