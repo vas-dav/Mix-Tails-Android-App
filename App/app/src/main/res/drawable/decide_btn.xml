@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="#6BB5A6"/>
+
+
+
+
+
+    <!--If your shape requires only one solid color-->
+    <!--<solid
+        android:color="#FFFFFF" />-->
+
+    <size
+        android:width="100dp"
+        android:height="30dp" />
+    <corners
+
+        android:bottomRightRadius="15dp"
+        android:topLeftRadius="15dp"
+
+       />
+
+
+
+</shape>

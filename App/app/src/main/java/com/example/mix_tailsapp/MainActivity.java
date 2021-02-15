@@ -17,20 +17,18 @@ public class MainActivity extends AppCompatActivity {
     private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onCreate(Bundle savedInstance) {
 
         // app launching page with delay
+        super.onCreate(savedInstance);
+        setContentView(R.layout.activity_main);
+
         new Handler().postDelayed(() -> {
             Intent launchApp = new Intent(MainActivity.this, AppLaunching.class);
             startActivity(launchApp);
         }, 2000);
-    }
-        public void decide (View view){
-            Intent questions = new Intent(MainActivity.this, QuestionSpinner.class);
-            startActivity(questions);
-        }
-
 
     }
+
+
+}
