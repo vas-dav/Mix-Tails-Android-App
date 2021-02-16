@@ -19,6 +19,7 @@
     <string name="confirmBtn">Confirm</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
+    <string name="log_out">Log Out</string>
     <string name="welcome_message">You have successfully signed up.</string>
     <string name="exploreBtn">Explore </string>
 

@@ -63,36 +63,26 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/rectangle" />
 
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/rounded_btn"
-        android:text="@string/sign_up"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:backgroundTint="#E4992B"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/rounded_btn"
-        android:text="@string/sign_in"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:backgroundTint="#E4992B"
+    <TextView
+        android:id="@+id/welcomeBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
-        app:layout_constraintStart_toEndOf="@+id/decideBtn" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decideBtn"
+        app:layout_constraintVertical_bias="0.564" />
+
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeBack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
