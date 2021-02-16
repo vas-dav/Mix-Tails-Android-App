@@ -1,11 +1,28 @@
 <resources>
-    <string name="app_name">startpage</string>
+    <string name="app_name">Mix-Tails</string>
     <string name="ques1">Don\'t know what to drink?</string>
     <string name="decideBtn">Let\'s decide!</string>
+    <string name="snedButton">Let\'s Drink!</string>
     <string name="img1">ImageConfused</string>
+    <string name="question1">What spirit would you like?</string>
+    <string name="question2">How about the taste?</string>
+    <string name="question3">How strong?</string>
+    <string name="question4">Does size matter? ;)</string>
+    <string name="question5">Let\'s drink!</string>
+    <string name="question6">Surprise me!</string>
+    <string name="Img2">imgview</string>
+    <string name="passwordConfirm">Confirm your password</string>
+    <string name="password">Password</string>
+    <string name="e_mail">E-mail</string>
+    <string name="name">Name</string>
+    <string name="sign_up_text">SIGN UP</string>
+    <string name="confirmBtn">Confirm</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="welcome_message">You have successfully signed up.</string>
+    <string name="exploreBtn">Explore </string>
 
     <string-array name="spirits">
-        <item>Choose-one</item>
         <item>Non-alcoholic</item>
         <item>Rum</item>
         <item>Vodka</item>
@@ -15,7 +32,6 @@
     </string-array>
 
     <string-array name="taste">
-        <item>Choose-one</item>
         <item>Salty</item>
         <item>Sweet</item>
         <item>Sour</item>
@@ -24,16 +40,28 @@
     </string-array>
 
     <string-array name="size">
-        <item>Choose-one</item>
         <item>Short</item>
         <item>Long</item>
         <item>Shot</item>
     </string-array>
 
     <string-array name="strength">
-        <item>Choose-one</item>
         <item>Easy</item>
         <item>Mid</item>
         <item>Strong</item>
     </string-array>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="let_s_drink_btn">Let\'s drink!</string>
+    <string name="rectangle">rectangle</string>
+    <string name="Choose_one">Choose-one</string>
+
 </resources>
