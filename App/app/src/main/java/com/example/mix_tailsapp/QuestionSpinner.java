@@ -112,11 +112,11 @@ public class QuestionSpinner extends AppCompatActivity {
 
     private View.OnClickListener onClickListener = view -> {
         Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
+        Drinks drinks = Drinks.getInstance();
         if(view.getId() == R.id.surprise){
-            String supriseButtonKeyCheck = "BatmanHasBlueEyes";
-            chosenDrink.putExtra(SURPRISE_KEY, supriseButtonKeyCheck);
+            String i = drinks.surprise();
+            chosenDrink.putExtra(SURPRISE_KEY, i);
         } else {
-            Drinks drinks = Drinks.getInstance();
             String total = drinks.compareDrinks(spiritsChoice, sizeChoice, tasteChoice, strengthChoice);
             Log.d("Total", total);
             chosenDrink.putExtra(CHOICE_KEY, total);

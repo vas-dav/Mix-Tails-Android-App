@@ -17,8 +17,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         Drinks drinks = Drinks.getInstance();
         drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
         if(getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY) != null){
-            String i = drinks.surprise();
-            drinkOfYourChoice.setText(i);
+            drinkOfYourChoice.setText(getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY));
         } else {
             Log.d("Drink", getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY));
             drinkOfYourChoice.setText(getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY));
