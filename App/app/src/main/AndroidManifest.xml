@@ -9,8 +9,10 @@
         android:roundIcon="@drawable/logo1migi2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".QuestionSpinner"></activity>
-        <activity android:name=".ChosenDrink_SecondActivity" />
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".AppLaunching" />
+        <activity android:name=".QuestionSpinner" />
+        <activity android:name=".ChosenDrinkSecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
