@@ -53,7 +53,7 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(conf);
             }
         } else{
-            signUp.setText("Passwords doesn't match :(");
+            signUp.setText("Passwords don't match :(");
             confirm_password.setTextColor(R.color.red);
         }
 
