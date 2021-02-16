@@ -23,8 +23,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="373dp"
-        android:layout_height="407dp"
+        android:layout_width="391dp"
+        android:layout_height="401dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/signup_frame"
         android:orientation="vertical"
@@ -33,6 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
         <TextView
             android:id="@+id/maintext"
             android:layout_width="match_parent"
@@ -43,13 +44,14 @@
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="28sp" />
+
         <EditText
             android:id="@+id/username"
             android:layout_width="313dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
-            android:layout_marginBottom="15dp"
             android:selectAllOnFocus="true"
             android:textColor="#fff"
             tools:layout_editor_absoluteX="40dp"
@@ -59,11 +61,11 @@
             android:id="@+id/password"
             android:layout_width="313dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:hint="@string/prompt_password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:layout_marginBottom="15dp"
             android:selectAllOnFocus="true"
             android:textColor="#fff"
             tools:layout_editor_absoluteX="40dp"
