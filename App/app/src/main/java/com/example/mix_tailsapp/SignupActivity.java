@@ -12,10 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class SignupActivity extends AppCompatActivity {
-    public static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
-    public static final String EXTRA_EMAIL = "com.example.mix_tailsapp.EXTRA_EMAIL";
-    public static final String EXTRA_PASS = "com.example.mix_tailsapp.EXTRA_PASS";
-    public static final String EXTRA_CONFIRMPASSWORD = "com.example.mix_tailsapp.EXTRA_CONFIRMPASSWORD";
+    protected static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
+    protected static final String EXTRA_EMAIL = "com.example.mix_tailsapp.EXTRA_EMAIL";
+    protected static final String EXTRA_PASS = "com.example.mix_tailsapp.EXTRA_PASS";
     protected static final String STORAGE = "SUPERMANisSuperiorThanBatman";
 
     private EditText name, email, password, confirm_password;
