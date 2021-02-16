@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
         <activity android:name=".QuestionSpinner"></activity>
-        <activity android:name=".ChosenDrink_SecondActivity" />
+        <activity android:name=".ChosenDrinkSecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

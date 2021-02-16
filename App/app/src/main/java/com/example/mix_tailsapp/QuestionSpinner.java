@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 
 public class QuestionSpinner extends AppCompatActivity {
@@ -21,13 +21,15 @@ public class QuestionSpinner extends AppCompatActivity {
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
 
 
-    private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
+    protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
+    protected static final String CHOICE_KEY = "AFOIEHGUAHUwgirbUGIHuiwHI";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_spinner);
-
+        findViewById(R.id.surprise).setOnClickListener(onClickListener);
+        findViewById(R.id.send).setOnClickListener(onClickListener);
         Spinner mySpirits = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, spirits);
@@ -108,25 +110,18 @@ public class QuestionSpinner extends AppCompatActivity {
     }
 
 
-
-    public void send(View view) {
-        Drinks drinks = Drinks.getInstance();
-        Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
-        String total = drinks.compareDrinks(spiritsChoice, sizeChoice, tasteChoice, strengthChoice);
-        chosenDrink.putExtra("drinker", total);
-
+    private View.OnClickListener onClickListener = view -> {
+        Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
+        if(view.getId() == R.id.surprise){
+            String supriseButtonKeyCheck = "BatmanHasBlueEyes";
+            chosenDrink.putExtra(SURPRISE_KEY, supriseButtonKeyCheck);
+        } else {
+            Drinks drinks = Drinks.getInstance();
+            String total = drinks.compareDrinks(spiritsChoice, sizeChoice, tasteChoice, strengthChoice);
+            Log.d("Total", total);
+            chosenDrink.putExtra(CHOICE_KEY, total);
+        }
         startActivity(chosenDrink);
-    }
-
-
-    //a function for generating a random drink
-    public void randomize(View view) {
-        Drinks drinks = Drinks.getInstance();
-        String i = drinks.surprise();
-        Intent randDrink = new Intent(QuestionSpinner.this, ChosenDrink_SecondActivity.class);
-        randDrink.putExtra(SURPRISE_KEY, i);
-        startActivity(randDrink);
-    }
-
+    };
 }
 
