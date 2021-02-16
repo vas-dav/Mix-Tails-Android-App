@@ -83,6 +83,7 @@
             android:padding="10dp" />
 
         <Button
+            android:id="@+id/confirmBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/signup_btn_bg"
