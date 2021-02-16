@@ -63,14 +63,10 @@ public class AppLaunching extends AppCompatActivity {
         }
 
 
-
     }
-
 
     public void decide(View view) {
         Intent questions = new Intent(AppLaunching.this, QuestionSpinner.class);
         startActivity(questions);
     }
-
-
 }

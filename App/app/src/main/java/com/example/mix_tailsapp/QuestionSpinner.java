@@ -30,6 +30,8 @@ public class QuestionSpinner extends AppCompatActivity {
         setContentView(R.layout.activity_question_spinner);
         findViewById(R.id.surprise).setOnClickListener(onClickListener);
         findViewById(R.id.send).setOnClickListener(onClickListener);
+
+        // All drop down sources(4) for questions connected to the arrays above ^^^
         Spinner mySpirits = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, spirits);
@@ -61,6 +63,8 @@ public class QuestionSpinner extends AppCompatActivity {
 
     }
 
+    // Classes of each adapter corresponding to all(4) drop down list items
+    // with the option of returning null if "Choose-one" input is chosen
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             Toast.makeText(v.getContext(), spirits[position], Toast.LENGTH_SHORT).show();
