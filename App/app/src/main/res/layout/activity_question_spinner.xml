@@ -160,14 +160,9 @@
 
     <Button
         android:id="@+id/send"
-        android:layout_width="193dp"
-        android:layout_height="47dp"
-        android:background="@drawable/normal_btn"
-        android:fontFamily="@font/cabin_bold"
-        android:onClick="send"
-        android:text="@string/let_s_drink_btn"
-        android:textColor="#fff"
-        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/snedButton"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
