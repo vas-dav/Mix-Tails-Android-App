@@ -20,7 +20,6 @@
     <string name="sign_up">Sign up</string>
 
     <string-array name="spirits">
-        <item>Choose-one</item>
         <item>Non-alcoholic</item>
         <item>Rum</item>
         <item>Vodka</item>
@@ -30,7 +29,6 @@
     </string-array>
 
     <string-array name="taste">
-        <item>Choose-one</item>
         <item>Salty</item>
         <item>Sweet</item>
         <item>Sour</item>
@@ -39,16 +37,15 @@
     </string-array>
 
     <string-array name="size">
-        <item>Choose-one</item>
         <item>Short</item>
         <item>Long</item>
         <item>Shot</item>
     </string-array>
 
     <string-array name="strength">
-        <item>Choose-one</item>
         <item>Easy</item>
         <item>Mid</item>
         <item>Strong</item>
     </string-array>
+    <string name="Choose_one">Choose-one</string>
 </resources>
