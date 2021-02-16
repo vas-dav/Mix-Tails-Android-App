@@ -15,9 +15,11 @@ public class ChosenDrink_SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chosen_drink__second);
         Bundle randDrink = getIntent().getExtras();
         String randomDrink = randDrink.getString("drinker");
+        String yChoice = randDrink.getString("KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3");
 
         drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
         drinkOfYourChoice.setText(randomDrink);
+        drinkOfYourChoice.setText(yChoice);
 
     }
 }
