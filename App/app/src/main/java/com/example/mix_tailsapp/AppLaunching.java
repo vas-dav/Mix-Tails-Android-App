@@ -78,6 +78,4 @@ public class AppLaunching extends AppCompatActivity {
         Intent questions = new Intent(AppLaunching.this, QuestionSpinner.class);
         startActivity(questions);
     }
-
-
 }
