@@ -1,5 +1,6 @@
 package com.example.mix_tailsapp;
 
+// This class is for Drinks to have keywords(properties), for the algorithm to recognise the Drink
 public class DrinksData {
     private String spirit;
     private String size;
