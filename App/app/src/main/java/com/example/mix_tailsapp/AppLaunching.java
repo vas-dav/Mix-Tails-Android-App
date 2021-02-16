@@ -9,17 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class AppLaunching extends AppCompatActivity {
-    private EditText name, email, password, comfirm_password;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_launching);
 
-        //casting the edit text variables to their ids
-        name = findViewById(R.id.name);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        comfirm_password = findViewById(R.id.comfirm_password);
 
         //Create onClick method for sign up button to open the sign up form
         Button signupBtn = findViewById(R.id.signupBtn);
@@ -33,7 +29,7 @@ public class AppLaunching extends AppCompatActivity {
     }
 
 
-    public void decide (View view){
+    public void decide(View view) {
         Intent questions = new Intent(AppLaunching.this, QuestionSpinner.class);
         startActivity(questions);
     }
