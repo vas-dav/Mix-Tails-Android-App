@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/logo1migi2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".Signup_ConfirmationScreen"></activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        <activity android:name=".Signup_ConfirmationScreen" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".AppLaunching" />
         <activity android:name=".QuestionSpinner" />
