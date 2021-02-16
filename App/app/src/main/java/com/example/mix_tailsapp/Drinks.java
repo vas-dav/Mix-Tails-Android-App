@@ -16,7 +16,7 @@ public class Drinks {
     DrinksData Godfather = new DrinksData("GodFather", "Whiskey", "S", "Sweet", "Strong");
     DrinksData Godmother = new DrinksData("GodMother", "Vodka", "S", "Sweet", "Strong");
     DrinksData Daiquiri = new DrinksData("Daiquiri", "Rum", "M", "Fresh", "Mild");
-    DrinksData WhiskeySour = new DrinksData("Whiskey Sour", "Whiskey", "L", "Sour", "Soft");
+    DrinksData WhiskeySour = new DrinksData("Whiskey Sour", "Whiskey", "L", "Sour", "Mild");
     DrinksData Bacardi = new DrinksData("Bacardi", "Rum", "M", "Fresh", "Mild");
     DrinksData DryMartini = new DrinksData("Dry Martini", "Gin", "M", "Boozy", "Strong");
 
