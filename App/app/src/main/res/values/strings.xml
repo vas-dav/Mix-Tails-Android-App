@@ -63,5 +63,6 @@
     <string name="let_s_drink_btn">Let\'s drink!</string>
     <string name="rectangle">rectangle</string>
     <string name="Choose_one">Choose-one</string>
+    <string name="imgViewContentDescription">contentDescription</string>
 
 </resources>
