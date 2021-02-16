@@ -65,5 +65,6 @@
     <string name="rectangle">rectangle</string>
     <string name="Choose_one">Choose-one</string>
     <string name="imgViewContentDescription">contentDescription</string>
+    <string name="sign_in_text">SIGN IN</string>
 
 </resources>
