@@ -66,5 +66,7 @@
     <string name="Choose_one">Choose-one</string>
     <string name="imgViewContentDescription">contentDescription</string>
     <string name="sign_in_text">SIGN IN</string>
+    <string name="welcome_question">Good Day! Do you feel like cocktail today?</string>
+    <string name="imgViewContentDesscription">Content Description</string>
 
 </resources>

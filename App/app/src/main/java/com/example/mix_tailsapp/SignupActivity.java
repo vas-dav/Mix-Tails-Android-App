@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.mix_tailsapp.R.color.red;
+
 public class SignupActivity extends AppCompatActivity {
     //Declaring keys for sharedPreferences
     protected static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
@@ -67,10 +69,10 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(conf);
             }
         }
-        //Annie, please, change the style of the following text (color, size) as you wish [DELETE LINE 56 AFTER IT'S DONE]
         else {
             signUp.setText("Passwords doesn't match :(");
-            confirm_password.setTextColor(R.color.red);
+            signUp.setTextSize(25);
+            confirm_password.setTextColor(red);
         }
 
     }

@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/purple_500" />
+        app:tint="@color/purple_500"
+        android:contentDescription="@string/imgViewContentDesscription" />
 
     <TextView
         android:id="@+id/welcome_text"
@@ -37,7 +38,7 @@
     <Button
         android:layout_width="164dp"
         android:layout_height="51dp"
-        android:id="@+id/endSubscription"
+        android:id="@+id/exploreBtn"
         android:layout_marginTop="140dp"
         android:background="@drawable/normal_btn"
         android:fontFamily="sans-serif-black"
