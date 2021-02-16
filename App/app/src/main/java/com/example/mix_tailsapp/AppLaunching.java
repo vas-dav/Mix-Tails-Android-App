@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.mix_tailsapp.ui.login.LoginActivity;
+
 public class AppLaunching extends AppCompatActivity {
 
 
@@ -25,6 +27,13 @@ public class AppLaunching extends AppCompatActivity {
             Intent intent = new Intent(this, SignupActivity.class);
             startActivity(intent);
 
+        });
+
+        //Create onClick method for log in button to open the log in page
+        Button loginBtn = findViewById(R.id.loginBtn);
+        loginBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         });
     }
 
