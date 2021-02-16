@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 public class QuestionSpinner extends AppCompatActivity {
 
-    String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey", "Bourbon", "Prosecco"};
-    String[] taste = {"Choose-one", "Salty", "Sweet", "Sour", "Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
+    String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey/Bourbon", "Prosecco"};
+    String[] taste = {"Choose-one", "Sweet", "Sour", "Salty", "Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
     String[] size = {"Choose-one", "S", "M", "L"};
     String[] strength = {"Choose-one", "Soft", "Mild", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
@@ -66,43 +66,36 @@ public class QuestionSpinner extends AppCompatActivity {
             Toast.makeText(v.getContext(), spirits[position], Toast.LENGTH_SHORT).show();
             spiritsChoice = spirits[position];
         }
-
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
         }
     }
-
     class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             Toast.makeText(v.getContext(), taste[position], Toast.LENGTH_SHORT).show();
             tasteChoice = taste[position];
         }
-
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
         }
     }
-
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             Toast.makeText(v.getContext(), size[position], Toast.LENGTH_SHORT).show();
             sizeChoice = size[position];
         }
-
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
         }
     }
-
     class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             Toast.makeText(v.getContext(), strength[position], Toast.LENGTH_SHORT).show();
             strengthChoice = strength[position];
         }
-
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
