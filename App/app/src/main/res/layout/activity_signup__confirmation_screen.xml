@@ -37,6 +37,7 @@
     <Button
         android:layout_width="164dp"
         android:layout_height="51dp"
+        android:id="@+id/endSubscription"
         android:layout_marginTop="140dp"
         android:background="@drawable/normal_btn"
         android:fontFamily="sans-serif-black"
