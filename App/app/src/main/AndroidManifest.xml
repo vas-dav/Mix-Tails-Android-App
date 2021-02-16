@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
         <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupConfirmationScreen"></activity>
         <activity android:name=".AppLaunching" />
         <activity android:name=".QuestionSpinner" />
         <activity android:name=".ChosenDrinkSecondActivity" />
