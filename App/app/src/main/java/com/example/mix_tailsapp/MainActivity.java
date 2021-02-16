@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstance) {
 
-        // app launching page with delay
+        // App launching page with delay
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_main);
 

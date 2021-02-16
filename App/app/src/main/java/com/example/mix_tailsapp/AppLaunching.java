@@ -16,6 +16,7 @@ import com.example.mix_tailsapp.ui.login.LoginActivity;
 
 public class AppLaunching extends AppCompatActivity {
 
+    //Declaring variables
     SharedPreferences StorageGet;
     TextView welcomeText;
 
@@ -25,24 +26,30 @@ public class AppLaunching extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         StorageGet = getSharedPreferences(SignupActivity.STORAGE, Activity.MODE_PRIVATE);
 
-        if(StorageGet.getString(SignupActivity.EXTRA_NAME, null) != null){
+        //Checking for userData in sharedPreferences and deciding which xml to use
+
+        //if userData is not empty, show a welcoming message
+        if (StorageGet.getString(SignupActivity.EXTRA_NAME, null) != null) {
             setContentView(R.layout.activity_app_launching_logged_in);
             String name = StorageGet.getString(SignupActivity.EXTRA_NAME, "User");
             welcomeText = (TextView) findViewById(R.id.welcomeBack);
             welcomeText.setText("Welcome back,\n" + name);
+
+            //A function for deleting data from sharedPreferences (logging out)
             Button logoutBtn = findViewById(R.id.logOut);
             logoutBtn.setOnClickListener(v -> {
 
-                //open activity
                 Intent logout = new Intent(this, MainActivity.class);
                 SharedPreferences.Editor deleter = StorageGet.edit();
                 deleter.clear();
-                if(deleter.commit()) {
+                if (deleter.commit()) {
                     startActivity(logout);
                 }
             });
 
-        }else{
+        }
+        //if userData is empty, then show activity with signIN/signUP
+        else {
             setContentView(R.layout.activity_app_launching);
             //Create onClick method for sign up button to open the sign up form
             Button signupBtn = findViewById(R.id.signupBtn);
@@ -63,14 +70,12 @@ public class AppLaunching extends AppCompatActivity {
         }
 
 
-
     }
 
 
+    //A function for "Let's Decide!" button to move you into QuestionSpinner
     public void decide(View view) {
         Intent questions = new Intent(AppLaunching.this, QuestionSpinner.class);
         startActivity(questions);
     }
-
-
 }
