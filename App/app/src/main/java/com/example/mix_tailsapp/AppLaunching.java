@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -17,21 +16,24 @@ import com.example.mix_tailsapp.ui.login.LoginActivity;
 public class AppLaunching extends AppCompatActivity {
 
     //Declaring variables
-    SharedPreferences StorageGet;
+    SharedPreferences tempStorageGet, permStorageGet;
     TextView welcomeText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StorageGet = getSharedPreferences(SignupActivity.STORAGE, Activity.MODE_PRIVATE);
+        //calling for both Storage on the AppLaunching Screen
+        tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+        permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
+
 
         //Checking for userData in sharedPreferences and deciding which xml to use
 
         //if userData is not empty, show a welcoming message
-        if (StorageGet.getString(SignupActivity.EXTRA_NAME, null) != null) {
+        if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
             setContentView(R.layout.activity_app_launching_logged_in);
-            String name = StorageGet.getString(SignupActivity.EXTRA_NAME, "User");
+            String name = tempStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
             welcomeText = (TextView) findViewById(R.id.welcomeBack);
             welcomeText.setText("Welcome back,\n" + name);
 
@@ -40,7 +42,7 @@ public class AppLaunching extends AppCompatActivity {
             logoutBtn.setOnClickListener(v -> {
 
                 Intent logout = new Intent(this, MainActivity.class);
-                SharedPreferences.Editor deleter = StorageGet.edit();
+                SharedPreferences.Editor deleter = tempStorageGet.edit();
                 deleter.clear();
                 if (deleter.commit()) {
                     startActivity(logout);
