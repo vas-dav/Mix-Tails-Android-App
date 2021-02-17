@@ -11,12 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.mix_tailsapp.R.color.red;
+
 public class SignupActivity extends AppCompatActivity {
     //Declaring keys for sharedPreferences
     protected static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
     protected static final String EXTRA_EMAIL = "com.example.mix_tailsapp.EXTRA_EMAIL";
     protected static final String EXTRA_PASS = "com.example.mix_tailsapp.EXTRA_PASS";
-    protected static final String STORAGE = "SUPERMANisSuperiorThanBatman";
+    protected static final String TEMP_STORAGE = "TEMPMEM";
+    protected static final String PERM_STORAGE = "PERMMEM";
+    protected static final String SIGNED = "NEISRHUIGBHJSjioHUIRBRBAENUFUIS";
 
     //Declaring variables
     private EditText name, email, password, confirm_password;
@@ -42,21 +46,33 @@ public class SignupActivity extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     public void formSubmitted() {
         Intent conf = new Intent(SignupActivity.this, SignupConfirmationScreen.class);
-        SharedPreferences storagePut = getSharedPreferences(STORAGE, Activity.MODE_PRIVATE);
+
+        //[storagePut] is for storing the name and other values, like fuelTank and soberness
+
+        SharedPreferences storagePut = getSharedPreferences(TEMP_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = storagePut.edit();
         prefEditor.putString(EXTRA_NAME, name.getText().toString());
-        prefEditor.putString(EXTRA_EMAIL, email.getText().toString());
+
+        //[permStoragePut] is for storing password and email for future login's
+
+        SharedPreferences permStoragePut = getSharedPreferences(PERM_STORAGE, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor permPrefEditor = permStoragePut.edit();
+        permPrefEditor.putString(EXTRA_NAME, name.getText().toString());
+        permPrefEditor.putString(EXTRA_EMAIL, email.getText().toString());
+
         //Checking if passwords match
+
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
-            prefEditor.putString(EXTRA_PASS, password.getText().toString());
-            if (prefEditor.commit()) {
+            permPrefEditor.putString(EXTRA_PASS, password.getText().toString());
+            prefEditor.putBoolean(SIGNED, true);
+            if (prefEditor.commit() && permPrefEditor.commit()) {
                 startActivity(conf);
             }
         }
-        //Annie, please, change the style of the following text (color, size) as you wish [DELETE LINE 56 AFTER IT'S DONE]
         else {
             signUp.setText("Passwords doesn't match :(");
-            confirm_password.setTextColor(R.color.red);
+            signUp.setTextSize(25);
+            confirm_password.setTextColor(red);
         }
 
     }
