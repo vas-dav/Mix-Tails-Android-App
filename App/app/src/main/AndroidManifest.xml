@@ -11,9 +11,6 @@
         android:theme="@style/AppTheme.FullScreen">
         <activity android:name=".AppWelcomePage"></activity>
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:parentActivityName=".AppLaunching" />
-        <activity
             android:name=".SignupConfirmationScreen"
             android:parentActivityName=".SignupActivity" />
         <activity android:name=".SignupActivity" />

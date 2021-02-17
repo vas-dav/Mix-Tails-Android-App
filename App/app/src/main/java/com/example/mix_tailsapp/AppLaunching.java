@@ -8,11 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-
-import com.example.mix_tailsapp.ui.login.LoginActivity;
 
 public class AppLaunching extends AppCompatActivity {
 
