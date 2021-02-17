@@ -60,12 +60,7 @@ public class AppLaunching extends AppCompatActivity {
 
             });
 
-            //Create onClick method for log in button to open the log in page
-            Button loginBtn = findViewById(R.id.loginBtn);
-            loginBtn.setOnClickListener(v -> {
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-            });
+
         }
 
 
