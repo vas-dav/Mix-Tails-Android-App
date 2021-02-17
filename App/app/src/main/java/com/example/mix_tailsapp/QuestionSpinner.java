@@ -68,7 +68,6 @@ public class QuestionSpinner extends AppCompatActivity {
     // with the option of returning null if "Choose-one" input is chosen
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), spirits[position], Toast.LENGTH_SHORT).show();
             spiritsChoice = spirits[position];
         }
         @Override
@@ -78,7 +77,6 @@ public class QuestionSpinner extends AppCompatActivity {
     }
     class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), taste[position], Toast.LENGTH_SHORT).show();
             tasteChoice = taste[position];
         }
         @Override
@@ -88,7 +86,6 @@ public class QuestionSpinner extends AppCompatActivity {
     }
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), size[position], Toast.LENGTH_SHORT).show();
             sizeChoice = size[position];
         }
         @Override
@@ -98,7 +95,6 @@ public class QuestionSpinner extends AppCompatActivity {
     }
     class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), strength[position], Toast.LENGTH_SHORT).show();
             strengthChoice = strength[position];
         }
         @Override
