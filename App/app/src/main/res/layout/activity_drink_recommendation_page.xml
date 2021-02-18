@@ -39,6 +39,7 @@
             app:srcCompat="@drawable/shopping_cart" />
 
         <SearchView
+            android:id="@+id/searchView2"
             android:layout_width="337dp"
             android:layout_height="48dp"
             android:layout_marginTop="2dp"
@@ -60,26 +61,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/drinkFrame"
-            android:layout_width="155dp"
-            android:layout_height="223dp"
-            app:srcCompat="@drawable/recommended_drink_frame"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="302dp" />
 
         <ImageView
-            android:id="@+id/gin"
-            android:layout_width="105dp"
-            android:layout_height="136dp"
-            android:background="@drawable/gin"
-            app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
+            android:id="@+id/drinkFrame"
+            android:layout_width="153dp"
+            android:layout_height="218dp"
+            android:layout_marginTop="96dp"
+            android:contentDescription="@string/imgViewContentDescription"
+            app:layout_constraintEnd_toStartOf="@+id/drinkFrame1"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView2"
+            app:srcCompat="@drawable/recommended_drink_frame"
+            tools:ignore="MissingConstraints" />
+
+
+        <ImageView
+            android:id="@+id/whiskey"
+            android:layout_width="85dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/imgViewContentDescription"
             app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintHorizontal_bias="0.544"
             app:layout_constraintStart_toStartOf="@+id/drinkFrame"
             app:layout_constraintTop_toTopOf="@+id/drinkFrame"
-            app:layout_constraintVertical_bias="0.0" />
+            app:srcCompat="@drawable/whiskey"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/drinkName1"
@@ -90,29 +98,21 @@
             android:text="@string/drinkName1"
             app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
             app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="@+id/drinkFrame" />
 
         <ImageView
             android:id="@+id/drinkFrame1"
             android:layout_width="150dp"
             android:layout_height="215dp"
+            android:layout_marginEnd="28dp"
+            android:contentDescription="@string/imgViewContentDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView2"
+            app:layout_constraintVertical_bias="0.275"
             app:srcCompat="@drawable/recommended_drink_frame1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="202dp"
-            tools:layout_editor_absoluteY="304dp" />
-
-        <ImageView
-            android:id="@+id/vodka"
-            android:layout_width="99dp"
-            android:layout_height="98dp"
-            android:background="@drawable/vodka1"
-            app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
-            app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
-            app:layout_constraintTop_toTopOf="@+id/drinkFrame1"
-            app:layout_constraintVertical_bias="0.068" />
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/drinkName2"
@@ -126,26 +126,19 @@
             app:layout_constraintHorizontal_bias="0.462"
             app:layout_constraintStart_toStartOf="@+id/drinkFrame1" />
 
+
         <ImageView
             android:id="@+id/drinkFrame2"
             android:layout_width="150dp"
             android:layout_height="215dp"
+            android:layout_marginTop="344dp"
+            android:contentDescription="@string/imgViewContentDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.065"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView2"
             app:srcCompat="@drawable/recommended_drink_frame2"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="548dp" />
-
-        <ImageView
-            android:id="@+id/whiskey"
-            android:layout_width="91dp"
-            android:layout_height="114dp"
-            android:background="@drawable/whiskey"
-            app:layout_constraintBottom_toBottomOf="@+id/drinkFrame2"
-            app:layout_constraintEnd_toEndOf="@+id/drinkFrame2"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="@+id/drinkFrame2"
-            app:layout_constraintTop_toTopOf="@+id/drinkFrame2"
-            app:layout_constraintVertical_bias="0.068" />
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/drinkName3"
