@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/logo1migi2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".AppWelcomePage"></activity>
+        <activity android:name=".DrinkRecommendationPage"></activity>
         <activity
             android:name=".SignupConfirmationScreen"
             android:parentActivityName=".SignupActivity" />
