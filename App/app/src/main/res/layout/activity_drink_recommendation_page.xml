@@ -22,7 +22,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.21"
-            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="@string/menu_bar" />
 
         <ImageView
             android:id="@+id/cartImage"
@@ -31,7 +32,8 @@
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shopping_cart" />
+            app:srcCompat="@drawable/shopping_cart"
+            android:contentDescription="@string/add_to_favorite" />
 
         <TextView
             android:id="@+id/textView7"

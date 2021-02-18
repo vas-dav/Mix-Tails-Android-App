@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AppWelcomePage extends AppCompatActivity {
+public class DrinkRecommendationPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_welcome_page);
+        setContentView(R.layout.activity_drink_recommendation_page);
     }
 }

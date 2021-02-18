@@ -28,8 +28,9 @@
         android:background="@drawable/signup_frame"
         android:orientation="vertical"
         android:padding="15dp"
-        tools:layout_editor_absoluteY="444dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/maintext"
