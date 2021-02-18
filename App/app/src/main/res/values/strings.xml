@@ -74,5 +74,6 @@
     <string name="drinkName2">drink 2</string>
     <string name="drinkName1">drink 1</string>
     <string name="drinkName3">drink 3</string>
+    <string name="recommended_drinks_text">Recommended Drinks</string>
 
 </resources>
