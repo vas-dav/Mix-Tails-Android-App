@@ -5,41 +5,40 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup_background"
-    tools:context=".ui.login.LoginActivity">
+    android:background="@drawable/signup_background">
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="241dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginBottom="67dp"
+        android:layout_width="280dp"
+        android:layout_height="339dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/teamwork"
+        app:layout_constraintVertical_bias="0.752"
+        app:srcCompat="@drawable/group_glass"
         tools:ignore="VectorDrawableCompat" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="391dp"
         android:layout_height="401dp"
-        android:layout_marginBottom="4dp"
         android:background="@drawable/signup_frame"
         android:orientation="vertical"
         android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="427dp">
 
         <TextView
             android:id="@+id/maintext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/sign_in_text"
             android:textAlignment="center"
             android:textColor="#000"
@@ -50,6 +49,7 @@
             android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
@@ -62,6 +62,7 @@
             android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/prompt_password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
@@ -79,6 +80,7 @@
             android:layout_marginTop="150dp"
             android:background="@drawable/signup_btn_bg"
             android:enabled="false"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/action_sign_in"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
@@ -101,4 +103,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
