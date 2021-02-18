@@ -37,7 +37,7 @@
             android:layout_width="268dp"
             android:layout_height="77dp"
             android:layout_marginTop="84dp"
-            android:fontFamily="@font/cabin_bold"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/welcome_question"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"

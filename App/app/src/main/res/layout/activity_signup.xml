@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/sign_up_text"
             android:textAlignment="center"
             android:textColor="#000"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/name"
             android:padding="10dp" />
 
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/e_mail"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="10dp" />
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/passwordConfirm"
             android:inputType="textPassword"
             android:padding="10dp" />
@@ -87,11 +87,12 @@
             android:id="@+id/confirmBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:background="#952C3E"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/confirmBtn"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:layout_marginBottom="15dp"/>
+            android:textSize="22sp" />
 
 
     </LinearLayout>
