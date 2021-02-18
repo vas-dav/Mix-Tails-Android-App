@@ -47,7 +47,7 @@
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="19sp"
-        app:backgroundTint="#0DDAD5"
+        app:backgroundTint="#952C3E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -70,19 +70,20 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/decideBtn"
-        app:layout_constraintVertical_bias="0.564" />
+        app:layout_constraintVertical_bias="0.456" />
 
     <Button
         android:id="@+id/logOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/log_out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeBack" />
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:background="@drawable/rounded_btn"
+        android:text="@string/sign_out_text"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:backgroundTint="#E4992B"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="700dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup_background"
+    android:background="#952C3E"
     tools:context=".SignupActivity">
 
     <ImageView
@@ -87,7 +87,7 @@
             android:id="@+id/confirmBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/signup_btn_bg"
+            android:background="#952C3E"
             android:text="@string/confirmBtn"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
