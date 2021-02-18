@@ -71,5 +71,8 @@
     <string name="welcome_textView">TextView</string>
     <string name="menu_bar">menu</string>
     <string name="add_to_favorite">cart</string>
+    <string name="drinkName2">drink 2</string>
+    <string name="drinkName1">drink 1</string>
+    <string name="drinkName3">drink 3</string>
 
 </resources>
