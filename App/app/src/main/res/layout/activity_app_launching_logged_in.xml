@@ -30,10 +30,10 @@
         android:layout_marginTop="12dp"
         android:contentDescription="@string/img1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintHorizontal_bias="0.701"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/confused"
+        app:srcCompat="@drawable/confused_glass"
         tools:ignore="VectorDrawableCompat" />
 
     <Button
@@ -48,9 +48,12 @@
         android:textColor="#ffffff"
         android:textSize="19sp"
         app:backgroundTint="#952C3E"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.029"
         tools:ignore="OnClick" />
 
     <ImageView
