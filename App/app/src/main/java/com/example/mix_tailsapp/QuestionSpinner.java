@@ -16,9 +16,9 @@ public class QuestionSpinner extends AppCompatActivity {
 
     //Declaring String arrays and Strings for Spinners for algorithm to use them
     String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey/Bourbon", "Prosecco"};
-    String[] taste = {"Choose-one", "Sweet", "Sour", "Salty", "Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
+    String[] taste = {"Choose-one", "Sweet", "Sour","Bitter", "Bitter-Sweet", "Fresh", "Boozy"}; 
     String[] size = {"Choose-one", "S", "M", "L"};
-    String[] strength = {"Choose-one", "Soft", "Mild", "Strong"};
+    String[] strength = {"Choose-one", "Easy", "Light", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
 
     //Keys for intending to move data from this activity to others
