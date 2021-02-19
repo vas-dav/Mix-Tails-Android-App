@@ -81,6 +81,7 @@ public class Drinks {
         return this.cocktail.get(drinkIndex);
     }
 
+
     public String compareDrinks(String inputSpirit, String inputSize, String inputTaste, String inputStrenght) {
 
         DrinksData comparison = new DrinksData("Comp", inputSpirit, inputSize, inputTaste, inputStrenght);
