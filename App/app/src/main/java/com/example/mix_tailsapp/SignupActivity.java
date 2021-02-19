@@ -21,6 +21,7 @@ public class SignupActivity extends AppCompatActivity {
     protected static final String TEMP_STORAGE = "TEMPMEM";
     protected static final String PERM_STORAGE = "PERMMEM";
     protected static final String SIGNED = "NEISRHUIGBHJSjioHUIRBRBAENUFUIS";
+    Hasher passCoder = new Hasher();
 
     //Declaring variables
     private EditText name, email, password, confirm_password;
@@ -63,7 +64,7 @@ public class SignupActivity extends AppCompatActivity {
         //Checking if passwords match
 
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
-            permPrefEditor.putString(EXTRA_PASS, password.getText().toString());
+            permPrefEditor.putString(EXTRA_PASS, passCoder.hPSCD(password.getText().toString()));
             prefEditor.putBoolean(SIGNED, true);
             if (prefEditor.commit() && permPrefEditor.commit()) {
                 startActivity(conf);
