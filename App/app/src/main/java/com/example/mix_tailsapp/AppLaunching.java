@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-import com.example.mix_tailsapp.ui.login.LoginActivity;
-
 public class AppLaunching extends AppCompatActivity {
 
     //Declaring variables
@@ -63,12 +60,7 @@ public class AppLaunching extends AppCompatActivity {
 
             });
 
-            //Create onClick method for log in button to open the log in page
-            Button loginBtn = findViewById(R.id.loginBtn);
-            loginBtn.setOnClickListener(v -> {
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-            });
+
         }
 
 
