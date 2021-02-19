@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-import com.example.mix_tailsapp.ui.login.LoginActivity;
-
 public class AppLaunching extends AppCompatActivity {
 
     //Declaring variables
@@ -35,7 +32,7 @@ public class AppLaunching extends AppCompatActivity {
             setContentView(R.layout.activity_app_launching_logged_in);
             String name = tempStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
             welcomeText = (TextView) findViewById(R.id.welcomeBack);
-            welcomeText.setText("Welcome back,\n" + name);
+            welcomeText.setText("Welcome back, " + name);
 
             //A function for deleting data from sharedPreferences (logging out)
             Button logoutBtn = findViewById(R.id.logOut);
@@ -63,12 +60,7 @@ public class AppLaunching extends AppCompatActivity {
 
             });
 
-            //Create onClick method for log in button to open the log in page
-            Button loginBtn = findViewById(R.id.loginBtn);
-            loginBtn.setOnClickListener(v -> {
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-            });
+
         }
 
 

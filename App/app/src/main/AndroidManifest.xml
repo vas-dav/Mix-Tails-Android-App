@@ -9,10 +9,7 @@
         android:roundIcon="@drawable/logo1migi2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".AppWelcomePage"></activity>
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:parentActivityName=".AppLaunching" />
+        <activity android:name=".DrinkRecommendationPage"></activity>
         <activity
             android:name=".SignupConfirmationScreen"
             android:parentActivityName=".SignupActivity" />
@@ -27,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

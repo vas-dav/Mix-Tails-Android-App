@@ -3,7 +3,6 @@
     <string name="ques1">Don\'t know what to drink?</string>
     <string name="decideBtn">Let\'s decide!</string>
     <string name="snedButton">Let\'s Drink!</string>
-    <string name="img1">ImageConfused</string>
     <string name="question1">What spirit would you like?</string>
     <string name="question2">what about taste?</string>
     <string name="question3">How strong?</string>
@@ -68,5 +67,15 @@
     <string name="sign_in_text">SIGN IN</string>
     <string name="welcome_question">Good Day! Do you feel like cocktail today?</string>
     <string name="imgViewContentDesscription">Content Description</string>
+    <string name="sign_out_text">Sign Out</string>
+    <string name="welcome_textView">TextView</string>
+    <string name="menu_bar">menu</string>
+    <string name="add_to_favorite">cart</string>
+    <string name="drinkName2">drink 2</string>
+    <string name="drinkName1">drink 1</string>
+    <string name="drinkName3">drink 3</string>
+    <string name="recommended_drinks_text">Recommended Drinks</string>
+    <string name="drinkName4">drink 4</string>
+    <string name="ingredients_list">ingredients list</string>
 
 </resources>
