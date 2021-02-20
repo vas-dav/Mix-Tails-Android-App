@@ -32,7 +32,7 @@ public class AppLaunching extends AppCompatActivity {
             setContentView(R.layout.activity_app_launching_logged_in);
             String name = tempStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
             welcomeText = (TextView) findViewById(R.id.welcomeBack);
-            welcomeText.setText("Welcome back,\n" + name);
+            welcomeText.setText("Welcome back, " + name);
 
             //A function for deleting data from sharedPreferences (logging out)
             Button logoutBtn = findViewById(R.id.logOut);
