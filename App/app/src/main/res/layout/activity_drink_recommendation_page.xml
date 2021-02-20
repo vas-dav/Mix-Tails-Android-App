@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:backgroundTint="@color/light_pink"
+            android:backgroundTint="@color/light_color"
             android:contentDescription="@string/menu_bar"
             app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toStartOf="@+id/cartImage"
@@ -32,7 +32,7 @@
             android:id="@+id/cartImage"
             android:layout_width="31dp"
             android:layout_height="32dp"
-            android:backgroundTint="@color/light_pink"
+            android:backgroundTint="@color/light_color"
             android:contentDescription="@string/add_to_favorite"
             app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,8 @@
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/favorite_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -123,8 +124,10 @@
                         android:id="@+id/whiskey"
                         android:layout_width="85dp"
                         android:layout_height="75dp"
+                        android:layout_marginTop="8dp"
                         android:contentDescription="@string/imgViewContentDescription"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
+                        app:layout_constraintHorizontal_bias="0.507"
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame"
                         app:layout_constraintTop_toTopOf="@+id/drinkFrame"
                         app:srcCompat="@drawable/whiskey"
@@ -293,7 +296,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.388"
+                app:layout_constraintVertical_bias="0.567"
                 app:srcCompat="@drawable/recommended_drink_frame2"
                 tools:ignore="MissingConstraints" />
 
@@ -342,7 +345,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.413"
+                app:layout_constraintVertical_bias="0.506"
                 app:srcCompat="@drawable/recommended_drink_frame" />
 
             <ImageView
@@ -370,19 +373,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/pcosecco"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <TextView
+                android:id="@+id/favorite_text"
+                android:layout_width="147dp"
+                android:layout_height="33dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/my_favorites_text"
+                android:textColor="#27214D"
+                android:textSize="22sp"
+                tools:layout_editor_absoluteX="19dp" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/favorite_text"
-            android:layout_width="147dp"
-            android:layout_height="33dp"
-            android:fontFamily="@font/roboto_bold"
-            android:text="My favorites"
-            android:textColor="#27214D"
-            android:textSize="22sp"
-            tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="624dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

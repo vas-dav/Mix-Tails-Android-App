@@ -77,5 +77,6 @@
     <string name="recommended_drinks_text">Recommended Drinks</string>
     <string name="drinkName4">drink 4</string>
     <string name="ingredients_list">ingredients list</string>
+    <string name="my_favorites_text">My favorites</string>
 
 </resources>
