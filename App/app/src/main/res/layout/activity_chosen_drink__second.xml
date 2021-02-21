@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#fbf4ed"
+    android:background="@color/light_color"
     tools:context=".ChosenDrinkSecondActivity">
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="639dp"
-        android:background="@drawable/rounded_rec_frame"
-        android:backgroundTint="f09373"
+        android:id="@+id/imageView9"
+        android:layout_width="292dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="524dp"
+        android:background="@drawable/frame_bottom_round"
+        android:backgroundTint="#ea9478"
         android:contentDescription="@string/rectangle"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/usersDrink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
+        android:textColor="#fff"
         android:textSize="30dp"
-        android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.772" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -50,17 +50,30 @@
 
     <TextView
         android:id="@+id/surprise_drink_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
+        android:gravity="center"
+        android:layout_width="201dp"
+        android:layout_height="50dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Picked For You"
-        android:textSize="24dp"
-        android:textColor="#000"
-        app:layout_constraintBottom_toTopOf="@+id/usersDrink"
+        android:text="@string/surprise_drink_text"
+        android:textColor="#693039"
+        android:textSize="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="210dp"
+        android:layout_height="187dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461"
+        app:srcCompat="@drawable/recommended_drinks" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

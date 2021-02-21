@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/ques1"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -57,11 +57,12 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="439dp"
-        android:layout_height="613dp"
-        android:layout_marginTop="432dp"
+        android:layout_width="436dp"
+        android:layout_height="651dp"
+        android:layout_marginTop="376dp"
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle" />
@@ -76,15 +77,16 @@
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/decideBtn"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.331" />
 
     <Button
         android:id="@+id/logOut"
         android:layout_width="130dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/rounded_btn"
         android:fontFamily="@font/roboto_black"
         android:text="@string/sign_out_text"
@@ -93,7 +95,7 @@
         app:backgroundTint="#E4992B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
