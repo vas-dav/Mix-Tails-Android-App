@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--This file is for rounded corner rectangle frame used in sign in page-->
+    <item>
+        <shape>
+            <solid android:color="#F3F1F1"/>
+            <corners android:bottomLeftRadius="40dp"
+                android:bottomRightRadius="40dp"/>
+        </shape>
+    </item>
+
+</selector>

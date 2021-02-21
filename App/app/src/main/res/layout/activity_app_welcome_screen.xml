@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/frame"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="248dp"
+        android:layout_height="240dp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="77dp"
         android:layout_marginEnd="38dp"
@@ -21,8 +21,10 @@
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
 
     <TextView
         android:id="@+id/textView2"
@@ -30,19 +32,20 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/welcome_back_text"
-        android:textColor="#000000"
+        android:textColor="@color/text_color"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintVertical_bias="0.543" />
 
     <Button
         android:id="@+id/decideBtn"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="208dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:onClick="decide"
@@ -52,7 +55,7 @@
         app:backgroundTint="#BF800020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.064"
@@ -62,7 +65,7 @@
         android:id="@+id/signupBtn"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="88dp"
         android:layout_marginBottom="76dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
@@ -79,7 +82,7 @@
         android:id="@+id/loginBtn"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="52dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/i_want_to_drive"
@@ -88,17 +91,18 @@
         app:backgroundTint="#BF800020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/cocktail_group"
         android:layout_width="181dp"
         android:layout_height="158dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="108dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752"
