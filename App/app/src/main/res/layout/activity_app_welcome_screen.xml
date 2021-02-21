@@ -17,6 +17,7 @@
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="342dp"
         android:background="@drawable/circle"
+        android:backgroundTint="#DE800020"
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,10 +34,9 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.607" />
 
     <Button
         android:id="@+id/decideBtn"
@@ -49,7 +49,7 @@
         android:text="@string/decideBtn"
         android:textColor="#ffffff"
         android:textSize="19sp"
-        app:backgroundTint="#952C3E"
+        app:backgroundTint="#DE800020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -62,47 +62,47 @@
         android:id="@+id/signupBtn"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="80dp"
         android:layout_marginBottom="76dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/my_favorites_text"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:backgroundTint="#952C3E"
+        app:backgroundTint="#DD800020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917" />
+        app:layout_constraintVertical_bias="0.916" />
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/i_want_to_drive"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:backgroundTint="#952C3E"
+        app:backgroundTint="#DE800020"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/cocktail_group"
-        android:layout_width="253dp"
-        android:layout_height="323dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="181dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="140dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752"
-        app:srcCompat="@drawable/group_glass"
+        app:srcCompat="@drawable/cheers2"
         tools:ignore="VectorDrawableCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
