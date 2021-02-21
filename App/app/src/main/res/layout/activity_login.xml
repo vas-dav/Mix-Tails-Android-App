@@ -23,15 +23,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="391dp"
-        android:layout_height="401dp"
+        android:layout_width="397dp"
+        android:layout_height="415dp"
         android:background="@drawable/signup_frame"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="427dp">
+        tools:layout_editor_absoluteY="413dp">
 
         <TextView
             android:id="@+id/maintext"
