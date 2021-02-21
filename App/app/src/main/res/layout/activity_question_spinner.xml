@@ -9,8 +9,8 @@
 
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="647dp"
+        android:layout_width="393dp"
+        android:layout_height="630dp"
         android:background="@drawable/rounded_rec_frame"
         android:contentDescription="@string/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.393" />
+        app:layout_constraintVertical_bias="0.441" />
 
     <Spinner
         android:id="@+id/spinner4"

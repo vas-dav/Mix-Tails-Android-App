@@ -23,8 +23,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="393dp"
-        android:layout_height="wrap_content"
+        android:layout_width="414dp"
+        android:layout_height="387dp"
         android:background="@drawable/signup_frame"
         android:orientation="vertical"
         android:padding="15dp"
@@ -39,8 +39,8 @@
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/sign_up_text"
-            android:textColor="@color/text_color"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="28sp" />
 
         <EditText
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:background="#952C3E"
+            android:background="@drawable/signup_btn_bg"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/confirmBtn"
             android:textColor="#FFFFFF"

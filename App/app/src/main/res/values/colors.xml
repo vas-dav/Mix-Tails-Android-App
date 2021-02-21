@@ -14,4 +14,6 @@
     <color name="carrot">#ea9478</color>
     <color name="carrot2">#ff857e</color>
     <color name="text_color">#693039</color>
+    <color name="dark_orange">#c07429</color>
+    <color name="background_color">#f8e2d7</color>
 </resources>
