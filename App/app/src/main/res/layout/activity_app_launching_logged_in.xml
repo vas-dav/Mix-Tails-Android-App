@@ -69,13 +69,15 @@
         android:id="@+id/welcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_black"
+        android:fontFamily="@font/roboto_medium"
         android:text="@string/welcome_textView"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/decideBtn"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.437" />
 
     <Button
         android:id="@+id/logOut"

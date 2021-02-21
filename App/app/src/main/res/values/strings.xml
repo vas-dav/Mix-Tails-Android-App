@@ -19,7 +19,7 @@
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
     <string name="log_out">Log Out</string>
-    <string name="welcome_message">You have successfully signed up.</string>
+    <string name="signup_confirmation_message">You have successfully signed up.</string>
     <string name="exploreBtn">Explore </string>
 
     <string-array name="spirits">
@@ -78,5 +78,7 @@
     <string name="drinkName4">drink 4</string>
     <string name="ingredients_list">ingredients list</string>
     <string name="my_favorites_text">My favorites</string>
+    <string name="welcome_back_text">WELCOME BACK</string>
+    <string name="i_want_to_drive">I want to drive</string>
 
 </resources>
