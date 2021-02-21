@@ -9,13 +9,13 @@
 
 
     <ImageView
-        android:layout_width="401dp"
-        android:layout_height="686dp"
+        android:layout_width="400dp"
+        android:layout_height="647dp"
         android:background="@drawable/rounded_rec_frame"
         android:contentDescription="@string/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.264" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <Spinner
         android:id="@+id/spinner4"
@@ -81,7 +81,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -95,7 +95,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

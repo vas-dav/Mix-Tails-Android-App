@@ -315,15 +315,17 @@
 
             <ImageView
                 android:id="@+id/gin"
-                android:layout_width="122dp"
-                android:layout_height="94dp"
+                android:layout_width="109dp"
+                android:layout_height="91dp"
                 android:layout_marginBottom="1dp"
                 android:contentDescription="@string/imgViewContentDescription"
                 app:layout_constraintBottom_toTopOf="@+id/drinkName3"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame2"
+                app:layout_constraintHorizontal_bias="0.656"
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame2"
-                app:srcCompat="@drawable/gin__1_" />
+                app:layout_constraintVertical_bias="0.692"
+                app:srcCompat="@drawable/cocktail" />
 
             <TextView
                 android:id="@+id/drinkName6"
