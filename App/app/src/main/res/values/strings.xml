@@ -4,7 +4,7 @@
     <string name="decideBtn">Let\'s decide!</string>
     <string name="snedButton">Let\'s Drink!</string>
     <string name="question1">What spirit would you like?</string>
-    <string name="question2">what about taste?</string>
+    <string name="question2">What about taste?</string>
     <string name="question3">How strong?</string>
     <string name="question4">What size?</string>
     <string name="question5">Let\'s drink!</string>
@@ -22,6 +22,7 @@
     <string name="signup_confirmation_message">You have successfully signed up.</string>
     <string name="exploreBtn">Explore </string>
 
+    <!--question spinner strings-->
     <string-array name="spirits">
         <item>Non-alcoholic</item>
         <item>Rum</item>
@@ -81,5 +82,6 @@
     <string name="welcome_back_text">WELCOME BACK</string>
     <string name="i_want_to_drive">I want to drive</string>
     <string name="surprise_drink_text">Picked For You</string>
+    <string name="driving_wait1">Sorry! You can\'t drive just yet :(</string>
 
 </resources>
