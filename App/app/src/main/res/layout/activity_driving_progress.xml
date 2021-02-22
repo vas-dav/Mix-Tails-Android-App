@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/recommended_drink_frame"
+    android:background="#F8F7F7"
     tools:context=".MainActivity">
 
     <TextView
@@ -61,6 +61,22 @@
         android:textColor="@color/text_color"
         tools:text="1h 30 minutes" />
 
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="247dp"
+        android:layout_height="48dp"
+        android:background="@drawable/normal_btn"
+        android:backgroundTint="#983948"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Go Back"
+        android:textColor="@color/light_color"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.844" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
