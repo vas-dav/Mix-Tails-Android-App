@@ -9,13 +9,13 @@
 
 
     <ImageView
-        android:layout_width="401dp"
-        android:layout_height="686dp"
+        android:layout_width="393dp"
+        android:layout_height="630dp"
         android:background="@drawable/rounded_rec_frame"
         android:contentDescription="@string/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.264" />
+        app:layout_constraintVertical_bias="0.441" />
 
     <Spinner
         android:id="@+id/spinner4"
@@ -65,23 +65,24 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/question1"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -92,10 +93,11 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/question2"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.286"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -103,9 +105,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/question3"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,11 +120,11 @@
         android:layout_width="206dp"
         android:layout_height="20dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="15dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
@@ -130,11 +133,11 @@
         android:layout_width="206dp"
         android:layout_height="20dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="228dp"
         android:layout_marginEnd="15dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -143,13 +146,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/question4"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -157,11 +161,11 @@
         android:layout_width="206dp"
         android:layout_height="20dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="15dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 

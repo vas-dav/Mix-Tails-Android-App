@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <!--search bar background-->
+    <!--search bar background in recommedation drink page-->
     <solid android:color="#DCDCDC" />
 
 

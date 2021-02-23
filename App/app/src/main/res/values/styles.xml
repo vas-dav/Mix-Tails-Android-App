@@ -7,4 +7,9 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <!--Customize circular determinate progress bar-->
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_circle</item>
+    </style>
 </resources>

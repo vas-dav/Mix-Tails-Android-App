@@ -6,32 +6,35 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="#F3F1F1"
 tools:context=".MainActivity">
+<!--This file is for the logo display with slogan design-->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="265dp"
+        android:layout_height="418dp"
+        android:contentDescription="@string/Img0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303"
+        app:srcCompat="@drawable/logo_new_theme" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="285dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="224dp"
+        android:layout_width="320dp"
+        android:layout_height="43dp"
         android:fontFamily="@font/roboto_black"
         android:includeFontPadding="false"
         android:text="@string/slogan1"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.648"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.684" />
-
-<ImageView
-    android:id="@+id/imageView2"
-    android:layout_width="265dp"
-    android:layout_height="418dp"
-    android:contentDescription="@string/Img0"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.341"
-    app:srcCompat="@drawable/logo1migi2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
