@@ -155,9 +155,10 @@
                         android:text="@string/drinkName1"
                         app:layout_constraintBottom_toTopOf="@+id/ingredients"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-                        app:layout_constraintHorizontal_bias="0.481"
+                        app:layout_constraintHorizontal_bias="0.486"
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame"
-                        app:layout_constraintTop_toBottomOf="@+id/whiskey" />
+                        app:layout_constraintTop_toBottomOf="@+id/whiskey"
+                        app:layout_constraintVertical_bias="0.666" />
 
                     <ImageView
                         android:id="@+id/drinkFrame1"
@@ -177,13 +178,16 @@
 
                     <ImageView
                         android:id="@+id/rum"
-                        android:layout_width="71dp"
+                        android:layout_width="0dp"
                         android:layout_height="80dp"
+                        android:layout_marginStart="258dp"
+                        android:layout_marginEnd="136dp"
                         android:contentDescription="@string/imgViewContentDescription"
                         app:layout_constraintBottom_toTopOf="@+id/drinkName2"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
+                        app:layout_constraintEnd_toStartOf="@+id/drinkName2"
                         app:layout_constraintHorizontal_bias="0.494"
-                        app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/drinkFrame1"
                         app:layout_constraintVertical_bias="0.133"
                         app:srcCompat="@drawable/rum_color" />
@@ -200,8 +204,10 @@
                         android:text="@string/drinkName1"
                         app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
-                        app:layout_constraintTop_toBottomOf="@+id/rum" />
+                        app:layout_constraintTop_toBottomOf="@+id/rum"
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <EditText
                         android:id="@+id/ingredient"
@@ -233,27 +239,23 @@
                         android:id="@+id/drinkName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10851dp"
-                        android:layout_marginBottom="109dp"
+                        android:layout_marginEnd="28dp"
                         android:fontFamily="@font/roboto"
                         android:text="@string/drinkName2"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/drinkFrame3"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/drinkFrame1"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                        app:layout_constraintVertical_bias="0.057" />
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="99dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="67dp"
-                        android:layout_marginBottom="6dp"
-                        app:layout_constraintBottom_toTopOf="@+id/drinkName2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.039"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.102"
+                        android:layout_width="102dp"
+                        android:layout_height="84dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/drinkFrame3"
+                        app:layout_constraintEnd_toEndOf="@+id/drinkFrame3"
+                        app:layout_constraintStart_toStartOf="@+id/drinkFrame3"
+                        app:layout_constraintTop_toTopOf="@+id/drinkFrame3"
+                        app:layout_constraintVertical_bias="0.068"
                         app:srcCompat="@drawable/gin__1_" />
 
 
