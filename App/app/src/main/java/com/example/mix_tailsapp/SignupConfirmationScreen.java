@@ -16,7 +16,7 @@ public class SignupConfirmationScreen extends AppCompatActivity {
         //A function for returning back on the mainMenu
       Button returnButton = (Button)findViewById(R.id.exploreBtn);
       returnButton.setOnClickListener(v -> {
-          Intent goToWelcomePage = new Intent(SignupConfirmationScreen.this, DrinkRecommendationPage.class);
+          Intent goToWelcomePage = new Intent(SignupConfirmationScreen.this, AppWelcomeScreen.class);
           startActivity(goToWelcomePage);
       });
 
