@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/logo_new_theme2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".DrinkRecommendationPage"></activity>
+        <activity android:name=".DrivingProgress"></activity>
+        <activity android:name=".AppWelcomeScreen" />
+        <activity android:name=".DrinkRecommendationPage" />
         <activity
             android:name=".SignupConfirmationScreen"
             android:parentActivityName=".SignupActivity" />

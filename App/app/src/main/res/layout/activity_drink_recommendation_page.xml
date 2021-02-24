@@ -346,7 +346,7 @@
                 android:id="@+id/drinkFrame7"
                 android:layout_width="150dp"
                 android:layout_height="216dp"
-                android:layout_marginStart="68dp"
+                android:layout_marginStart="56dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="parent"
@@ -378,18 +378,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/pcosecco"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:id="@+id/favorite_text"
-                android:layout_width="147dp"
-                android:layout_height="33dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="@string/my_favorites_text"
-                android:textColor="#27214D"
-                android:textSize="22sp"
-                tools:layout_editor_absoluteX="19dp" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/favorite_text"
+            android:layout_width="147dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/my_favorites_text"
+            android:textColor="#27214D"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.686" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
