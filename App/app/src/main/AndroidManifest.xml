@@ -16,10 +16,10 @@
             android:name=".SignupConfirmationScreen"
             android:parentActivityName=".SignupActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".AppLaunching" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".QuestionSpinner" />
         <activity android:name=".ChosenDrinkSecondActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".AppLaunching">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
