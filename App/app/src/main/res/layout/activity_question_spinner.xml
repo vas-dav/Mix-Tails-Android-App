@@ -175,7 +175,7 @@
         android:layout_height="47dp"
         android:background="@drawable/normal_btn"
         android:fontFamily="@font/roboto_medium"
-        android:text="@string/snedButton"
+        android:text="@string/sendButton"
         android:textColor="#fff"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"

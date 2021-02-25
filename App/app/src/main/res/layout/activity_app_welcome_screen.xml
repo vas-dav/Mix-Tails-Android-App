@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F1F1"
-    tools:context=".MainActivity">
+    tools:context=".AppLaunching">
 
 
     <ImageView
@@ -42,14 +42,14 @@
         app:layout_constraintVertical_bias="0.543" />
 
     <Button
-        android:id="@+id/decideBtn"
-        android:layout_width="230dp"
+        android:id="@+id/recommendBtn"
+        android:layout_width="252dp"
         android:layout_height="56dp"
         android:layout_marginBottom="208dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:onClick="decide"
-        android:text="@string/decideBtn"
+        android:text="@string/recommendationBtn_text"
         android:textColor="#ffffff"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,10 +61,9 @@
         tools:ignore="OnClick" />
 
     <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="230dp"
+        android:id="@+id/myfavoriteBtn"
+        android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginStart="88dp"
         android:layout_marginBottom="76dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
@@ -73,15 +72,17 @@
         android:textSize="18sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.916" />
 
     <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="230dp"
+        android:id="@+id/drivingBtn"
+        android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/i_want_to_drive"
