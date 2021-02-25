@@ -4,12 +4,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo1migi2"
+        android:icon="@drawable/logo_new_theme"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo1migi2"
+        android:roundIcon="@drawable/logo_new_theme2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".DrinkRecommendationPage"></activity>
+        <activity
+            android:name=".SignupConfirmationScreen"
+            android:parentActivityName=".SignupActivity" />
+        <activity android:name=".SignupActivity" />
         <activity android:name=".AppLaunching" />
         <activity android:name=".QuestionSpinner" />
         <activity android:name=".ChosenDrinkSecondActivity" />
@@ -20,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--This file is for rounded corner rectangle frame used in recommendation-->
+    <item>
+        <shape>
+            <solid android:color="#FEF0F0"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+</selector>

@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstance) {
 
-        // app launching page with delay
+        // App launching page with delay
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_main);
 
@@ -28,8 +31,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(launchApp);
         }, 2000);
 
-
     }
-
-
 }

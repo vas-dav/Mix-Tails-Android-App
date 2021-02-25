@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!--imageview background-->
-    <solid android:color="#8CCCBF" />
+    <solid android:color="#952C3E" />
 
 
     <size
