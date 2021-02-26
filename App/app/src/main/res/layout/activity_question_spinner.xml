@@ -13,6 +13,7 @@
         android:layout_width="386dp"
         android:layout_height="650dp"
         android:background="@drawable/rounded_rec_frame"
+        android:backgroundTint="#faf8f9"
         android:contentDescription="@string/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
