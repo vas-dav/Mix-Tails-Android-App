@@ -1,6 +1,6 @@
 package com.example.mix_tailsapp;
 /**
- * Created by An Huynh on 15/02/2021
+ * Created by An Huynh on 18/02/2021
  * authors Annie, Miguel, Vasily
  * This class is used to display a message to user to confirm that the sign up activity has been
  * successfully completed and return to the main menu automatically
