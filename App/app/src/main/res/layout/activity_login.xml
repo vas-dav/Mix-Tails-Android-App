@@ -26,12 +26,14 @@
         android:layout_width="398dp"
         android:layout_height="364dp"
         android:background="@drawable/signup_frame"
+        android:backgroundTint="#faf8f9"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="368dp">
+        tools:layout_editor_absoluteY="467dp">
 
         <TextView
             android:id="@+id/maintext"
@@ -78,13 +80,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
+            android:layout_marginTop="105dp"
             android:background="@drawable/signup_btn_bg"
             android:enabled="false"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/action_sign_in"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:layout_marginTop="105dp" />
+            android:textSize="22sp" />
 
 
     </LinearLayout>
