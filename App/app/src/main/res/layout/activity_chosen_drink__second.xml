@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDF6F7"
+    android:background="#0DC93A16"
     tools:context=".ChosenDrinkSecondActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="524dp"
         android:background="@drawable/frame_bottom_round"
-        android:backgroundTint="#F5D86D6C"
+        android:backgroundTint="#ba124d"
         android:contentDescription="@string/rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -54,7 +54,7 @@
         android:fontFamily="@font/roboto_bold"
         android:gravity="center"
         android:text="@string/surprise_drink_text"
-        android:textColor="#693039"
+        android:textColor="@color/text_color"
         android:textSize="27dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
