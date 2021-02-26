@@ -1,96 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
-
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/cabin_semibold"
-        android:text="@string/ques1"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="242dp"
-        android:layout_height="313dp"
-        android:layout_marginTop="12dp"
-        android:contentDescription="@string/img1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/confused"
-        tools:ignore="VectorDrawableCompat" />
-
-    <Button
-        android:id="@+id/decideBtn"
-        android:layout_width="123dp"
-        android:layout_height="53dp"
-        android:background="@drawable/decide_btn"
-        android:fontFamily="@font/cabin_semibold"
-        android:onClick="decide"
-        android:text="@string/decideBtn"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textSize="19sp"
-        app:backgroundTint="#0DDAD5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="OnClick" />
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#F3F1F1"
+tools:context=".AppLaunching">
+<!--This file is for the logo display with slogan design-->
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="439dp"
-        android:layout_height="613dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/rectangle" />
-
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="60dp"
-        android:background="@drawable/rounded_btn"
-        android:text="@string/sign_up"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:backgroundTint="#E4992B"
+        android:layout_width="265dp"
+        android:layout_height="418dp"
+        android:contentDescription="@string/Img0"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.303"
+        app:srcCompat="@drawable/logo_new_theme" />
 
-    <Button
-        android:id="@+id/signinBtn"
-        android:layout_width="130dp"
-        android:layout_height="65dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/rounded_btn"
-        android:text="@string/sign_in"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:backgroundTint="#E4992B"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="320dp"
+        android:layout_height="43dp"
+        android:fontFamily="@font/roboto_black"
+        android:includeFontPadding="false"
+        android:text="@string/slogan1"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
+        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

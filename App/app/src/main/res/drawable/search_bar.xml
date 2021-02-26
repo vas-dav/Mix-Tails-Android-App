@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--This file is for rounded corner search bar used in recommendation-->
+    <item>
+        <shape>
+            <solid android:color="#E4DFDE"/>
+            <corners android:radius="50dp"/>
+        </shape>
+    </item>
+
+</selector>

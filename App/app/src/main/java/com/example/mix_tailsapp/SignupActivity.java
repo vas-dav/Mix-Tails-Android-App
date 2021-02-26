@@ -2,47 +2,80 @@ package com.example.mix_tailsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import static com.example.mix_tailsapp.R.color.red;
 
 public class SignupActivity extends AppCompatActivity {
-    public static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
-    public static final String EXTRA_EMAIL = "com.example.mix_tailsapp.EXTRA_EMAIL";
-    public static final String EXTRA_PASS = "com.example.mix_tailsapp.EXTRA_PASS";
-    public static final String EXTRA_CONFIRMPASSWORD = "com.example.mix_tailsapp.EXTRA_CONFIRMPASSWORD";
+    //Declaring keys for sharedPreferences
+    protected static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
+    protected static final String EXTRA_EMAIL = "com.example.mix_tailsapp.EXTRA_EMAIL";
+    protected static final String EXTRA_PASS = "com.example.mix_tailsapp.EXTRA_PASS";
+    protected static final String TEMP_STORAGE = "TEMPMEM";
+    protected static final String PERM_STORAGE = "PERMMEM";
+    protected static final String SIGNED = "NEISRHUIGBHJSjioHUIRBRBAENUFUIS";
+    Hasher passCoder = new Hasher();
 
+    //Declaring variables
     private EditText name, email, password, confirm_password;
+    private TextView signUp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        //casting the edit text variables to their ids
+
+        //Casting EditText variables to their id:s
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         confirm_password = findViewById(R.id.comfirm_password);
-
-
+        signUp = findViewById(R.id.maintext);
         Button confirm = findViewById(R.id.confirmBtn);
         confirm.setOnClickListener(v -> formSubmitted());
     }
-    //create a method for form submitted confirmation
+
+    //Create a method for form submitted confirmation and saving userData to sharedPreferences
+    @SuppressLint("ResourceAsColor")
     public void formSubmitted() {
-        String userName = name.getText().toString();
-        String userEmail = email.getText().toString();
-        String userPassword = password.getText().toString();
-        String confirmPassword = confirm_password.getText().toString();
+        Intent conf = new Intent(SignupActivity.this, SignupConfirmationScreen.class);
 
-        Intent intent = new Intent(this, Signup_ConfirmationScreen.class);
-        intent.putExtra(EXTRA_NAME, userName);
-        intent.putExtra(EXTRA_EMAIL, userEmail);
-        intent.putExtra(EXTRA_PASS, userPassword);
-        intent.putExtra(EXTRA_CONFIRMPASSWORD, confirmPassword);
+        //[storagePut] is for storing the name and other values, like fuelTank and soberness
 
-        startActivity(intent);
+        SharedPreferences storagePut = getSharedPreferences(TEMP_STORAGE, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = storagePut.edit();
+        prefEditor.putString(EXTRA_NAME, name.getText().toString());
+
+        //[permStoragePut] is for storing password and email for future login's
+
+        SharedPreferences permStoragePut = getSharedPreferences(PERM_STORAGE, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor permPrefEditor = permStoragePut.edit();
+        permPrefEditor.putString(EXTRA_NAME, name.getText().toString());
+        permPrefEditor.putString(EXTRA_EMAIL, email.getText().toString());
+
+        //Checking if passwords match
+
+        if (password.getText().toString().equals(confirm_password.getText().toString())) {
+            permPrefEditor.putString(EXTRA_PASS, passCoder.hPSCD(password.getText().toString()));
+            prefEditor.putBoolean(SIGNED, true);
+            if (prefEditor.commit() && permPrefEditor.commit()) {
+                startActivity(conf);
+            }
+        }
+        else {
+            signUp.setText("Passwords doesn't match :(");
+            signUp.setTextSize(25);
+            confirm_password.setTextColor(red);
+        }
+
     }
 
 }

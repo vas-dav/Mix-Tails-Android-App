@@ -4,34 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.os.Handler;
 
 public class AppLaunching extends AppCompatActivity {
 
+    private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstance) {
+
+        super.onCreate(savedInstance);
         setContentView(R.layout.activity_app_launching);
+        // App launching page with delay
+        new Handler().postDelayed(() -> {
+            Intent launchApp = new Intent(AppLaunching.this, MainActivity.class);
+            startActivity(launchApp);
+        }, 2000);
 
 
-        //Create onClick method for sign up button to open the sign up form
-        Button signupBtn = findViewById(R.id.signupBtn);
-        signupBtn.setOnClickListener(v -> {
-
-            //open activity
-            Intent intent = new Intent(this, SignupActivity.class);
-            startActivity(intent);
-
-        });
-    }
-
-
-    public void decide(View view) {
-        Intent questions = new Intent(AppLaunching.this, QuestionSpinner.class);
-        startActivity(questions);
     }
 
 

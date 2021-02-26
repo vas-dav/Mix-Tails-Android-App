@@ -9,38 +9,38 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="241dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginBottom="67dp"
+        android:layout_width="280dp"
+        android:layout_height="339dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/teamwork"
+        app:layout_constraintVertical_bias="0.752"
+        app:srcCompat="@drawable/group_glass"
         tools:ignore="VectorDrawableCompat" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="414dp"
+        android:layout_height="387dp"
         android:background="@drawable/signup_frame"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
+            android:id="@+id/maintext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/sign_up_text"
             android:textAlignment="center"
-            android:textColor="#000"
+            android:textColor="@color/text_color"
             android:textSize="28sp" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/name"
             android:padding="10dp" />
 
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/e_mail"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="10dp" />
@@ -77,20 +77,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/passwordConfirm"
             android:inputType="textPassword"
             android:padding="10dp" />
 
         <Button
             android:id="@+id/confirmBtn"
-            android:layout_width="match_parent"
+            android:layout_width="376dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/signup_btn_bg"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/confirmBtn"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:layout_marginBottom="15dp"/>
+            android:textSize="22sp" />
 
 
     </LinearLayout>

@@ -14,13 +14,14 @@ import android.widget.Toast;
 
 public class QuestionSpinner extends AppCompatActivity {
 
+    //Declaring String arrays and Strings for Spinners for algorithm to use them
     String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey/Bourbon", "Prosecco"};
-    String[] taste = {"Choose-one", "Sweet", "Sour", "Salty", "Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
+    String[] taste = {"Choose-one", "Sweet", "Sour","Bitter", "Bitter-Sweet", "Fresh", "Boozy"}; 
     String[] size = {"Choose-one", "S", "M", "L"};
-    String[] strength = {"Choose-one", "Soft", "Mild", "Strong"};
+    String[] strength = {"Choose-one", "Easy", "Light", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
 
-
+    //Keys for intending to move data from this activity to others
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String CHOICE_KEY = "AFOIEHGUAHUwgirbUGIHuiwHI";
 
@@ -30,6 +31,8 @@ public class QuestionSpinner extends AppCompatActivity {
         setContentView(R.layout.activity_question_spinner);
         findViewById(R.id.surprise).setOnClickListener(onClickListener);
         findViewById(R.id.send).setOnClickListener(onClickListener);
+
+        // All drop down sources(4) for questions connected to the arrays above ^^^
         Spinner mySpirits = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, spirits);
@@ -61,9 +64,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
     }
 
+    // Classes of each adapter corresponding to all(4) drop down list items
+    // with the option of returning null if "Choose-one" input is chosen
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), spirits[position], Toast.LENGTH_SHORT).show();
             spiritsChoice = spirits[position];
         }
         @Override
@@ -73,7 +77,6 @@ public class QuestionSpinner extends AppCompatActivity {
     }
     class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), taste[position], Toast.LENGTH_SHORT).show();
             tasteChoice = taste[position];
         }
         @Override
@@ -83,7 +86,6 @@ public class QuestionSpinner extends AppCompatActivity {
     }
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), size[position], Toast.LENGTH_SHORT).show();
             sizeChoice = size[position];
         }
         @Override
@@ -93,7 +95,6 @@ public class QuestionSpinner extends AppCompatActivity {
     }
     class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-            Toast.makeText(v.getContext(), strength[position], Toast.LENGTH_SHORT).show();
             strengthChoice = strength[position];
         }
         @Override
@@ -102,10 +103,11 @@ public class QuestionSpinner extends AppCompatActivity {
         }
     }
 
-
+    //A function for two separated buttons [Surprise Me!] & [Let's Drink!]
     private View.OnClickListener onClickListener = view -> {
         Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
         Drinks drinks = Drinks.getInstance();
+        //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
             String i = drinks.surprise();
             chosenDrink.putExtra(SURPRISE_KEY, i);
