@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="393dp"
-        android:layout_height="630dp"
+        android:layout_width="386dp"
+        android:layout_height="650dp"
         android:background="@drawable/rounded_rec_frame"
         android:contentDescription="@string/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -181,71 +181,85 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.948" />
 
+
     <ImageView
         android:id="@+id/bubbles"
-        android:layout_width="116dp"
-        android:layout_height="89dp"
-        android:layout_marginTop="136dp"
+        android:layout_width="96dp"
+        android:layout_height="90dp"
+        android:background="@drawable/bubble4"
         android:contentDescription="@string/imgViewContentDescription"
-        app:layout_constraintBottom_toTopOf="@+id/spinner1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bubbles" />
+        app:layout_constraintVertical_bias="0.779" />
+
+    <ImageView
+        android:id="@+id/bubbles2"
+        android:layout_width="93dp"
+        android:layout_height="82dp"
+        android:background="@drawable/bubbles5"
+        android:contentDescription="@string/imgViewContentDescription"
+        app:layout_constraintBottom_toTopOf="@+id/surprise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.509" />
 
     <ImageView
         android:id="@+id/octagon"
         android:layout_width="27dp"
         android:layout_height="19dp"
+        android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="@+id/spinner2"
         app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="@+id/spinner2"
         app:layout_constraintTop_toTopOf="@+id/spinner2"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/octagon"
-        android:contentDescription="@string/imgViewContentDescription" />
+        app:srcCompat="@drawable/octagon" />
 
     <ImageView
         android:id="@+id/octagon2"
         android:layout_width="27dp"
         android:layout_height="19dp"
 
+        android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner1"
         app:layout_constraintEnd_toEndOf="@+id/spinner1"
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/spinner1"
         app:layout_constraintTop_toTopOf="@+id/spinner1"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/octagon"
-        android:contentDescription="@string/imgViewContentDescription" />
+        app:srcCompat="@drawable/octagon" />
 
     <ImageView
         android:id="@+id/octagon3"
         android:layout_width="27dp"
         android:layout_height="19dp"
 
+        android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner3"
         app:layout_constraintEnd_toEndOf="@+id/spinner3"
         app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="@+id/spinner3"
         app:layout_constraintTop_toTopOf="@+id/spinner3"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/octagon"
-        android:contentDescription="@string/imgViewContentDescription" />
+        app:srcCompat="@drawable/octagon" />
 
     <ImageView
         android:id="@+id/octagon4"
         android:layout_width="27dp"
         android:layout_height="19dp"
 
+        android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner4"
         app:layout_constraintEnd_toEndOf="@+id/spinner4"
         app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="@+id/spinner4"
         app:layout_constraintTop_toTopOf="@+id/spinner4"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/octagon"
-        android:contentDescription="@string/imgViewContentDescription" />
+        app:srcCompat="@drawable/octagon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
