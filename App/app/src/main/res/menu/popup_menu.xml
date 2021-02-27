@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- an xml file for popup menu display on image button menu of drink recommendation page-->
     <item
         android:id="@+id/home"
         android:title="Home" />
