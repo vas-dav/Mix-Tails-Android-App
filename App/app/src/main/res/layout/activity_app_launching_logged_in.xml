@@ -57,13 +57,13 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="440dp"
-        android:layout_height="230dp"
+        android:layout_width="423dp"
+        android:layout_height="273dp"
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decideBtn"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/rectangle" />
 
@@ -86,7 +86,7 @@
         android:id="@+id/logOut"
         android:layout_width="130dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/rounded_btn"
         android:fontFamily="@font/roboto_black"
         android:text="@string/sign_out_text"
