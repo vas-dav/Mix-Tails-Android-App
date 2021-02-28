@@ -40,18 +40,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <SearchView
-            android:id="@+id/searchView2"
-            android:layout_width="337dp"
-            android:layout_height="48dp"
-            android:background="@drawable/search_bar"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search"
-            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            app:layout_constraintBottom_toTopOf="@+id/recomended_drink_text"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.149" />
+            app:layout_constraintVertical_bias="0.0">
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/search_bar"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.321"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.189" />
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/searchView" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/recomended_drink_text"
@@ -64,10 +85,10 @@
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.113"
+            app:layout_constraintHorizontal_bias="0.008"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView2"
-            app:layout_constraintVertical_bias="0.472" />
+            app:layout_constraintTop_toBottomOf="@id/textView7"
+            app:layout_constraintVertical_bias="1.0" />
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"

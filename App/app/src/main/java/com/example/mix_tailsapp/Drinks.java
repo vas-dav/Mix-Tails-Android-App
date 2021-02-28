@@ -74,7 +74,7 @@ public class Drinks {
         cocktail.add(IrishCoffee);
         cocktail.add(Margarita);
     }
-
+    public ArrayList<DrinksData> cocktailList() {return (ArrayList<DrinksData>) cocktail;}
     //very first version of comparison algorithm (not tested yet)
 
     public DrinksData getDrinkData(int drinkIndex){
