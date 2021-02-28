@@ -84,5 +84,7 @@
     <string name="surprise_drink_text">Picked For You</string>
     <string name="driving_wait1">Sorry! You can\'t drive just yet :(</string>
     <string name="recommendationBtn_text">My Recommendation</string>
+    <string name="choose_drink_text">Choose a drink</string>
+    <string name="randomize_text">Randomize</string>
 
 </resources>

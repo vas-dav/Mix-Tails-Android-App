@@ -37,6 +37,8 @@ public class DrinksData {
     public String getStrength() {
         return strength;
     }
+
+    public String toString() { return name; }
 }
 
 
