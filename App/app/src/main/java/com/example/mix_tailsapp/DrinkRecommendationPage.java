@@ -6,6 +6,7 @@ package com.example.mix_tailsapp;
  * menu, drink detail, add drink to favorite list and so on.
  * Reference material used in this activity: Android Popup menu mrBool.com
  * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
+ * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
  */
 
 import android.content.Intent;
