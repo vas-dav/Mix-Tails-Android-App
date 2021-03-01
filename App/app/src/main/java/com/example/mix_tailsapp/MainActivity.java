@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //if userData is not empty, show a welcoming message
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
             setContentView(R.layout.activity_app_launching_logged_in);
-            String name = tempStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
+            String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
             welcomeText = (TextView) findViewById(R.id.welcomeBack);
             welcomeText.setText("Welcome back, " + name);
 

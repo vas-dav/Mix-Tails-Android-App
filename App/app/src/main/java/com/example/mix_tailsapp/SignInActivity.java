@@ -34,13 +34,13 @@ public class SignInActivity extends AppCompatActivity {
 
     }
     public void loginSubmit(){
-        Intent loginSuccess = new Intent(SignInActivity.this, MainActivity.class);
+        Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor tempEditor =  tempStoragePut.edit();
         if(permStorageGet.getString(SignupActivity.EXTRA_EMAIL, "null").equals(email.getText().toString())){
             //email is correct, now checking the password
-            if(permStorageGet.getString(SignupActivity.EXTRA_PASS, "null").equals(passDeCoder.hPSCD(password.getText().toString()))){
+            if(permStorageGet.getString(SignupActivity.EXTRA_PASS, "null").equals(password.getText().toString())){
                 tempEditor.putBoolean(SIGNED, true);
                 if(tempEditor.commit()){
                     startActivity(loginSuccess);
