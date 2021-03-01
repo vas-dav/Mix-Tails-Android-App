@@ -9,7 +9,9 @@ package com.example.mix_tailsapp;
  * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
  */
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +30,7 @@ import java.util.List;
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
     private ImageButton menuBtn, surpriseDrink;
+    SharedPreferences tempStorageGet;
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     private SearchView searchView;
     private ListView listView;
@@ -42,6 +45,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         searchView = (SearchView) findViewById(R.id.searchView);
         cocktail = Drinks.getInstance().cocktailList();
+        tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         // Pass the cocktail list to ListViewAdapter Class
         ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
                 android.R.layout.simple_list_item_1, cocktail);
@@ -92,7 +96,11 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                             case R.id.signout:
                                 Intent signOut = new Intent(DrinkRecommendationPage.this,
                                         AppLaunching.class);
-                                startActivity(signOut);
+                                SharedPreferences.Editor deleter = tempStorageGet.edit();
+                                deleter.clear();
+                                if (deleter.commit()) {
+                                    startActivity(signOut);
+                                }
                                 break;
                         }
 
