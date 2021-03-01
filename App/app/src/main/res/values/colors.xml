@@ -18,9 +18,12 @@
     <color name="dark_orange">#c07429</color>
     <color name="background_color">#f8e2d7</color>
     <color name="main">#952C3E</color>
+    <color name="main2">#ba124d</color>
     <color name="egg_shell">#faf8f9</color>
     <color name="egg_shell2">#fff8ee</color>
     <color name="cocktail">#e1b3a4</color>
     <color name="cocktail2">#fcc48b</color>
+    <color name="cocktail3">#fb9c85</color>
+    <color name="frame">#F8CAC6</color>
 
 </resources>
