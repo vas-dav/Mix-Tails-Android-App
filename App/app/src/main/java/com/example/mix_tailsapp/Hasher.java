@@ -2,8 +2,7 @@ package com.example.mix_tailsapp;
 
 public class Hasher {
 
-    private double a = Math.pow(5.68 * 34.5634, 45);
-    int b = (int) a;
+    private int a = (int) Math.pow(5 * 34, 45);
 
     public Hasher() {};
 
