@@ -22,6 +22,7 @@
     <string name="signup_confirmation_message">You have successfully signed up.</string>
     <string name="exploreBtn">Explore </string>
 
+
     <!--question spinner strings-->
     <string-array name="spirits">
         <item>Non-alcoholic</item>

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             welcomeText = (TextView) findViewById(R.id.welcomeBack);
             welcomeText.setText("Welcome back, " + name);
 
-            //A function for deleting data from sharedPreferences (logging out)
+            //A function for deleting data from TempStorage sharedPreferences (logging out)
             Button logoutBtn = findViewById(R.id.logOut);
             logoutBtn.setOnClickListener(v -> {
 
@@ -69,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
             });
+
+            //Create onClick method for sign in button to open the sign in form
+            Button signInBtn = findViewById(R.id.loginBtn);
+            signInBtn.setOnClickListener(v -> {
+
+                //open activity
+                Intent signIn = new Intent(this, SignInActivity.class);
+                startActivity(signIn);
+
+            });
+
 
 
         }

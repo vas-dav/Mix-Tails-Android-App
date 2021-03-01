@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/new_logo_1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".DrivingProgress"></activity>
+        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".DrivingProgress" />
         <activity android:name=".AppWelcomeScreen" />
         <activity android:name=".DrinkRecommendationPage" />
         <activity
