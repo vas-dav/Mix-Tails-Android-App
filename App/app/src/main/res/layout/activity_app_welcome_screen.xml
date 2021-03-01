@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F1F1"
-    tools:context=".MainActivity">
+    android:background="#faf8f9"
+    tools:context=".AppLaunching">
 
 
     <ImageView
@@ -36,52 +36,66 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="0.476" />
 
     <Button
-        android:id="@+id/decideBtn"
-        android:layout_width="230dp"
+        android:id="@+id/recommendBtn"
+        android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="208dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:onClick="decide"
-        android:text="@string/decideBtn"
+        android:text="@string/recommendationBtn_text"
         android:textColor="#ffffff"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.064"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732"
         tools:ignore="OnClick" />
 
     <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="230dp"
+        android:id="@+id/decideBtn"
+        android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginBottom="76dp"
+        android:background="@drawable/decide_btn"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/choose_drink_text"
+        android:textColor="#FFFFFF"
+
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62" />
+
+    <Button
+        android:id="@+id/myfavoriteBtn"
+        android:layout_width="252dp"
+        android:layout_height="56dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/my_favorites_text"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.843" />
 
     <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="230dp"
+        android:id="@+id/drivingBtn"
+        android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/i_want_to_drive"
@@ -89,7 +103,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

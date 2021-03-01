@@ -3,7 +3,7 @@
 <!--rounded button with no gradient background-->
     <item>
         <shape>
-            <solid android:color="#952C3E"/>
+            <solid android:color="#ba124d"/>
             <corners android:radius="100dp"/>
 
 

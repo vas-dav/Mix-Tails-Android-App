@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F1F1"
+    android:background="#faf8f9"
     tools:context=".SignupConfirmationScreen">
 
 
@@ -25,32 +25,14 @@
         android:id="@+id/welcome_text"
         android:layout_width="307dp"
         android:layout_height="95dp"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="364dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/signup_confirmation_message"
-        android:textColor="@color/text_color"
         android:textAlignment="center"
+        android:textColor="@color/text_color"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/exploreBtn"
-        android:layout_width="164dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="140dp"
-        android:background="@drawable/normal_btn"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/exploreBtn"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

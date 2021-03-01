@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="280dp"
-        android:layout_height="339dp"
+        android:layout_width="278dp"
+        android:layout_height="277dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,15 +23,17 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="397dp"
-        android:layout_height="415dp"
+        android:layout_width="394dp"
+        android:layout_height="377dp"
         android:background="@drawable/signup_frame"
+        android:backgroundTint="#faf8f9"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="413dp">
+        tools:layout_editor_absoluteY="454dp">
 
         <TextView
             android:id="@+id/maintext"
@@ -72,36 +74,21 @@
             tools:layout_editor_absoluteX="40dp"
             tools:layout_editor_absoluteY="605dp" />
 
+
         <Button
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="105dp"
             android:background="@drawable/signup_btn_bg"
             android:enabled="false"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/action_sign_in"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="686dp" />
+            android:textSize="22sp" />
 
-        <ProgressBar
-            android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/password"
-            app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

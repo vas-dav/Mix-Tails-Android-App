@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-<!-- background for sign up and log in page-->
+<!-- background for sign up and log in page, alternative color #E98596-->
     <item>
         <shape>
             <gradient
-                android:startColor="#E98596"
-                android:endColor="#952C3E"
+                android:startColor="#97BA124D"
+                android:endColor="#ba124d"
                 android:angle="90"/>
         </shape>
     </item>

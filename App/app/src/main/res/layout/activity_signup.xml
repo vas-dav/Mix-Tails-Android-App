@@ -23,9 +23,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="414dp"
-        android:layout_height="387dp"
+        android:layout_width="395dp"
+        android:layout_height="388dp"
         android:background="@drawable/signup_frame"
+        android:backgroundTint="#faf8f9"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

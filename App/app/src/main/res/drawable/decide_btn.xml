@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!--decide button background corners design-->
-    <solid android:color="#952C3E" />
+    <solid android:color="#ba124d" />
 
 
     <size
