@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:backgroundTint="@color/light_color"
+            android:backgroundTint="#F8CAC6"
             android:contentDescription="@string/menu_bar"
             app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="parent"
