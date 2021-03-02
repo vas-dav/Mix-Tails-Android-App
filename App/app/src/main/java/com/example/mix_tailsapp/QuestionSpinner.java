@@ -116,6 +116,8 @@ public class QuestionSpinner extends AppCompatActivity {
             drinksAccess.close();
         } else {
 
+            DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+            drinksAccess.open();
 
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
