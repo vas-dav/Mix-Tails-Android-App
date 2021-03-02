@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,7 +37,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     private SearchView searchView;
     private ListView listView;
-    private List<DrinkRecommendationPage> cocktail;
+    private List<DatabaseAccess> cocktails;
     int progress = 0;
     ProgressBar fuelBar;
 
@@ -51,22 +52,21 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //Initiate variables
         listView = (ListView) findViewById(R.id.listView);
         searchView = (SearchView) findViewById(R.id.searchView);
-        //cocktail = Drinks.getInstance().cocktailList();
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         fuelBar = (ProgressBar) findViewById(R.id.fuelBar);
 
         // Pass the cocktail list to ListViewAdapter Class
         ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
-                android.R.layout.simple_list_item_1, cocktail);
+                android.R.layout.simple_list_item_1, cocktails);
 
         //binds the Adapter to listView
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
 
         // SearchView onQueryTextListener
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (cocktail.contains(query)) {
+                if (cocktails.contains(query)) {
                     adapter.getFilter().filter(query);
                 } else {
 
@@ -92,6 +92,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             public void onClick(View v) {
                 //Creating an instance of PopupMenu
                 PopupMenu popupMenu = new PopupMenu(DrinkRecommendationPage.this, menuBtn);
+
                 //Inflating the popup using xml file popup_menu.xml
                 popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
 
@@ -138,8 +139,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                     ChosenDrinkSecondActivity.class);
             String i = drinksAccess.getRandom();
             toRandomDrink.putExtra(SURPRISE_KEY, i);
-            drinksAccess.close();
             startActivity(toRandomDrink);
+            drinksAccess.close();
         });
     }
 
