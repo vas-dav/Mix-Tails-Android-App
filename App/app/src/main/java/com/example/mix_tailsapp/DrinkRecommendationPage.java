@@ -45,7 +45,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //Locate the ListView and SeachView in activity_drink_recommendation_page.xml
         listView = (ListView) findViewById(R.id.listView);
         searchView = (SearchView) findViewById(R.id.searchView);
-        cocktail = Drinks.getInstance().cocktailList();
+        //cocktail = Drinks.getInstance().cocktailList();
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
 
         // Pass the cocktail list to ListViewAdapter Class
@@ -129,9 +129,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         surpriseDrink.setOnClickListener(v -> {
             Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,
                     ChosenDrinkSecondActivity.class);
-            Drinks drinks = Drinks.getInstance();
-            String i = drinks.surprise();
-            toRandomDrink.putExtra(SURPRISE_KEY, i);
+            //Drinks drinks = Drinks.getInstance();
+            //String i = drinks.surprise();
+            //toRandomDrink.putExtra(SURPRISE_KEY, i);
             startActivity(toRandomDrink);
         });
     }
