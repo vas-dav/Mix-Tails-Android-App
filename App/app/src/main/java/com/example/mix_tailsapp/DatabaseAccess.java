@@ -42,7 +42,10 @@ public class DatabaseAccess {
     // DO NOT TOUCH!!! PLEASE!!!
     // method to query and returning a result from database from drink name
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
-        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit + "%' AND taste LIKE '" + inputTaste + "%' AND size LIKE '" + inputSize + "%' AND strength LIKE '" + inputStrength + "%'" ;
+        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND taste LIKE '" + inputTaste
+                + "%' AND size LIKE '" + inputSize
+                + "%' AND strength LIKE '" + inputStrength + "%' LIMIT 1";
         c = db.rawQuery(query, null );
         StringBuffer buffer = new StringBuffer();
         if (c.moveToFirst()) {
@@ -68,7 +71,8 @@ public class DatabaseAccess {
         return getRandName;
    }
 
-}
+
+
 
 
 
