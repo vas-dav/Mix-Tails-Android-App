@@ -30,7 +30,8 @@ import java.util.List;
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
     private ImageButton menuBtn, surpriseDrink;
-    SharedPreferences tempStorageGet;
+    private SharedPreferences tempStorageGet;
+    public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     private SearchView searchView;
     private ListView listView;
@@ -46,6 +47,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         searchView = (SearchView) findViewById(R.id.searchView);
         cocktail = Drinks.getInstance().cocktailList();
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+
         // Pass the cocktail list to ListViewAdapter Class
         ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
                 android.R.layout.simple_list_item_1, cocktail);
@@ -72,7 +74,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 adapter.getFilter().filter(newText);
                 return false;
             }
+
         });
+
+
         //Locate ImageBtn menu with its id
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +97,15 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                                 Intent toHome = new Intent(DrinkRecommendationPage.this,
                                         AppWelcomeScreen.class);
                                 startActivity(toHome);
+                                break;
+                            case R.id.newDrink:
+                                Intent addDrink = new Intent(DrinkRecommendationPage.this, AddingDrink.class);
+                                startActivity(addDrink);
+                                break;
+                            case R.id.settings:
+                                Intent settings = new Intent(DrinkRecommendationPage.this,
+                                        SettingsActivity.class);
+                                startActivity(settings);
                                 break;
                             case R.id.signout:
                                 Intent signOut = new Intent(DrinkRecommendationPage.this,
