@@ -21,7 +21,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
     //Declare variables
     private Button decideBtn, recommendBtn, drivingEstimation, favoriteBtn;
     private ImageButton logOut;
-    private SharedPreferences tempStorageGet, permStorageGet;
+    private SharedPreferences tempStoragePut, permStorageGet;
     TextView welcomeText;
     //create an onClick listener when the buttons are clicked
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -40,17 +40,11 @@ public class AppWelcomeScreen extends AppCompatActivity {
                 startActivity(driving);
             }
             if (v == logOut) {
-                //Checking for userData in sharedPreferences and deciding which xml to use
-                //if userData is not empty, show a welcoming message
-                if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
-                    setContentView(R.layout.activity_app_welcome_screen);
-                    String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
-                    welcomeText = (TextView) findViewById(R.id.welcomeBack);
-                    welcomeText.setText("Welcome back " + name);
-                }
+                //Deleting the TEMPMEM signed boolean
+                tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
                 Intent signOut = new Intent(AppWelcomeScreen.this,
                         AppLaunching.class);
-                SharedPreferences.Editor deleter = tempStorageGet.edit();
+                SharedPreferences.Editor deleter = tempStoragePut.edit();
                 deleter.clear();
                 if (deleter.commit()) {
                     startActivity(signOut);
@@ -63,6 +57,10 @@ public class AppWelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_welcome_screen);
+        permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
+        String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
+        welcomeText = (TextView) findViewById(R.id.welcomeBack);
+        welcomeText.setText("Welcome back " + name);
         // Link the button variables with their ids
         decideBtn = findViewById(R.id.decideBtn);
         recommendBtn = findViewById(R.id.recommendBtn);
@@ -77,9 +75,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
         favoriteBtn.setOnClickListener(clickListener);
         logOut.setOnClickListener(clickListener);
 
-        //calling for both Storage on the AppLaunching Screen
-        tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
-        permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
+
 
 
 
