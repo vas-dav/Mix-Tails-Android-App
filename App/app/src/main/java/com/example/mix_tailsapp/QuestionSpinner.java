@@ -115,10 +115,6 @@ public class QuestionSpinner extends AppCompatActivity {
             //chosenDrink.putExtra(SURPRISE_KEY, i);
         } else {
 
-            DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
-            drinksAccess.open();
-
-
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
             Log.d("Total", total);
             chosenDrink.putExtra(CHOICE_KEY, total);
