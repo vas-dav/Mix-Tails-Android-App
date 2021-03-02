@@ -34,7 +34,7 @@
             android:id="@+id/relativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="84dp"
+            android:layout_marginBottom="92dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
@@ -115,43 +115,27 @@
 
                     <ImageView
                         android:id="@+id/whiskey"
-                        android:layout_width="85dp"
-                        android:layout_height="75dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_width="72dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="28dp"
                         android:contentDescription="@string/imgViewContentDescription"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-                        app:layout_constraintHorizontal_bias="0.507"
+                        app:layout_constraintHorizontal_bias="0.478"
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame"
                         app:layout_constraintTop_toTopOf="@+id/drinkFrame"
                         app:srcCompat="@drawable/whiskey"
                         tools:ignore="MissingConstraints" />
 
-                    <EditText
-                        android:id="@+id/ingredients"
-                        android:layout_width="124dp"
-                        android:layout_height="41dp"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="textPersonName"
-                        android:text="@string/ingredients_list"
-                        app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
-                        app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-                        app:layout_constraintStart_toStartOf="@+id/drinkFrame"
-                        app:layout_constraintTop_toBottomOf="@+id/whiskey" />
-
                     <TextView
                         android:id="@+id/drinkName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
                         android:fontFamily="@font/roboto"
                         android:text="@string/drinkName1"
-                        app:layout_constraintBottom_toTopOf="@+id/ingredients"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
                         app:layout_constraintHorizontal_bias="0.486"
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame"
-                        app:layout_constraintTop_toBottomOf="@+id/whiskey"
-                        app:layout_constraintVertical_bias="0.666" />
+                        app:layout_constraintTop_toBottomOf="@+id/whiskey" />
 
                     <ImageView
                         android:id="@+id/drinkFrame1"
@@ -179,10 +163,10 @@
                         app:layout_constraintBottom_toTopOf="@+id/drinkName2"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
                         app:layout_constraintEnd_toStartOf="@+id/drinkName2"
-                        app:layout_constraintHorizontal_bias="0.494"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/drinkFrame1"
-                        app:layout_constraintVertical_bias="0.133"
+                        app:layout_constraintVertical_bias="1.0"
                         app:srcCompat="@drawable/rum_color" />
 
                     <TextView
@@ -201,21 +185,6 @@
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
                         app:layout_constraintTop_toBottomOf="@+id/rum"
                         app:layout_constraintVertical_bias="0.0" />
-
-                    <EditText
-                        android:id="@+id/ingredient"
-                        android:layout_width="136dp"
-                        android:layout_height="45dp"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="textPersonName"
-                        android:text="@string/ingredients_list"
-                        app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
-                        app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
-                        app:layout_constraintHorizontal_bias="0.466"
-                        app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
-                        app:layout_constraintTop_toTopOf="@+id/drinkFrame1"
-                        app:layout_constraintVertical_bias="0.728" />
 
                     <ImageView
                         android:id="@+id/drinkFrame3"
@@ -250,7 +219,6 @@
                         app:layout_constraintTop_toTopOf="@+id/drinkFrame3"
                         app:layout_constraintVertical_bias="0.068"
                         app:srcCompat="@drawable/gin__1_" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -420,6 +388,8 @@
             android:layout_width="328dp"
             android:layout_height="53dp"
             android:layout_marginTop="24dp"
+            android:max="100"
+            android:progress="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
