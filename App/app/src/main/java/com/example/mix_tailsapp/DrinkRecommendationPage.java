@@ -52,7 +52,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         fuelBar = (ProgressBar) findViewById(R.id.fuelBar);
 
-
         // Pass the cocktail list to ListViewAdapter Class
         ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
                 android.R.layout.simple_list_item_1, cocktail);
@@ -134,9 +133,11 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         surpriseDrink.setOnClickListener(v -> {
             Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,
                     ChosenDrinkSecondActivity.class);
-            //Drinks drinks = Drinks.getInstance();
-            //String i = drinks.surprise();
-            //toRandomDrink.putExtra(SURPRISE_KEY, i);
+            DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+            drinksAccess.open();
+            String i = drinksAccess.getRandom();
+            toRandomDrink.putExtra(SURPRISE_KEY, i);
+            drinksAccess.close();
             startActivity(toRandomDrink);
         });
     }

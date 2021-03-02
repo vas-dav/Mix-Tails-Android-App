@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 
-
 public class DatabaseAccess {
 
     private SQLiteOpenHelper openHelper;
@@ -43,7 +42,10 @@ public class DatabaseAccess {
     // DO NOT TOUCH!!! PLEASE!!!
     // method to query and returning a result from database from drink name
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
-        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit + "%' AND taste LIKE '" + inputTaste + "%' AND size LIKE '" + inputSize + "%' AND strength LIKE '" + inputStrength + "%'" ;
+        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND taste LIKE '" + inputTaste
+                + "%' AND size LIKE '" + inputSize
+                + "%' AND strength LIKE '" + inputStrength + "%' LIMIT 1";
         c = db.rawQuery(query, null );
         StringBuffer buffer = new StringBuffer();
         if (c.moveToFirst()) {
@@ -57,8 +59,17 @@ public class DatabaseAccess {
         return buffer.toString();
     }
 
-
-   // public void String surprise(){ }
+   // Method for getting a random drink from a Database
+   public String getRandom(){
+        int count = 0;
+        c = db.rawQuery("SELECT * FROM cocktails", null);
+        if(c.moveToLast()){
+            count = c.getCount();
+        }
+        c.moveToPosition((int) (Math.random() * count));
+        String getRandName = c.getString(c.getColumnIndex("name"));
+        return getRandName;
+   }
 
 
 }
