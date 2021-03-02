@@ -50,6 +50,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         searchView = (SearchView) findViewById(R.id.searchView);
         //cocktail = Drinks.getInstance().cocktailList();
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+        fuelBar = (ProgressBar) findViewById(R.id.fuelBar);
 
 
         // Pass the cocktail list to ListViewAdapter Class
