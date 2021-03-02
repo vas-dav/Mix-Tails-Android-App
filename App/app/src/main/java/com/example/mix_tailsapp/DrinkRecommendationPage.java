@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -29,24 +30,27 @@ import java.util.List;
 
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
-    private ImageButton menuBtn, surpriseDrink;
+    private ImageButton menuBtn, surpriseDrink, favoriteBtn;
     private SharedPreferences tempStorageGet;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     private SearchView searchView;
     private ListView listView;
     private List<DrinksData> cocktail;
+    int progress = 0;
+    ProgressBar fuelBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_recommendation_page);
 
-        //Locate the ListView and SeachView in activity_drink_recommendation_page.xml
+        //Initiate variables
         listView = (ListView) findViewById(R.id.listView);
         searchView = (SearchView) findViewById(R.id.searchView);
         //cocktail = Drinks.getInstance().cocktailList();
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+        fuelBar = (ProgressBar) findViewById(R.id.fuelBar);
 
         // Pass the cocktail list to ListViewAdapter Class
         ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
@@ -78,7 +82,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
 
-        //Locate ImageBtn menu with its id
+        //Initiate ImageBtn menu with its id
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,10 +133,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         surpriseDrink.setOnClickListener(v -> {
             Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,
                     ChosenDrinkSecondActivity.class);
-            //Drinks drinks = Drinks.getInstance();
-            //String i = drinks.surprise();
-            //toRandomDrink.putExtra(SURPRISE_KEY, i);
+            DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+            drinksAccess.open();
+            String i = drinksAccess.getRandom();
+            toRandomDrink.putExtra(SURPRISE_KEY, i);
+            drinksAccess.close();
             startActivity(toRandomDrink);
         });
     }
+
 }

@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 
-
 public class DatabaseAccess {
 
     private SQLiteOpenHelper openHelper;
@@ -59,6 +58,19 @@ public class DatabaseAccess {
 
         return buffer.toString();
     }
+
+   // Method for getting a random drink from a Database
+   public String getRandom(){
+        int count = 0;
+        c = db.rawQuery("SELECT * FROM cocktails", null);
+        if(c.moveToLast()){
+            count = c.getCount();
+        }
+        c.moveToPosition((int) (Math.random() * count));
+        String getRandName = c.getString(c.getColumnIndex("name"));
+        return getRandName;
+   }
+
 
 }
 
