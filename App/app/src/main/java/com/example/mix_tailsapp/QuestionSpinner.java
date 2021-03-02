@@ -111,8 +111,9 @@ public class QuestionSpinner extends AppCompatActivity {
         drinksAccess.open();
         //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
-            //String i = drinksAccess
-            //chosenDrink.putExtra(SURPRISE_KEY, i);
+            String i = drinksAccess.getRandom();
+            chosenDrink.putExtra(SURPRISE_KEY, i);
+            drinksAccess.close();
         } else {
 
 
