@@ -36,7 +36,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     private SearchView searchView;
     private ListView listView;
-    private List<DrinksData> cocktail;
+    private List<DrinkRecommendationPage> cocktail;
     int progress = 0;
     ProgressBar fuelBar;
 
@@ -44,6 +44,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_recommendation_page);
+
+        DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+        drinksAccess.open();
 
         //Initiate variables
         listView = (ListView) findViewById(R.id.listView);
@@ -128,13 +131,11 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 popupMenu.show();
             }
         });
-        //When the surprise drink Image Button clicked
+        //When the surprise drink Image(top right in recommendation page) Button clicked
         surpriseDrink = findViewById(R.id.imageButton);
         surpriseDrink.setOnClickListener(v -> {
             Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,
                     ChosenDrinkSecondActivity.class);
-            DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
-            drinksAccess.open();
             String i = drinksAccess.getRandom();
             toRandomDrink.putExtra(SURPRISE_KEY, i);
             drinksAccess.close();

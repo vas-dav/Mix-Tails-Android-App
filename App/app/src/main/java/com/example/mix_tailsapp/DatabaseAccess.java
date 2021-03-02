@@ -40,7 +40,7 @@ public class DatabaseAccess {
         }
     }
     // DO NOT TOUCH!!! PLEASE!!!
-    // method to query and returning a result from database from drink name
+    // method to query and returning a result from database from drink name limited to 1
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste
