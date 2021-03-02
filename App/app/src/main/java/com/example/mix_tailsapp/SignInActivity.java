@@ -18,7 +18,7 @@ public class SignInActivity extends AppCompatActivity {
 
     //Declaring variables
     private EditText email, password;
-    private Button signInBtnConfirm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class SignInActivity extends AppCompatActivity {
 
         email = (EditText)findViewById(R.id.editTextTextEmailAddress);
         password = (EditText)findViewById(R.id.editTextTextPassword);
-        signInBtnConfirm = findViewById(R.id.loginConfirm);
+        Button signInBtnConfirm = findViewById(R.id.loginConfirm);
         signInBtnConfirm.setOnClickListener(v -> loginSubmit());
 
 
