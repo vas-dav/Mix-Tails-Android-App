@@ -9,13 +9,16 @@
         android:roundIcon="@drawable/new_logo_1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".AddingDrink"
+            android:parentActivityName=".DrinkRecommendationPage"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".DrinkDetail" />
+        <activity android:name=".SignInActivity" />
         <activity android:name=".DrivingProgress" />
         <activity android:name=".AppWelcomeScreen" />
         <activity android:name=".DrinkRecommendationPage" />
         <activity
-            android:name=".SignupConfirmationScreen"
-            android:parentActivityName=".SignupActivity" />
+            android:name=".SignupConfirmationScreen" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionSpinner" />

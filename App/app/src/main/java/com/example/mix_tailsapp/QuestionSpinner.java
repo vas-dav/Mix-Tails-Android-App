@@ -16,7 +16,7 @@ public class QuestionSpinner extends AppCompatActivity {
 
     //Declaring String arrays and Strings for Spinners for algorithm to use them
     String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey", "Tequila", "Sparkling wine"};
-    String[] taste = {"Choose-one", "Sweet", "Sour","Bitter", "Bitter-Sweet", "Fresh", "Boozy"}; 
+    String[] taste = {"Choose-one", "Sweet", "Sour","Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
     String[] size = {"Choose-one", "S", "M", "L"};
     String[] strength = {"Choose-one", "Soft", "Light", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
@@ -86,7 +86,7 @@ public class QuestionSpinner extends AppCompatActivity {
         }
     }
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
-       public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             sizeChoice = size[position];
         }
         @Override
@@ -107,14 +107,17 @@ public class QuestionSpinner extends AppCompatActivity {
     //A function for two separated buttons [Surprise Me!] & [Let's Drink!]
     private View.OnClickListener onClickListener = view -> {
         Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
-        Drinks drinks = Drinks.getInstance();
+        DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+        drinksAccess.open();
         //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
-            String i = drinks.surprise();
-            chosenDrink.putExtra(SURPRISE_KEY, i);
+            //String i = drinksAccess
+            //chosenDrink.putExtra(SURPRISE_KEY, i);
         } else {
+
             DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
             drinksAccess.open();
+
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
             Log.d("Total", total);

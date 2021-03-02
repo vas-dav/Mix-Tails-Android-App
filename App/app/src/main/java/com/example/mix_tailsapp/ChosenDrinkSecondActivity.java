@@ -18,7 +18,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surprise_drink);
-        Drinks drinks = Drinks.getInstance();
         drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
         // When using the surprise me button
         if(getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY) != null){
