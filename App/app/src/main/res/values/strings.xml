@@ -88,5 +88,6 @@
     <string name="choose_drink_text">Choose a drink</string>
     <string name="randomize_text">Randomize</string>
     <string name="add_drink">Add</string>
+    <string name="drink_added_confirmation">Your Drink has been successfully added</string>
 
 </resources>
