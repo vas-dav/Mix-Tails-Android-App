@@ -85,7 +85,6 @@
             android:layout_gravity="start"
             android:layout_marginTop="105dp"
             android:background="@drawable/signup_btn_bg"
-            android:enabled="false"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/action_sign_in"
             android:textColor="#FFFFFF"
