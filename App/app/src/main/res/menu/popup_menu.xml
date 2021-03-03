@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- an xml file for popup menu display on image button menu of drink recommendation page-->
+    <item
+        android:id="@+id/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/newDrink"
+        android:title="Add a new drink"/>
+    <item
+        android:id="@+id/favorite"
+        android:title="My favorite"/>
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"/>
+    <item
+        android:id="@+id/signout"
+        android:title="Sign Out"/>
+</menu>

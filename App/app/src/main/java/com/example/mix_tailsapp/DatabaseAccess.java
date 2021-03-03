@@ -5,18 +5,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
 
 public class DatabaseAccess {
+
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase db;
     private static DatabaseAccess instance;
     Cursor c = null;
 
-    private DatabaseAccess(Context context){
+    public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
 
     }
+
     // for returning the single instance of database
     public static DatabaseAccess getInstance(Context context) {
         if (instance == null) {
@@ -24,26 +26,55 @@ public class DatabaseAccess {
         }
         return instance;
     }
+
     // to open the database
     public void open() {
+
         this.db = openHelper.getWritableDatabase();
     }
+
     // closing the database connection
     public void close() {
-        if(db != null) {
+        if (db != null) {
             this.db.close();
         }
     }
 
-    // method to query and returning a result from database from drink name
-    public String getIngredients(String name) {
-        c = db.rawQuery("select ingredients from Drinks table where name = " + name + " ", new String[]{});
+    // DO NOT TOUCH!!! PLEASE!!!
+    // method to query and returning a result from database from drink name limited to 1
+    public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
+        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND taste LIKE '" + inputTaste
+                + "%' AND size LIKE '" + inputSize
+                + "%' AND strength LIKE '" + inputStrength + "%' LIMIT 1";
+        c = db.rawQuery(query, null);
         StringBuffer buffer = new StringBuffer();
-        while(c.moveToNext()) {
-            String ingredients = c.getString(0);
-            buffer.append("" + ingredients);
+        if (c.moveToFirst()) {
+            do {
+                String getName = c.getString(c.getColumnIndex("name"));
+                buffer.append(getName);
 
+            } while (c.moveToNext());
         }
+
         return buffer.toString();
     }
+
+    // Method for getting a random drink from a Database
+    public String getRandom() {
+        int count = 0;
+        c = db.rawQuery("SELECT * FROM cocktails", null);
+        if (c.moveToLast()) {
+            count = c.getCount();
+        }
+        c.moveToPosition((int) (Math.random() * count));
+        String getRandName = c.getString(c.getColumnIndex("name"));
+        return getRandName;
+    }
 }
+
+
+
+
+
+

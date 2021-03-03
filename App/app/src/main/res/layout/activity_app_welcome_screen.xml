@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F1F1"
+    android:background="#faf8f9"
     tools:context=".AppLaunching">
 
 
@@ -13,7 +13,7 @@
         android:layout_width="248dp"
         android:layout_height="240dp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="342dp"
         android:background="@drawable/circle"
@@ -21,13 +21,13 @@
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.222" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/welcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
@@ -36,53 +36,63 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/recommendBtn"
         android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="208dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
-        android:onClick="decide"
         android:text="@string/recommendationBtn_text"
         android:textColor="#ffffff"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.064"
-        tools:ignore="OnClick" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732" />
+
+    <Button
+        android:id="@+id/decideBtn"
+        android:layout_width="252dp"
+        android:layout_height="56dp"
+        android:background="@drawable/decide_btn"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/choose_drink_text"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62" />
 
     <Button
         android:id="@+id/myfavoriteBtn"
         android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="76dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/my_favorites_text"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.843" />
 
     <Button
         android:id="@+id/drivingBtn"
         android:layout_width="252dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/decide_btn"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/i_want_to_drive"
@@ -90,22 +100,33 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/cocktail_group"
         android:layout_width="181dp"
         android:layout_height="158dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="132dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752"
         app:srcCompat="@drawable/cheers4"
         tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/logOut"
+        android:layout_width="38dp"
+        android:layout_height="39dp"
+        android:background="@drawable/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

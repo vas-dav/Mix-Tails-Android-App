@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F1F1"
+    android:background="#faf8f9"
     tools:context=".AppLaunching">
 
 
@@ -25,17 +25,29 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginBottom="109dp"
+        android:layout_width="206dp"
+        android:layout_height="232dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.043"
+        app:srcCompat="@drawable/cocktail2"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/questionmark"
+        android:layout_width="93dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/confused_glass"
-        tools:ignore="VectorDrawableCompat" />
+        app:layout_constraintVertical_bias="0.188"
+        app:srcCompat="@drawable/question_mark_2" />
 
     <Button
         android:id="@+id/decideBtn"
@@ -52,12 +64,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.059"
+        app:layout_constraintVertical_bias="0.127"
         tools:ignore="OnClick" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="417dp"
+        android:layout_width="413dp"
         android:layout_height="231dp"
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="parent"

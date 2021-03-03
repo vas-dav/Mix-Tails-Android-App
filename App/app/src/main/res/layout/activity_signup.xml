@@ -23,9 +23,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="414dp"
-        android:layout_height="387dp"
+        android:layout_width="395dp"
+        android:layout_height="388dp"
         android:background="@drawable/signup_frame"
+        android:backgroundTint="#faf8f9"
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
             android:hint="@string/name"
             android:padding="10dp" />
 
@@ -58,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
             android:hint="@string/e_mail"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -68,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="10dp" />
@@ -78,13 +82,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
             android:hint="@string/passwordConfirm"
             android:inputType="textPassword"
             android:padding="10dp" />
 
         <Button
             android:id="@+id/confirmBtn"
-            android:layout_width="376dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/signup_btn_bg"

@@ -48,13 +48,13 @@ public class SignupActivity extends AppCompatActivity {
     public void formSubmitted() {
         Intent conf = new Intent(SignupActivity.this, SignupConfirmationScreen.class);
 
-        //[storagePut] is for storing the name and other values, like fuelTank and soberness
+        //[storagePut] is for storing signed boolean
 
         SharedPreferences storagePut = getSharedPreferences(TEMP_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = storagePut.edit();
         prefEditor.putString(EXTRA_NAME, name.getText().toString());
 
-        //[permStoragePut] is for storing password and email for future login's
+        //[permStoragePut] is for storing name, password, email and  other values, like fuelTank, soberness for future login's
 
         SharedPreferences permStoragePut = getSharedPreferences(PERM_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor permPrefEditor = permStoragePut.edit();
@@ -64,7 +64,7 @@ public class SignupActivity extends AppCompatActivity {
         //Checking if passwords match
 
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
-            permPrefEditor.putString(EXTRA_PASS, passCoder.hPSCD(password.getText().toString()));
+            permPrefEditor.putString(EXTRA_PASS, password.getText().toString());
             prefEditor.putBoolean(SIGNED, true);
             if (prefEditor.commit() && permPrefEditor.commit()) {
                 startActivity(conf);

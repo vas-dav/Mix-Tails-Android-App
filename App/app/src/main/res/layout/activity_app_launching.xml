@@ -4,22 +4,22 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#F3F1F1"
+android:background="#faf8f9"
 tools:context=".AppLaunching">
 <!--This file is for the logo display with slogan design-->
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="265dp"
-        android:layout_height="418dp"
+        android:layout_width="238dp"
+        android:layout_height="378dp"
+        android:background="@drawable/new_logo"
         android:contentDescription="@string/Img0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303"
-        app:srcCompat="@drawable/logo_new_theme" />
+        app:layout_constraintVertical_bias="0.372" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,12 +29,12 @@ tools:context=".AppLaunching">
         android:includeFontPadding="false"
         android:text="@string/slogan1"
         android:textColor="@color/text_color"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.222" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

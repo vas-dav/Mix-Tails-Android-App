@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F7F7"
+    android:background="#faf8f9"
     tools:context=".AppLaunching">
 
     <TextView
@@ -66,7 +66,6 @@
         android:layout_width="247dp"
         android:layout_height="48dp"
         android:background="@drawable/normal_btn"
-        android:backgroundTint="#983948"
         android:fontFamily="@font/roboto_medium"
         android:text="Go Back"
         android:textColor="@color/light_color"
@@ -77,6 +76,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.844" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,14 @@
     <string name="ques1">Don\'t know what to drink?</string>
     <string name="decideBtn">Let\'s decide!</string>
     <string name="sendButton">Let\'s Drink!</string>
-    <string name="question1">What spirit would you like?</string>
-    <string name="question2">What about taste?</string>
-    <string name="question3">How strong?</string>
+    <string name="question1">Drink name</string>
+    <string name="question2">What spirit?</string>
+    <string name="question3">How does it taste?</string>
     <string name="question4">What size?</string>
-    <string name="question5">Let\'s drink!</string>
-    <string name="question6">Surprise me!</string>
+    <string name="question5">How strong is it?</string>
+    <string name="question7">What are the ingredients?</string>
+    <string name="question8">Let\'s drink!</string>
+    <string name="question9">Surprise me!</string>
     <string name="Img2">imgview</string>
     <string name="passwordConfirm">Confirm your password</string>
     <string name="password">Password</string>
@@ -21,6 +23,7 @@
     <string name="log_out">Log Out</string>
     <string name="signup_confirmation_message">You have successfully signed up.</string>
     <string name="exploreBtn">Explore </string>
+
 
     <!--question spinner strings-->
     <string-array name="spirits">
@@ -55,7 +58,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
@@ -84,5 +87,10 @@
     <string name="surprise_drink_text">Picked For You</string>
     <string name="driving_wait1">Sorry! You can\'t drive just yet :(</string>
     <string name="recommendationBtn_text">My Recommendation</string>
+    <string name="choose_drink_text">Choose a drink</string>
+    <string name="randomize_text">Randomize</string>
+    <string name="add_drink">Add</string>
+    <string name="drink_added_confirmation">Your Drink has been successfully added</string>
+    <string name="add_a_new_drink">Add a new drink</string>
 
 </resources>

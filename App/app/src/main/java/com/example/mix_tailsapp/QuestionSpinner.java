@@ -15,10 +15,10 @@ import android.widget.Toast;
 public class QuestionSpinner extends AppCompatActivity {
 
     //Declaring String arrays and Strings for Spinners for algorithm to use them
-    String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey/Bourbon", "Prosecco"};
-    String[] taste = {"Choose-one", "Sweet", "Sour","Bitter", "Bitter-Sweet", "Fresh", "Boozy"}; 
+    String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey", "Tequila", "Sparkling wine"};
+    String[] taste = {"Choose-one", "Sweet", "Sour","Bitter", "Bitter-Sweet", "Fresh", "Boozy"};
     String[] size = {"Choose-one", "S", "M", "L"};
-    String[] strength = {"Choose-one", "Easy", "Light", "Strong"};
+    String[] strength = {"Choose-one", "Soft", "Light", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
 
     //Keys for intending to move data from this activity to others
@@ -69,6 +69,7 @@ public class QuestionSpinner extends AppCompatActivity {
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             spiritsChoice = spirits[position];
+
         }
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
@@ -85,7 +86,7 @@ public class QuestionSpinner extends AppCompatActivity {
         }
     }
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
-       public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             sizeChoice = size[position];
         }
         @Override
@@ -106,15 +107,26 @@ public class QuestionSpinner extends AppCompatActivity {
     //A function for two separated buttons [Surprise Me!] & [Let's Drink!]
     private View.OnClickListener onClickListener = view -> {
         Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
-        Drinks drinks = Drinks.getInstance();
+        DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+        drinksAccess.open();
+
         //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
-            String i = drinks.surprise();
+            String i = drinksAccess.getRandom();
             chosenDrink.putExtra(SURPRISE_KEY, i);
+            drinksAccess.close();
         } else {
-            String total = drinks.compareDrinks(spiritsChoice, sizeChoice, tasteChoice, strengthChoice);
+
+            String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
             Log.d("Total", total);
             chosenDrink.putExtra(CHOICE_KEY, total);
+
+            drinksAccess.close();
+            if(total != null) {
+                startActivity(chosenDrink);
+            }else {
+                Log.d("error here", "total is null");
+            }
         }
         startActivity(chosenDrink);
     };
