@@ -109,6 +109,7 @@ public class QuestionSpinner extends AppCompatActivity {
         Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
+
         //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
             String i = drinksAccess.getRandom();

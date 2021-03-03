@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
 
 
 public class DatabaseAccess {
@@ -14,7 +14,7 @@ public class DatabaseAccess {
     private static DatabaseAccess instance;
     Cursor c = null;
 
-    private DatabaseAccess(Context context) {
+    public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
 
     }
@@ -41,7 +41,7 @@ public class DatabaseAccess {
     }
 
     // DO NOT TOUCH!!! PLEASE!!!
-    // method to query and returning a result from database from drink name
+    // method to query and returning a result from database from drink name limited to 1
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste
