@@ -40,14 +40,14 @@
         app:layout_constraintGuide_end="50dp" />
 
 
-    <Button
+     <Button
         android:id="@+id/surprise"
         android:layout_width="193dp"
         android:layout_height="47dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/normal_btn"
         android:fontFamily="@font/roboto_medium"
-        android:text="@string/question6"
+        android:text="@string/question9"
         android:textColor="#fff"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/send"

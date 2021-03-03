@@ -24,6 +24,7 @@ public class QuestionSpinner extends AppCompatActivity {
     //Keys for intending to move data from this activity to others
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String CHOICE_KEY = "AFOIEHGUAHUwgirbUGIHuiwHI";
+    protected static final String INGS_KEY = "BLACKJACKANDOTHERCUTEGAMESAREFINEWITHBATMAN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,12 +119,14 @@ public class QuestionSpinner extends AppCompatActivity {
         } else {
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
-            Log.d("Total", total);
+            String ings = drinksAccess.getDrinkIngs(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
+            Log.d("DRINKS&INGS", total + ": \n" + ings);
             chosenDrink.putExtra(CHOICE_KEY, total);
+            chosenDrink.putExtra(INGS_KEY, ings);
 
             drinksAccess.close();
             if(total != null) {
-                startActivity(chosenDrink);
+                //startActivity(chosenDrink);
             }else {
                 Log.d("error here", "total is null");
             }
