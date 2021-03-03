@@ -7,6 +7,20 @@
     android:background="#0DC93A16"
     tools:context=".ChosenDrinkSecondActivity">
 
+    <ImageButton
+        android:id="@+id/gobackBtn"
+        android:layout_width="43dp"
+        android:layout_height="39dp"
+        android:background="#0DC93A16"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:tint="@color/text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
+
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="292dp"
@@ -74,5 +88,43 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.461"
         app:srcCompat="@drawable/recommended_drinks" />
+
+    <Button
+        android:id="@+id/ingredientBtn"
+        android:layout_width="201dp"
+        android:layout_height="50dp"
+        android:layout_gravity="start"
+        android:background="@drawable/rounded_btn"
+        android:backgroundTint="@color/main2"
+        android:enabled="false"
+        android:fontFamily="@font/roboto_medium"
+        android:text="See ingredients"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <Button
+        android:id="@+id/saveDrinkBtn"
+        android:layout_width="201dp"
+        android:layout_height="50dp"
+        android:layout_gravity="start"
+        android:background="@drawable/rounded_btn"
+        android:backgroundTint="@color/main2"
+        android:enabled="false"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Save drink"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.471" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

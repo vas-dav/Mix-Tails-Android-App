@@ -23,7 +23,7 @@ public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess plusDB;
     public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients ;
-    private Button sendDrink; // ALSO ADD GO-BACK BUTTON please :)
+    private Button sendDrink, goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,18 @@ public class AddingDrink extends AppCompatActivity {
         editSize = (EditText) findViewById(R.id.editSize);
         editStrength = (EditText) findViewById(R.id.editStrength);
         editIngredients = (EditText) findViewById(R.id.editIngredients);
-        sendDrink = (Button) findViewById(R.id.add);
+
+
         AddData();
         drinksAccess.close();
 
         //Button add drink onClickListener
         sendDrink = findViewById(R.id.sendDrink);
+        goBack = findViewById(R.id.gobackBtn);
+        goBack.setOnClickListener(v -> {
+            Intent goBack = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+            startActivity(goBack);
+        });
     }
             public void AddData() {
             sendDrink.setOnClickListener(new View.OnClickListener() {
