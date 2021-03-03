@@ -51,6 +51,7 @@ public class AddingDrink extends AppCompatActivity {
             sendDrink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     new Handler().postDelayed(() -> {
                         setContentView(R.layout.activity_add_drink_confirmation);
                         Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
