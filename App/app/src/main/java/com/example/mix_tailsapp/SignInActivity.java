@@ -49,7 +49,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }else{
                 Log.d("PASS_SP", permStorageGet.getString(SignupActivity.EXTRA_PASS, "null"));
-                Log.d("PASS_WR", passDeCoder.hPSCD(password.getText().toString()));
+                //Log.d("PASS_WR", passDeCoder.hPSCD(password.getText().toString()));
             }
         } else{
             Log.d("EMAIL_SP", permStorageGet.getString(SignupActivity.EXTRA_EMAIL, "null"));
