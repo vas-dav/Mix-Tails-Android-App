@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
 
 
 public class DatabaseAccess {
@@ -14,7 +14,7 @@ public class DatabaseAccess {
     private static DatabaseAccess instance;
     Cursor c = null;
 
-    private DatabaseAccess(Context context) {
+    public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
 
     }
@@ -39,14 +39,15 @@ public class DatabaseAccess {
             this.db.close();
         }
     }
+
     // DO NOT TOUCH!!! PLEASE!!!
-    // method to query and returning a result from database from drink name
+    // method to query and returning a result from database from drink name limited to 1
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste
                 + "%' AND size LIKE '" + inputSize
                 + "%' AND strength LIKE '" + inputStrength + "%' LIMIT 1";
-        c = db.rawQuery(query, null );
+        c = db.rawQuery(query, null);
         StringBuffer buffer = new StringBuffer();
         if (c.moveToFirst()) {
             do {
@@ -59,17 +60,18 @@ public class DatabaseAccess {
         return buffer.toString();
     }
 
-   // Method for getting a random drink from a Database
-   public String getRandom(){
+    // Method for getting a random drink from a Database
+    public String getRandom() {
         int count = 0;
         c = db.rawQuery("SELECT * FROM cocktails", null);
-        if(c.moveToLast()){
+        if (c.moveToLast()) {
             count = c.getCount();
         }
         c.moveToPosition((int) (Math.random() * count));
         String getRandName = c.getString(c.getColumnIndex("name"));
         return getRandName;
-   }
+    }
+}
 
 
 
