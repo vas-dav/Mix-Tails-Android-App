@@ -1,29 +1,57 @@
 package com.example.mix_tailsapp;
 
+import android.content.Intent;
+
+import java.io.CharArrayReader;
+
 public class Hasher {
 
-    private int a = (int) Math.pow(5 * 34, 45);
+    private int m = 245547;
+    private int b = 356647;
+    private int s = 4545;
+    private long gideon = 345678;
 
     public Hasher() {};
 
 
-    public String hPSCD (String passCode){
-    int intPSCD = 0;
-    for(int l = 0; l < passCode.length(); l++){
-        char symb = passCode.charAt(l);
-        int charNum = (int) symb;
-        intPSCD += Math.pow(charNum * a, charNum * a);
-    }
-        int[] binary = new int[35];
-        int id = 0;
-
-
-        while (intPSCD > 0) {
-            binary[id++] = intPSCD % 2;
-            intPSCD = intPSCD / 2;
+    public long hPSCD (String uPCOE) {
+        long longPSCD = 0;
+        for (int l = 0; l < uPCOE.length(); l++) {
+            m += b;
+            b *= s;
+            m = s;
+            longPSCD += m;
         }
-
-        return binary.toString();
+        return longPSCD;
     }
+    public String CrToBiWL(long increase){
+        long bolding = gideon;
+        for(int d = 1; d < s; d++){
+            Long.reverse(increase);
+            bolding = increase;
+        }
+        long batman = Long.bitCount(bolding);
+        for(int c = 0; c < s; c++){
+            bolding+=batman;
+        }
+        String spiderMan = Long.toBinaryString(bolding);
+        String ironMan = Long.toHexString(bolding);
+        String avengers = spiderMan+Long.toOctalString(increase)+ironMan;
+        return avengers;
+    }
+
+    public long hLtoS (long insert){
+        long crusher = insert + gideon;
+        for(int r = m; r == 0; r--){
+            insert+=crusher;
+            crusher *= 2;
+            for(int k = 0; k < 100; k++){
+                crusher = insert;
+                crusher += gideon;
+            }
+        }
+        return crusher;
+    }
+
 }
 
