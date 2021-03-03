@@ -13,6 +13,7 @@ public class DatabaseAccess {
     private SQLiteDatabase db;
     private static DatabaseAccess instance;
     Cursor c = null;
+    Cursor ingCurs = null;
 
     public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
@@ -71,6 +72,26 @@ public class DatabaseAccess {
         String getRandName = c.getString(c.getColumnIndex("name"));
         return getRandName;
     }
+
+    // Method for getting ingredients of a drink
+    public String getDrinkIngs(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
+        String query = "SELECT * FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND taste LIKE '" + inputTaste
+                + "%' AND size LIKE '" + inputSize
+                + "%' AND strength LIKE '" + inputStrength + "%'";
+        ingCurs = db.rawQuery(query, null);
+        StringBuffer buffer = new StringBuffer();
+        if (ingCurs.moveToFirst()) {
+            do {
+                String getIngs = ingCurs.getString(6);
+                buffer.append(getIngs);
+
+            } while (ingCurs.moveToNext());
+        }
+
+        return buffer.toString();
+    }
+
 }
 
 

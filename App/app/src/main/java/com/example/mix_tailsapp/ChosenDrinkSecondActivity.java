@@ -52,7 +52,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             drinkOfYourChoice.setText(getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY));
         } else {
             // When using the lets drink button
-            Log.d("Drink", getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY));
             drinkOfYourChoice.setText(getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY));
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
