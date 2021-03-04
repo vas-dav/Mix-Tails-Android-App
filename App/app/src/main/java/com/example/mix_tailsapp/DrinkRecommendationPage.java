@@ -145,6 +145,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             startActivity(toRandomDrink);
             drinksAccess.close();
         });
-    }
+       
+
+    } //close onCreate
 
 }

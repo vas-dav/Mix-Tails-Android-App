@@ -2,7 +2,10 @@ package com.example.mix_tailsapp;
 /**
  * Created by An Huynh on 15/02/2021
  * authors Annie, Miguel, Vasily
- * This class is used to display the logo and slogan with delay when the app is first launched and decide which activity to open firstly
+ * This class is used to display the logo and slogan with delay when the app is first launched and
+ * decide which activity to open firstly
+ * version 1: Adding intent
+ * version 2: using SharedPreference to open activity based on the signed boolean
  */
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class AppLaunching extends AppCompatActivity {
-    SharedPreferences tempStorageGet;
+    private SharedPreferences tempStorageGet;
     private static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
 
     @Override

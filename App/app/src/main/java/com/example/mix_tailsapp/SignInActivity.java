@@ -10,6 +10,10 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * authors: Vasily
+ * a class to decide what happen in the log in activity
+ */
 public class SignInActivity extends AppCompatActivity {
 
     protected static final String SIGNED = "NEISRHUIGBHJSjioHUIRBRBAENUFUIS";

@@ -7,6 +7,11 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * authors: Vasily, Miguel, Annie
+ * Main activity with intent for the main interface of the app that contains the options of choosing
+ * drink, signing in or signing up
+ */
 public class MainActivity extends AppCompatActivity {
 
 

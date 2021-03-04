@@ -4,6 +4,8 @@ package com.example.mix_tailsapp;
  * authors: Annie, Miguel, Vasily
  * This class is created for the app welcome activity and decide what will happen when the three
  * buttons in this activity are clicked
+ * version 1: declare variables and instantiate them
+ * version 2: onClick listener method to decide what happen when the buttons are clicked
  */
 
 import android.app.Activity;
@@ -24,6 +26,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
     private ImageButton logOut;
     private SharedPreferences tempStoragePut, permStorageGet;
     TextView welcomeText;
+
     //create an onClick listener when the buttons are clicked
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override

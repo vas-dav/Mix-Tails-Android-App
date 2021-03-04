@@ -14,6 +14,10 @@ import android.widget.TextView;
 
 import static com.example.mix_tailsapp.R.color.red;
 
+/**
+ * author: Vasily
+ * a class to decide what happen in the sign up activity
+ */
 public class SignupActivity extends AppCompatActivity {
     //Declaring keys for sharedPreferences
     protected static final String EXTRA_NAME = "com.example.mix_tailsapp.EXTRA_NAME";
