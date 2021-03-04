@@ -76,6 +76,7 @@ public class QuestionSpinner extends AppCompatActivity {
     /**
      *  Classes of each adapter corresponding to all(4) drop down list items
      *    with the option of returning null if "Choose-one" input is chosen
+     *    for spirit choice
      */
 
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
@@ -88,6 +89,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * a class for spinner to choose taste from user choosing one option
+     */
     class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             tasteChoice = taste[position];
@@ -97,6 +102,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * a class for spinner to choose size from user choosing one option
+     */
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             sizeChoice = size[position];
@@ -106,6 +115,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * a class for spinner to choose the strength from user choosing one option
+     */
     class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             strengthChoice = strength[position];
@@ -129,23 +142,51 @@ public class QuestionSpinner extends AppCompatActivity {
         if(view.getId() == R.id.surprise){
             String i = drinksAccess.getRandom();
             chosenDrink.putExtra(SURPRISE_KEY, i);
-            drinksAccess.close();
         } else {
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
             String ings = drinksAccess.getDrinkIngs(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
-            Log.d("DRINKS&INGS", total + ": \n" + ings);
-            chosenDrink.putExtra(CHOICE_KEY, total);
-            chosenDrink.putExtra(INGS_KEY, ings);
+            //Log.d("DRINKS&INGS", total + ": \n" + ings);
 
-            drinksAccess.close();
+            Log.d("DrinkEmpty", total + " error");
+
+            // if database didn't return anything with user choice, the program searches for similarities
             if(total != null) {
-                //startActivity(chosenDrink);
+                chosenDrink.putExtra(CHOICE_KEY, total);
+                chosenDrink.putExtra(INGS_KEY, ings);
             }else {
-                Log.d("error here", "total is null");
+                //Testing same choice, but without strength input
+                String similarWithOutStr = drinksAccess.getSimilarDrinkwOstr(spiritsChoice, tasteChoice, sizeChoice);
+                //Testing same choice, but without size input
+                String similarWithOutSize = drinksAccess.getSimilarDrinkwOsize(spiritsChoice, tasteChoice, strengthChoice);
+                //Testing same choice, but without taste input
+                String similarWithOutTaste = drinksAccess.getSimilarDrinkwOtaste(spiritsChoice, sizeChoice, strengthChoice);
+                Log.d("DrinkSize", similarWithOutSize + " without input size");
+                Log.d("DrinkStr", similarWithOutStr + " without input strength");
+                Log.d("DrinkTaste", similarWithOutTaste + " without input taste");
+
+                if(similarWithOutStr != null){
+
+                    chosenDrink.putExtra(CHOICE_KEY, similarWithOutStr);
+
+                } else if(similarWithOutSize != null){
+
+                    chosenDrink.putExtra(CHOICE_KEY, similarWithOutSize);
+
+                }
+                else if(similarWithOutTaste != null){
+
+                    chosenDrink.putExtra(CHOICE_KEY, similarWithOutTaste);
+
+                }else {
+
+                    chosenDrink.putExtra(CHOICE_KEY, "No such Drink :(");
+
+                }
             }
         }
         startActivity(chosenDrink);
+        drinksAccess.close();
     };
 }
 

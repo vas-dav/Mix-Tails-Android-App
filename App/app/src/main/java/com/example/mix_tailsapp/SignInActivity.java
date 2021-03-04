@@ -41,14 +41,14 @@ public class SignInActivity extends AppCompatActivity {
         Log.d("LogIn", "Clicked");
         Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);
         /**
-         * Retrieving data from PERMMEM and putting data on TEMPMEM
+         * Retrieving data from PERM and putting data on TEMP
          */
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor tempEditor =  tempStoragePut.edit();
         if(permStorageGet.getString(SignupActivity.EXTRA_EMAIL, "null").equals(email.getText().toString())){
             //email is correct, now checking the password
-            if(permStorageGet.getString(SignupActivity.EXTRA_PASS, "null").equals(password.getText().toString())){
+            if(permStorageGet.getString(SignupActivity.EXTRA_PASS, "null").equals(passDeCoder.CrToBiWL(passDeCoder.hLtoS(passDeCoder.hPSCD(password.getText().toString()))))){
                 tempEditor.putBoolean(SIGNED, true);
                 if(tempEditor.commit()){
                     startActivity(loginSuccess);
