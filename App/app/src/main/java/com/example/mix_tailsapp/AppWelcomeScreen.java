@@ -62,7 +62,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
         String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
         welcomeText = (TextView) findViewById(R.id.welcomeBack);
         welcomeText.setText("Welcome back " + name);
-        // Link the button variables with their ids
+        // Initiate variables with their ids
         decideBtn = findViewById(R.id.decideBtn);
         recommendBtn = findViewById(R.id.recommendBtn);
         drivingEstimation = findViewById(R.id.drivingBtn);
