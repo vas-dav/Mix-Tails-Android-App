@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class SignupActivity extends AppCompatActivity {
     protected static final String TEMP_STORAGE = "TEMPMEM";
     protected static final String PERM_STORAGE = "PERMMEM";
     protected static final String SIGNED = "NEISRHUIGBHJSjioHUIRBRBAENUFUIS";
-    Hasher passCoder = new Hasher();
+    Hasher hashpass = new Hasher();
 
     //Declaring variables
     private EditText name, email, password, confirm_password;
@@ -64,6 +65,8 @@ public class SignupActivity extends AppCompatActivity {
         //Checking if passwords match
 
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
+            Log.d("Passcode", password.getText().toString());
+            Log.d("Hashed-Pass", hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
             permPrefEditor.putString(EXTRA_PASS, password.getText().toString());
             prefEditor.putBoolean(SIGNED, true);
             if (prefEditor.commit() && permPrefEditor.commit()) {
