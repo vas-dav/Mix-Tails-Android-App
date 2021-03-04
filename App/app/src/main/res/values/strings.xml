@@ -93,5 +93,12 @@
     <string name="drink_added_confirmation">Your Drink has been successfully added</string>
     <string name="add_a_new_drink">Add a new drink</string>
     <string name="ingredients">Ingredients</string>
+    
+    <!--string array for list preference in settings activity-->
+    <string-array name="list">
+        <item>Item one</item>
+        <item>Item two</item>
+        <item>Item three</item>
+    </string-array>
 
 </resources>
