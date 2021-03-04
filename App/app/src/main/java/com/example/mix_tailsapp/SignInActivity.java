@@ -10,6 +10,10 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * authors: Vasily
+ * a class to decide what happen in the log in activity
+ */
 public class SignInActivity extends AppCompatActivity {
 
     protected static final String SIGNED = "NEISRHUIGBHJSjioHUIRBRBAENUFUIS";
@@ -36,7 +40,9 @@ public class SignInActivity extends AppCompatActivity {
     public void loginSubmit(){
         Log.d("LogIn", "Clicked");
         Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);
-        //Retrieving data from PERMMEM and putting data on TEMPMEM
+        /**
+         * Retrieving data from PERMMEM and putting data on TEMPMEM
+         */
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor tempEditor =  tempStoragePut.edit();

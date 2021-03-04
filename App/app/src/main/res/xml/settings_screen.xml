@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:fontFamily="@font/roboto_black"
+        android:textSize="24sp"
+        android:title="Change your user name">
+
+        <EditTextPreference
+            android:fontFamily="@font/roboto_medium"
+            android:key="user_name"
+            android:summary="Edit your username"
+            android:textSize="14sp"
+            android:title="Username" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:fontFamily="@font/roboto_black"
+        android:textSize="24sp"
+        android:title="Screen Orientation">
+
+        <ListPreference
+            android:defaultValue="false"
+            android:entries="@array/orientation_name"
+            android:entryValues="@array/orientation_value"
+            android:fontFamily="@font/roboto_medium"
+            android:key="ORIENTATION"
+            android:summary="change your screen orientation here"
+            android:title="Orientation" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

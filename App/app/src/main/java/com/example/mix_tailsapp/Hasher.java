@@ -4,6 +4,9 @@ import android.content.Intent;
 
 import java.io.CharArrayReader;
 
+/**
+ * author: Vasily
+ */
 public class Hasher {
 
     private int m = 245547;
