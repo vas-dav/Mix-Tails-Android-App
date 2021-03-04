@@ -65,9 +65,9 @@ public class SignupActivity extends AppCompatActivity {
         //Checking if passwords match
 
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
-            Log.d("Passcode", password.getText().toString());
-            Log.d("Hashed-Pass", hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
-            permPrefEditor.putString(EXTRA_PASS, password.getText().toString());
+            //Log.d("Passcode", password.getText().toString());
+            //Log.d("Hashed-Pass", hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
+            permPrefEditor.putString(EXTRA_PASS, hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
             prefEditor.putBoolean(SIGNED, true);
             if (prefEditor.commit() && permPrefEditor.commit()) {
                 startActivity(conf);

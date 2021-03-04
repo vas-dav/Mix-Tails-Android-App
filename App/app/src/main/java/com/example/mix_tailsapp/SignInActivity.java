@@ -42,7 +42,7 @@ public class SignInActivity extends AppCompatActivity {
         SharedPreferences.Editor tempEditor =  tempStoragePut.edit();
         if(permStorageGet.getString(SignupActivity.EXTRA_EMAIL, "null").equals(email.getText().toString())){
             //email is correct, now checking the password
-            if(permStorageGet.getString(SignupActivity.EXTRA_PASS, "null").equals(password.getText().toString())){
+            if(permStorageGet.getString(SignupActivity.EXTRA_PASS, "null").equals(passDeCoder.CrToBiWL(passDeCoder.hLtoS(passDeCoder.hPSCD(password.getText().toString()))))){
                 tempEditor.putBoolean(SIGNED, true);
                 if(tempEditor.commit()){
                     startActivity(loginSuccess);
