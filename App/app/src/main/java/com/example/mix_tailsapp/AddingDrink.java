@@ -8,8 +8,10 @@ package com.example.mix_tailsapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -22,8 +24,9 @@ import android.widget.PopupMenu;
 public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess plusDB;
-    public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients ;
+    public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients;
     private Button sendDrink; // ALSO ADD GO-BACK BUTTON please :)
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class AddingDrink extends AppCompatActivity {
 
         plusDB = new DatabaseAccess(this);
 
+
         editName = (EditText) findViewById(R.id.editName);
         editSpirit = (EditText) findViewById(R.id.editSpirit);
         editTaste = (EditText) findViewById(R.id.editTaste);
@@ -42,24 +46,28 @@ public class AddingDrink extends AppCompatActivity {
         editIngredients = (EditText) findViewById(R.id.editIngredients);
         sendDrink = (Button) findViewById(R.id.add);
         AddData();
-        drinksAccess.close();
+
 
         //Button add drink onClickListener
         sendDrink = findViewById(R.id.sendDrink);
+        sendDrink.setOnClickListener(v -> AddData());
     }
-            public void AddData() {
-            sendDrink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    new Handler().postDelayed(() -> {
-                        setContentView(R.layout.activity_add_drink_confirmation);
-                        Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-                        startActivity(launchApp);
-                }, 2000);
-            }
-        });
+    public void AddData() {
 
-
+        plusDB.open();
+        Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+        if (plusDB.insertDrink(editName.getText().toString(),
+                editSpirit.getText().toString(),
+                editTaste.getText().toString(),
+                editSize.getText().toString(),
+                editStrength.getText().toString(),
+                editIngredients.getText().toString()
+        )) {
+            plusDB.close();
+            startActivity(addDrink);
+        }
     }
 }
+
+

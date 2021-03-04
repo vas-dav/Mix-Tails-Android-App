@@ -39,7 +39,9 @@ public class DatabaseAccess {
         if (db != null) {
             this.db.close();
         }
+
     }
+
 
     // DO NOT TOUCH!!! PLEASE!!!
     // method to query and returning a result from database from drink name limited to 1
@@ -91,6 +93,15 @@ public class DatabaseAccess {
 
         return buffer.toString();
     }
+
+    public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
+        boolean executed = false;
+        String query = "INSERT INTO " + db + " VALUES (?, ?, ?, ?, ?, ?)";
+        db.execSQL(query, new String[]{editName, editSpirit, editTaste, editSize, editStrength, editIngredients});
+        executed = true;
+        return executed;
+    }
+
 
 }
 
