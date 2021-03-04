@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--question spinner strings-->
+    <string-array name="spirits">
+        <item>Non-alcoholic</item>
+        <item>Rum</item>
+        <item>Vodka</item>
+        <item>Gin</item>
+        <item>Whiskey</item>
+        <item>Bourbon</item>
+    </string-array>
+
+    <string-array name="taste">
+        <item>Salty</item>
+        <item>Sweet</item>
+        <item>Sour</item>
+        <item>Bitter</item>
+        <item>Bitter sweet</item>
+    </string-array>
+
+    <string-array name="size">
+        <item>Short</item>
+        <item>Long</item>
+        <item>Shot</item>
+    </string-array>
+
+    <string-array name="strength">
+        <item>Easy</item>
+        <item>Mid</item>
+        <item>Strong</item>
+    </string-array>
+
+    <!--string array for orientation settings in settings activity-->
+    <string-array name="orientation_name">
+        <item>Auto</item>
+        <item>Portrait</item>
+        <item>Landscape</item>
+    </string-array>
+
+    <string-array name="orientation_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+</resources>

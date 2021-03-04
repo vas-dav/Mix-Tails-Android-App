@@ -23,38 +23,6 @@
     <string name="log_out">Log Out</string>
     <string name="signup_confirmation_message">You have successfully signed up.</string>
     <string name="exploreBtn">Explore </string>
-
-
-    <!--question spinner strings-->
-    <string-array name="spirits">
-        <item>Non-alcoholic</item>
-        <item>Rum</item>
-        <item>Vodka</item>
-        <item>Gin</item>
-        <item>Whiskey</item>
-        <item>Bourbon</item>
-    </string-array>
-
-    <string-array name="taste">
-        <item>Salty</item>
-        <item>Sweet</item>
-        <item>Sour</item>
-        <item>Bitter</item>
-        <item>Bitter sweet</item>
-    </string-array>
-
-    <string-array name="size">
-        <item>Short</item>
-        <item>Long</item>
-        <item>Shot</item>
-    </string-array>
-
-    <string-array name="strength">
-        <item>Easy</item>
-        <item>Mid</item>
-        <item>Strong</item>
-    </string-array>
-
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -94,11 +62,6 @@
     <string name="add_a_new_drink">Add a new drink</string>
     <string name="ingredients">Ingredients</string>
     
-    <!--string array for list preference in settings activity-->
-    <string-array name="list">
-        <item>Item one</item>
-        <item>Item two</item>
-        <item>Item three</item>
-    </string-array>
+
 
 </resources>
