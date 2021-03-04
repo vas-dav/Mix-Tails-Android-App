@@ -65,7 +65,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //binds the Adapter to listView
         //listView.setAdapter(adapter);
 
-        // SearchView onQueryTextListener
+        /**
+         * SearchView onQueryTextListener
+         */
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -88,7 +91,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
 
-        //Initiate ImageBtn menu with its id
+        /**
+         *  Initiate ImageBtn menu with its id and create a pop-up menu inside it
+         */
+
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +141,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 popupMenu.show();
             }
         });
-        //When the surprise drink Image(top right in recommendation page) Button clicked
+        /**
+         * When the surprise drink Image(top right in recommendation page) Button clicked
+         */
+
         surpriseDrink = findViewById(R.id.imageButton);
         surpriseDrink.setOnClickListener(v -> {
             Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,

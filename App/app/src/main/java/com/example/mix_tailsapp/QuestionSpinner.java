@@ -25,7 +25,9 @@ public class QuestionSpinner extends AppCompatActivity {
     String[] strength = {"Choose-one", "Soft", "Light", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
 
-    //Keys for intending to move data from this activity to others
+    /**
+     * Keys for intending to move data from this activity to others
+     */
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String CHOICE_KEY = "AFOIEHGUAHUwgirbUGIHuiwHI";
     protected static final String INGS_KEY = "BLACKJACKANDOTHERCUTEGAMESAREFINEWITHBATMAN";
@@ -37,7 +39,9 @@ public class QuestionSpinner extends AppCompatActivity {
         findViewById(R.id.surprise).setOnClickListener(onClickListener);
         findViewById(R.id.send).setOnClickListener(onClickListener);
 
-        // All drop down sources(4) for questions connected to the arrays above ^^^
+        /**
+         * All drop down sources(4) for questions connected to the arrays above ^^^
+         */
         Spinner mySpirits = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, spirits);
@@ -69,8 +73,11 @@ public class QuestionSpinner extends AppCompatActivity {
 
     }
 
-    // Classes of each adapter corresponding to all(4) drop down list items
-    // with the option of returning null if "Choose-one" input is chosen
+    /**
+     *  Classes of each adapter corresponding to all(4) drop down list items
+     *    with the option of returning null if "Choose-one" input is chosen
+     */
+
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             spiritsChoice = spirits[position];
@@ -109,7 +116,10 @@ public class QuestionSpinner extends AppCompatActivity {
         }
     }
 
-    //A function for two separated buttons [Surprise Me!] & [Let's Drink!]
+    /**
+     *  A function for two separated buttons [Surprise Me!] & [Let's Drink!]
+     */
+
     private View.OnClickListener onClickListener = view -> {
         Intent chosenDrink = new Intent(QuestionSpinner.this, ChosenDrinkSecondActivity.class);
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());

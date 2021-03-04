@@ -30,7 +30,10 @@ public class AddingDrink extends AppCompatActivity {
     private ImageButton goBack;
 
 
-     //an onClickListener function to decide what happen when the button binding with its id is clicked
+    /**
+     * an onClickListener function to decide what happen when the button binding with its id is clicked
+     */
+
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

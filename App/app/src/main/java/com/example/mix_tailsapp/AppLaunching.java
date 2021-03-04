@@ -27,9 +27,12 @@ public class AppLaunching extends AppCompatActivity {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_app_launching);
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
-        // App launching page with delay
+        /**
+         * App launching page with delay
+         * Deciding which activity to open depending on the signed boolean
+         */
+
         new Handler().postDelayed(() -> {
-            //Deciding which activity to open depending on the signed boolean
             if(tempStorageGet.getBoolean(SignInActivity.SIGNED, false)){
                 Intent signedLaunch = new Intent(AppLaunching.this, AppWelcomeScreen.class);
                 startActivity(signedLaunch);
