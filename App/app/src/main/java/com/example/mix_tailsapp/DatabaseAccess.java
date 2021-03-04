@@ -64,7 +64,12 @@ public class DatabaseAccess {
 
         return getName;
     }
-    // method to query and returning a similar result without strength from database from drink name limited to 1
+
+    /**
+     * create getSimilarDrink method to query and returning a similar result without strength from
+     * database from drink name limited to 1
+     */
+
     public String getSimilarDrinkwOstr(String inputSpirit, String inputTaste, String inputSize) {
         String getName = null;
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
@@ -79,7 +84,11 @@ public class DatabaseAccess {
 
         return getName;
     }
-    // method to query and returning a similar result without size from database from drink name limited to 1
+
+    /**
+     *  method to query and returning a similar result without size from database from drink name limited to 1
+     */
+
     public String getSimilarDrinkwOsize(String inputSpirit, String inputTaste, String inputStrength) {
         String getName = null;
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
@@ -95,7 +104,11 @@ public class DatabaseAccess {
 
         return getName;
     }
-    // method to query and returning a similar result without taste from database from drink name limited to 1
+
+    /**
+     * method to query and returning a similar result without taste from database from drink name limited to 1
+     */
+
     public String getSimilarDrinkwOtaste(String inputSpirit, String inputSize, String inputStrength) {
         String getName = null;
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
@@ -148,7 +161,10 @@ public class DatabaseAccess {
 
         return buffer.toString();
     }
-    // Method for getting ingredients of a drink only with a name (NOT TESTED)
+    /**
+     * Method for getting ingredients of a drink only with a name (NOT TESTED)
+     */
+
     public String getDrinkIngs2(String inputName) {
         String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
         ingCurs = db.rawQuery(query, null);
