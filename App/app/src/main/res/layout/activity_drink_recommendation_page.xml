@@ -262,7 +262,7 @@
                         app:layout_constraintStart_toStartOf="@+id/drinkFrame3"
                         app:layout_constraintTop_toTopOf="@+id/drinkFrame3"
                         app:layout_constraintVertical_bias="0.068"
-                        app:srcCompat="@drawable/gin__1_" />
+                        app:srcCompat="@drawable/cocktail" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
