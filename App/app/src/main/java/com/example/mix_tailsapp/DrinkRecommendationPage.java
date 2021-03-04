@@ -121,7 +121,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                                 break;
                             case R.id.settings:
                                 Intent settings = new Intent(DrinkRecommendationPage.this,
-                                        SettingsActivity.class);
+                                        Settings.class);
                                 startActivity(settings);
                                 break;
                             case R.id.signout:
