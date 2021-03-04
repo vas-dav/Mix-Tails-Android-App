@@ -5,6 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * authors: Vasily, Miguel
+ * This class is intended for accessing the drink database
+ */
 
 
 public class DatabaseAccess {

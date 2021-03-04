@@ -11,7 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
+/**
+ * authors: Vasily, Miguel
+ * a class for the spinner to ask user's preferences from a multiple choice questions range and
+ * from that deciding what drinks suit the user's need
+ */
 public class QuestionSpinner extends AppCompatActivity {
 
     //Declaring String arrays and Strings for Spinners for algorithm to use them
