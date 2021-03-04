@@ -27,7 +27,10 @@ public class AppWelcomeScreen extends AppCompatActivity {
     private SharedPreferences tempStoragePut, permStorageGet;
     TextView welcomeText;
 
-    //create an onClick listener when the buttons are clicked
+    /**
+     * create an onClick listener when the buttons are clicked
+     */
+
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -57,6 +60,10 @@ public class AppWelcomeScreen extends AppCompatActivity {
         }
     };
 
+    /**
+     * Initiate and calling the onClick methods
+      * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

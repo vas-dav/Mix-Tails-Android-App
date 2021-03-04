@@ -46,7 +46,10 @@ public class DatabaseAccess {
     }
 
     // DO NOT TOUCH!!! PLEASE!!!
-    // method to query and returning a result from database from drink name limited to 1
+    /**
+     * method to query and returning a result from database from drink name limited to 1
+     */
+
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste
@@ -65,7 +68,10 @@ public class DatabaseAccess {
         return buffer.toString();
     }
 
-    // Method for getting a random drink from a Database
+    /**
+     * Method for getting a random drink from a Database
+     */
+
     public String getRandom() {
         int count = 0;
         c = db.rawQuery("SELECT * FROM cocktails", null);
@@ -77,7 +83,10 @@ public class DatabaseAccess {
         return getRandName;
     }
 
-    // Method for getting ingredients of a drink
+    /**
+     * Method for getting ingredients of a drink
+     */
+
     public String getDrinkIngs(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
         String query = "SELECT * FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste

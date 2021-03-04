@@ -20,7 +20,9 @@ public class SignupConfirmationScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup__confirmation_screen);
 
-        //A function for returning back on the mainMenu
+        /**
+         * A function for returning back on the mainMenu
+         */
 
         new Handler().postDelayed(() -> {
             Intent launchApp = new Intent(SignupConfirmationScreen.this, AppWelcomeScreen.class);
