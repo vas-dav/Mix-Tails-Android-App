@@ -23,8 +23,26 @@ public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess plusDB;
     public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients ;
-    private Button sendDrink; // ALSO ADD GO-BACK BUTTON please :)
+    private Button sendDrink;
+    private ImageButton goBack;
 
+    //clickListener
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (v == sendDrink) {
+                new Handler().postDelayed(() -> {
+                    setContentView(R.layout.activity_add_drink_confirmation);
+                    Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+                    startActivity(launchApp);
+                }, 2000);
+            }
+            if (v == goBack) {
+                Intent back = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+                startActivity(back);
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,25 +58,15 @@ public class AddingDrink extends AppCompatActivity {
         editSize = (EditText) findViewById(R.id.editSize);
         editStrength = (EditText) findViewById(R.id.editStrength);
         editIngredients = (EditText) findViewById(R.id.editIngredients);
-        sendDrink = (Button) findViewById(R.id.add);
-        AddData();
-        drinksAccess.close();
+
 
         //Button add drink onClickListener
-        sendDrink = findViewById(R.id.sendDrink);
-    }
-            public void AddData() {
-            sendDrink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    new Handler().postDelayed(() -> {
-                        setContentView(R.layout.activity_add_drink_confirmation);
-                        Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-                        startActivity(launchApp);
-                }, 2000);
-            }
-        });
+        sendDrink = (Button) findViewById(R.id.sendDrink);
+        goBack = (ImageButton) findViewById(R.id.gobackBtn);
+        goBack.setOnClickListener(clickListener);
+        sendDrink.setOnClickListener(clickListener);
 
-
+        drinksAccess.close();
     }
+
 }

@@ -114,10 +114,23 @@
                         tools:ignore="MissingConstraints" />
 
                     <ImageView
+                        android:id="@+id/favorite"
+                        android:layout_width="52dp"
+                        android:layout_height="39dp"
+                        android:src="@drawable/ic_baseline_favorite_border_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
+                        app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/drinkFrame"
+                        app:layout_constraintTop_toTopOf="@+id/drinkFrame"
+                        app:layout_constraintVertical_bias="0.011"
+                        app:tint="@color/carrot2" />
+
+                    <ImageView
                         android:id="@+id/whiskey"
                         android:layout_width="85dp"
                         android:layout_height="75dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="20dp"
                         android:contentDescription="@string/imgViewContentDescription"
                         app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
                         app:layout_constraintHorizontal_bias="0.507"

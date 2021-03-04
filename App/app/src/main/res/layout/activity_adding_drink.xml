@@ -7,6 +7,20 @@
     android:background="@drawable/signup_background"
     tools:context=".AddingDrink">
 
+    <ImageButton
+        android:id="@+id/gobackBtn"
+        android:layout_width="43dp"
+        android:layout_height="39dp"
+        android:background="@color/background_color"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:tint="@color/text_color"
+        app:layout_constraintBottom_toTopOf="@+id/bubbles2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461" />
+
     <ImageView
         android:id="@+id/bubbles2"
         android:layout_width="95dp"

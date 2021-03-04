@@ -9,8 +9,7 @@
         android:roundIcon="@drawable/new_logo_1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".AddingDrink"
-            android:parentActivityName=".DrinkRecommendationPage"></activity>
+        <activity android:name=".AddingDrink"></activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".DrinkDetail" />
         <activity android:name=".SignInActivity" />

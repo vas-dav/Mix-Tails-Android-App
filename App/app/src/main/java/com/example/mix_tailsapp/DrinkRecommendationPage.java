@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -25,13 +26,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
-    private ImageButton menuBtn, surpriseDrink, favoriteBtn;
+    private ImageButton menuBtn, surpriseDrink;
+    private ImageView favoriteBtn;
     private SharedPreferences tempStorageGet;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
@@ -54,6 +55,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         searchView = (SearchView) findViewById(R.id.searchView);
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         fuelBar = (ProgressBar) findViewById(R.id.fuelBar);
+        favoriteBtn = (ImageView) findViewById(R.id.favBtn);
+
 
         // Pass the cocktail list to ListViewAdapter Class
         ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
