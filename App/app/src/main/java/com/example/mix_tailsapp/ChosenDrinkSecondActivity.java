@@ -26,8 +26,10 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
     private ImageButton goBack;
     private Button ingredients, saveDrink;
 
-    // Intents for Surprise me button and lets drink button generator
-    // in the questionnaire after or when logged in.
+    /**
+     * Intents for Surprise me button and lets drink button generator
+     * in the questionnaire after or when logged in.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

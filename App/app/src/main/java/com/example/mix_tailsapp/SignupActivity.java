@@ -48,7 +48,10 @@ public class SignupActivity extends AppCompatActivity {
         confirm.setOnClickListener(v -> formSubmitted());
     }
 
-    //Create a method for form submitted confirmation and saving userData to sharedPreferences
+    /**
+     * Create a method for form submitted confirmation and saving userData to sharedPreferences
+     */
+
     @SuppressLint("ResourceAsColor")
     public void formSubmitted() {
         Intent conf = new Intent(SignupActivity.this, SignupConfirmationScreen.class);
