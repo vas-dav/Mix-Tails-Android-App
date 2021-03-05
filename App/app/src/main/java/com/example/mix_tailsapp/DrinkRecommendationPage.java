@@ -42,6 +42,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     int progress = 0;
     ProgressBar fuelBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +118,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                             Intent addDrink = new Intent(DrinkRecommendationPage.this, AddingDrink.class);
                             startActivity(addDrink);
                             break;
+                        case R.id.favorite:
+                            Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoriteDrinks.class);
+                            startActivity(toFavoriteList);
                         case R.id.settings:
                             Intent settings = new Intent(DrinkRecommendationPage.this,
                                     Settings.class);

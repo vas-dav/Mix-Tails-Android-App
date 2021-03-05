@@ -1,13 +1,16 @@
 package com.example.mix_tailsapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * authors: Vasily, Miguel
- * This class is intended for accessing the drink database
+ * This class is intended for accessing and inserting the drink database
  */
 
 
@@ -18,6 +21,7 @@ public class DatabaseAccess {
     private static DatabaseAccess instance;
     Cursor c = null;
     Cursor ingCurs = null;
+    Cursor recom = null;
 
     public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
@@ -188,7 +192,69 @@ public class DatabaseAccess {
         return executed;
     }
 
+    public boolean addFavorite(ContentValues contentValues) {
+        long executed = 0;
+        boolean done = false;
+        executed = db.insertOrThrow("favorites", null, contentValues);
+        if (executed != -1){
+            done = true;
+        } else {
+            done = false;
+        }
+        return done;
 
+
+    }
+
+// Getting an ArrayList of all favourite Drinks
+public ArrayList<String> getFavs(){
+    String query = "SELECT name FROM cocktails WHERE favs = 1";
+    ingCurs = db.rawQuery(query, null);
+    ArrayList<String> favList = new ArrayList<String>();
+    if (ingCurs.moveToFirst()) {
+        do {
+            String getFavs = ingCurs.getString(1);
+            favList.add(getFavs);
+
+        } while (ingCurs.moveToNext());
+    }
+
+    return (favList);
+}
+
+//Method for adding a favourite drink or setting it back to not favourite
+public boolean setOrResetHeartDrink(int setValue, String inputName){
+        boolean result;
+        String query = "UPDATE cocktails SET favs = "
+                + setValue + " WHERE name LIKE '" + inputName + "%'";
+        if((setValue != 1 || setValue != 0)){
+            result = false;
+        } else {
+            db.execSQL(query);
+            result = true;
+        }
+        return result;
+}
+    //Method for getting a list of Recommended Drinks
+    public ArrayList<String> getRecom(){
+        ArrayList<String> recomList = new ArrayList<String>();
+        int count = 0;
+        String selectAll = "SELECT name FROM cocktails";
+        recom = db.rawQuery(selectAll, null);
+        if (recom.moveToLast()) {
+            count = recom.getCount();
+        }
+        for(int i = 0; i < 8; i++){
+            recom.moveToPosition((int) (Math.random() * count));
+            recomList.add(recom.getString(1));
+            //Changing the drink if random output gave to similar Drinks
+            if(recomList.contains(recomList.get(i))){
+                recom.moveToPosition((int) (Math.random() * count));
+                recomList.add(i, recom.getString(1));
+            }
+        }
+        return (recomList);
+    }
 }
 
 

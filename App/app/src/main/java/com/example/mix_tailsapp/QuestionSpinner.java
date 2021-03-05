@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 /**
  * authors: Vasily, Miguel
- * a class for the spinner to ask user's preferences from a multiple choice questions range and
+ * an activity for the spinner to ask user's preferences from a multiple choice questions range and
  * from that deciding what drinks suit the user's need
  */
 public class QuestionSpinner extends AppCompatActivity {
@@ -169,9 +169,6 @@ public class QuestionSpinner extends AppCompatActivity {
                 String similarWithOutTaste = drinksAccess.getSimilarDrinkwOtaste(spiritsChoice, sizeChoice, strengthChoice);
                 ings = drinksAccess.getDrinkIngs2(similarWithOutTaste);
 
-                Log.d("DrinkSize", similarWithOutSize + " without input size");
-                Log.d("DrinkStr", similarWithOutStr + " without input strength");
-                Log.d("DrinkTaste", similarWithOutTaste + " without input taste");
 
                 if(similarWithOutStr != null){
 

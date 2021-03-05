@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 /**
  * authors: Vasily
- * a class to decide what happen in the log in activity
+ * an activity to decide what happen in the log in action
  */
 public class SignInActivity extends AppCompatActivity {
 
@@ -37,6 +37,10 @@ public class SignInActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * submit the logIn form method
+     */
     public void loginSubmit(){
         Log.d("LogIn", "Clicked");
         Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);
