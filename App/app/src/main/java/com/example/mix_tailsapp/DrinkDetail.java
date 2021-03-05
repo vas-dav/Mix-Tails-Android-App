@@ -17,6 +17,10 @@ public class DrinkDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_detail);
 
+        String drinkName = getIntent().getStringExtra(ChosenDrinkSecondActivity.NAME_KEY);
+        String dettails = getIntent().getStringExtra(ChosenDrinkSecondActivity.DETAIL_KEY);
+
+
 
     }
 }
