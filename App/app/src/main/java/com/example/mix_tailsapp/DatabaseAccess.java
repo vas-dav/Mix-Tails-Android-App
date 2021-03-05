@@ -43,7 +43,9 @@ public class DatabaseAccess {
         if (db != null) {
             this.db.close();
         }
+
     }
+
 
     // DO NOT TOUCH!!! PLEASE!!!
     /**
@@ -166,19 +168,26 @@ public class DatabaseAccess {
      */
 
     public String getDrinkIngs2(String inputName) {
+        String getIngs = null;
         String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
         ingCurs = db.rawQuery(query, null);
         StringBuffer buffer = new StringBuffer();
         if (ingCurs.moveToFirst()) {
-            do {
-                String getIngs = ingCurs.getString(6);
-                buffer.append(getIngs);
+                getIngs = ingCurs.getString(6);
 
-            } while (ingCurs.moveToNext());
         }
 
-        return buffer.toString();
+        return getIngs;
     }
+
+    public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
+        boolean executed = false;
+        String query = "INSERT INTO " + db + " VALUES (?, ?, ?, ?, ?, ?)";
+        db.execSQL(query, new String[]{editName, editSpirit, editTaste, editSize, editStrength, editIngredients});
+        executed = true;
+        return executed;
+    }
+
 
 }
 
