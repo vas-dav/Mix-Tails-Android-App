@@ -10,6 +10,11 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.widget.Toolbar;
 
+/**
+ * Created on 04/03/2021
+ * author: An Huynh
+ * A Settings activity for user to edit username and change the app orientation
+ */
 @SuppressWarnings("ALL")
 public class Settings extends PreferenceActivity {
 
@@ -24,8 +29,6 @@ public class Settings extends PreferenceActivity {
     private void Load_setting() {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-
 
         ListPreference listPreference = (ListPreference) findPreference("ORIENTATION");
 
