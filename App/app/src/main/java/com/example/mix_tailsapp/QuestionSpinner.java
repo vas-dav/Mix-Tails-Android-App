@@ -148,6 +148,7 @@ public class QuestionSpinner extends AppCompatActivity {
                 String similarWithOutSize = drinksAccess.getSimilarDrinkwOsize(spiritsChoice, tasteChoice, strengthChoice);
                 //Testing same choice, but without taste input
                 String similarWithOutTaste = drinksAccess.getSimilarDrinkwOtaste(spiritsChoice, sizeChoice, strengthChoice);
+
                 Log.d("DrinkSize", similarWithOutSize + " without input size");
                 Log.d("DrinkStr", similarWithOutStr + " without input strength");
                 Log.d("DrinkTaste", similarWithOutTaste + " without input taste");
