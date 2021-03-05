@@ -42,6 +42,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     int progress = 0;
     ProgressBar fuelBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

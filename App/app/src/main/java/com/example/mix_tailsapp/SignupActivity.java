@@ -1,16 +1,15 @@
 package com.example.mix_tailsapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.mix_tailsapp.R.color.red;
 
@@ -72,8 +71,6 @@ public class SignupActivity extends AppCompatActivity {
         //Checking if passwords match
 
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
-            //Log.d("Passcode", password.getText().toString());
-            //Log.d("Hashed-Pass", hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
             permPrefEditor.putString(EXTRA_PASS, hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
             prefEditor.putBoolean(SIGNED, true);
             if (prefEditor.commit() && permPrefEditor.commit()) {

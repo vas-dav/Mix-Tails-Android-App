@@ -1,21 +1,16 @@
 package com.example.mix_tailsapp;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 /**
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
@@ -27,9 +22,10 @@ import android.widget.PopupMenu;
 public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess plusDB;
-    public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients ;
+    public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients;
     private Button sendDrink;
     private ImageButton goBack;
+
 
 
     /**
@@ -75,9 +71,24 @@ public class AddingDrink extends AppCompatActivity {
         sendDrink = (Button) findViewById(R.id.sendDrink);
         goBack = (ImageButton) findViewById(R.id.gobackBtn);
         goBack.setOnClickListener(clickListener);
-        sendDrink.setOnClickListener(clickListener);
+        sendDrink.setOnClickListener(v -> AddData());
 
-        drinksAccess.close();
+
     }
+    // Function for adding new drinks to (Drinks.db)
+    public void AddData() {
 
+        plusDB.open();
+        Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+        if (plusDB.insertDrink(editName.getText().toString(),
+                editSpirit.getText().toString(),
+                editTaste.getText().toString(),
+                editSize.getText().toString(),
+                editStrength.getText().toString(),
+                editIngredients.getText().toString()
+        )) {
+            plusDB.close();
+            startActivity(addDrink);
+        }
+    }
 }

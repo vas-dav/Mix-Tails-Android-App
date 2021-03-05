@@ -1,5 +1,6 @@
 package com.example.mix_tailsapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * authors: Vasily, Miguel
- * This class is intended for accessing the drink database
+ * This class is intended for accessing and inserting the drink database
  */
 
 
@@ -188,7 +189,22 @@ public class DatabaseAccess {
         return executed;
     }
 
- public
+    public boolean addFavorite(ContentValues contentValues) {
+        long executed = 0;
+        boolean done = false;
+        executed = db.insertOrThrow("favorites", null, contentValues);
+        if (executed != -1){
+            done = true;
+        } else {
+            done = false;
+        }
+        return done;
+
+
+    }
+
+
+
 }
 
 
