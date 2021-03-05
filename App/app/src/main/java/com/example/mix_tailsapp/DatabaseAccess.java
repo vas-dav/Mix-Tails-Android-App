@@ -1,5 +1,6 @@
 package com.example.mix_tailsapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -187,6 +188,21 @@ public class DatabaseAccess {
         executed = true;
         return executed;
     }
+
+    public boolean addFavorite(ContentValues contentValues) {
+        long executed = 0;
+        boolean done = false;
+        executed = db.insertOrThrow("favorites", null, contentValues);
+        if (executed != -1){
+            done = true;
+        } else {
+            done = false;
+        }
+        return done;
+
+
+    }
+
 
 
 }
