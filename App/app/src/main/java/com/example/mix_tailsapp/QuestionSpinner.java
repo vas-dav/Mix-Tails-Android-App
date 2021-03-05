@@ -169,9 +169,6 @@ public class QuestionSpinner extends AppCompatActivity {
                 String similarWithOutTaste = drinksAccess.getSimilarDrinkwOtaste(spiritsChoice, sizeChoice, strengthChoice);
                 ings = drinksAccess.getDrinkIngs2(similarWithOutTaste);
 
-                Log.d("DrinkSize", similarWithOutSize + " without input size");
-                Log.d("DrinkStr", similarWithOutStr + " without input strength");
-                Log.d("DrinkTaste", similarWithOutTaste + " without input taste");
 
                 if(similarWithOutStr != null){
 
