@@ -24,6 +24,7 @@ public class QuestionSpinner extends AppCompatActivity {
     String[] size = {"Choose-one", "S", "M", "L"};
     String[] strength = {"Choose-one", "Soft", "Light", "Strong"};
     String spiritsChoice, tasteChoice, sizeChoice, strengthChoice;
+    String ings;
 
     /**
      * Keys for intending to move data from this activity to others
@@ -141,11 +142,14 @@ public class QuestionSpinner extends AppCompatActivity {
         //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
             String i = drinksAccess.getRandom();
+            ings = drinksAccess.getDrinkIngs2(i);
             chosenDrink.putExtra(SURPRISE_KEY, i);
+            chosenDrink.putExtra(INGS_KEY, ings);
+
         } else {
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
-            String ings = drinksAccess.getDrinkIngs(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
+            ings = drinksAccess.getDrinkIngs2(total);
             //Log.d("DRINKS&INGS", total + ": \n" + ings);
 
             Log.d("DrinkEmpty", total + " error");
@@ -157,10 +161,13 @@ public class QuestionSpinner extends AppCompatActivity {
             }else {
                 //Testing same choice, but without strength input
                 String similarWithOutStr = drinksAccess.getSimilarDrinkwOstr(spiritsChoice, tasteChoice, sizeChoice);
+                ings = drinksAccess.getDrinkIngs2(similarWithOutStr);
                 //Testing same choice, but without size input
                 String similarWithOutSize = drinksAccess.getSimilarDrinkwOsize(spiritsChoice, tasteChoice, strengthChoice);
+                ings = drinksAccess.getDrinkIngs2(similarWithOutSize);
                 //Testing same choice, but without taste input
                 String similarWithOutTaste = drinksAccess.getSimilarDrinkwOtaste(spiritsChoice, sizeChoice, strengthChoice);
+                ings = drinksAccess.getDrinkIngs2(similarWithOutTaste);
 
                 Log.d("DrinkSize", similarWithOutSize + " without input size");
                 Log.d("DrinkStr", similarWithOutStr + " without input strength");
@@ -169,15 +176,18 @@ public class QuestionSpinner extends AppCompatActivity {
                 if(similarWithOutStr != null){
 
                     chosenDrink.putExtra(CHOICE_KEY, similarWithOutStr);
+                    chosenDrink.putExtra(INGS_KEY, ings);
 
                 } else if(similarWithOutSize != null){
 
                     chosenDrink.putExtra(CHOICE_KEY, similarWithOutSize);
+                    chosenDrink.putExtra(INGS_KEY, ings);
 
                 }
                 else if(similarWithOutTaste != null){
 
                     chosenDrink.putExtra(CHOICE_KEY, similarWithOutTaste);
+                    chosenDrink.putExtra(INGS_KEY, ings);
 
                 }else {
 

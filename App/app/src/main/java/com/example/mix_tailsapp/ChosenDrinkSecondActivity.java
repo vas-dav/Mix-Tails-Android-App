@@ -25,6 +25,8 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
     TextView drinkOfYourChoice;
     private ImageButton goBack;
     private Button ingredients, saveDrink;
+    protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
+    protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
 
     /**
      * Intents for Surprise me button and lets drink button generator
@@ -42,6 +44,9 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         ingredients = findViewById(R.id.ingredientBtn);
         saveDrink = findViewById(R.id.saveDrinkBtn);
 
+        String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
+        String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
+        String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
         //--------------------------------------------
         //---> IMPORTANT! DO NOT DO THE FUNCTIONALITY
         //---> OF BUTTONS. WE HAVEN'T MADE A SPECIAL
@@ -52,16 +57,16 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         //So, if signed returns true -> "Save Drink and Go back", otherwise just "Go back"
         //The "Show ingredients" Will appear in both cases
 
-        //-----------------------------------------
-        //---> "Show Ingredients" should go here
-        //-----------------------------------------
+
 
             // When using the surprise me button
-        if (getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY) != null) {
-            drinkOfYourChoice.setText(getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY));
+        if (surprise != null) {
+            drinkOfYourChoice.setText(surprise);
+            ingredients.setOnClickListener(v -> showIngs(surprise, drinkIngredients));
         } else {
             // When using the lets drink button
-            drinkOfYourChoice.setText(getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY));
+            drinkOfYourChoice.setText(choice);
+            ingredients.setOnClickListener(v -> showIngs(choice, drinkIngredients));
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
@@ -82,14 +87,24 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
                  */
         } else {
-            /*
-            //---> "Go Back" should go Here
+
             goBack.setOnClickListener(v -> {
                 Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
                 startActivity(backToHome);
             });
 
-             */
+
         }
     }
+
+
+    private void showIngs(String input, String i) {
+        Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
+        DrinkDetails.putExtra(DETAIL_KEY, i);
+        DrinkDetails.putExtra(NAME_KEY, input);
+        startActivity(DrinkDetails);
+
+    }
+
+
 }
