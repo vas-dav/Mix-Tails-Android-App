@@ -8,13 +8,13 @@ package com.example.mix_tailsapp;
  * version 2: using SharedPreference to open activity based on the signed boolean
  */
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AppLaunching extends AppCompatActivity {
     private SharedPreferences tempStorageGet;
