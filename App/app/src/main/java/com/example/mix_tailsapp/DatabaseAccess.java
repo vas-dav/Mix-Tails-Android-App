@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * authors: Vasily, Miguel
- * This class is intended for accessing the drink database
+ * This class is intended for accessing and inserting the drink database
  */
 
 

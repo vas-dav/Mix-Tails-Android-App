@@ -2,13 +2,12 @@ package com.example.mix_tailsapp;
 /**
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
- * This class is used to show drink detail
+ * This class is used to show drink ingredients
  */
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DrinkDetail extends AppCompatActivity {
 
