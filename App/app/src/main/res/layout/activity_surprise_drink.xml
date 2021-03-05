@@ -98,7 +98,7 @@
         android:layout_gravity="start"
         android:background="@drawable/rounded_btn"
         android:backgroundTint="@color/main2"
-        android:enabled="false"
+        android:enabled="true"
         android:fontFamily="@font/roboto_black"
         android:text="See ingredients"
         android:textColor="#ffecd4"
