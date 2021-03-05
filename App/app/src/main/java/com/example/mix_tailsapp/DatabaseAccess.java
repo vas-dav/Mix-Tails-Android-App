@@ -93,7 +93,7 @@ public class DatabaseAccess {
 
         return buffer.toString();
     }
-
+    // Method for adding new drinks to Drinks.db(database)
     public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
         boolean executed = false;
         String query = "INSERT INTO " + db + " VALUES (?, ?, ?, ?, ?, ?)";
