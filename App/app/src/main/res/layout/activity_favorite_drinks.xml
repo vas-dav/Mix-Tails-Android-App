@@ -2,53 +2,41 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp">
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/DrinkImage1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/DrinkName1"
-                android:text="@string/drinkName1"
-                android:textStyle="bold"
-                android:textColor="@color/main2"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:orientation="vertical">
 
 
-
-            <TextView
-                    android:id="@+id/DrinkDetail1"
-                    android:text="@string/ingredients"
-                    android:textColor="@color/text_color2"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_weight="6"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/DrinkImage1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cocktail" />
 
 
+    <TextView
+        android:id="@+id/DrinkName1"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start"
+        android:layout_marginStart="120dp"
+        android:text="@string/drinkName1"
+        android:textColor="@color/main2"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-    </LinearLayout>
 
+    <Button
+        android:id="@+id/favBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center|end"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_baseline_favorite_24"
+        android:backgroundTint="@color/main2" />
 
 
 </androidx.cardview.widget.CardView>
