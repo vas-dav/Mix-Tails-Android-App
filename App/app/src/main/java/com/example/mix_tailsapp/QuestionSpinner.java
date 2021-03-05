@@ -76,6 +76,7 @@ public class QuestionSpinner extends AppCompatActivity {
     /**
      *  Classes of each adapter corresponding to all(4) drop down list items
      *    with the option of returning null if "Choose-one" input is chosen
+     *    for spirit choice
      */
 
     class spiritSpinnerClass implements AdapterView.OnItemSelectedListener {
@@ -88,6 +89,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * a class for spinner to choose taste from user choosing one option
+     */
     class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             tasteChoice = taste[position];
@@ -97,6 +102,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * a class for spinner to choose size from user choosing one option
+     */
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             sizeChoice = size[position];
@@ -106,6 +115,10 @@ public class QuestionSpinner extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * a class for spinner to choose the strength from user choosing one option
+     */
     class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             strengthChoice = strength[position];

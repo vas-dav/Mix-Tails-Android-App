@@ -41,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
         Log.d("LogIn", "Clicked");
         Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);
         /**
-         * Retrieving data from PERMMEM and putting data on TEMPMEM
+         * Retrieving data from PERM and putting data on TEMP
          */
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);

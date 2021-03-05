@@ -16,7 +16,7 @@ import static com.example.mix_tailsapp.R.color.red;
 
 /**
  * author: Vasily
- * a class to decide what happen in the sign up activity
+ * Lets the user sign up to the app and prompt the user's basic infomation
  */
 public class SignupActivity extends AppCompatActivity {
     //Declaring keys for sharedPreferences
