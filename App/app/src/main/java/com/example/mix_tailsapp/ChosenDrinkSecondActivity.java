@@ -12,6 +12,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * authors: Vasily, Miguel, Annie
+ * A class for choosing drinks from user's choice of preferred ingredients or surprise drink
+ * version 1: instantiate variables and get sharePreferences
+ * version 2: adding buttons for getting ingredients, save drinks and going back
+ */
 
 
 public class ChosenDrinkSecondActivity extends AppCompatActivity {
@@ -20,13 +26,16 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
     private ImageButton goBack;
     private Button ingredients, saveDrink;
 
-    // Intents for Surprise me button and lets drink button generator
-    // in the questionnaire after or when logged in.
+    /**
+     * Intents for Surprise me button and lets drink button generator
+     * in the questionnaire after or when logged in.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surprise_drink);
         SharedPreferences tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+
         //Initiate variables
         drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
         goBack = findViewById(R.id.gobackBtn);

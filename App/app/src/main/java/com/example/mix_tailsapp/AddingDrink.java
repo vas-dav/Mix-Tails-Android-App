@@ -1,9 +1,5 @@
 package com.example.mix_tailsapp;
-/**
- * Created by Annie on 02/03/2021
- * authors Annie, Miguel, Vasily
- * This is the activity for user adding a new drink
- */
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.widget.PopupMenu;
+/**
+ * Created by Annie on 02/03/2021
+ * authors Annie, Miguel, Vasily
+ * This is the activity for user adding a new drink
+ * version 1: creating java class, declare and instantiate variables
+ * version 2: writing onClickListener method
+ * version 3: adding drink database to the class by calling
+ */
 public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess plusDB;
@@ -22,7 +24,11 @@ public class AddingDrink extends AppCompatActivity {
     private Button sendDrink;
     private ImageButton goBack;
 
-    //clickListener
+
+    /**
+     * an onClickListener function to decide what happen when the button binding with its id is clicked
+     */
+
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
