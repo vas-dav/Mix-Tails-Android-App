@@ -37,6 +37,10 @@ public class SignInActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * submit the logIn form method
+     */
     public void loginSubmit(){
         Log.d("LogIn", "Clicked");
         Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);

@@ -25,7 +25,9 @@ public class Settings extends PreferenceActivity {
         Load_setting();
 
     }
-
+    /**
+     * a load_settings method to change the app orientation
+     */
     private void Load_setting() {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -73,6 +75,9 @@ public class Settings extends PreferenceActivity {
 
     }
 
+    /**
+     * the orientation of the app will stay when the app resumes with the called load_setting method
+     */
     @Override
     protected void onResume() {
         Load_setting();
