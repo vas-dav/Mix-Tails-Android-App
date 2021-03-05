@@ -7,6 +7,11 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * authors: Vasily, Miguel, Annie
+ * Main activity with intent for the main interface of the app that contains the options of choosing
+ * drink, signing in or signing up
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -14,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Create onClick method for sign up button to open the sign up form
+        /**
+         *  Create onClick method for sign up button to open the sign up form
+         */
+
         Button signupBtn = findViewById(R.id.signupBtn);
         signupBtn.setOnClickListener(v -> {
 
@@ -24,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //Create onClick method for sign in button to open the sign in form
+        /**
+         * Create onClick method for sign in button to open the sign in form
+         */
+
         Button signInBtn = findViewById(R.id.loginBtn);
         signInBtn.setOnClickListener(v -> {
 
@@ -37,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //A function for "Let's Decide!" button to move you into QuestionSpinner
+    /**
+     * A function for "Let's Decide!" button to move you into QuestionSpinner
+     */
+
     public void decide(View view) {
         Intent questions = new Intent(MainActivity.this, QuestionSpinner.class);
         startActivity(questions);

@@ -5,6 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * authors: Vasily, Miguel
+ * This class is intended for accessing the drink database
+ */
 
 
 public class DatabaseAccess {
@@ -44,26 +48,89 @@ public class DatabaseAccess {
 
 
     // DO NOT TOUCH!!! PLEASE!!!
-    // method to query and returning a result from database from drink name limited to 1
+    /**
+     * method to query and returning a result from database from drink name limited to 1
+     */
+
     public String getDrink(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
+        String getName = null;
         String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste
                 + "%' AND size LIKE '" + inputSize
                 + "%' AND strength LIKE '" + inputStrength + "%' LIMIT 1";
         c = db.rawQuery(query, null);
-        StringBuffer buffer = new StringBuffer();
-        if (c.moveToFirst()) {
-            do {
-                String getName = c.getString(c.getColumnIndex("name"));
-                buffer.append(getName);
 
-            } while (c.moveToNext());
+        if (c.moveToFirst()) {
+                getName = c.getString(c.getColumnIndex("name"));
         }
 
-        return buffer.toString();
+        return getName;
     }
 
-    // Method for getting a random drink from a Database
+    /**
+     * create getSimilarDrink method to query and returning a similar result without strength from
+     * database from drink name limited to 1
+     */
+
+    public String getSimilarDrinkwOstr(String inputSpirit, String inputTaste, String inputSize) {
+        String getName = null;
+        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND taste LIKE '" + inputTaste
+                + "%' AND size LIKE '" + inputSize
+                + "%' LIMIT 1";
+        c = db.rawQuery(query, null);
+        if (c.moveToFirst()) {
+                getName = c.getString(c.getColumnIndex("name"));
+
+        }
+
+        return getName;
+    }
+
+    /**
+     *  method to query and returning a similar result without size from database from drink name limited to 1
+     */
+
+    public String getSimilarDrinkwOsize(String inputSpirit, String inputTaste, String inputStrength) {
+        String getName = null;
+        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND taste LIKE '" + inputTaste
+                + "%' AND strength LIKE '" + inputStrength
+                + "%' LIMIT 1";
+        c = db.rawQuery(query, null);
+        if (c.moveToFirst()) {
+
+                getName = c.getString(c.getColumnIndex("name"));
+
+        }
+
+        return getName;
+    }
+
+    /**
+     * method to query and returning a similar result without taste from database from drink name limited to 1
+     */
+
+    public String getSimilarDrinkwOtaste(String inputSpirit, String inputSize, String inputStrength) {
+        String getName = null;
+        String query = "SELECT name FROM cocktails WHERE spirit LIKE '" + inputSpirit
+                + "%' AND size LIKE '" + inputSize
+                + "%' AND strength LIKE '" + inputStrength
+                + "%' LIMIT 1";
+        c = db.rawQuery(query, null);
+        if (c.moveToFirst()) {
+
+            getName = c.getString(c.getColumnIndex("name"));
+
+        }
+
+        return getName;
+    }
+
+    /**
+     * Method for getting a random drink from a Database
+     */
+
     public String getRandom() {
         int count = 0;
         c = db.rawQuery("SELECT * FROM cocktails", null);
@@ -75,12 +142,33 @@ public class DatabaseAccess {
         return getRandName;
     }
 
-    // Method for getting ingredients of a drink
+    /**
+     * Method for getting ingredients of a drink
+     */
+
     public String getDrinkIngs(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
         String query = "SELECT * FROM cocktails WHERE spirit LIKE '" + inputSpirit
                 + "%' AND taste LIKE '" + inputTaste
                 + "%' AND size LIKE '" + inputSize
                 + "%' AND strength LIKE '" + inputStrength + "%'";
+        ingCurs = db.rawQuery(query, null);
+        StringBuffer buffer = new StringBuffer();
+        if (ingCurs.moveToFirst()) {
+            do {
+                String getIngs = ingCurs.getString(6);
+                buffer.append(getIngs);
+
+            } while (ingCurs.moveToNext());
+        }
+
+        return buffer.toString();
+    }
+    /**
+     * Method for getting ingredients of a drink only with a name (NOT TESTED)
+     */
+
+    public String getDrinkIngs2(String inputName) {
+        String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
         ingCurs = db.rawQuery(query, null);
         StringBuffer buffer = new StringBuffer();
         if (ingCurs.moveToFirst()) {
