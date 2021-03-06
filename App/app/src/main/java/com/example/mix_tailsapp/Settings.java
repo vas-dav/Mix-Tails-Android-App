@@ -14,6 +14,9 @@ import android.widget.Toolbar;
  * Created on 04/03/2021
  * author: An Huynh
  * A Settings activity for user to edit username and change the app orientation
+ * Reference used:
+ * Settings https://developer.android.com/guide/topics/ui/settings
+ * Library Support https://developer.android.com/topic/libraries/support-library/revisions#28-0-0-alpha
  */
 @SuppressWarnings("ALL")
 public class Settings extends PreferenceActivity {
