@@ -216,7 +216,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             drinksAccess.close();
         });
 
-    } //close onCreate
+    }
+
 
     /**
      * create a start search method for search bar
