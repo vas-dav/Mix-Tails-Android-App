@@ -1,3 +1,4 @@
+
 package com.example.mix_tailsapp;
 
 
@@ -11,43 +12,41 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 /**
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
  * This is the activity for user adding a new drink
- *
- * @version 3: adding drink database to the class by calling
+ * version 1: creating java class, declare and instantiate variables
+ * version 2: writing onClickListener method
+ * version 3: adding drink database to the class by calling
  */
-@SuppressWarnings("ALL")
+
 public class AddingDrink extends AppCompatActivity {
 
-    DatabaseAccess plusDB;
+    DatabaseAccess db;
     public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients;
     private Button sendDrink;
     private ImageButton goBack;
 
 
-    /**
+
+
+/**
      * an onClickListener function to decide what happen when the button binding with its id is clicked
      */
+
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v == sendDrink) {
-
-                AddData();
-                /*
                 new Handler().postDelayed(() -> {
                     setContentView(R.layout.activity_add_drink_confirmation);
-                    Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-                    startActivity(addDrink);
-
+                    Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+                    startActivity(launchApp);
                 }, 2000);
-
-                 */
             }
-
             if (v == goBack) {
                 Intent back = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
                 startActivity(back);
@@ -62,7 +61,7 @@ public class AddingDrink extends AppCompatActivity {
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
 
-        plusDB = new DatabaseAccess(this);
+        db = new DatabaseAccess(this);
 
 
         editName = (EditText) findViewById(R.id.editName);
@@ -77,27 +76,23 @@ public class AddingDrink extends AppCompatActivity {
         sendDrink = (Button) findViewById(R.id.sendDrink);
         goBack = (ImageButton) findViewById(R.id.gobackBtn);
         goBack.setOnClickListener(clickListener);
-        sendDrink.setOnClickListener(clickListener);
+        sendDrink.setOnClickListener(v -> AddData());
 
 
     }
-
-    /**
-     * Create method for adding new drink to (Drinks.db)
-     */
-
+    // Function for adding new drinks to (Drinks.db)
     public void AddData() {
 
-        plusDB.open();
+        db.open();
         Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-        if (plusDB.insertDrink(editName.getText().toString(),
+        if (db.insertDrink(editName.getText().toString(),
                 editSpirit.getText().toString(),
                 editTaste.getText().toString(),
                 editSize.getText().toString(),
                 editStrength.getText().toString(),
-                editIngredients.getText().toString()
-        )) {
-            plusDB.close();
+                editIngredients.getText().toString()));
+         {
+            db.close();
             startActivity(addDrink);
         }
     }
