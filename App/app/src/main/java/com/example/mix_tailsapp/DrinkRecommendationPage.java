@@ -28,7 +28,12 @@ import java.util.List;
  * authors: An Huynh, Miguel, Vasily
  * This class decides the activities take place in the drink recommended page including ImageButton
  * menu, drink detail, add drink to favorite list and so on.
- *
+ * @version 1: declare variables (Annie)
+ * @version 1.2: binding the buttons and write functions for them (Annie)
+ * @version 2: write function for pop up menu and surprise drink button (Annie)
+ * @version 3: write function for search bar and listview
+ * @version 3.1: binding database to search bar (Miguel)
+ * @version 4: delete search bar and write search adapter (Annie)
  * @version 5: reimplement search bar from scratch, used materialSearchBar (Annie)
  * Reference material used in this activity: Android Popup menu mrBool.com
  * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
