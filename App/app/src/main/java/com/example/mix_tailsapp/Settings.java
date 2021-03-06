@@ -14,6 +14,9 @@ import android.widget.Toolbar;
  * Created on 04/03/2021
  * author: An Huynh
  * A Settings activity for user to edit username and change the app orientation
+ * Reference used:
+ * Settings https://developer.android.com/guide/topics/ui/settings
+ * Library Support https://developer.android.com/topic/libraries/support-library/revisions#28-0-0-alpha
  */
 @SuppressWarnings("ALL")
 public class Settings extends PreferenceActivity {
@@ -25,7 +28,9 @@ public class Settings extends PreferenceActivity {
         Load_setting();
 
     }
-
+    /**
+     * a load_settings method to change the app orientation
+     */
     private void Load_setting() {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -73,6 +78,9 @@ public class Settings extends PreferenceActivity {
 
     }
 
+    /**
+     * the orientation of the app will stay when the app resumes with the called load_setting method
+     */
     @Override
     protected void onResume() {
         Load_setting();

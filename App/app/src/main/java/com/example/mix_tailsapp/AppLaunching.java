@@ -2,7 +2,7 @@ package com.example.mix_tailsapp;
 /**
  * Created by An Huynh on 15/02/2021
  * authors Annie, Miguel, Vasily
- * This class is used to display the logo and slogan with delay when the app is first launched and
+ * This is the activity to display the logo and slogan with delay when the app is first launched and
  * decide which activity to open firstly
  * version 1: Adding intent
  * version 2: using SharedPreference to open activity based on the signed boolean
