@@ -1,14 +1,13 @@
 package com.example.mix_tailsapp;
 
 
-//-------------------------------------------------------
-//This algorithm is based on the Univeristy of Michigan
-//Research and data taken from:
-//https://uhs.umich.edu/time-to-sober-up
-//-------------------------------------------------------
-
 import java.util.concurrent.TimeUnit;
 
+/**
+ * author: Vasily
+ * This algorithm is based on the Univeristy of Michigan
+ * Research and data taken from: https://uhs.umich.edu/time-to-sober-up
+ */
 public class SoberDriver {
     private static double decrease = 1 - 0.015;
 
