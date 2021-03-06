@@ -183,8 +183,16 @@ public class DatabaseAccess {
 
     public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
         boolean executed = false;
-        String query = "INSERT INTO " + db + " VALUES (?, ?, ?, ?, ?, ?)";
-        db.execSQL(query, new String[]{editName, editSpirit, editTaste, editSize, editStrength, editIngredients});
+        int count = 0;
+        int favs = 0;
+        String selectAll = "SELECT name FROM cocktails";
+        c = db.rawQuery(selectAll, null);
+        if (c.moveToLast()) {
+            count = c.getCount()+1;
+        }
+        String query = "INSERT INTO \"cocktails\"(\"id\",\"name\",\"spirit\",\"taste\",\"size\",\"strength\",\"ingredients \",\"favs\") VALUES (" + count + "," + editName + "," + editSpirit + ","
+                + editTaste + "," + editSize + "," + editStrength + "," + editIngredients + "," + favs + ")";
+        db.execSQL(query);
         executed = true;
         return executed;
     }

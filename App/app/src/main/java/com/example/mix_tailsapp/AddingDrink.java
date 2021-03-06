@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class AddingDrink extends AppCompatActivity {
 
-    DatabaseAccess plusDB;
+    DatabaseAccess db;
     public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients;
     private Button sendDrink;
     private ImageButton goBack;
@@ -56,7 +56,7 @@ public class AddingDrink extends AppCompatActivity {
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
 
-        plusDB = new DatabaseAccess(this);
+        db = new DatabaseAccess(this);
 
 
         editName = (EditText) findViewById(R.id.editName);
@@ -78,16 +78,16 @@ public class AddingDrink extends AppCompatActivity {
     // Function for adding new drinks to (Drinks.db)
     public void AddData() {
 
-        plusDB.open();
+        db.open();
         Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-        if (plusDB.insertDrink(editName.getText().toString(),
+        if (db.insertDrink(editName.getText().toString(),
                 editSpirit.getText().toString(),
                 editTaste.getText().toString(),
                 editSize.getText().toString(),
                 editStrength.getText().toString(),
                 editIngredients.getText().toString()
         )) {
-            plusDB.close();
+            db.close();
             startActivity(addDrink);
         }
     }
