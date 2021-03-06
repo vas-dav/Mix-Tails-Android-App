@@ -15,17 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
  * This is the activity for user adding a new drink
- * version 1: creating java class, declare and instantiate variables
- * version 2: writing onClickListener method
- * version 3: adding drink database to the class by calling
+ *
+ * @version 3: adding drink database to the class by calling
  */
+@SuppressWarnings("ALL")
 public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess plusDB;
     public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients;
     private Button sendDrink;
     private ImageButton goBack;
-
 
 
     /**
@@ -36,12 +35,19 @@ public class AddingDrink extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (v == sendDrink) {
+
+                AddData();
+                /*
                 new Handler().postDelayed(() -> {
                     setContentView(R.layout.activity_add_drink_confirmation);
-                    Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-                    startActivity(launchApp);
+                    Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
+                    startActivity(addDrink);
+
                 }, 2000);
+
+                 */
             }
+
             if (v == goBack) {
                 Intent back = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
                 startActivity(back);
@@ -71,11 +77,15 @@ public class AddingDrink extends AppCompatActivity {
         sendDrink = (Button) findViewById(R.id.sendDrink);
         goBack = (ImageButton) findViewById(R.id.gobackBtn);
         goBack.setOnClickListener(clickListener);
-        sendDrink.setOnClickListener(v -> AddData());
+        sendDrink.setOnClickListener(clickListener);
 
 
     }
-    // Function for adding new drinks to (Drinks.db)
+
+    /**
+     * Create method for adding new drink to (Drinks.db)
+     */
+
     public void AddData() {
 
         plusDB.open();
