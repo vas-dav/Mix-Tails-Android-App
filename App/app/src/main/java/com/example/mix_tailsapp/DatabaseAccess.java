@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class DatabaseAccess {
 
+
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase db;
     private static DatabaseAccess instance;
@@ -23,10 +24,22 @@ public class DatabaseAccess {
     Cursor ingCurs = null;
     Cursor recom = null;
 
+    public static final String DATABASE_NAME = "Drinks.db";
+    public static final String TABLE_NAME = "cocktails";
+
+    public static final String COLUMN_ID = "id";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_SPIRIT = "spirit";
+    public static final String COLUMN_TASTE = "taste";
+    public static final String COLUMN_SIZE = "size";
+    public static final String COLUMN_STRENGTH = "strength";
+    public static final String COLUMN_INGREDIENTS = "ingredients";
+
     public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
 
     }
+
 
     // for returning the single instance of database
     public static DatabaseAccess getInstance(Context context) {
@@ -35,6 +48,7 @@ public class DatabaseAccess {
         }
         return instance;
     }
+
 
     // to open the database
     public void open() {
@@ -184,13 +198,21 @@ public class DatabaseAccess {
         return getIngs;
     }
 
-    public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
+  /*  public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
         boolean executed = false;
-        String query = "INSERT INTO " + db + " VALUES (?, ?, ?, ?, ?, ?)";
-        db.execSQL(query, new String[]{editName, editSpirit, editTaste, editSize, editStrength, editIngredients});
+        int count = 0;
+        int favs = 0;
+        String selectAll = "SELECT name FROM cocktails";
+        c = db.rawQuery(selectAll, null);
+        if (c.moveToLast()) {
+            count = c.getCount()+1;
+        }
+        String query = "INSERT INTO \"cocktails\"(\"id\",\"name\",\"spirit\",\"taste\",\"size\",\"strength\",\"ingredients \",\"favs\") VALUES (" + count + "," + editName + "," + editSpirit + ","
+                + editTaste + "," + editSize + "," + editStrength + "," + editIngredients + "," + favs + ")";
+        db.execSQL(query);
         executed = true;
         return executed;
-    }
+    }*/
 
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
@@ -255,6 +277,33 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         }
         return (recomList);
     }
+
+    public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
+
+        db.isOpen();
+        ContentValues values = new ContentValues();
+        db.beginTransaction();
+
+        values.put(COLUMN_NAME, name);
+        values.put(COLUMN_SPIRIT, spirit);
+        values.put(COLUMN_TASTE, taste);
+        values.put(COLUMN_SIZE, size);
+        values.put(COLUMN_STRENGTH, strength);
+        values.put(COLUMN_INGREDIENTS, ingredients);
+
+        long rowInserted = db.insert(TABLE_NAME, null, values);
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        db.close();
+
+        if(rowInserted != -1)
+            return true;
+        else
+            return false;
+
+
+    }
+
 }
 
 
