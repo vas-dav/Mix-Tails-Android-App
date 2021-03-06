@@ -1,13 +1,18 @@
 package com.example.mix_tailsapp;
 
-import android.content.Context;
+import    android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 
+import com.example.mix_tailsapp.Database.Cocktails;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * authors: Vasily, Miguel
+ * authors: Annie, Vasily, Miguel
  * Getting the database opened
  */
 public class DatabaseOpen extends SQLiteAssetHelper {
@@ -21,5 +26,83 @@ public class DatabaseOpen extends SQLiteAssetHelper {
 
     }
 
+    /*
+    Writing functions for searchBar in DrinkRecommendationPage Activity (Annie)
+     */
+    // Create a function to get all cocktails
+    public List<Cocktails> getCocktails() {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String tableName = "cocktails";
+        queryBuilder.setTables(tableName);
+        Cursor cursor = queryBuilder.query(db, selectSql, null, null, null, null, null);
+        List<Cocktails> result = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                Cocktails cocktails = new Cocktails();
+                cocktails.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                cocktails.setName(cursor.getString(cursor.getColumnIndex("name")));
+                cocktails.setSpirit(cursor.getString(cursor.getColumnIndex("spirit")));
+                cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
+                cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
+                cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
+                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                result.add(cocktails);
+            }  while (cursor.moveToNext())   ;
+        }
+        return result; 
+    }
+
+    //Create a function to get all cocktails' names
+    public List<String> getDrinkName() {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] selectSql = {"name"};
+        String tableName = "cocktails";
+
+        queryBuilder.setTables(tableName);
+        Cursor cursor = queryBuilder.query(db, selectSql, null, null, null, null, null);
+        List<String> result = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                result.add(cursor.getString(cursor.getColumnIndex("name")));
+            }  while (cursor.moveToNext())   ;
+        }
+        return result;
+    }
+
+    //Create a function to get cocktail by name
+    public List<Cocktails> getDrinkByName(String name) {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String tableName = "cocktails";
+        queryBuilder.setTables(tableName);
+        /*
+        get extract name:
+        Cursor cursor = queryBuilder.query(db, selectSql, "name = ?", new String[] {name}, null, null, null);
+         */
+
+        // similar to SELECT * FROM Cocktails WHERE name LIKE %pattern%"
+        Cursor cursor = queryBuilder.query(db, selectSql, "name LIKE ?", new String[] {"%"+name+"%"}, null, null, null);
+        List<Cocktails> result = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                Cocktails cocktails = new Cocktails();
+                cocktails.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                cocktails.setName(cursor.getString(cursor.getColumnIndex("name")));
+                cocktails.setSpirit(cursor.getString(cursor.getColumnIndex("spirit")));
+                cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
+                cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
+                cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
+                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                result.add(cocktails);
+            }  while (cursor.moveToNext())   ;
+        }
+        return result;
+    }
 }

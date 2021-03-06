@@ -2,13 +2,10 @@ package com.example.mix_tailsapp;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.widget.Toolbar;
 
 /**
  * Created on 04/03/2021
@@ -24,38 +21,42 @@ public class Settings extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.settings_screen);
-        Load_setting();
+        addPreferencesFromResource(R.xml.settings_screen); //link the xml layout with the activity
+        loadSetting();
 
     }
-    /**
-     * a load_settings method to change the app orientation
-     */
-    private void Load_setting() {
 
+    /**
+     * Create the settings method to change the app orientation
+     */
+    private void loadSetting() {
+        //Create SharePreferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        //Create method for listPreference
         ListPreference listPreference = (ListPreference) findPreference("ORIENTATION");
 
-        String orien = sharedPreferences.getString("ORIENTATION", "false");
-        if ("1".equals(orien)) {
+        //Define String orientation
+        String orientation = sharedPreferences.getString("ORIENTATION", "false");
+        //Make conditions
+        if ("1".equals(orientation)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
-            listPreference.setSummary(listPreference.getEntry());
-        } else if ("2".equals(orien)) {
+            listPreference.setSummary(listPreference.getEntry()); //call the setSummary method
+        } else if ("2".equals(orientation)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             listPreference.setSummary(listPreference.getEntry());
-        } else if ("3".equals(orien)) {
+        } else if ("3".equals(orientation)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             listPreference.setSummary(listPreference.getEntry());
         }
-
+        //Create a OnPreferenceChangeListener method that will call the conditions above
         listPreference.setOnPreferenceChangeListener(new android.preference.Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(android.preference.Preference prefs, Object obj) {
 
-                String items = (String) obj;
+                String value = (String) obj;
                 if (prefs.getKey().equals("ORIENTATION")) {
-                    switch (items) {
+                    switch (value) {
                         case "1":
                             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
                             break;
@@ -66,9 +67,9 @@ public class Settings extends PreferenceActivity {
                             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                             break;
                     }
-
+                    //set summary
                     ListPreference listPreference1 = (ListPreference) prefs;
-                    listPreference1.setSummary(listPreference1.getEntries()[listPreference1.findIndexOfValue(items)]);
+                    listPreference1.setSummary(listPreference1.getEntries()[listPreference1.findIndexOfValue(value)]);
 
                 }
                 return true;
@@ -83,7 +84,7 @@ public class Settings extends PreferenceActivity {
      */
     @Override
     protected void onResume() {
-        Load_setting();
+        loadSetting();
         super.onResume();
     }
 }
