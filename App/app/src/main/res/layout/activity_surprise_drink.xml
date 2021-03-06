@@ -93,8 +93,8 @@
 
     <Button
         android:id="@+id/ingredientBtn"
-        android:layout_width="201dp"
-        android:layout_height="50dp"
+        android:layout_width="218dp"
+        android:layout_height="60dp"
         android:layout_gravity="start"
         android:background="@drawable/rounded_btn"
         android:backgroundTint="@color/main2"
@@ -102,29 +102,11 @@
         android:fontFamily="@font/roboto_black"
         android:text="See ingredients"
         android:textColor="#ffecd4"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.295" />
-
-    <Button
-        android:id="@+id/saveDrinkBtn"
-        android:layout_width="201dp"
-        android:layout_height="50dp"
-        android:layout_gravity="start"
-        android:background="@drawable/rounded_btn"
-        android:backgroundTint="@color/main2"
-        android:enabled="false"
-        android:fontFamily="@font/roboto_black"
-        android:text="Save drink"
-        android:textColor="#ffecd4"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.527" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
