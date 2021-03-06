@@ -1,3 +1,4 @@
+
 package com.example.mix_tailsapp;
 
 
@@ -11,6 +12,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 /**
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * version 2: writing onClickListener method
  * version 3: adding drink database to the class by calling
  */
+
 public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess db;
@@ -28,9 +31,11 @@ public class AddingDrink extends AppCompatActivity {
 
 
 
-    /**
+
+/**
      * an onClickListener function to decide what happen when the button binding with its id is clicked
      */
+
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
@@ -85,8 +90,8 @@ public class AddingDrink extends AppCompatActivity {
                 editTaste.getText().toString(),
                 editSize.getText().toString(),
                 editStrength.getText().toString(),
-                editIngredients.getText().toString()
-        )) {
+                editIngredients.getText().toString()));
+         {
             db.close();
             startActivity(addDrink);
         }
