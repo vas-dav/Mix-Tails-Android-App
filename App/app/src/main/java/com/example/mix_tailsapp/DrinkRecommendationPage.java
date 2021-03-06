@@ -1,14 +1,7 @@
 package com.example.mix_tailsapp;
-/**
- * Created on 18/02/2021
- * authors: An Huynh, Miguel, Vasily
- * This class decides the activities take place in the drink recommended page including ImageButton
- * menu, drink detail, add drink to favorite list and so on.
- * Reference material used in this activity: Android Popup menu mrBool.com
- * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
- * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
- */
 
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +20,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
+/**
+ * Created on 18/02/2021
+ * authors: An Huynh, Miguel, Vasily
+ * This class decides the activities take place in the drink recommended page including ImageButton
+ * menu, drink detail, add drink to favorite list and so on.
+ * Reference material used in this activity: Android Popup menu mrBool.com
+ * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
+ * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
+ * Progress bar https://www.tutlane.com/tutorial/android/android-progressbar-with-examples
+ */
 
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
@@ -41,7 +44,11 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     int progress = 0;
     ProgressBar fuelBar;
 
-
+    /**
+     * This onCreate method contains functions of searchView, pop-up menu and surprise drink buttons
+     * @param savedInstanceState saveInstanceState
+     */
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,15 +66,15 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
 
         // Pass the cocktail list to ListViewAdapter Class
-        ArrayAdapter adapter = new ArrayAdapter(DrinkRecommendationPage.this,
+        ArrayAdapter<DatabaseAccess> adapter;
+        adapter = new ArrayAdapter<>(DrinkRecommendationPage.this,
                 android.R.layout.simple_list_item_1, cocktails);
 
         //binds the Adapter to listView
         //listView.setAdapter(adapter);
 
-        /**
-         * SearchView onQueryTextListener
-         */
+        // SearchView onQueryTextListener
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -91,9 +98,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
 
-        /**
-         *  Initiate ImageBtn menu with its id and create a pop-up menu inside it
-         */
+
+        //Initiate ImageBtn menu with its id and create a pop-up menu inside it
+
 
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(v -> {
@@ -104,43 +111,42 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
 
             //Creating the OnMenuItemClickListener
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.home:
-                            Intent toHome = new Intent(DrinkRecommendationPage.this,
-                                    AppWelcomeScreen.class);
-                            startActivity(toHome);
-                            break;
-                        case R.id.newDrink:
-                            Intent addDrink = new Intent(DrinkRecommendationPage.this, AddingDrink.class);
-                            startActivity(addDrink);
-                            break;
-                        case R.id.settings:
-                            Intent settings = new Intent(DrinkRecommendationPage.this,
-                                    Settings.class);
-                            startActivity(settings);
-                            break;
-                        case R.id.signout:
-                            Intent signOut = new Intent(DrinkRecommendationPage.this,
-                                    AppLaunching.class);
-                            SharedPreferences.Editor deleter = tempStorageGet.edit();
-                            deleter.clear();
-                            if (deleter.commit()) {
-                                startActivity(signOut);
-                            }
-                            break;
-                    }
-
-                    return true;
+            popupMenu.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        Intent toHome = new Intent(DrinkRecommendationPage.this,
+                                AppWelcomeScreen.class);
+                        startActivity(toHome);
+                        break;
+                    case R.id.newDrink:
+                        Intent addDrink = new Intent(DrinkRecommendationPage.this, AddingDrink.class);
+                        startActivity(addDrink);
+                        break;
+                    case R.id.favorite:
+                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoriteDrinks.class);
+                        startActivity(toFavoriteList);
+                    case R.id.settings:
+                        Intent settings = new Intent(DrinkRecommendationPage.this,
+                                Settings.class);
+                        startActivity(settings);
+                        break;
+                    case R.id.signout:
+                        Intent signOut = new Intent(DrinkRecommendationPage.this,
+                                AppLaunching.class);
+                        SharedPreferences.Editor deleter = tempStorageGet.edit();
+                        deleter.clear();
+                        if (deleter.commit()) {
+                            startActivity(signOut);
+                        }
+                        break;
                 }
+
+                return true;
             });
             popupMenu.show();
         });
-        /**
-         * When the surprise drink Image(top right in recommendation page) Button clicked
-         */
+
+        //When the surprise drink Image(top right in recommendation page) Button clicked
 
         surpriseDrink = findViewById(R.id.imageButton);
         surpriseDrink.setOnClickListener(v -> {

@@ -14,9 +14,10 @@ import android.widget.TextView;
 
 /**
  * authors: Vasily, Miguel, Annie
- * A class for choosing drinks from user's choice of preferred ingredients or surprise drink
- * version 1: instantiate variables and get sharePreferences
- * version 2: adding buttons for getting ingredients, save drinks and going back
+ * An activity for choosing drinks from user's choice of preferred ingredients or surprise drink
+ * @version 1: instantiate variables and get sharePreferences
+ * @version 2: adding buttons for getting ingredients, save drinks and going back
+ * @version 3: connecting buttons to their functionalities
  */
 
 
