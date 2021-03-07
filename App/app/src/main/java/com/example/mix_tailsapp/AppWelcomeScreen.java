@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AppWelcomeScreen extends AppCompatActivity {
     //Declare variables
     private Button decideBtn, recommendBtn, drivingEstimation, favoriteBtn;
-    private ImageButton logOut;
-    private SharedPreferences tempStoragePut, permStorageGet;
+    private ImageButton logOut, menuBtn;
+    private SharedPreferences tempStoragePut, permStorageGet, tempStorageGet;
     TextView welcomeText;
 
     /**
@@ -67,6 +68,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_welcome_screen);
+        tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
         welcomeText = (TextView) findViewById(R.id.welcomeBack);
@@ -85,7 +87,49 @@ public class AppWelcomeScreen extends AppCompatActivity {
         favoriteBtn.setOnClickListener(clickListener);
         logOut.setOnClickListener(clickListener);
 
+        menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(v -> {
+            //Creating an instance of PopupMenu
+            PopupMenu popupMenu = new PopupMenu(AppWelcomeScreen.this, menuBtn);
 
+            //Inflating the popup using xml file popup_menu.xml
+            popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
+            //Creating the OnMenuItemClickListener
+            popupMenu.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        Intent toHome = new Intent(AppWelcomeScreen.this,
+                                AppWelcomeScreen.class);
+                        startActivity(toHome);
+                        break;
+                    case R.id.newDrink:
+                        Intent addDrink = new Intent(AppWelcomeScreen.this, AddingDrink.class);
+                        startActivity(addDrink);
+                        break;
+                    case R.id.favorite:
+                        Intent toFavoriteList = new Intent(AppWelcomeScreen.this, FavoriteDrinks.class);
+                        startActivity(toFavoriteList);
+                    case R.id.settings:
+                        Intent settings = new Intent(AppWelcomeScreen.this,
+                                Settings.class);
+                        startActivity(settings);
+                        break;
+                    case R.id.signout:
+                        Intent signOut = new Intent(AppWelcomeScreen.this,
+                                AppLaunching.class);
+                        SharedPreferences.Editor deleter = tempStorageGet.edit();
+                        deleter.clear();
+                        if (deleter.commit()) {
+                            startActivity(signOut);
+                        }
+                        break;
+                }
+
+                return true;
+            });
+            popupMenu.show();
+        });
 
 
 
