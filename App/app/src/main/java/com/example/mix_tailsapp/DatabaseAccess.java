@@ -66,6 +66,7 @@ public class DatabaseAccess {
 
 
     // DO NOT TOUCH!!! PLEASE!!!
+
     /**
      * method to query and returning a result from database from drink name limited to 1
      */
@@ -79,7 +80,7 @@ public class DatabaseAccess {
         c = db.rawQuery(query, null);
 
         if (c.moveToFirst()) {
-                getName = c.getString(c.getColumnIndex("name"));
+            getName = c.getString(c.getColumnIndex("name"));
         }
 
         return getName;
@@ -98,7 +99,7 @@ public class DatabaseAccess {
                 + "%' LIMIT 1";
         c = db.rawQuery(query, null);
         if (c.moveToFirst()) {
-                getName = c.getString(c.getColumnIndex("name"));
+            getName = c.getString(c.getColumnIndex("name"));
 
         }
 
@@ -106,7 +107,7 @@ public class DatabaseAccess {
     }
 
     /**
-     *  method to query and returning a similar result without size from database from drink name limited to 1
+     * method to query and returning a similar result without size from database from drink name limited to 1
      */
 
     public String getSimilarDrinkwOsize(String inputSpirit, String inputTaste, String inputStrength) {
@@ -118,7 +119,7 @@ public class DatabaseAccess {
         c = db.rawQuery(query, null);
         if (c.moveToFirst()) {
 
-                getName = c.getString(c.getColumnIndex("name"));
+            getName = c.getString(c.getColumnIndex("name"));
 
         }
 
@@ -181,6 +182,7 @@ public class DatabaseAccess {
 
         return buffer.toString();
     }
+
     /**
      * Method for getting ingredients of a drink only with a name (NOT TESTED)
      */
@@ -191,7 +193,7 @@ public class DatabaseAccess {
         ingCurs = db.rawQuery(query, null);
         StringBuffer buffer = new StringBuffer();
         if (ingCurs.moveToFirst()) {
-                getIngs = ingCurs.getString(6);
+            getIngs = ingCurs.getString(6);
 
         }
 
@@ -214,11 +216,15 @@ public class DatabaseAccess {
         return executed;
     }*/
 
+
+    /*
+    Writing functions for favorites and recommendations
+     */
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
         boolean done = false;
         executed = db.insertOrThrow("favorites", null, contentValues);
-        if (executed != -1){
+        if (executed != -1) {
             done = true;
         } else {
             done = false;
@@ -228,37 +234,38 @@ public class DatabaseAccess {
 
     }
 
-// Getting an ArrayList of all favourite Drinks
-public ArrayList<String> getFavs(){
-    String query = "SELECT name FROM cocktails WHERE favs = 1";
-    ingCurs = db.rawQuery(query, null);
-    ArrayList<String> favList = new ArrayList<String>();
-    if (ingCurs.moveToFirst()) {
-        do {
-            String getFavs = ingCurs.getString(1);
-            favList.add(getFavs);
+    // Getting an ArrayList of all favourite Drinks
+    public ArrayList<String> getFavs() {
+        String query = "SELECT name FROM cocktails WHERE favs = 1";
+        ingCurs = db.rawQuery(query, null);
+        ArrayList<String> favList = new ArrayList<String>();
+        if (ingCurs.moveToFirst()) {
+            do {
+                String getFavs = ingCurs.getString(1);
+                favList.add(getFavs);
 
-        } while (ingCurs.moveToNext());
+            } while (ingCurs.moveToNext());
+        }
+
+        return (favList);
     }
 
-    return (favList);
-}
-
-//Method for adding a favourite drink or setting it back to not favourite
-public boolean setOrResetHeartDrink(int setValue, String inputName){
+    //Method for adding a favourite drink or setting it back to not favourite
+    public boolean setOrResetHeartDrink(int setValue, String inputName) {
         boolean result;
         String query = "UPDATE cocktails SET favs = "
                 + setValue + " WHERE name LIKE '" + inputName + "%'";
-        if((setValue != 1 || setValue != 0)){
+        if ((setValue != 1 || setValue != 0)) {
             result = false;
         } else {
             db.execSQL(query);
             result = true;
         }
         return result;
-}
+    }
+
     //Method for getting a list of Recommended Drinks
-    public ArrayList<String> getRecom(){
+    public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
         int count = 0;
         String selectAll = "SELECT * FROM cocktails";
@@ -266,11 +273,11 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         if (recom.moveToLast()) {
             count = recom.getCount();
         }
-        for(int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             recom.moveToPosition((int) (Math.random() * count));
             recomList.add(recom.getString(1));
             //Changing the drink if random output gave to similar Drinks
-            if(recomList.contains(recomList.get(i))){
+            if (recomList.contains(recomList.get(i))) {
                 recom.moveToPosition((int) (Math.random() * count));
                 recomList.add(i, recom.getString(1));
             }
@@ -278,6 +285,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return (recomList);
     }
 
+    // a function to insert drink
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();
@@ -296,13 +304,14 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         db.endTransaction();
         db.close();
 
-        if(rowInserted != -1)
+        if (rowInserted != -1)
             return true;
         else
             return false;
 
 
     }
+
 
 }
 
