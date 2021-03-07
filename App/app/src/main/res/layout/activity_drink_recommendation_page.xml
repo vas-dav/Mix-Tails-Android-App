@@ -120,9 +120,10 @@
                 tools:ignore="MissingConstraints" />
 
             <ImageView
-                android:id="@+id/favorite"
+                android:id="@+id/plusfavorite"
                 android:layout_width="52dp"
                 android:layout_height="39dp"
+                android:onClick="pressOnHeart"
                 android:src="@drawable/ic_baseline_favorite_border_24"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
