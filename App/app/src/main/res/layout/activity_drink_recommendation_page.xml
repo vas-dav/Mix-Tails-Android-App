@@ -68,22 +68,6 @@
 
         <!--image button for surprise drink-->
 
-        <TextView
-            android:id="@+id/recomended_drink_text"
-            android:layout_width="270dp"
-            android:layout_height="37dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/recommended_drinks_text"
-            android:textColor="#27214D"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.138"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.983" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="373dp"
@@ -91,7 +75,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recomended_drink_text"
             app:layout_constraintVertical_bias="0.097">
 
             <ImageView
@@ -236,7 +220,7 @@
             android:layout_height="53dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.153"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.849" />
@@ -249,7 +233,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout">
+            app:layout_constraintTop_toBottomOf="@id/recomended_drink_text"
+            app:layout_constraintVertical_bias="0.0">
 
 
             <ImageView
@@ -361,6 +346,17 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/recomended_drink_text"
+            android:layout_width="270dp"
+            android:layout_height="37dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/recommended_drinks_text"
+            android:textColor="#27214D"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="399dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
