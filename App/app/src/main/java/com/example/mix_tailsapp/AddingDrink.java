@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,9 +31,6 @@ public class AddingDrink extends AppCompatActivity {
     private Button sendDrink;
     private ImageButton goBack;
 
-
-
-
     /**
      * an onClickListener function to decide what happen when the button binding with its id is clicked
      */
@@ -42,10 +40,17 @@ public class AddingDrink extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (v == sendDrink) {
-                new Handler().postDelayed(() -> {
-                    setContentView(R.layout.activity_add_drink_confirmation);
-                    AddData();
-                }, 2000);
+                if (editName.getText().toString().isEmpty()|| editSpirit.getText().toString().isEmpty()||
+                        editTaste.getText().toString().isEmpty()|| editSize.getText().toString().isEmpty()||
+                        editStrength.getText().toString().isEmpty()|| editIngredients.getText().toString().isEmpty())
+                {
+                    Toast.makeText(AddingDrink.this, "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    new Handler().postDelayed(() -> {
+                        setContentView(R.layout.activity_add_drink_confirmation);
+                        AddData();
+                    }, 2000);
+                }
             }
             if (v == goBack) {
                 Intent back = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
