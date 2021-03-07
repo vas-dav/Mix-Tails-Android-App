@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
 import com.example.mix_tailsapp.Database.Cocktails;
-import com.example.mix_tailsapp.Database.Favorites;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import java.util.List;
  * @version 1: Getting the database opened (Miguel)
  * @version 2: Adding onUpgrade method (Miguel)
  * @version 2.1: Adding (3) functions to get cocktail name from database (Annie)
- * @version 3: Adding favorites function
  */
 public class DatabaseOpen extends SQLiteAssetHelper {
 
@@ -110,42 +108,6 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
                 //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
-            }  while (cursor.moveToNext())   ;
-        }
-        return result;
-    }
-
-    /*
-    Writing functions for favorites
-     */
-
-    public void addToFavorites(Favorites cocktail) {
-
-        SQLiteDatabase database = getReadableDatabase();
-        String query = String.format("INSERT INTO cocktails(" + "name, image) " +
-                "VALUES( '%s','%s');",
-                cocktail.getName(),
-                cocktail.getImage());
-        database.execSQL(query);
-    } //close addToFavorites()
-
-    public List<Favorites> getFavoritesItems(String name) {
-        SQLiteDatabase database = getReadableDatabase();
-        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-        String[] sqlSelect = { "name", "image"};
-        String sqlTable = "cocktails";
-        queryBuilder.setTables(sqlTable);
-
-        Cursor cursor = queryBuilder.query(database, sqlSelect, "name = ?",
-                new String[] {name}, null, null, null);
-        final List<Favorites> result = new ArrayList<>();
-        if (cursor.moveToFirst()) {
-            do {
-                result.add (new Favorites(
-                        cursor.getString(cursor.getColumnIndex("name")),
-                        cursor.getString(cursor.getColumnIndex("image"))
-                ));
-
             }  while (cursor.moveToNext())   ;
         }
         return result;
