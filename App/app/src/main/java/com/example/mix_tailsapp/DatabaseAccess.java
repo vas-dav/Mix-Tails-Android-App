@@ -198,22 +198,6 @@ public class DatabaseAccess {
         return getIngs;
     }
 
-  /*  public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
-        boolean executed = false;
-        int count = 0;
-        int favs = 0;
-        String selectAll = "SELECT name FROM cocktails";
-        c = db.rawQuery(selectAll, null);
-        if (c.moveToLast()) {
-            count = c.getCount()+1;
-        }
-        String query = "INSERT INTO \"cocktails\"(\"id\",\"name\",\"spirit\",\"taste\",\"size\",\"strength\",\"ingredients \",\"favs\") VALUES (" + count + "," + editName + "," + editSpirit + ","
-                + editTaste + "," + editSize + "," + editStrength + "," + editIngredients + "," + favs + ")";
-        db.execSQL(query);
-        executed = true;
-        return executed;
-    }*/
-
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
         boolean done = false;
