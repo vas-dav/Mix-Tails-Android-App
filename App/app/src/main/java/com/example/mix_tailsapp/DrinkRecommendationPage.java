@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mix_tailsapp.Adapter.SearchAdapter;
+import com.example.mix_tailsapp.UserActivity.Settings;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
