@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,14 +37,8 @@ import java.util.List;
  * @version 3.1: binding database to search bar (Miguel)
  * @version 4: delete search bar and write search adapter (Annie)
  * @version 5: reimplement search bar from scratch, used materialSearchBar (Annie)
- * Reference material used in this activity: Android Popup menu mrBool.com
- * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
- * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
- * Material Search Bar: https://github.com/mancj/MaterialSearchBar
- * https://stackoverflow.com/questions/32455745/recyclerview-and-cardview-click-listener-implementation
- * https://google-developer-training.github.io/android-developer-fundamentals-course-practicals/
- * en/Unit%204/101b_p_searching_an_sqlite_database.html
- * Progress bar https://www.tutlane.com/tutorial/android/android-progressbar-with-examples
+ * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
+ * References are listed at the end of the activity
  */
 
 public class DrinkRecommendationPage extends AppCompatActivity {
@@ -57,8 +53,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     private ListView listView;
     private List<DatabaseAccess> cocktails;
+    private TextView drink1, drink2, drink3, drink4;
+    int progress = 0;
+    ProgressBar fuelBar;
+    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
 
-    //Recycler Search bar
+
+    //Recycler Searchbar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
@@ -81,12 +82,24 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //Accessing database to show surprise drinks
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
+        recommendedDrinksList = drinksAccess.getRecom();
 
 
         //Initiate variables
 
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         favoriteBtn = (ImageView) findViewById(R.id.favBtn);
+        drink1 = (TextView) findViewById(R.id.drinkName1);
+        drink2 = (TextView) findViewById(R.id.drinkName2);
+        drink3 = (TextView) findViewById(R.id.drinkName3);
+        drink4 = (TextView) findViewById(R.id.drinkName4);
+
+        // set Text for recommended drink display from database
+        drink1.setText(recommendedDrinksList.get(0));
+        drink2.setText(recommendedDrinksList.get(1));
+        drink3.setText(recommendedDrinksList.get(2));
+        drink4.setText(recommendedDrinksList.get(3));
+
 
         //Initiate View
         recyclerView = (RecyclerView) findViewById(R.id.recycle_search);
@@ -103,8 +116,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         materialSearchBar.setHint("Search");
         materialSearchBar.setCardViewElevation(10);
         loadSuggestions();
-
-
         materialSearchBar.addTextChangeListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -133,7 +144,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
         /*
-        reference
+        reference used here
         https://www.codota.com/code/java/methods/com.mancj.materialsearchbar.MaterialSearchBar/setOnSearchActionListener
          */
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
@@ -239,3 +250,14 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     }
 }
+
+/*
+ * Reference material used in this activity: Android Popup menu mrBool.com
+ * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
+ * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
+ * Material Search Bar: https://github.com/mancj/MaterialSearchBar
+ * https://stackoverflow.com/questions/32455745/recyclerview-and-cardview-click-listener-implementation
+ * https://google-developer-training.github.io/android-developer-fundamentals-course-practicals/
+ * en/Unit%204/101b_p_searching_an_sqlite_database.html
+ * Progress bar https://www.tutlane.com/tutorial/android/android-progressbar-with-examples
+ */
