@@ -38,7 +38,7 @@ public class Settings extends PreferenceActivity {
 
         //Define String orientation
         String orientation = sharedPreferences.getString("ORIENTATION", "false");
-        //Make conditions
+        //Make conditions and set summary to screen on which orientation chosen
         if ("1".equals(orientation)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
             listPreference.setSummary(listPreference.getEntry()); //call the setSummary method
@@ -70,6 +70,7 @@ public class Settings extends PreferenceActivity {
                     //set summary
                     ListPreference listPreference1 = (ListPreference) prefs;
                     listPreference1.setSummary(listPreference1.getEntries()[listPreference1.findIndexOfValue(value)]);
+
 
                 }
                 return true;

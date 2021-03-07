@@ -58,7 +58,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     private ListView listView;
     private List<DatabaseAccess> cocktails;
 
-    //Recycler Searchbar
+    //Recycler Search bar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
