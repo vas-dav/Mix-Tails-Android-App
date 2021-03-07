@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -57,8 +59,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     private ListView listView;
     private List<DatabaseAccess> cocktails;
+    private TextView drink1, drink2, drink3, drink4;
+    int progress = 0;
+    ProgressBar fuelBar;
+    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
 
-    //Recycler Search bar
+
+    //Recycler Searchbar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
@@ -81,12 +88,23 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //Accessing database to show surprise drinks
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
+        recommendedDrinksList = drinksAccess.getRecom();
 
 
         //Initiate variables
 
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         favoriteBtn = (ImageView) findViewById(R.id.favBtn);
+        drink1 = (TextView) findViewById(R.id.drinkName1);
+        drink2 = (TextView) findViewById(R.id.drinkName2);
+        drink3 = (TextView) findViewById(R.id.drinkName3);
+        drink4 = (TextView) findViewById(R.id.drinkName4);
+
+        drink1.setText(recommendedDrinksList.get(0));
+        drink2.setText(recommendedDrinksList.get(1));
+        drink3.setText(recommendedDrinksList.get(2));
+        drink4.setText(recommendedDrinksList.get(3));
+
 
         //Initiate View
         recyclerView = (RecyclerView) findViewById(R.id.recycle_search);

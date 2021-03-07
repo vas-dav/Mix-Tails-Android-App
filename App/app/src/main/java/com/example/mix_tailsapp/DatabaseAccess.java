@@ -261,7 +261,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
     public ArrayList<String> getRecom(){
         ArrayList<String> recomList = new ArrayList<String>();
         int count = 0;
-        String selectAll = "SELECT name FROM cocktails";
+        String selectAll = "SELECT * FROM cocktails";
         recom = db.rawQuery(selectAll, null);
         if (recom.moveToLast()) {
             count = recom.getCount();
