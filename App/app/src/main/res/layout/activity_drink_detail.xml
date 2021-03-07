@@ -26,8 +26,11 @@
 
             <ImageView
                 android:id="@+id/img_drink"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:layout_height="252dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/rum_color"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop" />
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mix_tailsapp.Database.Cocktails;
@@ -47,7 +46,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
     @Override
     public SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View drinkView = inflater.inflate(R.layout.activity_drink_item, parent, false);
+        View drinkView = inflater.inflate(R.layout.activity_drink_item_search_bar, parent, false);
         return new SearchViewHolder(drinkView);
     }
 
