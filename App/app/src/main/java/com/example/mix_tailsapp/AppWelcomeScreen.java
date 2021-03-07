@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -54,6 +55,11 @@ public class AppWelcomeScreen extends AppCompatActivity {
                 deleter.clear();
                 if (deleter.commit()) {
                     startActivity(signOut);
+                }
+                if(v == favoriteBtn){
+                    Intent favourite = new Intent(AppWelcomeScreen.this, FavouriteDrinks.class);
+                    Log.d("Favs", "Clicked");
+                    startActivity(favourite);
                 }
             }
         }

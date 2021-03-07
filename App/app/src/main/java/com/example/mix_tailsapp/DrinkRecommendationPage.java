@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -197,7 +199,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                         startActivity(addDrink);
                         break;
                     case R.id.favorite:
-                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoriteDrinks.class);
+                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavouriteDrinks.class);
                         startActivity(toFavoriteList);
                     case R.id.settings:
                         Intent settings = new Intent(DrinkRecommendationPage.this,

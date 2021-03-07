@@ -269,7 +269,7 @@
                 app:srcCompat="@drawable/cocktail" />
 
             <TextView
-                android:id="@+id/drinkName2"
+                android:id="@+id/drinkName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
