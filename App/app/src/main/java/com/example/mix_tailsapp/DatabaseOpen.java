@@ -11,8 +11,11 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 import java.util.ArrayList;
 import java.util.List;
 /**
+ * Create a database class for the app
  * authors: Annie, Vasily, Miguel
- * Getting the database opened
+ * @version 1: Getting the database opened (Miguel)
+ * @version 2: Adding onUpgrade method (Miguel)
+ * @version 2.1: Adding (3) functions to get cocktail name from database (Annie)
  */
 public class DatabaseOpen extends SQLiteAssetHelper {
 
@@ -91,7 +94,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         Cursor cursor = queryBuilder.query(db, selectSql, "name = ?", new String[] {name}, null, null, null);
          */
 
-        // similar to SELECT * FROM Cocktails WHERE name LIKE %pattern%"
+        //  SELECT * FROM Cocktails WHERE name LIKE %pattern%" ==
         Cursor cursor = queryBuilder.query(db, selectSql, "name LIKE ?", new String[] {"%"+name+"%"}, null, null, null);
         List<Cocktails> result = new ArrayList<>();
         if (cursor.moveToFirst()) {

@@ -17,9 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
  * This is the activity for user adding a new drink
- * version 1: creating java class, declare and instantiate variables
- * version 2: writing onClickListener method
- * version 3: adding drink database to the class by calling
+ * @version 1: creating java class, declare and instantiate variables (Annie)
+ * @version 2: writing onClickListener method (Annie)
+ * @version 3: adding drink database to the class by calling (Vasily)
+ * @version 4: fixing the sendDrink button function (Miguel)
  */
 
 public class AddingDrink extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class AddingDrink extends AppCompatActivity {
 
 
 
-/**
+    /**
      * an onClickListener function to decide what happen when the button binding with its id is clicked
      */
 
@@ -43,8 +44,7 @@ public class AddingDrink extends AppCompatActivity {
             if (v == sendDrink) {
                 new Handler().postDelayed(() -> {
                     setContentView(R.layout.activity_add_drink_confirmation);
-                    Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-                    startActivity(launchApp);
+                    AddData();
                 }, 2000);
             }
             if (v == goBack) {
@@ -76,7 +76,7 @@ public class AddingDrink extends AppCompatActivity {
         sendDrink = (Button) findViewById(R.id.sendDrink);
         goBack = (ImageButton) findViewById(R.id.gobackBtn);
         goBack.setOnClickListener(clickListener);
-        sendDrink.setOnClickListener(v -> AddData());
+        sendDrink.setOnClickListener(clickListener);
 
 
     }
