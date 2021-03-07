@@ -1,3 +1,4 @@
+
 package com.example.mix_tailsapp;
 
 
@@ -8,39 +9,48 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 /**
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
  * This is the activity for user adding a new drink
- * version 1: creating java class, declare and instantiate variables
- * version 2: writing onClickListener method
- * version 3: adding drink database to the class by calling
+ * @version 1: creating java class, declare and instantiate variables (Annie)
+ * @version 2: writing onClickListener method (Annie)
+ * @version 3: adding drink database to the class by calling (Vasily)
+ * @version 4: fixing the sendDrink button function (Miguel)
  */
+
 public class AddingDrink extends AppCompatActivity {
 
-    DatabaseAccess plusDB;
+    DatabaseAccess db;
     public EditText editName, editSpirit, editTaste, editSize, editStrength, editIngredients;
     private Button sendDrink;
     private ImageButton goBack;
-
-
 
     /**
      * an onClickListener function to decide what happen when the button binding with its id is clicked
      */
 
+
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v == sendDrink) {
-                new Handler().postDelayed(() -> {
-                    setContentView(R.layout.activity_add_drink_confirmation);
-                    Intent launchApp = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-                    startActivity(launchApp);
-                }, 2000);
+                if (editName.getText().toString().isEmpty()|| editSpirit.getText().toString().isEmpty()||
+                        editTaste.getText().toString().isEmpty()|| editSize.getText().toString().isEmpty()||
+                        editStrength.getText().toString().isEmpty()|| editIngredients.getText().toString().isEmpty())
+                {
+                    Toast.makeText(AddingDrink.this, "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    new Handler().postDelayed(() -> {
+                        setContentView(R.layout.activity_add_drink_confirmation);
+                        AddData();
+                    }, 2000);
+                }
             }
             if (v == goBack) {
                 Intent back = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
@@ -56,7 +66,7 @@ public class AddingDrink extends AppCompatActivity {
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
 
-        plusDB = new DatabaseAccess(this);
+        db = new DatabaseAccess(this);
 
 
         editName = (EditText) findViewById(R.id.editName);
@@ -71,23 +81,23 @@ public class AddingDrink extends AppCompatActivity {
         sendDrink = (Button) findViewById(R.id.sendDrink);
         goBack = (ImageButton) findViewById(R.id.gobackBtn);
         goBack.setOnClickListener(clickListener);
-        sendDrink.setOnClickListener(v -> AddData());
+        sendDrink.setOnClickListener(clickListener);
 
 
     }
     // Function for adding new drinks to (Drinks.db)
     public void AddData() {
 
-        plusDB.open();
+        db.open();
         Intent addDrink = new Intent(AddingDrink.this, DrinkRecommendationPage.class);
-        if (plusDB.insertDrink(editName.getText().toString(),
+        if (db.insertDrink(editName.getText().toString(),
                 editSpirit.getText().toString(),
                 editTaste.getText().toString(),
                 editSize.getText().toString(),
                 editStrength.getText().toString(),
-                editIngredients.getText().toString()
-        )) {
-            plusDB.close();
+                editIngredients.getText().toString()));
+         {
+            db.close();
             startActivity(addDrink);
         }
     }

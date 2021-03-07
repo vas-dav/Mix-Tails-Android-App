@@ -1,23 +1,21 @@
 package com.example.mix_tailsapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 /**
  * authors: Vasily, Miguel, Annie
  * An activity for choosing drinks from user's choice of preferred ingredients or surprise drink
- * @version 1: instantiate variables and get sharePreferences
- * @version 2: adding buttons for getting ingredients, save drinks and going back
- * @version 3: connecting buttons to their functionalities
+ * @version 1:
+ * @version 2: writing onClickListener for buttons (Annie)
+ * @version 3: connecting buttons to their functionaries
  */
 
 
@@ -25,7 +23,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
     TextView drinkOfYourChoice;
     private ImageButton goBack;
-    private Button ingredients, saveDrink;
+    private Button ingredients;
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
     protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
 
@@ -43,7 +41,12 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
         goBack = findViewById(R.id.gobackBtn);
         ingredients = findViewById(R.id.ingredientBtn);
-        saveDrink = findViewById(R.id.saveDrinkBtn);
+
+        //onClickListener for go back button
+        goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
+            startActivity(backToHome);
+        }));
 
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
@@ -60,7 +63,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
 
 
-            // When using the surprise me button
+        // When using the surprise me button
         if (surprise != null) {
             drinkOfYourChoice.setText(surprise);
             ingredients.setOnClickListener(v -> showIngs(surprise, drinkIngredients));
@@ -88,17 +91,15 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
                  */
         } else {
-
-            goBack.setOnClickListener(v -> {
-                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
-                startActivity(backToHome);
-            });
-
-
         }
     }
 
-
+    /**
+     * a method to show drink ingredients
+     *
+     * @param input
+     * @param i
+     */
     private void showIngs(String input, String i) {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);

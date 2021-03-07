@@ -5,17 +5,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.mix_tailsapp.R.color.red;
 
 /**
- * author: Vasily
+ * author: Vasily, Annie
  * Lets the user sign up to the app and prompt the user's basic infomation
+ * @version 1.1: added a Toast when one of the fields is empty (Annie)
  */
 public class SignupActivity extends AppCompatActivity {
     //Declaring keys for sharedPreferences
@@ -44,7 +47,16 @@ public class SignupActivity extends AppCompatActivity {
         confirm_password = findViewById(R.id.comfirm_password);
         signUp = findViewById(R.id.maintext);
         Button confirm = findViewById(R.id.confirmBtn);
-        confirm.setOnClickListener(v -> formSubmitted());
+        confirm.setOnClickListener(v -> {
+            if (name.getText().toString().isEmpty() || email.getText().toString().isEmpty() ||
+                    password.getText().toString().isEmpty() || confirm.getText().toString().isEmpty())
+            {
+                Toast.makeText(SignupActivity.this, "Field cannot be empty",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                formSubmitted();
+            }
+        });
     }
 
     /**
