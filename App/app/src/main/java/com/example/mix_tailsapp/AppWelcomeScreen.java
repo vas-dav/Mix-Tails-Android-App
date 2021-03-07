@@ -46,6 +46,10 @@ public class AppWelcomeScreen extends AppCompatActivity {
                 Intent driving = new Intent(AppWelcomeScreen.this, DrivingProgress.class);
                 startActivity(driving);
             }
+            if (v == favoriteBtn) {
+                Intent toFavorites = new Intent(AppWelcomeScreen.this, FavoritesActivity.class);
+                startActivity(toFavorites);
+            }
             if (v == logOut) {
                 //Deleting the TEMPMEM signed boolean
                 tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
