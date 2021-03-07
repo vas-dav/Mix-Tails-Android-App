@@ -181,7 +181,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                         startActivity(addDrink);
                         break;
                     case R.id.favorite:
-                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoriteDrinks.class);
+                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
                     case R.id.settings:
                         Intent settings = new Intent(DrinkRecommendationPage.this,
