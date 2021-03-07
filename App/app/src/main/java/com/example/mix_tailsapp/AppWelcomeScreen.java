@@ -4,8 +4,10 @@ package com.example.mix_tailsapp;
  * authors: Annie, Miguel, Vasily
  * This is the activity created for the app welcome activity and decide what will happen when the three
  * buttons in this activity are clicked
- * version 1: declare variables and instantiate them
- * version 2: onClick listener method to decide what happen when the buttons are clicked
+ * @version 1: declare variables and instantiate them (Annie)
+ * @version 2: onClick listener method to decide what happen when the buttons are clicked (Annie)
+ * @version 3: using SharePreference to get user's name (Vasily)
+ * @version 4: added menu button to the activity (Annie)
  */
 
 import android.app.Activity;
@@ -83,6 +85,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
         String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
         welcomeText = (TextView) findViewById(R.id.welcomeBack);
         welcomeText.setText("Welcome back " + name);
+
         // Initiate variables with their ids
         decideBtn = findViewById(R.id.decideBtn);
         recommendBtn = findViewById(R.id.recommendBtn);
@@ -97,6 +100,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
         favoriteBtn.setOnClickListener(clickListener);
         logOut.setOnClickListener(clickListener);
 
+        // function for menu button
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(v -> {
             //Creating an instance of PopupMenu
@@ -118,7 +122,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
                         startActivity(addDrink);
                         break;
                     case R.id.favorite:
-                        Intent toFavoriteList = new Intent(AppWelcomeScreen.this, FavoriteDrinks.class);
+                        Intent toFavoriteList = new Intent(AppWelcomeScreen.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
                     case R.id.settings:
                         Intent settings = new Intent(AppWelcomeScreen.this,
