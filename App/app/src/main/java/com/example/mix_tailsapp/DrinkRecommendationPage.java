@@ -22,10 +22,12 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,8 +41,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     private SearchView searchView;
     private ListView listView;
     private List<DatabaseAccess> cocktails;
+    private TextView drink1, drink2, drink3, drink4;
     int progress = 0;
     ProgressBar fuelBar;
+    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
 
 
     @Override
@@ -50,6 +54,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
+        recommendedDrinksList = drinksAccess.getRecom();
 
         //Initiate variables
         listView = (ListView) findViewById(R.id.listView);
@@ -57,6 +62,16 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         fuelBar = (ProgressBar) findViewById(R.id.fuelBar);
         favoriteBtn = (ImageView) findViewById(R.id.favBtn);
+        drink1 = (TextView) findViewById(R.id.drinkName1);
+        drink2 = (TextView) findViewById(R.id.drinkName2);
+        drink3 = (TextView) findViewById(R.id.drinkName3);
+        drink4 = (TextView) findViewById(R.id.drinkName4);
+
+        drink1.setText(recommendedDrinksList.get(0));
+        drink2.setText(recommendedDrinksList.get(1));
+        drink3.setText(recommendedDrinksList.get(2));
+        drink4.setText(recommendedDrinksList.get(3));
+
 
 
         // Pass the cocktail list to ListViewAdapter Class
