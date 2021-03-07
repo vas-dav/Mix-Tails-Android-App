@@ -25,7 +25,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
     TextView drinkOfYourChoice;
     private ImageButton goBack;
-    private Button ingredients, saveDrink;
+    private Button ingredients;
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
     protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
 
@@ -43,7 +43,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
         goBack = findViewById(R.id.gobackBtn);
         ingredients = findViewById(R.id.ingredientBtn);
-        saveDrink = findViewById(R.id.saveDrinkBtn);
+
 
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
@@ -98,7 +98,11 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * a method to show drink ingredients
+     * @param input
+     * @param i
+     */
     private void showIngs(String input, String i) {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
