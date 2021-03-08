@@ -67,6 +67,7 @@
     <string name="waiting_to_drive_text">You still have to wait</string>
     <string name="go_back_text">Go Back</string>
     <string name="drink_name_text">Drink Name</string>
+    <string name="fuel_progress_text">3</string>
 
 
 </resources>
