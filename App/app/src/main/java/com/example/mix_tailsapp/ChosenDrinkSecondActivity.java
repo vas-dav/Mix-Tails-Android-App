@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ChosenDrinkSecondActivity extends AppCompatActivity {
+
+
 
     TextView drinkOfYourChoice;
     private ImageButton goBack;
@@ -48,6 +51,8 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             startActivity(backToHome);
         }));
 
+
+
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
@@ -69,6 +74,10 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
                 startActivity(backToHome);
             }));
 
+
+        }
+        if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
+
         } else {
             goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
                 Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
@@ -87,9 +96,12 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
         DrinkDetails.putExtra(NAME_KEY, input);
+        Log.d("Error", "HERECHECK");
         startActivity(DrinkDetails);
 
+
+    }
+   
     }
 
 
-}
