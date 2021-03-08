@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
-    String[] imgSpit = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey", "Tequila", "Sparkling wine"};
+
 
     TextView drinkOfYourChoice;
     private ImageButton goBack;
@@ -50,9 +51,15 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             startActivity(backToHome);
         }));
 
+
+
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
+
+
+
+
         //--------------------------------------------
         //---> IMPORTANT! DO NOT DO THE FUNCTIONALITY
         //---> OF BUTTONS. WE HAVEN'T MADE A SPECIAL
@@ -73,9 +80,10 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             // When using the lets drink button
             drinkOfYourChoice.setText(choice);
             ingredients.setOnClickListener(v -> showIngs(choice, drinkIngredients));
+
+
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
-
 
         } else {
         }
@@ -91,11 +99,12 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
         DrinkDetails.putExtra(NAME_KEY, input);
+        Log.d("Error", "HERECHECK");
         startActivity(DrinkDetails);
+
 
     }
    
     }
 
 
-}

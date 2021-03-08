@@ -23,6 +23,7 @@ public class DatabaseAccess {
     Cursor c = null;
     Cursor ingCurs = null;
     Cursor recom = null;
+    Cursor spitCurs = null;
 
     public static final String DATABASE_NAME = "Drinks.db";
     public static final String TABLE_NAME = "cocktails";
@@ -285,6 +286,19 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         else
             return false;
 
+
+    }
+    // method to get only spirit name to match with image
+    public String getSpitOnly(String inputName) {
+        String getSpit = null;
+        String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
+        ingCurs = db.rawQuery(query, null);
+        if (ingCurs.moveToFirst()) {
+            getSpit = ingCurs.getString(2);
+
+        }
+
+        return getSpit;
 
     }
 
