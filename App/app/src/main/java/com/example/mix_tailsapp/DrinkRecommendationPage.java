@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,6 +16,7 @@ import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,9 +46,9 @@ import java.util.List;
 
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
-    private ImageButton menuBtn, surpriseDrink;
+    private ImageButton menuBtn, fuelBarResteButton;
     private ImageView favoriteBtn;
-    private SharedPreferences tempStorageGet;
+    private SharedPreferences tempStorage;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
@@ -77,11 +79,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
      *
      * @param savedInstanceState
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_recommendation_page);
+        tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
 
@@ -90,8 +94,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate variables
 
-        tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         favoriteBtn = (ImageView) findViewById(R.id.plusfavorite);
+        fuelBar = findViewById(R.id.FuelBar);
         drink1 = (TextView) findViewById(R.id.drinkName1);
         drink2 = (TextView) findViewById(R.id.drinkName2);
         drink3 = (TextView) findViewById(R.id.drinkName3);
@@ -114,6 +118,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate database
         database = new DatabaseOpen(this);
+
+
+
+
 
         //Set up search bar
         materialSearchBar.setHint("Search");
@@ -209,7 +217,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                     case R.id.signout:
                         Intent signOut = new Intent(DrinkRecommendationPage.this,
                                 AppLaunching.class);
-                        SharedPreferences.Editor deleter = tempStorageGet.edit();
+                        SharedPreferences.Editor deleter = tempStorage.edit();
                         deleter.clear();
                         if (deleter.commit()) {
                             startActivity(signOut);
@@ -223,19 +231,31 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
 
-        //When the surprise drink Image(top right in recommendation page) Button clicked
+        //When the resetFuel Image(top right in recommendation page) Button clicked
+        fuelBarResteButton = findViewById(R.id.imageButton);
+        fuelBarResteButton.setOnClickListener(v -> {
+            SharedPreferences.Editor fuelResetter = tempStorage.edit();
+            fuelResetter.remove(FuelBarSet.LIMIT_AMOUNT);
+            fuelBar.setProgress(0,true);
+            drinksAccess.resetChosen();
 
-        surpriseDrink = findViewById(R.id.imageButton);
-        surpriseDrink.setOnClickListener(v -> {
-            Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,
-                    ChosenDrinkSecondActivity.class);
-            String i = drinksAccess.getRandom();
-            toRandomDrink.putExtra(SURPRISE_KEY, i);
-            startActivity(toRandomDrink);
-            drinksAccess.close();
+
         });
 
+        int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        int drinksInsideFuelBar = drinksAccess.getChosen();
+        if(drinkLimitMax == 0){
+            fuelBar.setProgress(0);
+            fuelBar.setMax(25);
+        } else {
+            fuelBar.setMax(drinkLimitMax);
+            fuelBar.setProgress(drinksInsideFuelBar);
+        }
+
+
+
     }
+
 
 
 
