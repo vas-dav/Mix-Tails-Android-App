@@ -18,7 +18,6 @@
             android:theme="@style/PreferenceScreen" />
         <activity android:name=".DrinkDetail" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".DrivingProgress" />
         <activity android:name=".AppWelcomeScreen" />
         <activity android:name=".DrinkRecommendationPage" />
         <activity android:name=".UserActivity.SignupConfirmationScreen" />

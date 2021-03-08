@@ -49,7 +49,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
     private ImageButton menuBtn;
     private Button fuelBarResteButton;
-    private ImageView favoriteBtn;
     private SharedPreferences tempStorage;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
@@ -96,7 +95,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate variables
 
-        favoriteBtn = (ImageView) findViewById(R.id.plusfavorite);
+
         fuelBar = findViewById(R.id.FuelBar);
         drink1 = (TextView) findViewById(R.id.drinkName1);
         drink2 = (TextView) findViewById(R.id.drinkName2);
