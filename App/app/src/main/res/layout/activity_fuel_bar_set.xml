@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FBFBFB"
     tools:context=".FuelBarSet">
 
     <SeekBar
@@ -16,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+        app:layout_constraintVertical_bias="0.621" />
 
     <ProgressBar
         android:id="@+id/DrinksNum"
@@ -28,47 +29,55 @@
         android:progress="30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintVertical_bias="0.242" />
 
     <TextView
         android:id="@+id/drinksInsideaCircle"
         android:layout_width="77dp"
         android:layout_height="73dp"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center"
-        android:text="3"
-        android:textSize="50dp"
+        android:text="@string/fuel_progress_text"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <Button
         android:id="@+id/buttonSetLimit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="56dp"
+        android:background="@drawable/rounded_btn"
+        android:textSize="18sp"
+        android:backgroundTint="@color/main2"
+        android:fontFamily="@font/roboto_black"
         android:text="@string/setLimit"
+        android:textColor="@color/light_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.928" />
 
     <TextView
         android:id="@+id/emotion"
-        android:layout_width="334dp"
-        android:layout_height="51dp"
+        android:layout_width="332dp"
+        android:layout_height="65dp"
+        android:textColor="@color/text_color2"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:text="@string/limitDefault"
-        android:textSize="20dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSetLimit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountOfDrinks"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintVertical_bias="0.488" />
 </androidx.constraintlayout.widget.ConstraintLayout>

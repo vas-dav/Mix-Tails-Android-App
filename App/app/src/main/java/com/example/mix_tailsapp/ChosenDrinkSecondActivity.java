@@ -56,17 +56,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
 
 
-        //--------------------------------------------
-        //---> IMPORTANT! DO NOT DO THE FUNCTIONALITY
-        //---> OF BUTTONS. WE HAVEN'T MADE A SPECIAL
-        //---> MEMORY FOR STORING USER'S DRINKS
-        //--------------------------------------------
-
-        //Checking if you are signed in: (this [getBoolean] should return true if you are signed),
-        //So, if signed returns true -> "Save Drink and Go back", otherwise just "Go back"
-        //The "Show ingredients" Will appear in both cases
-
-
         // When using the surprise me button
         if (surprise != null) {
             drinkOfYourChoice.setText(surprise);
@@ -75,7 +64,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             // When using the lets drink button
             drinkOfYourChoice.setText(choice);
             ingredients.setOnClickListener(v -> showIngs(choice, drinkIngredients));
-
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
@@ -106,7 +94,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
         DrinkDetails.putExtra(NAME_KEY, input);
-        Log.d("Error", "HERECHECK");
         startActivity(DrinkDetails);
 
 
