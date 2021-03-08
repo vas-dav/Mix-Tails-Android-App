@@ -250,6 +250,24 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
             result = false;
         }
         return result;
+    }
+    // method to check if Drink was already added to favorites
+    public boolean checkFavs(String inputName) {
+        int favDrink = 0;
+        boolean check;
+        String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
+        ingCurs = db.rawQuery(query, null);
+        if (ingCurs.moveToFirst()) {
+            favDrink = ingCurs.getInt(7);
+        }
+        if(favDrink == 1){
+            check = true;
+        } else{
+            check = false;
+        }
+        return check;
+    }
+
 }
     //Method for getting a list of Recommended Drinks
     public ArrayList<String> getRecom() {
