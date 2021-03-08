@@ -191,6 +191,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                                 AppWelcomeScreen.class);
                         startActivity(toHome);
                         break;
+                    case R.id.drinkLimit:
+                        Intent toLimit = new Intent(DrinkRecommendationPage.this, FuelBarSet.class);
+                        startActivity(toLimit);
+                        break;
                     case R.id.newDrink:
                         Intent addDrink = new Intent(DrinkRecommendationPage.this, AddingDrink.class);
                         startActivity(addDrink);

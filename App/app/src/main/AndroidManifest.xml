@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/new_logo_1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".FavoritesActivity"></activity>
+        <activity android:name=".FuelBarSet"></activity>
+        <activity android:name=".FavoritesActivity" />
         <activity android:name=".AddingDrink" />
         <activity
             android:name=".Settings"
