@@ -27,10 +27,14 @@ public class DrinkDetail extends AppCompatActivity {
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
     Button drinkMe;
-    FloatingActionButton addToFavs;
-    SharedPreferences tempStorage;
     private ImageButton goBack;
     private static final String TAG = "misumisu";
+    FloatingActionButton addToFavs;
+    SharedPreferences tempStorage;
+
+    private ImageButton goBack;
+    private static final String TAG = "misumisu";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,5 +116,3 @@ public class DrinkDetail extends AppCompatActivity {
         });
     }
 }
-
-
