@@ -16,12 +16,20 @@ import java.util.List;
  * @version 1: Getting the database opened (Miguel)
  * @version 2: Adding onUpgrade method (Miguel)
  * @version 2.1: Adding (3) functions to get cocktail name from database (Annie)
+ * References:
+ * https://www.youtube.com/watch?v=rziyVBKEU50&t=1000s
+ * https://www.youtube.com/watch?v=rziyVBKEU50&t=1000s
+ * Reference for drinks:
+ * Alcoholic
+ * https://makecocktailsathome.com/wp-content/uploads/2012/07/MakeCocktailsAtHome-Cocktail-List-20121.pdf
+ * Non-alcoholic
+ * https://www.townandcountrymag.com/leisure/drinks/how-to/g785/best-mocktail-recipes/
+ * https://www.gvsu.edu/cms4/asset/1C54986C-CFEC-38E9-B36C92CEAE343FBC/mocktails_booklet.pdfhttps://www.gvsu.edu/cms4/asset/1C54986C-CFEC-38E9-B36C92CEAE343FBC/mocktails_booklet.pdf
  */
 public class DatabaseOpen extends SQLiteAssetHelper {
 
     private static final String DATABASE_NAME = "Drinks.db";
     private static final int DATABASE_VERSION = 2;
-
 
 
     public  DatabaseOpen(Context context){
@@ -37,8 +45,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
     /*
     Writing functions for searchBar in DrinkRecommendationPage Activity (Annie)
     */
-    // searching through database to get all cocktails
-
+    // Create a function to get all cocktails
     public List<Cocktails> getCocktails() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -59,12 +66,12 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
                 //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
-            }  while (cursor.moveToNext());
+            }  while (cursor.moveToNext())   ;
         }
         return result;
     }
 
-    // function to get all cocktails names in the search bar
+    //Create a function to get all cocktails' names
     public List<String> getDrinkName() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -78,12 +85,12 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         if (cursor.moveToFirst()) {
             do {
                 result.add(cursor.getString(cursor.getColumnIndex("name")));
-            }  while (cursor.moveToNext());
+            }  while (cursor.moveToNext())   ;
         }
         return result;
     }
 
-    // function to get cocktail by name and ingredients in the adapter
+    //Create a function to get cocktail by name
     public List<Cocktails> getDrinkByName(String name) {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -120,7 +127,5 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         }
         return result;
     }
-
-
 }
 

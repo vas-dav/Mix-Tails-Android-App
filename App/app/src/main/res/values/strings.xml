@@ -71,5 +71,8 @@
     <string name="fuel_progress_text">3</string>
     <string name="reset_bar">Reset bar</string>
 
+    <string name="drink_me">Drink me!</string>
+
+
 
 </resources>

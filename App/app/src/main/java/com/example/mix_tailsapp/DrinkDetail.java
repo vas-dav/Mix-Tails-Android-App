@@ -5,7 +5,6 @@ package com.example.mix_tailsapp;
  * This class is used to show drink ingredients
  */
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -33,6 +32,10 @@ public class DrinkDetail extends AppCompatActivity {
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
 
+    private ImageButton goBack;
+    private static final String TAG = "misumisu";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +45,6 @@ public class DrinkDetail extends AppCompatActivity {
         drinksAccess.open();
 
         db = new DatabaseAccess(this);
-        tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
-
 
 
         //Instantiate variable
