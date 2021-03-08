@@ -11,6 +11,8 @@ import java.util.ArrayList;
 /**
  * authors: Vasily, Miguel
  * This class is intended for accessing and inserting the drink database
+ * Reference used:
+ * 
  */
 
 
@@ -327,6 +329,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return favList.size();
     }
 
+
     //Method for adding a drink or setting it back to fuelBar
     public void setChosen(String inputName){
 
@@ -342,6 +345,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         db.execSQL(query);
 
     }
+
 }
 
 

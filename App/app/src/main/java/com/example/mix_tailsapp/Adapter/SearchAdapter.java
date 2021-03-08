@@ -53,7 +53,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
     public void onBindViewHolder(SearchViewHolder holder, int position) {
 
         holder.name.setText(cocktails.get(position).getName());
-        holder.ingredients.setText(cocktails.get(position).getSize());
+        holder.ingredients.setText(cocktails.get(position).getIngredients());
 
     }
 

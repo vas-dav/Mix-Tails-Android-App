@@ -23,6 +23,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
     private static final int DATABASE_VERSION = 2;
 
 
+
     public  DatabaseOpen(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
@@ -36,7 +37,8 @@ public class DatabaseOpen extends SQLiteAssetHelper {
     /*
     Writing functions for searchBar in DrinkRecommendationPage Activity (Annie)
     */
-    // Create a function to get all cocktails
+    // searching through database to get all cocktails
+
     public List<Cocktails> getCocktails() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -57,12 +59,12 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
                 cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
-            }  while (cursor.moveToNext())   ;
+            }  while (cursor.moveToNext());
         }
         return result;
     }
 
-    //Create a function to get all cocktails' names
+    // function to get all cocktails names in the search bar
     public List<String> getDrinkName() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -76,12 +78,12 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         if (cursor.moveToFirst()) {
             do {
                 result.add(cursor.getString(cursor.getColumnIndex("name")));
-            }  while (cursor.moveToNext())   ;
+            }  while (cursor.moveToNext());
         }
         return result;
     }
 
-    //Create a function to get cocktail by name
+    // function to get cocktail by name and ingredients in the adapter
     public List<Cocktails> getDrinkByName(String name) {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -90,17 +92,20 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
 
-        Cursor cursor = queryBuilder.query(db, selectSql, "name LIKE ?", new String[] {"%"+name+"%"}, null, null, null);
+        Cursor cursor = queryBuilder.query(db, selectSql, "name AND ingredients LIKE ?",
+                new String[] {"%"+name+ "%"}, null, null, null);
         List<Cocktails> result = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
                 Cocktails cocktails = new Cocktails();
                 cocktails.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 cocktails.setName(cursor.getString(cursor.getColumnIndex("name")));
-                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                cocktails.setIngredients(cursor.getString(6));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }
         return result;
     }
+
+
 }
