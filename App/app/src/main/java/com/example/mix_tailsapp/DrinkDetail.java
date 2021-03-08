@@ -5,9 +5,11 @@ package com.example.mix_tailsapp;
  * This class is used to show drink ingredients
  */
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ public class DrinkDetail extends AppCompatActivity {
     DatabaseAccess db;
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
+    private ImageButton goBack;
     private static final String TAG = "misumisu";
 
     @Override
@@ -36,6 +39,13 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = (ImageView) findViewById(R.id.img_drink);
+        goBack = findViewById(R.id.gobackBtn);
+
+        //onClickListener for go back button
+        goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+            Intent backToHome = new Intent(DrinkDetail.this, AppWelcomeScreen.class);
+            startActivity(backToHome);
+        }));
 
         //get Intent and show drink detail
         String drinkName = getIntent().getStringExtra(ChosenDrinkSecondActivity.NAME_KEY);
