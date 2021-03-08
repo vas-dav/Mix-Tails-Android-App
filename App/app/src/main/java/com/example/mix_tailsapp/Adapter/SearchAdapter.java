@@ -21,15 +21,12 @@ import java.util.List;
  */
 class  SearchViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView name, spirit, taste, size, strength;
+    public TextView name, ingredients;
 
     public  SearchViewHolder(View drinkView) {
         super (drinkView);
         name = (TextView) drinkView.findViewById(R.id.name);
-        spirit = (TextView) drinkView.findViewById(R.id.spirit);
-        taste = (TextView) drinkView.findViewById(R.id.taste);
-        size = (TextView) drinkView.findViewById(R.id.size);
-        strength = (TextView) drinkView.findViewById(R.id.strength);
+        ingredients = (TextView)drinkView.findViewById(R.id.ingredients);
     }
 }
 public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
@@ -56,10 +53,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
     public void onBindViewHolder(SearchViewHolder holder, int position) {
 
         holder.name.setText(cocktails.get(position).getName());
-        holder.spirit.setText(cocktails.get(position).getSpirit());
-        holder.taste.setText(cocktails.get(position).getTaste());
-        holder.size.setText(cocktails.get(position).getSize());
-        holder.strength.setText(cocktails.get(position).getStrength());
+        holder.ingredients.setText(cocktails.get(position).getSize());
 
     }
 
