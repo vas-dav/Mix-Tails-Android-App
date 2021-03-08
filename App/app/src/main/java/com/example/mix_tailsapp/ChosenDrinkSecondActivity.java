@@ -44,23 +44,13 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
         //onClickListener for go back button
         goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
+            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
             startActivity(backToHome);
         }));
 
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
-        //--------------------------------------------
-        //---> IMPORTANT! DO NOT DO THE FUNCTIONALITY
-        //---> OF BUTTONS. WE HAVEN'T MADE A SPECIAL
-        //---> MEMORY FOR STORING USER'S DRINKS
-        //--------------------------------------------
-
-        //Checking if you are signed in: (this [getBoolean] should return true if you are signed),
-        //So, if signed returns true -> "Save Drink and Go back", otherwise just "Go back"
-        //The "Show ingredients" Will appear in both cases
-
 
 
         // When using the surprise me button
@@ -74,23 +64,16 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
+            goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
+                startActivity(backToHome);
+            }));
 
-            /*
-            //---> "Save Drink And Go Back" should go Here
-            saveDrink.setOnClickListener(v -> {
-
-                new Handler().postDelayed(() -> {
-                    setContentView(R.layout.activity_add_drink_confirmation);
-                    Intent saveAndBack = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
-                    startActivity(saveAndBack);
-                }, 2000);
-                ;
-
-
-            });
-
-                 */
         } else {
+            goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
+                startActivity(backToHome);
+            }));
         }
     }
 

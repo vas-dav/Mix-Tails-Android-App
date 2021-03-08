@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class SoberDriver {
     private static double decrease = 1 - 0.015;
 
-    public int alcoAmount(double amount) {
+    public int alcoHours(double amount) {
         int hours = 0;
         double p = amount;
         do{
@@ -22,6 +22,10 @@ public class SoberDriver {
         return hours;
     }
 
+    public double drinkOneMore(double BAC, int drinkAlcoAmount){
+        BAC += drinkAlcoAmount;
 
+        return BAC;
+    }
 
 }
