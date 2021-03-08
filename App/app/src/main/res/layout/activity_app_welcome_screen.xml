@@ -7,6 +7,20 @@
     android:background="#faf8f9"
     tools:context=".AppLaunching">
 
+    <ImageButton
+        android:id="@+id/menuBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#F8CAC6"
+        android:contentDescription="@string/menu_bar"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
     <ImageView
         android:id="@+id/frame"
@@ -15,16 +29,15 @@
         android:layout_marginStart="38dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="342dp"
         android:background="@drawable/circle"
         android:backgroundTint="#fb9c85"
         android:contentDescription="@string/imgViewContentDescription"
-        app:layout_constraintBottom_toTopOf="@+id/loginBtn"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.177" />
 
     <TextView
         android:id="@+id/welcomeBack"
@@ -109,11 +122,11 @@
         android:layout_height="158dp"
         android:layout_marginTop="132dp"
         android:contentDescription="@string/app_name"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752"
+        app:layout_constraintVertical_bias="0.315"
         app:srcCompat="@drawable/cheers4"
         tools:ignore="VectorDrawableCompat" />
 
@@ -127,6 +140,7 @@
         app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.06"
+        android:contentDescription="@string/imgViewContentDesscription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

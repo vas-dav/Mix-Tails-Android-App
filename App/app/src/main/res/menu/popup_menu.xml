@@ -5,6 +5,9 @@
         android:id="@+id/home"
         android:title="Home" />
     <item
+        android:id="@+id/drinkLimit"
+        android:title="Drink Limit"/>
+    <item
         android:id="@+id/newDrink"
         android:title="Add a new drink"/>
     <item
@@ -16,4 +19,5 @@
     <item
         android:id="@+id/signout"
         android:title="Sign Out"/>
+
 </menu>

@@ -35,7 +35,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
 
     /*
     Writing functions for searchBar in DrinkRecommendationPage Activity (Annie)
-     */
+    */
     // Create a function to get all cocktails
     public List<Cocktails> getCocktails() {
         SQLiteDatabase db = getReadableDatabase();

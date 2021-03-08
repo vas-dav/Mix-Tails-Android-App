@@ -14,6 +14,7 @@
         android:layout_height="650dp"
         android:background="@drawable/rounded_rec_frame"
         android:backgroundTint="#faf8f9"
+
         android:contentDescription="@string/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,8 +60,10 @@
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="206dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:textAlignment="textStart"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@color/background_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.404"
@@ -118,8 +121,10 @@
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="206dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@color/background_color"
         android:textAlignment="textStart"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,8 +136,10 @@
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="206dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:textAlignment="textStart"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@color/background_color"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.401"
@@ -158,12 +165,14 @@
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="206dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_marginTop="28dp"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@color/background_color"
         android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0" />
@@ -217,7 +226,7 @@
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="@+id/spinner2"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/spinner2"
         app:layout_constraintTop_toTopOf="@+id/spinner2"
         app:layout_constraintVertical_bias="1.0"
@@ -234,7 +243,7 @@
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/spinner1"
         app:layout_constraintTop_toTopOf="@+id/spinner1"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/octagon" />
 
     <ImageView
@@ -245,10 +254,10 @@
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner3"
         app:layout_constraintEnd_toEndOf="@+id/spinner3"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/spinner3"
         app:layout_constraintTop_toTopOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/octagon" />
 
     <ImageView
@@ -259,7 +268,7 @@
         android:contentDescription="@string/imgViewContentDescription"
         app:layout_constraintBottom_toBottomOf="@+id/spinner4"
         app:layout_constraintEnd_toEndOf="@+id/spinner4"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="@+id/spinner4"
         app:layout_constraintTop_toTopOf="@+id/spinner4"
         app:layout_constraintVertical_bias="1.0"

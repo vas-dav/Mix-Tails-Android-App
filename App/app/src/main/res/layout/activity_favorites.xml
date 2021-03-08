@@ -4,13 +4,11 @@
     android:layout_height="match_parent">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycle_favorites"
-            android:layout_width="344dp"
-            android:layout_height="157dp"
-            android:layout_below="@+id/searchView"
-            android:layout_marginTop="13dp" />
 
+        <ListView
+            android:id="@+id/favoriteList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
 </RelativeLayout>

@@ -9,9 +9,11 @@
         android:roundIcon="@drawable/new_logo_1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
+        <activity android:name=".FuelBarSet"></activity>
+        <activity android:name=".FavoritesActivity" />
         <activity android:name=".AddingDrink" />
         <activity
-            android:name=".Settings"
+            android:name=".UserActivity.Settings"
             android:parentActivityName=".DrinkRecommendationPage"
             android:theme="@style/PreferenceScreen" />
         <activity android:name=".DrinkDetail" />
@@ -19,7 +21,7 @@
         <activity android:name=".DrivingProgress" />
         <activity android:name=".AppWelcomeScreen" />
         <activity android:name=".DrinkRecommendationPage" />
-        <activity android:name=".SignupConfirmationScreen" />
+        <activity android:name=".UserActivity.SignupConfirmationScreen" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionSpinner" />

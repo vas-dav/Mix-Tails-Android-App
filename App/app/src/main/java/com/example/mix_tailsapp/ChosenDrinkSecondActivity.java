@@ -47,7 +47,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
         //onClickListener for go back button
         goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
+            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
             startActivity(backToHome);
         }));
 
@@ -56,8 +56,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
-
-
 
 
         //--------------------------------------------
@@ -71,7 +69,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         //The "Show ingredients" Will appear in both cases
 
 
-
         // When using the surprise me button
         if (surprise != null) {
             drinkOfYourChoice.setText(surprise);
@@ -81,11 +78,23 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             drinkOfYourChoice.setText(choice);
             ingredients.setOnClickListener(v -> showIngs(choice, drinkIngredients));
 
-
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
+            goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
+                startActivity(backToHome);
+            }));
+
+
+        }
+        if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
+          
         } else {
+            goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
+                startActivity(backToHome);
+            }));
         }
     }
 

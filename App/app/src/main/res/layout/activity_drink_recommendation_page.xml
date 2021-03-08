@@ -41,10 +41,10 @@
             android:paddingBottom="@dimen/activity_vertical_margin"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.406">
+            app:layout_constraintVertical_bias="1.0">
 
             <com.mancj.materialsearchbar.MaterialSearchBar
                 android:id="@+id/searchView"
@@ -67,7 +67,6 @@
 
         </RelativeLayout>
 
-
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="48dp"
@@ -76,7 +75,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.89"
             app:layout_constraintStart_toEndOf="@+id/menuBtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/imgViewContentDesscription" />
 
         <!--a textview goes with surprise drink image button-->
 
@@ -99,10 +99,10 @@
             android:layout_height="650dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.669">
 
 
             <ImageView
@@ -120,9 +120,11 @@
                 tools:ignore="MissingConstraints" />
 
             <ImageView
-                android:id="@+id/favorite"
+                android:id="@+id/plusfavorite"
                 android:layout_width="52dp"
                 android:layout_height="39dp"
+                android:contentDescription="@string/imgViewContentDesscription"
+                android:onClick="pressOnHeart"
                 android:src="@drawable/ic_baseline_favorite_border_24"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
@@ -149,15 +151,16 @@
                 android:id="@+id/drinkName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName1"
-                android:textSize="18dp"
+                android:textColor="@color/text_color"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-                app:layout_constraintHorizontal_bias="0.531"
+                app:layout_constraintHorizontal_bias="0.418"
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame"
-                app:layout_constraintVertical_bias="0.629" />
+                app:layout_constraintVertical_bias="0.65" />
 
             <ImageView
                 android:id="@+id/drinkFrame1"
@@ -177,6 +180,7 @@
                 android:id="@+id/favoriteBtn"
                 android:layout_width="52dp"
                 android:layout_height="39dp"
+                android:contentDescription="@string/imgViewContentDesscription"
                 android:src="@drawable/ic_baseline_favorite_border_24"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
@@ -200,12 +204,13 @@
                 app:srcCompat="@drawable/rum_color" />
 
             <TextView
-                android:id="@+id/drinkName5"
+                android:id="@+id/drinkName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName1"
-                android:textSize="18dp"
+                android:textColor="@color/text_color"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
                 app:layout_constraintHorizontal_bias="0.513"
@@ -245,8 +250,9 @@
                 android:id="@+id/favoriteBtn2"
                 android:layout_width="52dp"
                 android:layout_height="39dp"
-                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:contentDescription="@string/imgViewContentDesscription"
 
+                android:src="@drawable/ic_baseline_favorite_border_24"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame2"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -269,12 +275,13 @@
                 app:srcCompat="@drawable/cocktail" />
 
             <TextView
-                android:id="@+id/drinkName2"
+                android:id="@+id/drinkName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName3"
-                android:textSize="18dp"
+                android:textColor="@color/text_color"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame2"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintHorizontal_bias="0.484"
@@ -287,6 +294,7 @@
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:layout_marginStart="32dp"
+                android:contentDescription="@string/imgViewContentDesscription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -299,8 +307,8 @@
                 android:id="@+id/favoriteBtn3"
                 android:layout_width="52dp"
                 android:layout_height="39dp"
+                android:contentDescription="@string/imgViewContentDesscription"
                 android:src="@drawable/ic_baseline_favorite_border_24"
-
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame7"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -313,6 +321,7 @@
                 android:id="@+id/pcosecco"
                 android:layout_width="65dp"
                 android:layout_height="88dp"
+                android:contentDescription="@string/imgViewContentDesscription"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.419"
@@ -325,9 +334,10 @@
                 android:id="@+id/drinkName4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName1"
-                android:textSize="18dp"
+                android:textColor="@color/text_color"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame7"
                 app:layout_constraintHorizontal_bias="0.545"
@@ -336,16 +346,6 @@
                 app:layout_constraintVertical_bias="0.64" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ProgressBar
-            android:id="@+id/fuelBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="328dp"
-            android:layout_height="53dp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

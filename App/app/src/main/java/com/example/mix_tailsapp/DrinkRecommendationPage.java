@@ -8,16 +8,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mix_tailsapp.Adapter.SearchAdapter;
+import com.example.mix_tailsapp.UserActivity.Settings;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
@@ -35,14 +40,8 @@ import java.util.List;
  * @version 3.1: binding database to search bar (Miguel)
  * @version 4: delete search bar and write search adapter (Annie)
  * @version 5: reimplement search bar from scratch, used materialSearchBar (Annie)
- * Reference material used in this activity: Android Popup menu mrBool.com
- * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
- * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
- * Material Search Bar: https://github.com/mancj/MaterialSearchBar
- * https://stackoverflow.com/questions/32455745/recyclerview-and-cardview-click-listener-implementation
- * https://google-developer-training.github.io/android-developer-fundamentals-course-practicals/
- * en/Unit%204/101b_p_searching_an_sqlite_database.html
- * Progress bar https://www.tutlane.com/tutorial/android/android-progressbar-with-examples
+ * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
+ * References are listed at the end of the activity
  */
 
 public class DrinkRecommendationPage extends AppCompatActivity {
@@ -57,6 +56,14 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     private ListView listView;
     private List<DatabaseAccess> cocktails;
+    private TextView drink1, drink2, drink3, drink4;
+    int progress = 0;
+    ProgressBar fuelBar;
+    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
+    //Accessing database to show surprise drinks
+    DatabaseAccess drinksAccess;
+
+
 
     //Recycler Searchbar
     RecyclerView recyclerView;
@@ -77,16 +84,27 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_recommendation_page);
-
-        //Accessing database to show surprise drinks
-        DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+        drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
+
+        recommendedDrinksList = drinksAccess.getRecom();
 
 
         //Initiate variables
 
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
-        favoriteBtn = (ImageView) findViewById(R.id.favBtn);
+        favoriteBtn = (ImageView) findViewById(R.id.plusfavorite);
+        drink1 = (TextView) findViewById(R.id.drinkName1);
+        drink2 = (TextView) findViewById(R.id.drinkName2);
+        drink3 = (TextView) findViewById(R.id.drinkName3);
+        drink4 = (TextView) findViewById(R.id.drinkName4);
+
+        // set Text for recommended drink display from database
+        drink1.setText(recommendedDrinksList.get(0));
+        drink2.setText(recommendedDrinksList.get(1));
+        drink3.setText(recommendedDrinksList.get(2));
+        drink4.setText(recommendedDrinksList.get(3));
+
 
         //Initiate View
         recyclerView = (RecyclerView) findViewById(R.id.recycle_search);
@@ -103,8 +121,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         materialSearchBar.setHint("Search");
         materialSearchBar.setCardViewElevation(10);
         loadSuggestions();
-
-
         materialSearchBar.addTextChangeListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -133,7 +149,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
         /*
-        reference
+        reference used here
         https://www.codota.com/code/java/methods/com.mancj.materialsearchbar.MaterialSearchBar/setOnSearchActionListener
          */
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
@@ -176,12 +192,16 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                                 AppWelcomeScreen.class);
                         startActivity(toHome);
                         break;
+                    case R.id.drinkLimit:
+                        Intent toLimit = new Intent(DrinkRecommendationPage.this, FuelBarSet.class);
+                        startActivity(toLimit);
+                        break;
                     case R.id.newDrink:
                         Intent addDrink = new Intent(DrinkRecommendationPage.this, AddingDrink.class);
                         startActivity(addDrink);
                         break;
                     case R.id.favorite:
-                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoriteDrinks.class);
+                        Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
                     case R.id.settings:
                         Intent settings = new Intent(DrinkRecommendationPage.this,
@@ -204,6 +224,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             popupMenu.show();
         });
 
+
         //When the surprise drink Image(top right in recommendation page) Button clicked
 
         surpriseDrink = findViewById(R.id.imageButton);
@@ -219,6 +240,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     }
 
 
+
     /**
      * create a start search method for search bar
      */
@@ -230,6 +252,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     }
 
+
     /**
      * Create a method to load suggestions for search bar
      */
@@ -239,3 +262,14 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     }
 }
+
+/*
+ * Reference material used in this activity: Android Popup menu mrBool.com
+ * http://mrbool.com/android-menu-how-to-create-a-menu-in-android/30719
+ * SearchView reference: https://developer.android.com/reference/android/widget/SearchView
+ * Material Search Bar: https://github.com/mancj/MaterialSearchBar
+ * https://stackoverflow.com/questions/32455745/recyclerview-and-cardview-click-listener-implementation
+ * https://google-developer-training.github.io/android-developer-fundamentals-course-practicals/
+ * en/Unit%204/101b_p_searching_an_sqlite_database.html
+ * Progress bar https://www.tutlane.com/tutorial/android/android-progressbar-with-examples
+ */
