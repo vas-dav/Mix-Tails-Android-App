@@ -128,6 +128,14 @@
                     android:text="@string/ingredients"
                     android:textColor="@color/text_color2"
                     android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/add_me_fuel"
+                    android:layout_width="136dp"
+                    android:layout_height="60dp"
+                    android:text="Drink me!"
+                    android:layout_gravity="top|end"
+                    app:srcCompat="@drawable/signup_btn_bg" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 

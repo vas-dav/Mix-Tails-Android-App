@@ -6,10 +6,11 @@ package com.example.mix_tailsapp;
  */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class DrinkDetail extends AppCompatActivity {
     DatabaseAccess db;
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
+    Button drinkMe;
     private ImageButton goBack;
     private static final String TAG = "misumisu";
 
@@ -39,6 +41,7 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = (ImageView) findViewById(R.id.img_drink);
+
         goBack = findViewById(R.id.gobackBtn);
 
         //onClickListener for go back button
@@ -46,6 +49,8 @@ public class DrinkDetail extends AppCompatActivity {
             Intent backToHome = new Intent(DrinkDetail.this, AppWelcomeScreen.class);
             startActivity(backToHome);
         }));
+
+        drinkMe = findViewById(R.id.add_me_fuel);
 
         //get Intent and show drink detail
         String drinkName = getIntent().getStringExtra(ChosenDrinkSecondActivity.NAME_KEY);
@@ -60,22 +65,26 @@ public class DrinkDetail extends AppCompatActivity {
         // database and assigns each with a drawable/image
         db.open();
         Resources glasses = getResources();
-        if(db.getSpitOnly(drinkName).contains("Whiskey")){
+        if (db.getSpitOnly(drinkName).contains("Whiskey")) {
             Log.d("imageset", "SET");
             showGlass.setImageResource(R.drawable.whiskey);
-        }else if(db.getSpitOnly(drinkName).contains("Rum")) {
+        } else if (db.getSpitOnly(drinkName).contains("Rum")) {
             showGlass.setImageResource(R.drawable.mojito);
-        }else if(db.getSpitOnly(drinkName).contains("Tequila")){
+        } else if (db.getSpitOnly(drinkName).contains("Tequila")) {
             showGlass.setImageResource(R.drawable.rum_color);
-        }else if(db.getSpitOnly(drinkName).contains("Gin")) {
+        } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
-        }else if(db.getSpitOnly(drinkName).contains("Vodka")) {
+        } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
             showGlass.setImageResource(R.drawable.vodka);
-        }else if(db.getSpitOnly(drinkName).contains("Sparkling wine")) {
+        } else if (db.getSpitOnly(drinkName).contains("Sparkling wine")) {
             showGlass.setImageResource(R.drawable.pcosecco);
-        }else{
+        } else {
             showGlass.setImageResource(R.drawable.cocktail);
         }
-
-        }
+        drinkMe.setOnClickListener(v -> {
+            Intent getToRecoms = new Intent(DrinkDetail.this, DrinkRecommendationPage.class);
+            db.setChosen(drinkName);
+            startActivity(getToRecoms);
+        });
     }
+}
