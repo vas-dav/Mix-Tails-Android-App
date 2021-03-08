@@ -44,7 +44,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
         //onClickListener for go back button
         goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
+            Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
             startActivity(backToHome);
         }));
 
@@ -87,7 +87,9 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
         DrinkDetails.putExtra(NAME_KEY, input);
+        Log.d("Error", "HERECHECK");
         startActivity(DrinkDetails);
+
 
     }
 

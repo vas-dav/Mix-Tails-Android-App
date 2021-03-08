@@ -1,15 +1,13 @@
 package com.example.mix_tailsapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily, Miguel
@@ -150,9 +148,7 @@ public class QuestionSpinner extends AppCompatActivity {
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
             ings = drinksAccess.getDrinkIngs2(total);
-            //Log.d("DRINKS&INGS", total + ": \n" + ings);
 
-            Log.d("DrinkEmpty", total + " error");
 
             // if database didn't return anything with user choice, the program searches for similarities
             if(total != null) {

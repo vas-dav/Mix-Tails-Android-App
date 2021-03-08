@@ -23,6 +23,7 @@ public class DatabaseAccess {
     Cursor c = null;
     Cursor ingCurs = null;
     Cursor recom = null;
+    Cursor spitCurs = null;
 
     public static final String DATABASE_NAME = "Drinks.db";
     public static final String TABLE_NAME = "cocktails";
@@ -66,7 +67,6 @@ public class DatabaseAccess {
 
 
     // DO NOT TOUCH!!! PLEASE!!!
-
     /**
      * method to query and returning a result from database from drink name limited to 1
      */
@@ -200,31 +200,11 @@ public class DatabaseAccess {
         return getIngs;
     }
 
-  /*  public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
-        boolean executed = false;
-        int count = 0;
-        int favs = 0;
-        String selectAll = "SELECT name FROM cocktails";
-        c = db.rawQuery(selectAll, null);
-        if (c.moveToLast()) {
-            count = c.getCount()+1;
-        }
-        String query = "INSERT INTO \"cocktails\"(\"id\",\"name\",\"spirit\",\"taste\",\"size\",\"strength\",\"ingredients \",\"favs\") VALUES (" + count + "," + editName + "," + editSpirit + ","
-                + editTaste + "," + editSize + "," + editStrength + "," + editIngredients + "," + favs + ")";
-        db.execSQL(query);
-        executed = true;
-        return executed;
-    }*/
-
-
-    /*
-    Writing functions for favorites and recommendations
-     */
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
         boolean done = false;
         executed = db.insertOrThrow("favorites", null, contentValues);
-        if (executed != -1) {
+        if (executed != -1){
             done = true;
         } else {
             done = false;
@@ -252,26 +232,23 @@ public class DatabaseAccess {
 
 
 //Method for adding a favourite drink or setting it back to not favourite
-    //1 == fav
-    //0 == not fav
 public boolean setOrResetHeartDrink(int setValue, String inputName){
         boolean result;
         String query = "UPDATE cocktails SET favs = "
                 + setValue + " WHERE name LIKE '" + inputName + "%'";
-        if((setValue == 1 || setValue == 0)){
+        if((setValue != 1 || setValue != 0)){
+            result = false;
+        } else {
             db.execSQL(query);
             result = true;
-        } else {
-            result = false;
         }
         return result;
-    }
-
+}
     //Method for getting a list of Recommended Drinks
     public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
         int count = 0;
-        String selectAll = "SELECT * FROM cocktails";
+        String selectAll = "SELECT name FROM cocktails";
         recom = db.rawQuery(selectAll, null);
         if (recom.moveToLast()) {
             count = recom.getCount();
@@ -287,8 +264,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         }
         return (recomList);
     }
-
-    // a function to insert drink
+    // method for the user to add a new cocktail to the existing datababse(Drinks.db)
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();
@@ -307,14 +283,26 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         db.endTransaction();
         db.close();
 
-        if (rowInserted != -1)
+        if(rowInserted != -1)
             return true;
         else
             return false;
 
 
     }
+    // method to get only spirit name to match with image
+    public String getSpitOnly(String inputName) {
+        String getSpit = null;
+        String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
+        ingCurs = db.rawQuery(query, null);
+        if (ingCurs.moveToFirst()) {
+            getSpit = ingCurs.getString(2);
 
+        }
+
+        return getSpit;
+
+    }
 
 }
 
