@@ -95,7 +95,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/drinkFrame"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
@@ -106,23 +106,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.175"
-                app:srcCompat="@drawable/recommended_drink_frame"
+                android:background="@drawable/recommended_drink_frame"
                 tools:ignore="MissingConstraints" />
-
-            <ImageView
-                android:id="@+id/plusfavorite"
-                android:layout_width="52dp"
-                android:layout_height="39dp"
-                android:contentDescription="@string/imgViewContentDesscription"
-                android:onClick="pressOnHeart"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
-                app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/drinkFrame"
-                app:layout_constraintTop_toTopOf="@+id/drinkFrame"
-                app:layout_constraintVertical_bias="0.05"
-                app:tint="@color/carrot2" />
 
             <ImageView
                 android:id="@+id/whiskey"
@@ -152,7 +137,7 @@
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame"
                 app:layout_constraintVertical_bias="0.65" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/drinkFrame1"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
@@ -163,22 +148,8 @@
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.175"
-                app:srcCompat="@drawable/recommended_drink_frame1"
+                android:background="@drawable/recommended_drink_frame1"
                 tools:ignore="MissingConstraints" />
-
-            <ImageView
-                android:id="@+id/favoriteBtn"
-                android:layout_width="52dp"
-                android:layout_height="39dp"
-                android:contentDescription="@string/imgViewContentDesscription"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
-                app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
-                app:layout_constraintTop_toTopOf="@+id/drinkFrame1"
-                app:layout_constraintVertical_bias="0.05"
-                app:tint="@color/carrot2" />
 
             <ImageView
                 android:id="@+id/rum"
@@ -223,7 +194,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/drinkFrame2"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
@@ -233,23 +204,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.597"
-                app:srcCompat="@drawable/recommended_drink_frame2"
+                android:background="@drawable/recommended_drink_frame2"
                 tools:ignore="MissingConstraints" />
-
-            <ImageView
-                android:id="@+id/favoriteBtn2"
-                android:layout_width="52dp"
-                android:layout_height="39dp"
-                android:contentDescription="@string/imgViewContentDesscription"
-
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame2"
-                app:layout_constraintEnd_toEndOf="@+id/drinkFrame2"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/drinkFrame2"
-                app:layout_constraintTop_toTopOf="@+id/drinkFrame2"
-                app:layout_constraintVertical_bias="0.05"
-                app:tint="@color/carrot2" />
 
 
             <ImageView
@@ -279,7 +235,7 @@
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame2"
                 app:layout_constraintVertical_bias="0.63" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/drinkFrame7"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
@@ -291,21 +247,7 @@
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.588"
-                app:srcCompat="@drawable/recommended_drink_frame" />
-
-            <ImageView
-                android:id="@+id/favoriteBtn3"
-                android:layout_width="52dp"
-                android:layout_height="39dp"
-                android:contentDescription="@string/imgViewContentDesscription"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
-                app:layout_constraintEnd_toEndOf="@+id/drinkFrame7"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/drinkFrame7"
-                app:layout_constraintTop_toTopOf="@+id/drinkFrame7"
-                app:layout_constraintVertical_bias="0.062"
-                app:tint="@color/carrot2" />
+                android:background="@drawable/recommended_drink_frame" />
 
             <ImageView
                 android:id="@+id/pcosecco"
@@ -335,7 +277,7 @@
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame7"
                 app:layout_constraintVertical_bias="0.64" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/drink_frame"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
@@ -350,21 +292,6 @@
                 android:backgroundTint="#E1FEF0F0"
                 tools:ignore="MissingConstraints" />
 
-
-            <ImageView
-                android:id="@+id/plusfavorite3"
-                android:layout_width="52dp"
-                android:layout_height="39dp"
-                android:layout_marginEnd="4dp"
-                android:contentDescription="@string/imgViewContentDesscription"
-                android:onClick="pressOnHeart"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@+id/drink_frame"
-                app:layout_constraintEnd_toEndOf="@+id/drink_frame"
-                app:layout_constraintLeft_toLeftOf="@+id/drink_frame"
-                app:layout_constraintTop_toTopOf="@+id/drink_frame"
-                app:layout_constraintVertical_bias="0.073"
-                app:tint="@color/carrot2" />
 
             <ImageView
                 android:id="@+id/vodka"
@@ -382,7 +309,7 @@
                 app:srcCompat="@drawable/mojito"
                 tools:ignore="MissingConstraints" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/drink_frame2"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
@@ -408,20 +335,6 @@
                 app:layout_constraintTop_toTopOf="@+id/drink_frame2"
                 app:layout_constraintVertical_bias="0.101"
                 app:srcCompat="@drawable/gin" />
-
-            <ImageView
-                android:id="@+id/favoriteBtn5"
-                android:layout_width="52dp"
-                android:layout_height="39dp"
-                android:contentDescription="@string/imgViewContentDesscription"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@+id/drink_frame2"
-                app:layout_constraintEnd_toEndOf="@+id/drink_frame2"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/drink_frame2"
-                app:layout_constraintTop_toTopOf="@+id/drink_frame2"
-                app:layout_constraintVertical_bias="0.073"
-                app:tint="@color/carrot2" />
 
             <TextView
                 android:id="@+id/drinkName6"
