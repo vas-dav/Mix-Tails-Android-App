@@ -315,6 +315,21 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
 
     }
 
+    // Getting an ArrayList of all chosen Drinks
+    public int getChosen() {
+        String query = "SELECT name FROM cocktails WHERE counter = 1";
+        ingCurs = db.rawQuery(query, null);
+        ArrayList<String> favList = new ArrayList<String>();
+        if (ingCurs.moveToFirst()) {
+            do {
+                String getChosen = ingCurs.getString(1);
+                favList.add(getChosen);
+
+            } while (ingCurs.moveToNext());
+        }
+
+        return favList.size();
+    }
 
 }
 

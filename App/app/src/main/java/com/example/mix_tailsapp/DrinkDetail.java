@@ -5,6 +5,7 @@ package com.example.mix_tailsapp;
  * This class is used to show drink ingredients
  */
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
