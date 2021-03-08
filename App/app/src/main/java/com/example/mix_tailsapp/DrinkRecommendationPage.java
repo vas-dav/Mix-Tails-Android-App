@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -58,6 +60,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     int progress = 0;
     ProgressBar fuelBar;
     private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
+    //Accessing database to show surprise drinks
+    DatabaseAccess drinksAccess;
+
 
 
     //Recycler Searchbar
@@ -79,17 +84,16 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_recommendation_page);
-
-        //Accessing database to show surprise drinks
-        DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
+        drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
+
         recommendedDrinksList = drinksAccess.getRecom();
 
 
         //Initiate variables
 
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
-        favoriteBtn = (ImageView) findViewById(R.id.favBtn);
+        favoriteBtn = (ImageView) findViewById(R.id.plusfavorite);
         drink1 = (TextView) findViewById(R.id.drinkName1);
         drink2 = (TextView) findViewById(R.id.drinkName2);
         drink3 = (TextView) findViewById(R.id.drinkName3);
@@ -216,6 +220,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             popupMenu.show();
         });
 
+
         //When the surprise drink Image(top right in recommendation page) Button clicked
 
         surpriseDrink = findViewById(R.id.imageButton);
@@ -231,6 +236,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     }
 
 
+
     /**
      * create a start search method for search bar
      */
@@ -241,6 +247,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         recyclerView.setAdapter(searchAdapter);
 
     }
+
 
     /**
      * Create a method to load suggestions for search bar
