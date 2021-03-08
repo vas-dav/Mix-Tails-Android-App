@@ -11,6 +11,8 @@ import java.util.ArrayList;
 /**
  * authors: Vasily, Miguel
  * This class is intended for accessing and inserting the drink database
+ * Reference used:
+ * 
  */
 
 
@@ -310,6 +312,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return getSpit;
 
     }
+
 
 
 }
