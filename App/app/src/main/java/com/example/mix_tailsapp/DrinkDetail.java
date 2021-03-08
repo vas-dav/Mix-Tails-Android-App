@@ -105,13 +105,21 @@ public class DrinkDetail extends AppCompatActivity {
         }
         drinkMe.setOnClickListener(v -> {
             Intent getToRecoms = new Intent(DrinkDetail.this, DrinkRecommendationPage.class);
-            if (tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) == 0){
-                db.resetChosen();
-                startActivity(getToRecoms);
+            Intent getToMain = new Intent(DrinkDetail.this, MainActivity.class);
+            if(tempStorage.getBoolean(SignupActivity.SIGNED, false)) {
+                if (tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) == 0) {
+                    db.resetChosen();
+                    startActivity(getToRecoms);
+                } else {
+                    db.setChosen(drinkName);
+                    startActivity(getToRecoms);
+                }
             }else {
-                db.setChosen(drinkName);
-                startActivity(getToRecoms);
+                startActivity(getToMain);
             }
-        });
+            });
+
+
+
     }
 }
