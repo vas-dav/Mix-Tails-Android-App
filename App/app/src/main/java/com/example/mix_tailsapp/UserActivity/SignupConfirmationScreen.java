@@ -1,4 +1,4 @@
-package com.example.mix_tailsapp;
+package com.example.mix_tailsapp.UserActivity;
 /**
  * Created by An Huynh on 18/02/2021
  * authors Annie
@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.mix_tailsapp.AppWelcomeScreen;
+import com.example.mix_tailsapp.R;
 
 public class SignupConfirmationScreen extends AppCompatActivity {
 
