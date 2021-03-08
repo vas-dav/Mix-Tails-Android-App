@@ -61,6 +61,10 @@
     <string name="drink_added_confirmation">Your Drink has been successfully added</string>
     <string name="add_a_new_drink">Add a new drink</string>
     <string name="ingredients">Ingredients</string>
+    <string name="see_ingredients">See Ingredients</string>
+    <string name="waiting_to_drive_text">You still have to wait</string>
+    <string name="go_back_text">Go Back</string>
+    <string name="drink_name_text">Drink Name</string>
 
 
 </resources>

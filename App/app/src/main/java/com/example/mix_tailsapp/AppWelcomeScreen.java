@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mix_tailsapp.UserActivity.Settings;
+
 public class AppWelcomeScreen extends AppCompatActivity {
     //Declare variables
     private Button decideBtn, recommendBtn, drivingEstimation, favoriteBtn;
