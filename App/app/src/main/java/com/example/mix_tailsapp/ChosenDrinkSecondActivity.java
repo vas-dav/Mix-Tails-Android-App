@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ChosenDrinkSecondActivity extends AppCompatActivity {
+
+
 
     TextView drinkOfYourChoice;
     private ImageButton goBack;
@@ -48,9 +51,22 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             startActivity(backToHome);
         }));
 
+
+
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
+
+
+        //--------------------------------------------
+        //---> IMPORTANT! DO NOT DO THE FUNCTIONALITY
+        //---> OF BUTTONS. WE HAVEN'T MADE A SPECIAL
+        //---> MEMORY FOR STORING USER'S DRINKS
+        //--------------------------------------------
+
+        //Checking if you are signed in: (this [getBoolean] should return true if you are signed),
+        //So, if signed returns true -> "Save Drink and Go back", otherwise just "Go back"
+        //The "Show ingredients" Will appear in both cases
 
 
         // When using the surprise me button
@@ -61,6 +77,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             // When using the lets drink button
             drinkOfYourChoice.setText(choice);
             ingredients.setOnClickListener(v -> showIngs(choice, drinkIngredients));
+
         }
         if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
@@ -69,6 +86,10 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
                 startActivity(backToHome);
             }));
 
+
+        }
+        if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
+          
         } else {
             goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
                 Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
@@ -87,9 +108,12 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
         DrinkDetails.putExtra(NAME_KEY, input);
+        Log.d("Error", "HERECHECK");
         startActivity(DrinkDetails);
 
+
+    }
+   
     }
 
 
-}

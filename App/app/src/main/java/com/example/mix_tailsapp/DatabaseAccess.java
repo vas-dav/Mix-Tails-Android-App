@@ -23,6 +23,7 @@ public class DatabaseAccess {
     Cursor c = null;
     Cursor ingCurs = null;
     Cursor recom = null;
+    Cursor spitCurs = null;
 
     public static final String DATABASE_NAME = "Drinks.db";
     public static final String TABLE_NAME = "cocktails";
@@ -200,26 +201,7 @@ public class DatabaseAccess {
         return getIngs;
     }
 
-  /*  public boolean insertDrink(String editName, String editSpirit, String editTaste, String editSize, String editStrength, String editIngredients) {
-        boolean executed = false;
-        int count = 0;
-        int favs = 0;
-        String selectAll = "SELECT name FROM cocktails";
-        c = db.rawQuery(selectAll, null);
-        if (c.moveToLast()) {
-            count = c.getCount()+1;
-        }
-        String query = "INSERT INTO \"cocktails\"(\"id\",\"name\",\"spirit\",\"taste\",\"size\",\"strength\",\"ingredients \",\"favs\") VALUES (" + count + "," + editName + "," + editSpirit + ","
-                + editTaste + "," + editSize + "," + editStrength + "," + editIngredients + "," + favs + ")";
-        db.execSQL(query);
-        executed = true;
-        return executed;
-    }*/
 
-
-    /*
-    Writing functions for favorites and recommendations
-     */
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
         boolean done = false;
@@ -288,7 +270,8 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return (recomList);
     }
 
-    // a function to insert drink
+    // method for the user to add a new cocktail to the existing datababse(Drinks.db)
+
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();
@@ -312,6 +295,19 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         else
             return false;
 
+
+    }
+    // method to get only spirit name to match with image
+    public String getSpitOnly(String inputName) {
+        String getSpit = null;
+        String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
+        ingCurs = db.rawQuery(query, null);
+        if (ingCurs.moveToFirst()) {
+            getSpit = ingCurs.getString(2);
+
+        }
+
+        return getSpit;
 
     }
 
