@@ -16,6 +16,15 @@ import java.util.List;
  * @version 1: Getting the database opened (Miguel)
  * @version 2: Adding onUpgrade method (Miguel)
  * @version 2.1: Adding (3) functions to get cocktail name from database (Annie)
+ * References:
+ * https://www.youtube.com/watch?v=rziyVBKEU50&t=1000s
+ * https://www.youtube.com/watch?v=rziyVBKEU50&t=1000s
+ * Reference for drinks:
+ * Alcoholic
+ * https://makecocktailsathome.com/wp-content/uploads/2012/07/MakeCocktailsAtHome-Cocktail-List-20121.pdf
+ * Non-alcoholic
+ * https://www.townandcountrymag.com/leisure/drinks/how-to/g785/best-mocktail-recipes/
+ * https://www.gvsu.edu/cms4/asset/1C54986C-CFEC-38E9-B36C92CEAE343FBC/mocktails_booklet.pdfhttps://www.gvsu.edu/cms4/asset/1C54986C-CFEC-38E9-B36C92CEAE343FBC/mocktails_booklet.pdf
  */
 public class DatabaseOpen extends SQLiteAssetHelper {
 
@@ -41,7 +50,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength", "ingredients"};
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
         Cursor cursor = queryBuilder.query(db, selectSql, null, null, null, null, null);
@@ -55,7 +64,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
                 cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
-                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }
@@ -86,27 +95,19 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String[] selectSql = {"id", "name", "ingredients"};
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
-        /*
-        get extract name:
-        Cursor cursor = queryBuilder.query(db, selectSql, "name = ?", new String[] {name}, null, null, null);
-         */
 
-        //  SELECT * FROM Cocktails WHERE name LIKE %pattern%" ==
-        Cursor cursor = queryBuilder.query(db, selectSql, "name LIKE ?", new String[] {"%"+name+"%"}, null, null, null);
+        Cursor cursor = queryBuilder.query(db, selectSql, "name AND ingredients LIKE ?",
+                new String[] {"%"+name+ "%"}, null, null, null);
         List<Cocktails> result = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
                 Cocktails cocktails = new Cocktails();
                 cocktails.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 cocktails.setName(cursor.getString(cursor.getColumnIndex("name")));
-                cocktails.setSpirit(cursor.getString(cursor.getColumnIndex("spirit")));
-                cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
-                cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
-                cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
-                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                cocktails.setIngredients(cursor.getString(6));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }
