@@ -268,7 +268,6 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return check;
     }
 
-}
     //Method for getting a list of Recommended Drinks
     public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
