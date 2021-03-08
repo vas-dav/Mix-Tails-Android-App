@@ -65,11 +65,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
                 if (deleter.commit()) {
                     startActivity(signOut);
                 }
-                if(v == favoriteBtn){
-                    Intent favourite = new Intent(AppWelcomeScreen.this, FavouriteDrinks.class);
-                    Log.d("Favs", "Clicked");
-                    startActivity(favourite);
-                }
+
             }
         }
     };

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 /**
  * authors: Vasily, Miguel
  * This class is intended for accessing and inserting the drink database
+ * Reference used:
+ * 
  */
 
 
@@ -247,7 +249,26 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
             result = false;
         }
         return result;
-}
+
+    }
+    // method to check if Drink was already added to favorites
+    public boolean checkFavs(String inputName) {
+        int favDrink = 0;
+        boolean check;
+        String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
+        ingCurs = db.rawQuery(query, null);
+        if (ingCurs.moveToFirst()) {
+            favDrink = ingCurs.getInt(7);
+        }
+        if(favDrink == 1){
+            check = true;
+        } else{
+            check = false;
+        }
+        return check;
+    }
+
+
     //Method for getting a list of Recommended Drinks
     public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
@@ -326,6 +347,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return favList.size();
     }
 
+
     //Method for adding a drink or setting it back to fuelBar
     public void setChosen(String inputName){
 
@@ -341,6 +363,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         db.execSQL(query);
 
     }
+
 }
 
 
