@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FuelBarSet extends AppCompatActivity {
 
@@ -69,7 +71,8 @@ public class FuelBarSet extends AppCompatActivity {
                 }
                 send.setOnClickListener(v ->  {
                     SharedPreferences drinkLimit = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);;
-                    Intent sender = new Intent(FuelBarSet.this, DrinkRecommendationPage.class);
+                    Intent sender = new Intent(FuelBarSet.this, AppWelcomeScreen.class);
+                    Toast.makeText(FuelBarSet.this, "Your limit is " + drinkNum + " drinks", Toast.LENGTH_LONG).show();
                     SharedPreferences.Editor amountEditor = drinkLimit.edit();
                     amountEditor.putInt(LIMIT_AMOUNT, drinkNum);
                     if(amountEditor.commit()){
