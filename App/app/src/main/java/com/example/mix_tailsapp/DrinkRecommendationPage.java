@@ -235,9 +235,11 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         fuelBarResteButton = findViewById(R.id.imageButton);
         fuelBarResteButton.setOnClickListener(v -> {
             SharedPreferences.Editor fuelResetter = tempStorage.edit();
-            fuelResetter.remove(FuelBarSet.LIMIT_AMOUNT);
-            fuelBar.setProgress(0,true);
-            drinksAccess.resetChosen();
+            fuelResetter.putInt(FuelBarSet.LIMIT_AMOUNT,0);
+            if(fuelResetter.commit()) {
+                fuelBar.setProgress(0, true);
+                drinksAccess.resetChosen();
+            }
 
 
         });

@@ -5,6 +5,7 @@ package com.example.mix_tailsapp;
  * This class is used to show drink ingredients
  */
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -13,8 +14,11 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DrinkDetail extends AppCompatActivity {
 
@@ -23,7 +27,8 @@ public class DrinkDetail extends AppCompatActivity {
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
     Button drinkMe;
-
+    FloatingActionButton addToFavs;
+    SharedPreferences tempStorage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,8 @@ public class DrinkDetail extends AppCompatActivity {
         drinksAccess.open();
 
         db = new DatabaseAccess(this);
+        tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+
 
 
         //Instantiate variable
@@ -40,14 +47,27 @@ public class DrinkDetail extends AppCompatActivity {
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = (ImageView) findViewById(R.id.img_drink);
         drinkMe = findViewById(R.id.add_me_fuel);
+        addToFavs = (FloatingActionButton) findViewById(R.id.favBtn);
 
         //get Intent and show drink detail
         String drinkName = getIntent().getStringExtra(ChosenDrinkSecondActivity.NAME_KEY);
         drink_name.setText(drinkName);
         String details = getIntent().getStringExtra(ChosenDrinkSecondActivity.DETAIL_KEY);
         show_ingredient.setText(details);
-        String whiskey = "Whiskey";
-        String rum = "Rum";
+
+
+    if(drinksAccess.checkFavs(drinkName)){
+    addToFavs.setImageResource(R.drawable.favbtn2);
+    }
+        addToFavs.setOnClickListener(v -> {
+            if(drinksAccess.checkFavs(drinkName)){
+                Toast.makeText(DrinkDetail.this, "Drink already in favorites", Toast.LENGTH_SHORT).show();
+            }else {
+                drinksAccess.setOrResetHeartDrink(1, drinkName);
+                addToFavs.setImageResource(R.drawable.favbtn2);
+            }
+        });
+
 
 
         // if/else statements to check for spirit names in the
@@ -72,8 +92,13 @@ public class DrinkDetail extends AppCompatActivity {
         }
         drinkMe.setOnClickListener(v -> {
             Intent getToRecoms = new Intent(DrinkDetail.this, DrinkRecommendationPage.class);
-            db.setChosen(drinkName);
-            startActivity(getToRecoms);
+            if (tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) == 0){
+                db.resetChosen();
+                startActivity(getToRecoms);
+            }else {
+                db.setChosen(drinkName);
+                startActivity(getToRecoms);
+            }
         });
     }
 }

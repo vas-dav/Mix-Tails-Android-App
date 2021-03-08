@@ -97,7 +97,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 Cocktails cocktails = new Cocktails();
                 cocktails.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 cocktails.setName(cursor.getString(cursor.getColumnIndex("name")));
-                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                cocktails.setIngredients(cursor.getString(5));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }

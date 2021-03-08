@@ -6,7 +6,7 @@
         android:title="Home" />
     <item
         android:id="@+id/drinkLimit"
-        android:title="Drink Limit"/>
+        android:title="Set Fuel Bar"/>
     <item
         android:id="@+id/newDrink"
         android:title="Add a new drink"/>
