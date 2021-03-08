@@ -262,7 +262,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         }
         return (recomList);
     }
-
+    // method for the user to add a new cocktail to the existing datababse(Drinks.db)
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();

@@ -19,7 +19,6 @@ public class DrinkDetail extends AppCompatActivity {
     DatabaseAccess db;
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
-    String[] spirits = {"Choose-one", "Non-alcoholic", "Rum", "Vodka", "Gin", "Whiskey", "Tequila", "Sparkling wine"};
     private static final String TAG = "misumisu";
 
     @Override
@@ -46,10 +45,9 @@ public class DrinkDetail extends AppCompatActivity {
         String whiskey = "Whiskey";
         String rum = "Rum";
 
-        //Resources res = getResources();
-        //Drawable drawable = res.getDrawable(R.drawable.whiskey);
-        //showGlass.setBackground(drawable);
 
+        // if/else statements to check for spirit names in the
+        // database and assigns each with a drawable/image
         db.open();
         Resources glasses = getResources();
         if(db.getSpitOnly(drinkName).contains("Whiskey")){
@@ -69,10 +67,5 @@ public class DrinkDetail extends AppCompatActivity {
             showGlass.setImageResource(R.drawable.cocktail);
         }
 
-
-
-
         }
-
-
     }
