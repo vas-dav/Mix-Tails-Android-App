@@ -13,15 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily, Miguel, Annie
+ * <p>
  * An activity for choosing drinks from user's choice of preferred ingredients or surprise drink
- * @version 1:
- * @version 2: writing onClickListener for buttons (Annie)
+ *
  * @version 3: connecting buttons to their functionaries
  */
 
 
 public class ChosenDrinkSecondActivity extends AppCompatActivity {
-
 
 
     TextView drinkOfYourChoice;
@@ -50,7 +49,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
             startActivity(backToHome);
         }));
-
 
 
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
@@ -100,7 +98,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
 
 
     }
-   
-    }
+
+}
 
 
