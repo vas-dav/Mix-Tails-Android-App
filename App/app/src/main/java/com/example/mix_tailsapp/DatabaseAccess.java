@@ -250,16 +250,19 @@ public class DatabaseAccess {
         return (favList);
     }
 
-    //Method for adding a favourite drink or setting it back to not favourite
-    public boolean setOrResetHeartDrink(int setValue, String inputName) {
+
+//Method for adding a favourite drink or setting it back to not favourite
+    //1 == fav
+    //0 == not fav
+public boolean setOrResetHeartDrink(int setValue, String inputName){
         boolean result;
         String query = "UPDATE cocktails SET favs = "
                 + setValue + " WHERE name LIKE '" + inputName + "%'";
-        if ((setValue != 1 || setValue != 0)) {
-            result = false;
-        } else {
+        if((setValue == 1 || setValue == 0)){
             db.execSQL(query);
             result = true;
+        } else {
+            result = false;
         }
         return result;
     }

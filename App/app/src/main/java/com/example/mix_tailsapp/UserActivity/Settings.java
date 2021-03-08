@@ -1,4 +1,4 @@
-package com.example.mix_tailsapp;
+package com.example.mix_tailsapp.UserActivity;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+
+import com.example.mix_tailsapp.R;
 
 /**
  * Created on 04/03/2021

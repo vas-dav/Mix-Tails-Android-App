@@ -13,7 +13,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/cocktail" />
+        android:src="@drawable/cocktail"
+        android:contentDescription="@string/imgViewContentDesscription" />
 
 
     <TextView
@@ -25,7 +26,7 @@
         android:layout_marginStart="120dp"
         android:text="@string/drinkName1"
         android:textColor="@color/main2"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
 
