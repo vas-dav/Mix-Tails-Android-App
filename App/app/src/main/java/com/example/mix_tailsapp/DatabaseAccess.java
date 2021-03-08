@@ -313,7 +313,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
 
     // Getting an ArrayList of all chosen Drinks
     public int getChosen() {
-        String query = "SELECT name FROM cocktails WHERE counter = 1";
+        String query = "SELECT * FROM cocktails WHERE counter = 1";
         ingCurs = db.rawQuery(query, null);
         ArrayList<String> favList = new ArrayList<String>();
         if (ingCurs.moveToFirst()) {
@@ -327,6 +327,21 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return favList.size();
     }
 
+    //Method for adding a drink or setting it back to fuelBar
+    public void setChosen(String inputName){
+
+        String query = "UPDATE cocktails SET counter = 1 WHERE name LIKE '" + inputName + "%'";
+            db.execSQL(query);
+
+    }
+
+    //Method for adding a drink or setting it back to fuelBar
+    public void resetChosen(){
+
+        String query = "UPDATE cocktails SET counter = 0";
+        db.execSQL(query);
+
+    }
 }
 
 

@@ -237,6 +237,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             SharedPreferences.Editor fuelResetter = tempStorage.edit();
             fuelResetter.remove(FuelBarSet.LIMIT_AMOUNT);
             fuelBar.setProgress(0,true);
+            drinksAccess.resetChosen();
 
 
         });
