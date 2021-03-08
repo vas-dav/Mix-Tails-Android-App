@@ -26,13 +26,16 @@
 
             <ImageView
                 android:id="@+id/img_drink"
-                android:layout_width="150dp"
-                android:layout_height="252dp"
-                android:layout_marginStart="140dp"
+                android:layout_width="187dp"
+                android:layout_height="191dp"
+                android:layout_marginStart="110dp"
                 android:layout_marginTop="45dp"
-                android:background="@drawable/rum_color"
+
                 android:contentDescription="@null"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:layout_anchor="@+id/app_bar_layout"
+                app:layout_anchorGravity="center" />
+
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -118,6 +121,7 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
