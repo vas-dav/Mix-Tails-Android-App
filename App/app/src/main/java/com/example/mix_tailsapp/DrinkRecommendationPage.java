@@ -49,7 +49,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
     private ImageButton menuBtn;
     private Button fuelBarResteButton;
-    private ImageView favoriteBtn;
     private SharedPreferences tempStorage;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
@@ -58,7 +57,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     private ListView listView;
     private List<DatabaseAccess> cocktails;
-    private TextView drink1, drink2, drink3, drink4;
+    private TextView drink1, drink2, drink3, drink4, drink5, drink6;
     int progress = 0;
     ProgressBar fuelBar;
     private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
@@ -96,18 +95,21 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate variables
 
-        favoriteBtn = (ImageView) findViewById(R.id.plusfavorite);
         fuelBar = findViewById(R.id.FuelBar);
         drink1 = (TextView) findViewById(R.id.drinkName1);
         drink2 = (TextView) findViewById(R.id.drinkName2);
         drink3 = (TextView) findViewById(R.id.drinkName3);
         drink4 = (TextView) findViewById(R.id.drinkName4);
+        drink5 = (TextView) findViewById(R.id.drinkName5);
+        drink6 = (TextView) findViewById(R.id.drinkName6);
 
         // set Text for recommended drink display from database
         drink1.setText(recommendedDrinksList.get(0));
         drink2.setText(recommendedDrinksList.get(1));
         drink3.setText(recommendedDrinksList.get(2));
         drink4.setText(recommendedDrinksList.get(3));
+        drink5.setText(recommendedDrinksList.get(4));
+        drink6.setText(recommendedDrinksList.get(5));
 
 
         //Initiate View
