@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * authors: Vasily, Miguel
  * This class is intended for accessing and inserting the drink database
  * Reference used:
- * 
+ * https://tableplus.com/blog/2018/07/sqlite-how-to-copy-table-to-another-database.html
+ * https://abhiandroid.com/database/operation-sqlite.html
  */
 
 

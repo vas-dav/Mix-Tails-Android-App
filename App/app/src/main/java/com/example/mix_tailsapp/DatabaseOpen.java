@@ -16,6 +16,15 @@ import java.util.List;
  * @version 1: Getting the database opened (Miguel)
  * @version 2: Adding onUpgrade method (Miguel)
  * @version 2.1: Adding (3) functions to get cocktail name from database (Annie)
+ * References:
+ * https://www.youtube.com/watch?v=rziyVBKEU50&t=1000s
+ * https://www.youtube.com/watch?v=rziyVBKEU50&t=1000s
+ * Reference for drinks:
+ * Alcoholic
+ * https://makecocktailsathome.com/wp-content/uploads/2012/07/MakeCocktailsAtHome-Cocktail-List-20121.pdf
+ * Non-alcoholic
+ * https://www.townandcountrymag.com/leisure/drinks/how-to/g785/best-mocktail-recipes/
+ * https://www.gvsu.edu/cms4/asset/1C54986C-CFEC-38E9-B36C92CEAE343FBC/mocktails_booklet.pdfhttps://www.gvsu.edu/cms4/asset/1C54986C-CFEC-38E9-B36C92CEAE343FBC/mocktails_booklet.pdf
  */
 public class DatabaseOpen extends SQLiteAssetHelper {
 
