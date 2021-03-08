@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -46,7 +47,8 @@ import java.util.List;
 
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
-    private ImageButton menuBtn, fuelBarResteButton;
+    private ImageButton menuBtn;
+    private Button fuelBarResteButton;
     private ImageView favoriteBtn;
     private SharedPreferences tempStorage;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";

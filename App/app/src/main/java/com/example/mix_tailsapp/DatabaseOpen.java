@@ -41,7 +41,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength", "ingredients"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
         Cursor cursor = queryBuilder.query(db, selectSql, null, null, null, null, null);
@@ -55,7 +55,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
                 cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
-                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }
@@ -86,10 +86,15 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "ingredients"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
+        /*
+        get extract name:
+        Cursor cursor = queryBuilder.query(db, selectSql, "name = ?", new String[] {name}, null, null, null);
+         */
 
+        //  SELECT * FROM Cocktails WHERE name LIKE %pattern%" ==
         Cursor cursor = queryBuilder.query(db, selectSql, "name LIKE ?", new String[] {"%"+name+"%"}, null, null, null);
         List<Cocktails> result = new ArrayList<>();
         if (cursor.moveToFirst()) {
@@ -97,7 +102,11 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 Cocktails cocktails = new Cocktails();
                 cocktails.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 cocktails.setName(cursor.getString(cursor.getColumnIndex("name")));
-                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                cocktails.setSpirit(cursor.getString(cursor.getColumnIndex("spirit")));
+                cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
+                cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
+                cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
+                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }
