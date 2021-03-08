@@ -76,7 +76,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.89"
             app:layout_constraintStart_toEndOf="@+id/menuBtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/imgViewContentDesscription" />
 
         <!--a textview goes with surprise drink image button-->
 
@@ -130,7 +131,8 @@
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame"
                 app:layout_constraintVertical_bias="0.05"
-                app:tint="@color/carrot2" />
+                app:tint="@color/carrot2"
+                android:contentDescription="@string/imgViewContentDesscription" />
 
             <ImageView
                 android:id="@+id/whiskey"
@@ -152,7 +154,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName1"
                 android:textColor="@color/text_color"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame"
                 app:layout_constraintHorizontal_bias="0.418"
@@ -185,7 +187,8 @@
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame1"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame1"
                 app:layout_constraintVertical_bias="0.05"
-                app:tint="@color/carrot2" />
+                app:tint="@color/carrot2"
+                android:contentDescription="@string/imgViewContentDesscription" />
 
             <ImageView
                 android:id="@+id/rum"
@@ -206,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName1"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textColor="@color/text_color"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame1"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame1"
@@ -255,7 +258,8 @@
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame2"
                 app:layout_constraintVertical_bias="0.05"
-                app:tint="@color/carrot2" />
+                app:tint="@color/carrot2"
+                android:contentDescription="@string/imgViewContentDesscription" />
 
 
             <ImageView
@@ -276,7 +280,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName3"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textColor="@color/text_color"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame2"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame2"
@@ -296,7 +300,8 @@
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.801"
-                app:srcCompat="@drawable/recommended_drink_frame" />
+                app:srcCompat="@drawable/recommended_drink_frame"
+                android:contentDescription="@string/imgViewContentDesscription" />
 
             <ImageView
                 android:id="@+id/favoriteBtn3"
@@ -309,7 +314,8 @@
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame7"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame7"
                 app:layout_constraintVertical_bias="0.062"
-                app:tint="@color/carrot2" />
+                app:tint="@color/carrot2"
+                android:contentDescription="@string/imgViewContentDesscription" />
 
             <ImageView
                 android:id="@+id/pcosecco"
@@ -321,7 +327,8 @@
                 app:layout_constraintStart_toStartOf="@+id/drinkFrame7"
                 app:layout_constraintTop_toTopOf="@+id/drinkFrame7"
                 app:layout_constraintVertical_bias="0.171"
-                app:srcCompat="@drawable/pcosecco" />
+                app:srcCompat="@drawable/pcosecco"
+                android:contentDescription="@string/imgViewContentDesscription" />
 
             <TextView
                 android:id="@+id/drinkName4"
@@ -329,7 +336,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/drinkName1"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textColor="@color/text_color"
                 app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
                 app:layout_constraintEnd_toEndOf="@+id/drinkFrame7"
