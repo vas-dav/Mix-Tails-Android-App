@@ -12,6 +12,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +28,11 @@ public class DrinkDetail extends AppCompatActivity {
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
     Button drinkMe;
+    private ImageButton goBack;
+    private static final String TAG = "misumisu";
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,15 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = (ImageView) findViewById(R.id.img_drink);
+
+        goBack = findViewById(R.id.gobackBtn);
+
+        //onClickListener for go back button
+        goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
+            Intent backToHome = new Intent(DrinkDetail.this, AppWelcomeScreen.class);
+            startActivity(backToHome);
+        }));
+
         drinkMe = findViewById(R.id.add_me_fuel);
         addToFavs = (FloatingActionButton) findViewById(R.id.favBtn);
 
@@ -84,9 +97,9 @@ public class DrinkDetail extends AppCompatActivity {
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
-            showGlass.setImageResource(R.drawable.vodka);
+            showGlass.setImageResource(R.drawable.vodka_png_smallsize);
         } else if (db.getSpitOnly(drinkName).contains("Sparkling wine")) {
-            showGlass.setImageResource(R.drawable.pcosecco);
+            showGlass.setImageResource(R.drawable.pcosecco_png_smallsize);
         } else {
             showGlass.setImageResource(R.drawable.cocktail);
         }
@@ -102,5 +115,3 @@ public class DrinkDetail extends AppCompatActivity {
         });
     }
 }
-
-
