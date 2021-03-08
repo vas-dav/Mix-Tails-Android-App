@@ -10,7 +10,10 @@ import java.util.ArrayList;
 
 /**
  * authors: Vasily, Miguel
- * This class is intended for accessing and inserting the drink database
+ *
+ * With this class the customer customer creates access the database for choosing
+ * or randomizing a drink from the questionnaire page to find the perfect cocktail :)
+ *
  * Reference used:
  * https://tableplus.com/blog/2018/07/sqlite-how-to-copy-table-to-another-database.html
  * https://abhiandroid.com/database/operation-sqlite.html
