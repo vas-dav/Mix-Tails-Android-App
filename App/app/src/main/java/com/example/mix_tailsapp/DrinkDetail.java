@@ -76,9 +76,9 @@ public class DrinkDetail extends AppCompatActivity {
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
-            showGlass.setImageResource(R.drawable.vodka);
+            showGlass.setImageResource(R.drawable.vodka_png_smallsize);
         } else if (db.getSpitOnly(drinkName).contains("Sparkling wine")) {
-            showGlass.setImageResource(R.drawable.pcosecco);
+            showGlass.setImageResource(R.drawable.pcosecco_png_smallsize);
         } else {
             showGlass.setImageResource(R.drawable.cocktail);
         }
