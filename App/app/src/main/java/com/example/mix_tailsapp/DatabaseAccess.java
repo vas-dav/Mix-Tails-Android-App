@@ -67,6 +67,7 @@ public class DatabaseAccess {
 
 
     // DO NOT TOUCH!!! PLEASE!!!
+
     /**
      * method to query and returning a result from database from drink name limited to 1
      */
@@ -200,11 +201,12 @@ public class DatabaseAccess {
         return getIngs;
     }
 
+
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
         boolean done = false;
         executed = db.insertOrThrow("favorites", null, contentValues);
-        if (executed != -1){
+        if (executed != -1) {
             done = true;
         } else {
             done = false;
@@ -232,15 +234,17 @@ public class DatabaseAccess {
 
 
 //Method for adding a favourite drink or setting it back to not favourite
+    //1 == fav
+    //0 == not fav
 public boolean setOrResetHeartDrink(int setValue, String inputName){
         boolean result;
         String query = "UPDATE cocktails SET favs = "
                 + setValue + " WHERE name LIKE '" + inputName + "%'";
-        if((setValue != 1 || setValue != 0)){
-            result = false;
-        } else {
+        if((setValue == 1 || setValue == 0)){
             db.execSQL(query);
             result = true;
+        } else {
+            result = false;
         }
         return result;
 }
@@ -248,7 +252,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
     public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
         int count = 0;
-        String selectAll = "SELECT name FROM cocktails";
+        String selectAll = "SELECT * FROM cocktails";
         recom = db.rawQuery(selectAll, null);
         if (recom.moveToLast()) {
             count = recom.getCount();
@@ -264,7 +268,9 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         }
         return (recomList);
     }
+
     // method for the user to add a new cocktail to the existing datababse(Drinks.db)
+
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();
@@ -283,7 +289,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         db.endTransaction();
         db.close();
 
-        if(rowInserted != -1)
+        if (rowInserted != -1)
             return true;
         else
             return false;
@@ -303,6 +309,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         return getSpit;
 
     }
+
 
 }
 
