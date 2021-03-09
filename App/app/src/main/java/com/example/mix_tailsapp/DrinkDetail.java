@@ -12,12 +12,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
  * This class is used to show drink ingredients
+ * @version 1: variables declaration
+ * @version 2: setText for drink suggestions
+ * @version 3: add to favorites image floating action
+ * @version 4: drink me button added
  */
 
 
@@ -52,18 +57,18 @@ public class DrinkDetail extends AppCompatActivity {
         //Instantiate variable
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
-        showGlass = (ImageView) findViewById(R.id.img_drink);
+        showGlass = findViewById(R.id.img_drink);
 
         goBack = findViewById(R.id.gobackBtn);
 
         //onClickListener for go back button
         goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(DrinkDetail.this, AppWelcomeScreen.class);
+            Intent backToHome = new Intent(DrinkDetail.this, HomePage.class);
             startActivity(backToHome);
         }));
 
         drinkMe = findViewById(R.id.add_me_fuel);
-        addToFavs = (FloatingActionButton) findViewById(R.id.favBtn);
+        addToFavs = findViewById(R.id.favBtn);
 
         //get Intent and show drink detail
         String drinkName = getIntent().getStringExtra(ChosenDrinkSecondActivity.NAME_KEY);

@@ -27,7 +27,7 @@ import com.example.mix_tailsapp.UserActivity.Settings;
  * @version 4: added menu button to the activity (Annie)
  */
 
-public class AppWelcomeScreen extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
     //Declare variables
     private Button decideBtn, recommendBtn, favoriteBtn;
     private ImageButton logOut, menuBtn;
@@ -43,23 +43,23 @@ public class AppWelcomeScreen extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (v == decideBtn) {
-                Intent chooseDrink = new Intent(AppWelcomeScreen.this, QuestionSpinner.class);
+                Intent chooseDrink = new Intent(HomePage.this, QuestionSpinner.class);
                 startActivity(chooseDrink);
             }
             if (v == recommendBtn) {
-                Intent recommend = new Intent(AppWelcomeScreen.this, DrinkRecommendationPage.class);
+                Intent recommend = new Intent(HomePage.this, DrinkRecommendationPage.class);
                 startActivity(recommend);
             }
             if (v == favoriteBtn) {
-                Intent toFavorites = new Intent(AppWelcomeScreen.this, FavoritesActivity.class);
+                Intent toFavorites = new Intent(HomePage.this, FavoritesActivity.class);
                 startActivity(toFavorites);
 
             }
             if (v == logOut) {
                 //Deleting the TEMPMEM signed boolean
                 tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
-                Intent signOut = new Intent(AppWelcomeScreen.this,
-                        AppLaunching.class);
+                Intent signOut = new Intent(HomePage.this,
+                        SplashScreen.class);
                 SharedPreferences.Editor deleter = tempStoragePut.edit();
                 deleter.clear();
                 if (deleter.commit()) {
@@ -71,18 +71,17 @@ public class AppWelcomeScreen extends AppCompatActivity {
 
     /**
      * Initiate and calling the onClick methods
-      * @param savedInstanceState
      */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_welcome_screen);
+        setContentView(R.layout.activity_home_page);
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
-        welcomeText = (TextView) findViewById(R.id.welcomeBack);
-        welcomeText.setText("Welcome back " + name);
+        welcomeText = findViewById(R.id.welcomeBack);
+        welcomeText.setText(getString(R.string.wecome_back_text) + name);
 
         // Initiate variables with their ids
         decideBtn = findViewById(R.id.decideBtn);
@@ -100,7 +99,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(v -> {
             //Creating an instance of PopupMenu
-            PopupMenu popupMenu = new PopupMenu(AppWelcomeScreen.this, menuBtn);
+            PopupMenu popupMenu = new PopupMenu(HomePage.this, menuBtn);
 
             //Inflating the popup using xml file popup_menu.xml
             popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
@@ -109,25 +108,29 @@ public class AppWelcomeScreen extends AppCompatActivity {
             popupMenu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Intent toHome = new Intent(AppWelcomeScreen.this,
-                                AppWelcomeScreen.class);
+                        Intent toHome = new Intent(HomePage.this,
+                                HomePage.class);
                         startActivity(toHome);
                         break;
-                    case R.id.newDrink:
-                        Intent addDrink = new Intent(AppWelcomeScreen.this, AddingDrink.class);
+                    case R.id.drinkLimit:
+                        Intent toLimit = new Intent(HomePage.this, FuelBarSet.class);
+                        startActivity(toLimit);
+                        break;
+                        case R.id.newDrink:
+                        Intent addDrink = new Intent(HomePage.this, AddingDrink.class);
                         startActivity(addDrink);
                         break;
                     case R.id.favorite:
-                        Intent toFavoriteList = new Intent(AppWelcomeScreen.this, FavoritesActivity.class);
+                        Intent toFavoriteList = new Intent(HomePage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
                     case R.id.settings:
-                        Intent settings = new Intent(AppWelcomeScreen.this,
+                        Intent settings = new Intent(HomePage.this,
                                 Settings.class);
                         startActivity(settings);
                         break;
                     case R.id.signout:
-                        Intent signOut = new Intent(AppWelcomeScreen.this,
-                                AppLaunching.class);
+                        Intent signOut = new Intent(HomePage.this,
+                                SplashScreen.class);
                         SharedPreferences.Editor deleter = tempStorageGet.edit();
                         deleter.clear();
                         if (deleter.commit()) {

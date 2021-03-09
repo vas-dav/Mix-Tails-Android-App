@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
         <activity android:name=".FuelBarSet"></activity>
-        <activity android:name=".FavoritesActivity" />
+        <activity android:name=".FavoritesActivity" android:parentActivityName=".HomePage" />
         <activity android:name=".AddingDrink" />
         <activity
             android:name=".UserActivity.Settings"
@@ -18,14 +18,14 @@
             android:theme="@style/PreferenceScreen" />
         <activity android:name=".DrinkDetail" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".AppWelcomeScreen" />
+        <activity android:name=".HomePage" />
         <activity android:name=".DrinkRecommendationPage" />
         <activity android:name=".UserActivity.SignupConfirmationScreen" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionSpinner" />
         <activity android:name=".ChosenDrinkSecondActivity" />
-        <activity android:name=".AppLaunching">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

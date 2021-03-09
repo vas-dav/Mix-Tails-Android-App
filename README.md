@@ -9,8 +9,6 @@ Mix-Tails is an app development project that was as part of the Mobiles course a
 
 ## Requirement
 This app is only available for Android devices. Further expansion to be considered in the future.
- 
-## Credits: [Vasily Davydov](https://github.com/vas-dav), [Miguel Andrade](https://github.com/migiFi), [An Huynh](https://github.com/anniehuynh)
 
 ## Known bugs and issues
 Sometimes it takes two clicks for a button to work (e.g go back button in some activities)
@@ -21,3 +19,5 @@ Sometimes it takes two clicks for a button to work (e.g go back button in some a
  ## First Preview:
  
  ![Screen](https://github.com/vas-dav/Mix-Tails-Android-App/blob/main/Mix-Tails%20Preview.png)
+ 
+ ## Contributors: [Vasily Davydov](https://github.com/vas-dav), [Miguel Andrade](https://github.com/migiFi), [An Huynh](https://github.com/anniehuynh)
