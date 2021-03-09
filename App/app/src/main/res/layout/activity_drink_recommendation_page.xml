@@ -35,8 +35,8 @@
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
-            android:layout_width="380dp"
-            android:layout_height="161dp"
+            android:layout_width="377dp"
+            android:layout_height="166dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
