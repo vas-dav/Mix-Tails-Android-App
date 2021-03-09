@@ -22,6 +22,11 @@ public class Hasher {
 
     public Hasher() {};
 
+    /**
+     * This method is for the original password string, it turns the string into a long
+     * @param uPCOE
+     * @return
+     */
 
     public long hPSCD (String uPCOE) {
         long longPSCD = 0;
@@ -33,6 +38,29 @@ public class Hasher {
         }
         return longPSCD;
     }
+    /**
+     * This is the second method used to change the size of the long returned with a previous method
+     * @param insert
+     * @return
+     */
+    public long hLtoS (long insert){
+        long crusher = insert + gideon;
+        for(int r = m; r == 0; r--){
+            insert+=crusher;
+            crusher *= 2;
+            for(int k = 0; k < 100; k++){
+                crusher = insert;
+                crusher += gideon;
+            }
+        }
+        return crusher;
+    }
+
+    /**
+     * This is the third method to generate a finalized hashed string in binary with octals and hex put there according to the algorithm
+     * @param increase
+     * @return
+     */
     public String CrToBiWL(long increase){
         long bolding = gideon;
         for(int d = 1; d < s; d++){
@@ -49,17 +77,6 @@ public class Hasher {
         return avengers;
     }
 
-    public long hLtoS (long insert){
-        long crusher = insert + gideon;
-        for(int r = m; r == 0; r--){
-            insert+=crusher;
-            crusher *= 2;
-            for(int k = 0; k < 100; k++){
-                crusher = insert;
-                crusher += gideon;
-            }
-        }
-        return crusher;
-    }
+
 }
 

@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FuelBarSet extends AppCompatActivity {
 
+    //Declaring variables
     SeekBar drinkAmount;
     ProgressBar connection;
     TextView nums, emo;
@@ -38,12 +39,14 @@ public class FuelBarSet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel_bar_set);
 
+        //Assigning variables
         drinkAmount = findViewById(R.id.amountOfDrinks);
         connection =  findViewById(R.id.DrinksNum);
         nums = findViewById(R.id.drinksInsideaCircle);
         emo = findViewById(R.id.emotion);
         send = findViewById(R.id.buttonSetLimit);
 
+        //FuelBar is set to 3 automatically
         drinkAmount.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int drinkNum = 3;
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -59,6 +62,7 @@ public class FuelBarSet extends AppCompatActivity {
 
             }
 
+            // Changing quotes depending on the drink amount
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 nums.setText(Integer.toString(drinkNum));
@@ -78,6 +82,7 @@ public class FuelBarSet extends AppCompatActivity {
                 } else if(drinkNum == 0){
                     emo.setText(R.string.fuel_text7);
                 }
+                //Saving the data by the press of the button
                 send.setOnClickListener(v ->  {
                     SharedPreferences drinkLimit = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
                     Intent sender = new Intent(FuelBarSet.this, HomePage.class);
