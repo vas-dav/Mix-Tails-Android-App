@@ -56,7 +56,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     private TextView drink1, drink2, drink3, drink4;
     int progress = 0;
     ProgressBar fuelBar;
-    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
+    private ArrayList <String> recommendedDrinksList = new ArrayList<>();
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
@@ -72,8 +72,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     /**
      * This onCreate method contains functions of searchView, pop-up menu and surprise drink buttons
-     *
-     * @param savedInstanceState
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("NonConstantResourceId")
@@ -92,10 +90,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
 
         fuelBar = findViewById(R.id.FuelBar);
-        drink1 = (TextView) findViewById(R.id.drinkName1);
-        drink2 = (TextView) findViewById(R.id.drinkName2);
-        drink3 = (TextView) findViewById(R.id.drinkName3);
-        drink4 = (TextView) findViewById(R.id.drinkName4);
+        drink1 = findViewById(R.id.drinkName1);
+        drink2 = findViewById(R.id.drinkName2);
+        drink3 = findViewById(R.id.drinkName3);
+        drink4 = findViewById(R.id.drinkName4);
 
         // set Text for recommended drink display from database
         drink1.setText(recommendedDrinksList.get(0));
@@ -106,12 +104,12 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
 
         //Initiate View
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_search);
+        recyclerView = findViewById(R.id.recycle_search);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        materialSearchBar = (MaterialSearchBar) findViewById(R.id.searchView);
+        materialSearchBar = findViewById(R.id.searchView);
 
         //Initiate database
         database = new DatabaseOpen(this);
@@ -188,7 +186,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         Intent toHome = new Intent(DrinkRecommendationPage.this,
-                                AppWelcomeScreen.class);
+                                HomePage.class);
                         startActivity(toHome);
                         break;
                     case R.id.drinkLimit:
@@ -209,7 +207,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                         break;
                     case R.id.signout:
                         Intent signOut = new Intent(DrinkRecommendationPage.this,
-                                AppLaunching.class);
+                                SplashScreen.class);
                         SharedPreferences.Editor deleter = tempStorage.edit();
                         deleter.clear();
                         if (deleter.commit()) {

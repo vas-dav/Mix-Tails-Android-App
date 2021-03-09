@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#faf8f9"
-    tools:context=".AppLaunching">
-
+    tools:context=".SplashScreen">
+    <!--This UI activity is for the home screen displayed including menu image button, log out button,
+    and the three buttons leadings to various functionalities-->
     <ImageButton
         android:id="@+id/menuBtn"
         android:layout_width="wrap_content"
@@ -120,12 +121,12 @@
         android:layout_width="38dp"
         android:layout_height="39dp"
         android:background="@drawable/log_out"
+        android:contentDescription="@string/imgViewContentDesscription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06"
-        android:contentDescription="@string/imgViewContentDesscription" />
+        app:layout_constraintVertical_bias="0.06" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

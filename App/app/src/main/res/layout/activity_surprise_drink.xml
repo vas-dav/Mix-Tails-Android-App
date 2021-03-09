@@ -7,7 +7,7 @@
     android:background="#0DC93A16"
     tools:context=".ChosenDrinkSecondActivity">
 
-
+<!--This UI activity is for the drink suggested after the user answer from question spinner-->
 
     <ImageButton
         android:id="@+id/gobackBtn"
