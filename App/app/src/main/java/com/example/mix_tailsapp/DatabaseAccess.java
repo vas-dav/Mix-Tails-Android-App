@@ -29,7 +29,6 @@ public class DatabaseAccess {
     Cursor recom = null;
     Cursor spitCurs = null;
 
-    public static final String DATABASE_NAME = "Drinks.db";
     public static final String TABLE_NAME = "cocktails";
 
     public static final String COLUMN_ID = "id";
@@ -153,30 +152,10 @@ public class DatabaseAccess {
     }
 
     /**
-     * Method for getting ingredients of a drink
+     * Method for getting ingredients of a drink only with a name
      */
 
-    public String getDrinkIngs(String inputSpirit, String inputTaste, String inputSize, String inputStrength) {
-        String query = "SELECT * FROM cocktails WHERE spirit LIKE '" + inputSpirit
-                + "%' AND taste LIKE '" + inputTaste
-                + "%' AND size LIKE '" + inputSize
-                + "%' AND strength LIKE '" + inputStrength + "%'";
-        ingCurs = db.rawQuery(query, null);
-        StringBuffer buffer = new StringBuffer();
-        if (ingCurs.moveToFirst()) {
-            do {
-                String getIngs = ingCurs.getString(6);
-                buffer.append(getIngs);
-            } while (ingCurs.moveToNext());
-        }
-        return buffer.toString();
-    }
-
-    /**
-     * Method for getting ingredients of a drink only with a name (NOT TESTED)
-     */
-
-    public String getDrinkIngs2(String inputName) {
+    public String getDrinkIngs(String inputName) {
         String getIngs = null;
         String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
         ingCurs = db.rawQuery(query, null);
@@ -187,29 +166,18 @@ public class DatabaseAccess {
         return getIngs;
     }
 
-    public boolean addFavorite(ContentValues contentValues) {
-        long executed = 0;
-        boolean done = false;
-        executed = db.insertOrThrow("favorites", null, contentValues);
-        if (executed != -1) {
-            done = true;
-        } else {
-            done = false;
-        }
-        return done;
-    }
-
     // Getting an ArrayList of all favourite Drinks
     public ArrayList<String> getFavs() {
-        String query = "SELECT name FROM cocktails WHERE favs = 1";
-        ingCurs = db.rawQuery(query, null);
+
+        String favoritos = "SELECT * FROM cocktails WHERE favs = 1";
+        spitCurs = db.rawQuery(favoritos, null);
         ArrayList<String> favList = new ArrayList<String>();
-        if (ingCurs.moveToFirst()) {
+        if (spitCurs.moveToFirst()) {
             do {
-                String getFavs = ingCurs.getString(1);
+                String getFavs = spitCurs.getString(1);
                 favList.add(getFavs);
 
-            } while (ingCurs.moveToNext());
+            } while (spitCurs.moveToNext());
         }
         return (favList);
     }
@@ -266,7 +234,7 @@ public class DatabaseAccess {
         }
         return (recomList);
     }
-    // method for the user to add a new cocktail to the existing datababse(Drinks.db)
+    // method for the user to add a new cocktail to the existing database(Drinks.db)
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();

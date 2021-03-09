@@ -1,6 +1,5 @@
 package com.example.mix_tailsapp;
 
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -22,11 +21,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mix_tailsapp.Adapter.SearchAdapter;
 import com.example.mix_tailsapp.UserActivity.Settings;
 import com.mancj.materialsearchbar.MaterialSearchBar;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,11 +33,22 @@ import java.util.List;
  * This class decides the activities take place in the drink recommended page including ImageButton
  * menu, drink detail, add drink to favorite list and so on.
  *
+ * Here the user can decide which activity takes place in the drink recommended page including
+ * menu, drink detail, add drink to favorite list, set the fuel bar and search for drinks.
+ *
+ * @version 1: declare variables (Annie)
+ * @version 1.2: binding the buttons and write functions for them (Annie)
+ * @version 2: write function for pop up menu and surprise drink button (Annie)
+ * @version 3: write function for search bar and listview
+ * @version 3.1: binding database to search bar (Miguel)
+ * @version 4: delete search bar and write search adapter (Annie)
+ * @version 5: reimplement search bar from scratch, used materialSearchBar (Annie)
  * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
  * References are listed at the end of the activity
  */
 
 public class DrinkRecommendationPage extends AppCompatActivity {
+
     //Declare Variables
     private ImageButton menuBtn, drinkBtn1, drinkBtn2, drinkBtn3, drinkBtn4, drinkBtn5, drinkBtn6;
     private Button fuelBarResteButton;
@@ -49,25 +57,22 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
     protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
-
     private ListView listView;
     private List<DatabaseAccess> cocktails;
     private TextView drink1, drink2, drink3, drink4, drink5, drink6;
-    int progress = 0;
     ProgressBar fuelBar;
-    private ArrayList<String> recommendedDrinksList = new ArrayList<>();
+    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
+
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
-
-    //Recycler Searchbar
+    //Recycler Search bar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
     MaterialSearchBar materialSearchBar;
     List<String> suggestions = new ArrayList<>();
     DatabaseOpen database;
-
 
     /**
      * This onCreate method contains functions of searchView, pop-up menu and surprise drink buttons
@@ -82,13 +87,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
-
         recommendedDrinksList = drinksAccess.getRecom();
 
-
         //Initiate variables
-
-
         fuelBar = findViewById(R.id.FuelBar);
         drink1 = findViewById(R.id.drinkName1);
         drink2 = findViewById(R.id.drinkName2);
@@ -112,13 +113,12 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drink5.setText(recommendedDrinksList.get(4));
         drink6.setText(recommendedDrinksList.get(5));
 
-        String nameAndIngs1 = recommendedDrinksList.get(0) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(0));
-        String nameAndIngs2 = recommendedDrinksList.get(1) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(1));
-        String nameAndIngs3 = recommendedDrinksList.get(2) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(2));
-        String nameAndIngs4 = recommendedDrinksList.get(3) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(3));
-        String nameAndIngs5 = recommendedDrinksList.get(4) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(4));
-        String nameAndIngs6 = recommendedDrinksList.get(5) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(5));
-
+        String nameAndIngs1 = recommendedDrinksList.get(0) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(0));
+        String nameAndIngs2 = recommendedDrinksList.get(1) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(1));
+        String nameAndIngs3 = recommendedDrinksList.get(2) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(2));
+        String nameAndIngs4 = recommendedDrinksList.get(3) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(3));
+        String nameAndIngs5 = recommendedDrinksList.get(4) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(4));
+        String nameAndIngs6 = recommendedDrinksList.get(5) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(5));
 
         View.OnClickListener clicklistener = v -> {
             if (v == drinkBtn1) {
@@ -161,18 +161,16 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drinkBtn5.setOnClickListener(clicklistener);
         drinkBtn6.setOnClickListener(clicklistener);
 
-
         //Initiate View
-        recyclerView = findViewById(R.id.recycle_search);
+        recyclerView = (RecyclerView) findViewById(R.id.recycle_search);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        materialSearchBar = findViewById(R.id.searchView);
+        materialSearchBar = (MaterialSearchBar) findViewById(R.id.searchView);
 
         //Initiate database
         database = new DatabaseOpen(this);
-
 
         //Set up search bar
         materialSearchBar.setHint("Search");
@@ -231,7 +229,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //Initiate the search adapter at default to set all the result
         searchAdapter = new SearchAdapter(this, database.getCocktails());
 
-
         //Initiate ImageBtn menu with its id and create a pop-up menu inside it
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(v -> {
@@ -260,6 +257,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                     case R.id.favorite:
                         Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
+                        break;
                     case R.id.settings:
                         Intent settings = new Intent(DrinkRecommendationPage.this,
                                 Settings.class);
@@ -281,7 +279,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             popupMenu.show();
         });
 
-
         //When the resetFuel Image(top right in recommendation page) Button clicked
         fuelBarResteButton = findViewById(R.id.imageButton);
         fuelBarResteButton.setOnClickListener(v -> {
@@ -291,8 +288,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 fuelBar.setProgress(0, true);
                 drinksAccess.resetChosen();
             }
-
-
         });
 
         int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
@@ -304,9 +299,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             fuelBar.setMax(drinkLimitMax);
             fuelBar.setProgress(drinksInsideFuelBar);
         }
-
-
     }
+
+
 
 
     /**

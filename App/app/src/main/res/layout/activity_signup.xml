@@ -30,8 +30,9 @@
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/maintext"
@@ -50,10 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/black"
             android:hint="@string/name"
+            android:importantForAutofill="no"
             android:padding="10dp"
-            android:importantForAutofill="no" />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/email"
@@ -61,11 +62,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/black"
             android:hint="@string/e_mail"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:importantForAutofill="no" />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/password"
@@ -73,11 +74,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/black"
             android:hint="@string/password"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:importantForAutofill="no" />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/comfirm_password"
@@ -85,11 +86,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/black"
             android:hint="@string/passwordConfirm"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:importantForAutofill="no" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/confirmBtn"

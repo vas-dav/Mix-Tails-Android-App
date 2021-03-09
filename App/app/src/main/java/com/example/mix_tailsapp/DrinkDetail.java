@@ -18,7 +18,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
- * This class is used to show drink ingredients
+ *
+ * Within this class the user which by now will have chosen a drink,
+ * the name of the drink will be display. A go-back button can be press
+ * to try fit a match, also drink ingredients will be display giving
+ * the option to add the chosen the drink to favorites or drink me button.
  */
 
 
@@ -54,15 +58,6 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = findViewById(R.id.img_drink);
-
-        goBack = findViewById(R.id.gobackBtn);
-
-        //onClickListener for go back button
-        goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(DrinkDetail.this, HomePage.class);
-            startActivity(backToHome);
-        }));
-
         drinkMe = findViewById(R.id.add_me_fuel);
         addToFavs = findViewById(R.id.favBtn);
 
