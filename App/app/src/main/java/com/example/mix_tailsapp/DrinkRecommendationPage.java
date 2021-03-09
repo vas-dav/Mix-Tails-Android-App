@@ -315,7 +315,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             fuelBar.setProgress(drinksInsideFuelBar);
         }
 
-        if(drinksLeftinFuelBar == 0){
+        if(drinksLeftinFuelBar == 0 && drinkLimitMax != 0){
             Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
         }
 
