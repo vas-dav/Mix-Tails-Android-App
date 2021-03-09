@@ -110,7 +110,11 @@ public class HomePage extends AppCompatActivity {
                                 HomePage.class);
                         startActivity(toHome);
                         break;
-                    case R.id.newDrink:
+                    case R.id.drinkLimit:
+                        Intent toLimit = new Intent(HomePage.this, FuelBarSet.class);
+                        startActivity(toLimit);
+                        break;
+                        case R.id.newDrink:
                         Intent addDrink = new Intent(HomePage.this, AddingDrink.class);
                         startActivity(addDrink);
                         break;

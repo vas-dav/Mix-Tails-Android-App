@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily, Miguel, Annie
- * <p>
  * After the user has decided to take our fun little quiz to select the perfect drink
  * or by going nomad with our randomizer, the app with me directed to a page where
  * cocktail name will be shown. Here the user will have the choice to see the

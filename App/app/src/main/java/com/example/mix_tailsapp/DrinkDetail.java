@@ -19,6 +19,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
  * This class is used to show drink ingredients
+ * @version 1: variables declaration
+ * @version 2: setText for drink suggestions
+ * @version 3: add to favorites image floating action
+ * @version 4: drink me button added
  */
 
 

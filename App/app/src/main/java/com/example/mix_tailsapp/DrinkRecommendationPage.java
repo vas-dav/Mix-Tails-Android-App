@@ -53,14 +53,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     private ListView listView;
     private List<DatabaseAccess> cocktails;
     private TextView drink1, drink2, drink3, drink4, drink5, drink6;
-    int progress = 0;
     ProgressBar fuelBar;
     private ArrayList<String> recommendedDrinksList = new ArrayList<>();
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
 
-    //Recycler Searchbar
+    //Recycler Search bar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
