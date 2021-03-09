@@ -64,7 +64,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
      * getItemCount method
      * @return cocktails.ingredients()
      */
-    
+
     @Override
     public int getItemCount() {
         return cocktails.size();
