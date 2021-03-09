@@ -57,6 +57,8 @@ public class FavoritesActivity extends AppCompatActivity {
             }
             });
 
+            }
+            });
     }
 }
 

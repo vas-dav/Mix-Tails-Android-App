@@ -80,11 +80,11 @@ public class DrinkDetail extends AppCompatActivity {
         Resources glasses = getResources();
         if (db.getSpitOnly(drinkName).contains("Whiskey")) {
             Log.d("imageset", "SET");
-            showGlass.setImageResource(R.drawable.whiskey);
+            showGlass.setImageResource(R.drawable.whiskey_color);
         } else if (db.getSpitOnly(drinkName).contains("Rum")) {
             showGlass.setImageResource(R.drawable.mojito);
         } else if (db.getSpitOnly(drinkName).contains("Tequila")) {
-            showGlass.setImageResource(R.drawable.rum_color);
+            showGlass.setImageResource(R.drawable.rum_png_smallsize);
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
