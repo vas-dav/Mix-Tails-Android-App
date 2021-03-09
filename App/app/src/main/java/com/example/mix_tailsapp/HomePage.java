@@ -122,6 +122,7 @@ public class HomePage extends AppCompatActivity {
                     case R.id.favorite:
                         Intent toFavoriteList = new Intent(HomePage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
+                        break;
                     case R.id.settings:
                         Intent settings = new Intent(HomePage.this,
                                 Settings.class);
