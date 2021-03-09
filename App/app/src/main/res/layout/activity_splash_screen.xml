@@ -23,18 +23,19 @@ tools:context=".SplashScreen">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="320dp"
-        android:layout_height="43dp"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
         android:fontFamily="@font/roboto_black"
+        android:gravity="center"
         android:includeFontPadding="false"
         android:text="@string/slogan1"
         android:textColor="@color/text_color"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.217" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
