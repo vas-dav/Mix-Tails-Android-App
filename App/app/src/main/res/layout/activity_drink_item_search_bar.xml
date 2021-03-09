@@ -7,6 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     android:layout_margin="8dp">
+    <!--This is the activity to display an item when the search bar is used-->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_margin="8dp"

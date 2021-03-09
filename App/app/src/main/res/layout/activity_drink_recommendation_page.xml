@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#FBFBFB">
 
-
+    <!--This is the UI activity for drink recommendation page include menu image button, fuel bar progress
+    , search bar, recycler view for item suggestions, and six recommended cocktails-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,6 +91,7 @@
                 android:id="@+id/drinkFrame"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
+                android:background="@drawable/recommended_drink_frame"
                 android:contentDescription="@string/imgViewContentDescription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +99,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.175"
-                android:background="@drawable/recommended_drink_frame"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
@@ -132,6 +133,7 @@
                 android:id="@+id/drinkFrame1"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
+                android:background="@drawable/recommended_drink_frame1"
                 android:contentDescription="@string/imgViewContentDescription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +141,6 @@
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.175"
-                android:background="@drawable/recommended_drink_frame1"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
@@ -190,12 +191,12 @@
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/recommended_drink_frame2"
                 android:contentDescription="@string/imgViewContentDescription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.597"
-                android:background="@drawable/recommended_drink_frame2"
                 tools:ignore="MissingConstraints" />
 
 
@@ -231,14 +232,14 @@
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:layout_marginStart="32dp"
+                android:background="@drawable/recommended_drink_frame"
                 android:contentDescription="@string/imgViewContentDesscription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.058"
                 app:layout_constraintStart_toEndOf="@+id/drinkFrame2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.588"
-                android:background="@drawable/recommended_drink_frame" />
+                app:layout_constraintVertical_bias="0.588" />
 
             <ImageView
                 android:id="@+id/pcosecco"
@@ -272,6 +273,8 @@
                 android:id="@+id/drink_frame"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
+                android:background="@drawable/recommended_drink_frame1"
+                android:backgroundTint="#E1FEF0F0"
                 android:contentDescription="@string/imgViewContentDescription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -279,8 +282,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.992"
-                android:background="@drawable/recommended_drink_frame1"
-                android:backgroundTint="#E1FEF0F0"
                 tools:ignore="MissingConstraints" />
 
 
@@ -305,13 +306,13 @@
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:layout_marginTop="628dp"
+                android:background="@drawable/recommended_drink_frame1"
+                android:backgroundTint="@color/mint"
                 android:contentDescription="@string/imgViewContentDescription"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.926"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/recommended_drink_frame1"
-                android:backgroundTint="@color/mint"
                 tools:ignore="MissingConstraints" />
 
             <ImageView

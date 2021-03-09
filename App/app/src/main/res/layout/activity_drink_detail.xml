@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/egg_shell"
     tools:context=".DrinkDetail">
-
+    <!--This is the activity to display drink details when the user click on
+        an suggested cocktail, the activity include go back image button, drink name displayed,
+    favorite floating action button, ingredients TextView and a drink me button-->
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -28,20 +30,20 @@
                 android:id="@+id/gobackBtn"
                 android:layout_width="43dp"
                 android:layout_height="39dp"
-                android:background="@color/frame"
-                android:src="@drawable/ic_baseline_arrow_back_24"
-                android:tint="@color/text_color"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
-                android:contentDescription="@string/imgViewContentDesscription" />
+                android:layout_marginTop="20dp"
+                android:background="@color/frame"
+                android:contentDescription="@string/imgViewContentDesscription"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:tint="@color/text_color" />
 
             <ImageView
                 android:id="@+id/img_drink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="45dp"
-                android:layout_gravity="center|start"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop"
                 app:layout_anchor="@+id/app_bar_layout"
@@ -55,14 +57,14 @@
         android:id="@+id/favBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/imgViewContentDesscription"
         android:elevation="6dp"
         android:src="@drawable/ic_baseline_favorite_border_24"
         app:backgroundTint="@color/white"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
         app:pressedTranslationZ="12dp"
-        app:useCompatPadding="true"
-        android:contentDescription="@string/imgViewContentDesscription" />
+        app:useCompatPadding="true" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

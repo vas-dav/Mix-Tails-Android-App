@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily, Miguel, Annie
- *
+ * <p>
  * After the user has decided to take our fun little quiz to select the perfect drink
  * or by going nomad with our randomizer, the app with me directed to a page where
  * cocktail name will be shown. Here the user will have the choice to see the
@@ -43,7 +43,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         SharedPreferences tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
 
         //Initiate variables
-        drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
+        drinkOfYourChoice = findViewById(R.id.usersDrink);
         goBack = findViewById(R.id.gobackBtn);
         ingredients = findViewById(R.id.ingredientBtn);
 
@@ -73,21 +73,15 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
                 startActivity(backToHome);
             }));
         }
-        if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
-        } else {
-            goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
-                startActivity(backToHome);
-            }));
-        }
+
     }
 
     /**
      * a method to show drink ingredients
      *
-     * @param input
-     * @param i
+     * @param input input
+     * @param i i
      */
 
     private void showIngs(String input, String i) {
