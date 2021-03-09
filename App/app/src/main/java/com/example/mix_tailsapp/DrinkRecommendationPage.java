@@ -29,7 +29,7 @@ import java.util.List;
  * authors: An Huynh, Miguel, Vasily
  *
  * Here the user can decide which activity takes place in the drink recommended page including
- * menu, drink detail, add drink to favorite list and database search.
+ * menu, drink detail, add drink to favorite list, set the fuel bar and search for drinks.
  *
  * @version 1: declare variables (Annie)
  * @version 1.2: binding the buttons and write functions for them (Annie)

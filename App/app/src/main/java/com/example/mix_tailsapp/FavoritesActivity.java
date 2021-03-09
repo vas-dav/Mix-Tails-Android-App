@@ -6,11 +6,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
+/**
+ * created 08/03/2021
+ * authors Miguel, An, Vasily
+ *
+ * The user has the options to add any drinks(included new added drinks)
+ * to a favorites list by pressing the heart button when in drink details.
+ *
+ */
 
 public class FavoritesActivity extends AppCompatActivity {
 
@@ -44,22 +50,6 @@ public class FavoritesActivity extends AppCompatActivity {
             }
             });
     }
-/*
-    public View FavoritesView(Context context, Cursor c, ViewGroup parent){
-        return LayoutInflater.from(context).inflate(R.layout.activity_favorites, parent,false);
-    }
-
-    public void showFavorites(View v, Context context, Cursor c){
-
-        ListView favs = (ListView)v.findViewById(R.id.favoriteList);
-        String body = c.getString(c.getColumnIndexOrThrow("name"));
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1);
-        favs.setAdapter(body);
-
-
-    }
-*/
 }
 
 

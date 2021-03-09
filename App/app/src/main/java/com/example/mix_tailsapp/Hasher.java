@@ -1,11 +1,10 @@
 package com.example.mix_tailsapp;
 
-import android.content.Intent;
-
-import java.io.CharArrayReader;
-
 /**
  * author: Vasily
+ *
+ * This hasher is made to make you loose your mind,
+ * 
  */
 public class Hasher {
 

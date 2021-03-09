@@ -17,7 +17,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
- * This class is used to show drink ingredients
+ *
+ * Within this class the user which by now will have chosen a drink,
+ * the name of the drink will be display. A go-back button can be press
+ * to try fit a match, also drink ingredients will be display giving
+ * the option to add the chosen the drink to favorites or drink me button.
  */
 
 

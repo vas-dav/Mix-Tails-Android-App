@@ -1,10 +1,6 @@
 package com.example.mix_tailsapp;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -15,6 +11,19 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * created 06/03/2021
+ * authors: Vasily, An, Miguel
+ *
+ * One of our fun features is the fuel bar, here you can
+ * set the amount of drinks to plant to drink when you are out
+ * with friends, when the user reaches the set limit a message
+ * will be show in apps screen.
+ *
+ */
 
 public class FuelBarSet extends AppCompatActivity {
 
