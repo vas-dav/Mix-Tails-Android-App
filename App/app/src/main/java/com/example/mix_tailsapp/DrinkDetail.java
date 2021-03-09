@@ -33,14 +33,9 @@ public class DrinkDetail extends AppCompatActivity {
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
     Button drinkMe;
-    private ImageButton goBack;
     private static final String TAG = "misumisu";
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
-
-  
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +48,11 @@ public class DrinkDetail extends AppCompatActivity {
 
         db = new DatabaseAccess(this);
 
-
         //Instantiate variable
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = findViewById(R.id.img_drink);
+
         drinkMe = findViewById(R.id.add_me_fuel);
         addToFavs = findViewById(R.id.favBtn);
 
@@ -66,7 +61,6 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name.setText(drinkName);
         String details = getIntent().getStringExtra(ChosenDrinkSecondActivity.DETAIL_KEY);
         show_ingredient.setText(details);
-
 
     if(drinksAccess.checkFavs(drinkName)){
     addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
@@ -79,8 +73,6 @@ public class DrinkDetail extends AppCompatActivity {
                 addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
             }
         });
-
-
 
         // if/else statements to check for spirit names in the
         // database and assigns each with a drawable/image
@@ -118,6 +110,5 @@ public class DrinkDetail extends AppCompatActivity {
             }
 
         });
-
     }
 }
