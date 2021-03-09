@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/signup_background"
     tools:context=".AddingDrink">
-<!-- This is the UI activity for user to add their own drink, this activity includes EditText elements,
+    <!-- This is the UI activity for user to add their own drink, this activity includes EditText elements,
 image button for going back to home and button add drink-->
     <ImageButton
         android:id="@+id/gobackBtn"
         android:layout_width="43dp"
         android:layout_height="39dp"
         android:background="@color/background_color"
+        android:contentDescription="@string/imgViewContentDesscription"
         android:src="@drawable/ic_baseline_arrow_back_24"
         android:tint="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/bubbles2"
@@ -20,8 +21,7 @@ image button for going back to home and button add drink-->
         app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649"
-        android:contentDescription="@string/imgViewContentDesscription" />
+        app:layout_constraintVertical_bias="0.649" />
 
     <ImageView
         android:id="@+id/bubbles2"
@@ -50,6 +50,7 @@ image button for going back to home and button add drink-->
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.779" />
 
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="386dp"
@@ -64,7 +65,7 @@ image button for going back to home and button add drink-->
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.994" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/newDrink_text"
@@ -75,18 +76,16 @@ image button for going back to home and button add drink-->
         android:textAlignment="center"
         android:textColor="@color/text_color"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.042"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <EditText
         android:id="@+id/editName"
         android:layout_width="253dp"
         android:layout_height="47dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/drink_name_text"
         android:inputType="textPersonName"
@@ -95,13 +94,13 @@ image button for going back to home and button add drink-->
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.361"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.361" />
 
     <EditText
         android:id="@+id/editSpirit"
         android:layout_width="253dp"
         android:layout_height="47dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/question2"
         android:inputType="textPersonName"
@@ -110,13 +109,13 @@ image button for going back to home and button add drink-->
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.443" />
 
     <EditText
         android:id="@+id/editTaste"
         android:layout_width="253dp"
         android:layout_height="47dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/question3"
         android:inputType="textPersonName"
@@ -125,13 +124,13 @@ image button for going back to home and button add drink-->
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.529"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.529" />
 
     <EditText
         android:id="@+id/editSize"
         android:layout_width="253dp"
         android:layout_height="47dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/question4"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -140,7 +139,6 @@ image button for going back to home and button add drink-->
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.613"
-        android:autofillHints=""
         tools:ignore="TextFields" />
 
     <EditText
@@ -162,6 +160,7 @@ image button for going back to home and button add drink-->
         android:id="@+id/editIngredients"
         android:layout_width="253dp"
         android:layout_height="47dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/question7"
         android:inputType="textPersonName"
@@ -170,8 +169,7 @@ image button for going back to home and button add drink-->
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.786" />
 
     <Button
         android:id="@+id/sendDrink"
