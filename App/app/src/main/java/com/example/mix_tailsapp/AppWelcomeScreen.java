@@ -85,14 +85,12 @@ public class AppWelcomeScreen extends AppCompatActivity {
         // Initiate variables with their ids
         decideBtn = findViewById(R.id.decideBtn);
         recommendBtn = findViewById(R.id.recommendBtn);
-        drivingEstimation = findViewById(R.id.drivingBtn);
         favoriteBtn = findViewById(R.id.myfavoriteBtn);
         logOut = findViewById(R.id.logOut);
 
         //calling the onClick method
         decideBtn.setOnClickListener(clickListener);
         recommendBtn.setOnClickListener(clickListener);
-        drivingEstimation.setOnClickListener(clickListener);
         favoriteBtn.setOnClickListener(clickListener);
         logOut.setOnClickListener(clickListener);
 

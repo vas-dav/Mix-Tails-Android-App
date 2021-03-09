@@ -105,6 +105,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drink4.setText(recommendedDrinksList.get(3));
 
 
+
         //Initiate View
         recyclerView = (RecyclerView) findViewById(R.id.recycle_search);
         layoutManager = new LinearLayoutManager(this);
