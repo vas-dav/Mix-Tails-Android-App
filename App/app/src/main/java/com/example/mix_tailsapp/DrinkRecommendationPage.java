@@ -1,5 +1,6 @@
 package com.example.mix_tailsapp;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,23 +15,25 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mix_tailsapp.Adapter.SearchAdapter;
 import com.example.mix_tailsapp.UserActivity.Settings;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created on 18/02/2021
  * authors: An Huynh, Miguel, Vasily
- *
- * Here the user can decide which activity takes place in the drink recommended page including
- * menu, drink detail, add drink to favorite list and database search.
- *
+ * This class decides the activities take place in the drink recommended page including ImageButton
+ * menu, drink detail, add drink to favorite list and so on.
  * @version 1: declare variables (Annie)
  * @version 1.2: binding the buttons and write functions for them (Annie)
  * @version 2: write function for pop up menu and surprise drink button (Annie)
@@ -41,9 +44,11 @@ import java.util.List;
  * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
  * References are listed at the end of the activity
  */
+
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
     private ImageButton menuBtn;
+    private ImageButton drinkBtn1, drinkBtn2, drinkBtn3, drinkBtn4, drinkBtn5, drinkBtn6;
     private Button fuelBarResteButton;
     private SharedPreferences tempStorage;
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
@@ -60,8 +65,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
-    //Recycler SearchBar
 
+
+    //Recycler Searchbar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
@@ -72,6 +78,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     /**
      * This onCreate method contains functions of searchView, pop-up menu and surprise drink buttons
+     *
+     * @param savedInstanceState
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("NonConstantResourceId")
@@ -97,6 +105,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drink5 = findViewById(R.id.drinkName5);
         drink6 = findViewById(R.id.drinkName6);
 
+        drinkBtn1 = findViewById(R.id.drinkFrame);
+        drinkBtn2 = findViewById(R.id.drinkFrame1);
+        drinkBtn3 = findViewById(R.id.drinkFrame2);
+        drinkBtn4 = findViewById(R.id.drinkFrame3);
+        drinkBtn5 = findViewById(R.id.drinkFrame4);
+        drinkBtn6 = findViewById(R.id.drinkFrame5);
+
         // set Text for recommended drink display from database
         drink1.setText(recommendedDrinksList.get(0));
         drink2.setText(recommendedDrinksList.get(1));
@@ -104,6 +119,55 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drink4.setText(recommendedDrinksList.get(3));
         drink5.setText(recommendedDrinksList.get(4));
         drink6.setText(recommendedDrinksList.get(5));
+
+        String nameAndIngs1 = recommendedDrinksList.get(0) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(0));
+        String nameAndIngs2 = recommendedDrinksList.get(1) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(1));
+        String nameAndIngs3 = recommendedDrinksList.get(2) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(2));
+        String nameAndIngs4 = recommendedDrinksList.get(3) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(3));
+        String nameAndIngs5 = recommendedDrinksList.get(4) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(4));
+        String nameAndIngs6 = recommendedDrinksList.get(5) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(5));
+
+
+
+
+        View.OnClickListener clicklistener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == drinkBtn1){
+
+                        Toast.makeText(DrinkRecommendationPage.this, nameAndIngs1, Toast.LENGTH_LONG).show();
+
+                }if(v == drinkBtn2){
+
+                        Toast.makeText(DrinkRecommendationPage.this, nameAndIngs2, Toast.LENGTH_LONG).show();
+
+                }if(v == drinkBtn3){
+
+                        Toast.makeText(DrinkRecommendationPage.this, nameAndIngs3, Toast.LENGTH_LONG).show();
+
+                }if(v == drinkBtn4){
+
+                        Toast.makeText(DrinkRecommendationPage.this, nameAndIngs4, Toast.LENGTH_LONG).show();
+
+                }if(v == drinkBtn5){
+
+                        Toast.makeText(DrinkRecommendationPage.this, nameAndIngs5, Toast.LENGTH_LONG).show();
+
+                }if(v == drinkBtn6){
+
+                        Toast.makeText(DrinkRecommendationPage.this, nameAndIngs6, Toast.LENGTH_LONG).show();
+
+                }
+            }
+        };
+
+        //set clickListeners on Images
+        drinkBtn1.setOnClickListener(clicklistener);
+        drinkBtn2.setOnClickListener(clicklistener);
+        drinkBtn3.setOnClickListener(clicklistener);
+        drinkBtn4.setOnClickListener(clicklistener);
+        drinkBtn5.setOnClickListener(clicklistener);
+        drinkBtn6.setOnClickListener(clicklistener);
 
 
 
@@ -117,6 +181,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate database
         database = new DatabaseOpen(this);
+
+
+
+
 
         //Set up search bar
         materialSearchBar.setHint("Search");
@@ -190,7 +258,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         Intent toHome = new Intent(DrinkRecommendationPage.this,
-                                HomePage.class);
+                                AppWelcomeScreen.class);
                         startActivity(toHome);
                         break;
                     case R.id.drinkLimit:
