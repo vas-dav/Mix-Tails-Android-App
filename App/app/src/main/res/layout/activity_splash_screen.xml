@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="#faf8f9"
-tools:context=".AppLaunching">
+tools:context=".SplashScreen">
 <!--This file is for the logo display with slogan design-->
 
     <ImageView

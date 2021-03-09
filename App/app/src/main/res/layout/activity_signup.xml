@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/signup_background"
     tools:context=".SignupActivity">
-
+<!--Sign up activity-->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="280dp"
@@ -52,7 +52,8 @@
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/black"
             android:hint="@string/name"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/email"
@@ -63,7 +64,8 @@
             android:textColor="@color/black"
             android:hint="@string/e_mail"
             android:inputType="textEmailAddress"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/password"
@@ -74,7 +76,8 @@
             android:textColor="@color/black"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/comfirm_password"
@@ -85,7 +88,8 @@
             android:textColor="@color/black"
             android:hint="@string/passwordConfirm"
             android:inputType="textPassword"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/confirmBtn"

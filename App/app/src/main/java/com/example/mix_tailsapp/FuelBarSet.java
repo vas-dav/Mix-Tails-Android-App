@@ -38,9 +38,9 @@ public class FuelBarSet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel_bar_set);
 
-        drinkAmount = (SeekBar) findViewById(R.id.amountOfDrinks);
-        connection = (ProgressBar) findViewById(R.id.DrinksNum);
-        nums = (TextView) findViewById(R.id.drinksInsideaCircle);
+        drinkAmount = findViewById(R.id.amountOfDrinks);
+        connection =  findViewById(R.id.DrinksNum);
+        nums = findViewById(R.id.drinksInsideaCircle);
         emo = findViewById(R.id.emotion);
         send = findViewById(R.id.buttonSetLimit);
 
@@ -64,23 +64,23 @@ public class FuelBarSet extends AppCompatActivity {
                 nums.setText(Integer.toString(drinkNum));
 
                 if(drinkNum == 25){
-                    emo.setText("You don't need to count drinks");
+                    emo.setText(R.string.fuel_text_1);
                 } else if(drinkNum < 25 && drinkNum >=20){
-                    emo.setText("Be carefu! But, let's go!");
+                    emo.setText(R.string.fuel_text_2);
                 } else if(drinkNum < 20 && drinkNum >= 15){
-                    emo.setText("You are having a fun night!");
+                    emo.setText(R.string.fuel_text3);
                 } else if(drinkNum < 15 && drinkNum >= 7){
-                    emo.setText("We are going for few, but end up with more!");
+                    emo.setText(R.string.fuel_text4);
                 } else if(drinkNum < 7 && drinkNum >= 3){
-                    emo.setText("Grabbing a few with homies!");
+                    emo.setText(R.string.fuel_text5);
                 } else if(drinkNum < 3 && drinkNum >= 1){
-                    emo.setText("Good time for relax!");
+                    emo.setText(R.string.fuel_text6);
                 } else if(drinkNum == 0){
-                    emo.setText("Okay... Why do you need this app?");
+                    emo.setText(R.string.fuel_text7);
                 }
                 send.setOnClickListener(v ->  {
-                    SharedPreferences drinkLimit = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);;
-                    Intent sender = new Intent(FuelBarSet.this, AppWelcomeScreen.class);
+                    SharedPreferences drinkLimit = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
+                    Intent sender = new Intent(FuelBarSet.this, HomePage.class);
                     Toast.makeText(FuelBarSet.this, "Your limit is " + drinkNum + " drinks", Toast.LENGTH_LONG).show();
                     SharedPreferences.Editor amountEditor = drinkLimit.edit();
                     amountEditor.putInt(LIMIT_AMOUNT, drinkNum);
