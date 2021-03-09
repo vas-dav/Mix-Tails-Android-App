@@ -307,11 +307,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         });
 
-        int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
-        int drinksInsideFuelBar = drinksAccess.getChosen();
+        drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        drinksInsideFuelBar = drinksAccess.getChosen();
+        drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
         if (drinkLimitMax == 0) {
             fuelBar.setProgress(0);
             fuelBar.setMax(25);
+            drinksAccess.resetChosen();
         } else {
             fuelBar.setMax(drinkLimitMax);
             fuelBar.setProgress(drinksInsideFuelBar);
