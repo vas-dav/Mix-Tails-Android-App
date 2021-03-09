@@ -18,7 +18,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
- * This class is used to show drink ingredients
+ *
+ * Within this class the user which by now will have chosen a drink,
+ * the name of the drink will be display. A go-back button can be press
+ * to try fit a match, also drink ingredients will be display giving
+ * the option to add the chosen the drink to favorites or drink me button.
  */
 
 
@@ -34,10 +38,6 @@ public class DrinkDetail extends AppCompatActivity {
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
 
-  
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,20 +49,10 @@ public class DrinkDetail extends AppCompatActivity {
 
         db = new DatabaseAccess(this);
 
-
         //Instantiate variable
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = findViewById(R.id.img_drink);
-
-        goBack = findViewById(R.id.gobackBtn);
-
-        //onClickListener for go back button
-        goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(DrinkDetail.this, HomePage.class);
-            startActivity(backToHome);
-        }));
-
         drinkMe = findViewById(R.id.add_me_fuel);
         addToFavs = findViewById(R.id.favBtn);
 
@@ -71,7 +61,6 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name.setText(drinkName);
         String details = getIntent().getStringExtra(ChosenDrinkSecondActivity.DETAIL_KEY);
         show_ingredient.setText(details);
-
 
     if(drinksAccess.checkFavs(drinkName)){
     addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
@@ -85,19 +74,17 @@ public class DrinkDetail extends AppCompatActivity {
             }
         });
 
-
-
         // if/else statements to check for spirit names in the
         // database and assigns each with a drawable/image
         db.open();
         Resources glasses = getResources();
         if (db.getSpitOnly(drinkName).contains("Whiskey")) {
             Log.d("imageset", "SET");
-            showGlass.setImageResource(R.drawable.whiskey);
+            showGlass.setImageResource(R.drawable.whiskey_color);
         } else if (db.getSpitOnly(drinkName).contains("Rum")) {
             showGlass.setImageResource(R.drawable.mojito);
         } else if (db.getSpitOnly(drinkName).contains("Tequila")) {
-            showGlass.setImageResource(R.drawable.rum_color);
+            showGlass.setImageResource(R.drawable.rum_png_smallsize);
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
@@ -123,6 +110,5 @@ public class DrinkDetail extends AppCompatActivity {
             }
 
         });
-
     }
 }

@@ -29,7 +29,7 @@ import com.example.mix_tailsapp.UserActivity.Settings;
 
 public class HomePage extends AppCompatActivity {
     //Declare variables
-    private Button decideBtn, recommendBtn, drivingEstimation, favoriteBtn;
+    private Button decideBtn, recommendBtn, favoriteBtn;
     private ImageButton logOut, menuBtn;
     private SharedPreferences tempStoragePut, permStorageGet, tempStorageGet;
     TextView welcomeText;
@@ -52,6 +52,7 @@ public class HomePage extends AppCompatActivity {
             if (v == favoriteBtn) {
                 Intent toFavorites = new Intent(HomePage.this, FavoritesActivity.class);
                 startActivity(toFavorites);
+
             }
             if (v == logOut) {
                 //Deleting the TEMPMEM signed boolean
@@ -110,13 +111,18 @@ public class HomePage extends AppCompatActivity {
                                 HomePage.class);
                         startActivity(toHome);
                         break;
-                    case R.id.newDrink:
+                    case R.id.drinkLimit:
+                        Intent toLimit = new Intent(HomePage.this, FuelBarSet.class);
+                        startActivity(toLimit);
+                        break;
+                        case R.id.newDrink:
                         Intent addDrink = new Intent(HomePage.this, AddingDrink.class);
                         startActivity(addDrink);
                         break;
                     case R.id.favorite:
                         Intent toFavoriteList = new Intent(HomePage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
+                        break;
                     case R.id.settings:
                         Intent settings = new Intent(HomePage.this,
                                 Settings.class);
@@ -132,7 +138,6 @@ public class HomePage extends AppCompatActivity {
                         }
                         break;
                 }
-
                 return true;
             });
             popupMenu.show();

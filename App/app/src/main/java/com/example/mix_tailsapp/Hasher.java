@@ -7,11 +7,11 @@ import java.io.CharArrayReader;
 /**
  * Created on 18/02/2021
  * author: Vasily
- * This class decides the activities take place in the drink recommended page including ImageButton
- * menu, drink detail, add drink to favorite list and so on.
+ * This hasher is made to make you loose your mind,
+ * the users password will be protected, that is for sure!
+ * so feel to type a 4 or even 11 character password,
+ * either way, it's safe with us :)
  *
- * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
- * References are listed at the end of the activity
  */
 public class Hasher {
 
@@ -61,6 +61,5 @@ public class Hasher {
         }
         return crusher;
     }
-
 }
 

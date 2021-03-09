@@ -9,16 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * Created by An Huynh on 15/02/2021
  * authors Annie, Miguel, Vasily
+ *
  * This activity is for the splash screen when the app is launched
  * This activity is meant to display the logo and slogan of the app mesmerizing
  * the user with out amazing design and colors. After launch the user will directed
  * to a small quiz to figure out the perfect drink or randomize one for fun!
+ *
  * @version 1: Adding intent
  * @version 2: using SharedPreference to open activity based on the signed boolean
  */
-
-
-
 
 @SuppressWarnings("ALL")
 public class SplashScreen extends AppCompatActivity {
