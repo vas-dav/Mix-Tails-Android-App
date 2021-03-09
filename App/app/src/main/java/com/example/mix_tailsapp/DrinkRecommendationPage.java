@@ -297,6 +297,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
 
+        drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        drinksInsideFuelBar = drinksAccess.getChosen();
+        drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
         //When the resetFuel Image(top right in recommendation page) Button clicked
         fuelBarResteButton = findViewById(R.id.imageButton);
         fuelBarResteButton.setOnClickListener(v -> {
@@ -310,9 +313,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         });
 
-        drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
-        drinksInsideFuelBar = drinksAccess.getChosen();
-        drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
+
         if (drinkLimitMax == 0) {
             fuelBar.setProgress(0);
             fuelBar.setMax(25);
@@ -320,11 +321,12 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         } else {
             fuelBar.setMax(drinkLimitMax);
             fuelBar.setProgress(drinksInsideFuelBar);
+            if(drinksLeftinFuelBar == 0){
+                Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
+            }
         }
 
-        if(drinksLeftinFuelBar == 0){
-            Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
-        }
+
 
     }
 
@@ -334,9 +336,12 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         super.onPause();
 
 
-        if(drinksLeftinFuelBar == 0 && drinkLimitMax != 0){
+        if(drinksLeftinFuelBar == 0 && tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) > 0){
             Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
-        } else {
+        }else if (drinkLimitMax == 0){
+            Toast.makeText(DrinkRecommendationPage.this, "Remember to set the fuel bar!", Toast.LENGTH_SHORT).show();
+
+        }else if (tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) > 0){
             Toast.makeText(getApplicationContext(), "You have " + drinksLeftinFuelBar + " drinks left in your FuelBar", Toast.LENGTH_LONG).show();
         }
     }
