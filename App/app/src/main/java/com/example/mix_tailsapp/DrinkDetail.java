@@ -18,11 +18,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * Created by Annie on 01/03/2021
  * authors Annie, Miguel, Vasily
- * This class is used to show drink ingredients
- * @version 1: variables declaration
- * @version 2: setText for drink suggestions
- * @version 3: add to favorites image floating action
- * @version 4: drink me button added
+ *
+ * Within this class the user which by now will have chosen a drink,
+ * the name of the drink will be display. A go-back button can be press
+ * to try fit a match, also drink ingredients will be display giving
+ * the option to add the chosen the drink to favorites or drink me button.
  */
 
 
@@ -88,11 +88,11 @@ public class DrinkDetail extends AppCompatActivity {
         Resources glasses = getResources();
         if (db.getSpitOnly(drinkName).contains("Whiskey")) {
             Log.d("imageset", "SET");
-            showGlass.setImageResource(R.drawable.whiskey_color);
+            showGlass.setImageResource(R.drawable.whiskey);
         } else if (db.getSpitOnly(drinkName).contains("Rum")) {
             showGlass.setImageResource(R.drawable.mojito);
         } else if (db.getSpitOnly(drinkName).contains("Tequila")) {
-            showGlass.setImageResource(R.drawable.rum_png_smallsize);
+            showGlass.setImageResource(R.drawable.rum_color);
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {

@@ -4,16 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily, Miguel, Annie
- * Main activity with intent for the main interface of the app that contains the options of choosing
- * drink, signing in or signing up
+ *
+ * This activity is one of the first interactions with user
+ * to decide if the user is already signed in or needs to sign up.
+ *
  */
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(signIn);
 
         });
-
-
     }
 
     /**

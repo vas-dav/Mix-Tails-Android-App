@@ -40,15 +40,9 @@ public class FavoritesActivity extends AppCompatActivity {
                 android.R.layout.simple_expandable_list_item_1,
                 favoriteDrinksList));
 
-        show.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(FavoritesActivity.this,
-                        db.getDrinkIngs2(favoriteDrinksList.get(position)),
-                        Toast.LENGTH_LONG).show();
-
-            }
-            });
+        show.setOnItemClickListener((parent, view, position, id) -> Toast.makeText(FavoritesActivity.this,
+                db.getDrinkIngs(favoriteDrinksList.get(position)),
+                Toast.LENGTH_LONG).show());
     }
 /*
     public View FavoritesView(Context context, Cursor c, ViewGroup parent){
