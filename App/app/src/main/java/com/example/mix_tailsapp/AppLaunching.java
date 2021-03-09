@@ -18,7 +18,6 @@ import android.os.Handler;
  * version 2: using SharedPreference to open activity based on the signed boolean
  */
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AppLaunching extends AppCompatActivity {
@@ -27,8 +26,6 @@ public class AppLaunching extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstance) {
-
-
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_app_launching);
         tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
@@ -36,7 +33,6 @@ public class AppLaunching extends AppCompatActivity {
          * App launching page with delay
          * Deciding which activity to open depending on the signed boolean
          */
-
         new Handler().postDelayed(() -> {
             if(tempStorageGet.getBoolean(SignInActivity.SIGNED, false)){
                 Intent signedLaunch = new Intent(AppLaunching.this, AppWelcomeScreen.class);
@@ -46,9 +42,5 @@ public class AppLaunching extends AppCompatActivity {
                 startActivity(launchApp);
             }
         }, 2000);
-
-
     }
-
-
 }

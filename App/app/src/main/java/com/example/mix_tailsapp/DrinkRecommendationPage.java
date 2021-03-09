@@ -1,5 +1,29 @@
 package com.example.mix_tailsapp;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.example.mix_tailsapp.Adapter.SearchAdapter;
+import com.example.mix_tailsapp.UserActivity.Settings;
+import com.mancj.materialsearchbar.MaterialSearchBar;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created on 18/02/2021
  * authors: An Huynh, Miguel, Vasily
@@ -17,42 +41,11 @@ package com.example.mix_tailsapp;
  * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
  * References are listed at the end of the activity
  */
-
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.PopupMenu;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.mix_tailsapp.Adapter.SearchAdapter;
-import com.example.mix_tailsapp.UserActivity.Settings;
-import com.mancj.materialsearchbar.MaterialSearchBar;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
-
-
     private ImageButton menuBtn;
     private Button fuelBarResteButton;
     private SharedPreferences tempStorage;
-
     public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
@@ -60,7 +53,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     private ListView listView;
     private List<DatabaseAccess> cocktails;
-    private TextView drink1, drink2, drink3, drink4, drink5, drink6;
+    private TextView drink1, drink2, drink3, drink4;
     int progress = 0;
     ProgressBar fuelBar;
     private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
@@ -69,7 +62,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
 
 
-    //Recycler Searchbar
+    //Recycler SearchBar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
@@ -83,33 +76,33 @@ public class DrinkRecommendationPage extends AppCompatActivity {
      *
      * @param savedInstanceState
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         setContentView(R.layout.activity_drink_recommendation_page);
+        tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
 
         recommendedDrinksList = drinksAccess.getRecom();
 
-        fuelBar = findViewById(R.id.FuelBar);
 
+        //Initiate variables
+
+
+        fuelBar = findViewById(R.id.FuelBar);
         drink1 = (TextView) findViewById(R.id.drinkName1);
         drink2 = (TextView) findViewById(R.id.drinkName2);
         drink3 = (TextView) findViewById(R.id.drinkName3);
         drink4 = (TextView) findViewById(R.id.drinkName4);
-        drink5 = (TextView) findViewById(R.id.drinkName5);
-        drink6 = (TextView) findViewById(R.id.drinkName6);
 
         // set Text for recommended drink display from database
         drink1.setText(recommendedDrinksList.get(0));
         drink2.setText(recommendedDrinksList.get(1));
         drink3.setText(recommendedDrinksList.get(2));
         drink4.setText(recommendedDrinksList.get(3));
-        drink5.setText(recommendedDrinksList.get(4));
-        drink6.setText(recommendedDrinksList.get(5));
 
 
         //Initiate View
@@ -122,6 +115,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate database
         database = new DatabaseOpen(this);
+
+
+
+
 
         //Set up search bar
         materialSearchBar.setHint("Search");
@@ -217,7 +214,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                     case R.id.signout:
                         Intent signOut = new Intent(DrinkRecommendationPage.this,
                                 AppLaunching.class);
-                        SharedPreferences.Editor deleter = tempStorageGet.edit();
+                        SharedPreferences.Editor deleter = tempStorage.edit();
                         deleter.clear();
                         if (deleter.commit()) {
                             startActivity(signOut);
@@ -231,7 +228,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         });
 
 
-
         //When the resetFuel Image(top right in recommendation page) Button clicked
         fuelBarResteButton = findViewById(R.id.imageButton);
         fuelBarResteButton.setOnClickListener(v -> {
@@ -243,18 +239,22 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             }
 
 
-
-        surpriseDrink = findViewById(R.id.imageButton);
-        surpriseDrink.setOnClickListener(v -> {
-            Intent toRandomDrink = new Intent(DrinkRecommendationPage.this,
-                    ChosenDrinkSecondActivity.class);
-            String i = drinksAccess.getRandom();
-            toRandomDrink.putExtra(SURPRISE_KEY, i);
-            startActivity(toRandomDrink);
-            drinksAccess.close();
         });
 
+        int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        int drinksInsideFuelBar = drinksAccess.getChosen();
+        if(drinkLimitMax == 0){
+            fuelBar.setProgress(0);
+            fuelBar.setMax(25);
+        } else {
+            fuelBar.setMax(drinkLimitMax);
+            fuelBar.setProgress(drinksInsideFuelBar);
+        }
+
+
+
     }
+
 
 
 
