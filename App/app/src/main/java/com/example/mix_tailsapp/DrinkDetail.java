@@ -94,6 +94,7 @@ public class DrinkDetail extends AppCompatActivity {
         } else {
             showGlass.setImageResource(R.drawable.cocktail);
         }
+        //Going back to the activity depending on if you are signed in or not
         drinkMe.setOnClickListener(v -> {
             Intent getToRecoms = new Intent(DrinkDetail.this, DrinkRecommendationPage.class);
             Intent getToMain = new Intent(DrinkDetail.this, MainActivity.class);
