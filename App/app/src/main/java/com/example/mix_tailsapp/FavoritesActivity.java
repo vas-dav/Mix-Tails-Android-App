@@ -1,9 +1,11 @@
 package com.example.mix_tailsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     ArrayList<String> favoriteDrinksList;
     DatabaseAccess db;
+    private ImageButton goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,11 @@ public class FavoritesActivity extends AppCompatActivity {
         db.open();
         favoriteDrinksList = new ArrayList<String>();
         favoriteDrinksList = db.getFavs();
+        goBack = findViewById(R.id.gobackBtn);
+        goBack.setOnClickListener(v -> {
+            Intent back = new Intent(FavoritesActivity.this, HomePage.class);
+            startActivity(back);
+        });
 
         ListView show = findViewById(R.id.favoriteList);
         show.setAdapter(new ArrayAdapter<String>(

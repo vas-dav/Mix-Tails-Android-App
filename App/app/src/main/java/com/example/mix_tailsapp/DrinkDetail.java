@@ -33,7 +33,6 @@ public class DrinkDetail extends AppCompatActivity {
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
     Button drinkMe;
-    private ImageButton goBack;
     private static final String TAG = "misumisu";
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
@@ -53,13 +52,6 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = findViewById(R.id.img_drink);
-        goBack = findViewById(R.id.gobackBtn);
-
-        //onClickListener for go back button
-        goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(DrinkDetail.this, HomePage.class);
-            startActivity(backToHome);
-        }));
 
         drinkMe = findViewById(R.id.add_me_fuel);
         addToFavs = findViewById(R.id.favBtn);
@@ -88,11 +80,11 @@ public class DrinkDetail extends AppCompatActivity {
         Resources glasses = getResources();
         if (db.getSpitOnly(drinkName).contains("Whiskey")) {
             Log.d("imageset", "SET");
-            showGlass.setImageResource(R.drawable.whiskey);
+            showGlass.setImageResource(R.drawable.whiskey_color);
         } else if (db.getSpitOnly(drinkName).contains("Rum")) {
             showGlass.setImageResource(R.drawable.mojito);
         } else if (db.getSpitOnly(drinkName).contains("Tequila")) {
-            showGlass.setImageResource(R.drawable.rum_color);
+            showGlass.setImageResource(R.drawable.rum_png_smallsize);
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
