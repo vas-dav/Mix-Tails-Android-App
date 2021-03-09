@@ -38,10 +38,6 @@ public class DrinkDetail extends AppCompatActivity {
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
 
-  
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +48,6 @@ public class DrinkDetail extends AppCompatActivity {
         drinksAccess.open();
 
         db = new DatabaseAccess(this);
-
 
         //Instantiate variable
         drink_name = findViewById(R.id.drink_name);
@@ -67,7 +62,6 @@ public class DrinkDetail extends AppCompatActivity {
         String details = getIntent().getStringExtra(ChosenDrinkSecondActivity.DETAIL_KEY);
         show_ingredient.setText(details);
 
-
     if(drinksAccess.checkFavs(drinkName)){
     addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
     }
@@ -80,19 +74,17 @@ public class DrinkDetail extends AppCompatActivity {
             }
         });
 
-
-
         // if/else statements to check for spirit names in the
         // database and assigns each with a drawable/image
         db.open();
         Resources glasses = getResources();
         if (db.getSpitOnly(drinkName).contains("Whiskey")) {
             Log.d("imageset", "SET");
-            showGlass.setImageResource(R.drawable.whiskey);
+            showGlass.setImageResource(R.drawable.whiskey_color);
         } else if (db.getSpitOnly(drinkName).contains("Rum")) {
             showGlass.setImageResource(R.drawable.mojito);
         } else if (db.getSpitOnly(drinkName).contains("Tequila")) {
-            showGlass.setImageResource(R.drawable.rum_color);
+            showGlass.setImageResource(R.drawable.rum_png_smallsize);
         } else if (db.getSpitOnly(drinkName).contains("Gin")) {
             showGlass.setImageResource(R.drawable.gin);
         } else if (db.getSpitOnly(drinkName).contains("Vodka")) {
@@ -118,6 +110,5 @@ public class DrinkDetail extends AppCompatActivity {
             }
 
         });
-
     }
 }
