@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -14,14 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * authors: Vasily, Miguel, Annie
  * <p>
- * An activity for choosing drinks from user's choice of preferred ingredients or surprise drink
+ * After the user has decided to take our fun little quiz to select the perfect drink
+ * or by going nomad with our randomizer, the app with me directed to a page where
+ * cocktail name will be shown. Here the user will have the choice to see the
+ * ingredients(DrinkDetails class) to choose to drink or save it to favorites,
+ * also why not just go back to drink and search for another drink or why not go to
+ * recommended drinks to let the app guide you depending on the quiz answers!
  *
  * @version 3: connecting buttons to their functionaries
  */
 
-
 public class ChosenDrinkSecondActivity extends AppCompatActivity {
-
 
     TextView drinkOfYourChoice;
     private ImageButton goBack;
@@ -33,6 +35,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
      * Intents for Surprise me button and lets drink button generator
      * in the questionnaire after or when logged in.
      */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,7 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
         SharedPreferences tempStorageGet = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
 
         //Initiate variables
-        drinkOfYourChoice = (TextView) findViewById(R.id.usersDrink);
+        drinkOfYourChoice = findViewById(R.id.usersDrink);
         goBack = findViewById(R.id.gobackBtn);
         ingredients = findViewById(R.id.ingredientBtn);
 
@@ -50,11 +53,9 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
             startActivity(backToHome);
         }));
 
-
         String surprise = getIntent().getStringExtra(QuestionSpinner.SURPRISE_KEY);
         String choice = getIntent().getStringExtra(QuestionSpinner.CHOICE_KEY);
         String drinkIngredients = getIntent().getStringExtra(QuestionSpinner.INGS_KEY);
-
 
         // When using the surprise me button
         if (surprise != null) {
@@ -71,34 +72,24 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
                 Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, QuestionSpinner.class);
                 startActivity(backToHome);
             }));
-
-
         }
-        if (tempStorageGet.getBoolean(SignupActivity.SIGNED, false)) {
 
-        } else {
-            goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-                Intent backToHome = new Intent(ChosenDrinkSecondActivity.this, AppWelcomeScreen.class);
-                startActivity(backToHome);
-            }));
-        }
+
     }
 
     /**
      * a method to show drink ingredients
      *
-     * @param input
-     * @param i
+     * @param input input
+     * @param i i
      */
+
     private void showIngs(String input, String i) {
         Intent DrinkDetails = new Intent(ChosenDrinkSecondActivity.this, DrinkDetail.class);
         DrinkDetails.putExtra(DETAIL_KEY, i);
         DrinkDetails.putExtra(NAME_KEY, input);
         startActivity(DrinkDetails);
-
-
     }
-
 }
 
 

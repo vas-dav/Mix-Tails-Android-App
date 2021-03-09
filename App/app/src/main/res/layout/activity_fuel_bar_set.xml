@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#FBFBFB"
     tools:context=".FuelBarSet">
-
+    <!--This is the UI activity for the fuel bar progress setting function containing one seek bar
+     in progress bar element and a progress circle bar to show the increasing drinks added -->
     <SeekBar
         android:id="@+id/amountOfDrinks"
         android:layout_width="347dp"
@@ -53,11 +54,11 @@
         android:layout_width="141dp"
         android:layout_height="56dp"
         android:background="@drawable/rounded_btn"
-        android:textSize="18sp"
         android:backgroundTint="@color/main2"
         android:fontFamily="@font/roboto_black"
         android:text="@string/setLimit"
         android:textColor="@color/light_color"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -69,10 +70,10 @@
         android:id="@+id/emotion"
         android:layout_width="332dp"
         android:layout_height="65dp"
-        android:textColor="@color/text_color2"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:text="@string/limitDefault"
+        android:textColor="@color/text_color2"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSetLimit"
         app:layout_constraintEnd_toEndOf="parent"

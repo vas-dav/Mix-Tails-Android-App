@@ -67,12 +67,19 @@
     <string name="waiting_to_drive_text">You still have to wait</string>
     <string name="go_back_text">Go Back</string>
     <string name="drink_name_text">Drink Name</string>
-    <string name="fuelBarText">Your FuelBar:</string>
+    <string name="fuelBarText">Your Fuel Bar</string>
     <string name="fuel_progress_text">3</string>
     <string name="reset_bar">Reset bar</string>
 
     <string name="drink_me">Drink me!</string>
-
+    <string name="fuel_text_1">You don\'t need to count drinks</string>
+    <string name="fuel_text_2">Be careful! But, let\'s go!</string>
+    <string name="fuel_text3">You are having a fun night!</string>
+    <string name="fuel_text4">We are going for few, but end up with more!</string>
+    <string name="fuel_text5">Grabbing a few with homies!</string>
+    <string name="fuel_text6">Good time for relax!</string>
+    <string name="fuel_text7">Okay... Why do you need this app?</string>
+    <string name="wecome_back_text">Welcome back </string>
 
 
 </resources>

@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 /**
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
@@ -23,8 +22,10 @@ import androidx.appcompat.app.AppCompatActivity;
  * @version 2: writing onClickListener method (Annie)
  * @version 3: adding drink database to the class by calling (Vasily)
  * @version 4: fixing the sendDrink button function (Miguel)
+ * @version 5: Add a toast message when one of the fields to be filled is empty (Annie)
  */
 
+@SuppressWarnings("ALL")
 public class AddingDrink extends AppCompatActivity {
 
     DatabaseAccess db;
@@ -35,7 +36,6 @@ public class AddingDrink extends AppCompatActivity {
     /**
      * an onClickListener function to decide what happen when the button binding with its id is clicked
      */
-
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
@@ -69,21 +69,18 @@ public class AddingDrink extends AppCompatActivity {
 
         db = new DatabaseAccess(this);
 
-
-        editName = (EditText) findViewById(R.id.editName);
-        editSpirit = (EditText) findViewById(R.id.editSpirit);
-        editTaste = (EditText) findViewById(R.id.editTaste);
-        editSize = (EditText) findViewById(R.id.editSize);
-        editStrength = (EditText) findViewById(R.id.editStrength);
-        editIngredients = (EditText) findViewById(R.id.editIngredients);
-
+        editName = findViewById(R.id.editName);
+        editSpirit = findViewById(R.id.editSpirit);
+        editTaste = findViewById(R.id.editTaste);
+        editSize = findViewById(R.id.editSize);
+        editStrength = findViewById(R.id.editStrength);
+        editIngredients = findViewById(R.id.editIngredients);
 
         //Button add drink onClickListener
-        sendDrink = (Button) findViewById(R.id.sendDrink);
-        goBack = (ImageButton) findViewById(R.id.gobackBtn);
+        sendDrink = findViewById(R.id.sendDrink);
+        goBack = findViewById(R.id.gobackBtn);
         goBack.setOnClickListener(clickListener);
         sendDrink.setOnClickListener(clickListener);
-
 
     }
     // Function for adding new drinks to (Drinks.db)

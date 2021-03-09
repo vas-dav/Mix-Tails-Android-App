@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/signup_background"
     tools:context=".AddingDrink">
-
+<!-- This is the UI activity for user to add their own drink, this activity includes EditText elements,
+image button for going back to home and button add drink-->
     <ImageButton
         android:id="@+id/gobackBtn"
         android:layout_width="43dp"

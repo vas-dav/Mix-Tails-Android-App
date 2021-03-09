@@ -1,9 +1,4 @@
 package com.example.mix_tailsapp;
-/**
- * Created by Annie on 01/03/2021
- * authors Annie, Miguel, Vasily
- * This class is used to show drink ingredients
- */
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,10 +11,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+/**
+ * Created by Annie on 01/03/2021
+ * authors Annie, Miguel, Vasily
+ * This class is used to show drink ingredients
+ */
+
 
 public class DrinkDetail extends AppCompatActivity {
 
@@ -34,6 +35,7 @@ public class DrinkDetail extends AppCompatActivity {
     SharedPreferences tempStorage;
 
   
+
 
 
     @Override
@@ -51,18 +53,18 @@ public class DrinkDetail extends AppCompatActivity {
         //Instantiate variable
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
-        showGlass = (ImageView) findViewById(R.id.img_drink);
+        showGlass = findViewById(R.id.img_drink);
 
         goBack = findViewById(R.id.gobackBtn);
 
         //onClickListener for go back button
         goBack.setOnClickListener(view -> goBack.setOnClickListener(v -> {
-            Intent backToHome = new Intent(DrinkDetail.this, AppWelcomeScreen.class);
+            Intent backToHome = new Intent(DrinkDetail.this, HomePage.class);
             startActivity(backToHome);
         }));
 
         drinkMe = findViewById(R.id.add_me_fuel);
-        addToFavs = (FloatingActionButton) findViewById(R.id.favBtn);
+        addToFavs = findViewById(R.id.favBtn);
 
         //get Intent and show drink detail
         String drinkName = getIntent().getStringExtra(ChosenDrinkSecondActivity.NAME_KEY);
@@ -72,14 +74,14 @@ public class DrinkDetail extends AppCompatActivity {
 
 
     if(drinksAccess.checkFavs(drinkName)){
-    addToFavs.setImageResource(R.drawable.favbtn2);
+    addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
     }
         addToFavs.setOnClickListener(v -> {
             if(drinksAccess.checkFavs(drinkName)){
                 Toast.makeText(DrinkDetail.this, "Drink already in favorites", Toast.LENGTH_SHORT).show();
             }else {
                 drinksAccess.setOrResetHeartDrink(1, drinkName);
-                addToFavs.setImageResource(R.drawable.favbtn2);
+                addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
             }
         });
 
@@ -121,7 +123,6 @@ public class DrinkDetail extends AppCompatActivity {
             }
 
         });
-
 
     }
 }

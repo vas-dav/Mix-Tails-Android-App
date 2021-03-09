@@ -29,8 +29,8 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
 
-        email = (EditText)findViewById(R.id.editTextTextEmailAddress);
-        password = (EditText)findViewById(R.id.editTextTextPassword);
+        email = findViewById(R.id.editTextTextEmailAddress);
+        password = findViewById(R.id.editTextTextPassword);
         Button signInBtnConfirm = findViewById(R.id.loginConfirm);
         signInBtnConfirm.setOnClickListener(v -> loginSubmit());
 
@@ -43,9 +43,9 @@ public class SignInActivity extends AppCompatActivity {
      */
     public void loginSubmit(){
         Log.d("LogIn", "Clicked");
-        Intent loginSuccess = new Intent(SignInActivity.this, AppWelcomeScreen.class);
-        /**
-         * Retrieving data from PERM and putting data on TEMP
+        Intent loginSuccess = new Intent(SignInActivity.this, HomePage.class);
+        /*
+          Retrieving data from PERM and putting data on TEMP
          */
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         tempStoragePut = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);

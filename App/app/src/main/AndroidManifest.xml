@@ -18,14 +18,14 @@
             android:theme="@style/PreferenceScreen" />
         <activity android:name=".DrinkDetail" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".AppWelcomeScreen" />
+        <activity android:name=".HomePage" />
         <activity android:name=".DrinkRecommendationPage" />
         <activity android:name=".UserActivity.SignupConfirmationScreen" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionSpinner" />
         <activity android:name=".ChosenDrinkSecondActivity" />
-        <activity android:name=".AppLaunching">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
