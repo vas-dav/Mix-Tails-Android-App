@@ -1,6 +1,5 @@
 package com.example.mix_tailsapp;
 
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,29 +10,27 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mix_tailsapp.Adapter.SearchAdapter;
 import com.example.mix_tailsapp.UserActivity.Settings;
 import com.mancj.materialsearchbar.MaterialSearchBar;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created on 18/02/2021
  * authors: An Huynh, Miguel, Vasily
- * This class decides the activities take place in the drink recommended page including ImageButton
- * menu, drink detail, add drink to favorite list and so on.
+ *
+ * Here the user can decide which activity takes place in the drink recommended page including
+ * menu, drink detail, add drink to favorite list and database search.
+ *
  * @version 1: declare variables (Annie)
  * @version 1.2: binding the buttons and write functions for them (Annie)
  * @version 2: write function for pop up menu and surprise drink button (Annie)
@@ -44,7 +41,6 @@ import java.util.List;
  * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
  * References are listed at the end of the activity
  */
-
 public class DrinkRecommendationPage extends AppCompatActivity {
     //Declare Variables
     private ImageButton menuBtn;
@@ -57,14 +53,15 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     private ListView listView;
     private List<DatabaseAccess> cocktails;
-    private TextView drink1, drink2, drink3, drink4, drink5, drink6;
+    private TextView drink1, drink2, drink3, drink4;
     int progress = 0;
     ProgressBar fuelBar;
     private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
-    //Recycler Searchbar
+    //Recycler SearchBar
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
@@ -99,16 +96,12 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drink2 = (TextView) findViewById(R.id.drinkName2);
         drink3 = (TextView) findViewById(R.id.drinkName3);
         drink4 = (TextView) findViewById(R.id.drinkName4);
-        drink5 = (TextView) findViewById(R.id.drinkName5);
-        drink6 = (TextView) findViewById(R.id.drinkName6);
 
         // set Text for recommended drink display from database
         drink1.setText(recommendedDrinksList.get(0));
         drink2.setText(recommendedDrinksList.get(1));
         drink3.setText(recommendedDrinksList.get(2));
         drink4.setText(recommendedDrinksList.get(3));
-        drink5.setText(recommendedDrinksList.get(4));
-        drink6.setText(recommendedDrinksList.get(5));
 
 
 
