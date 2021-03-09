@@ -166,7 +166,10 @@ public class DatabaseAccess {
         return getIngs;
     }
 
-    // Getting an ArrayList of all favourite Drinks
+    /**
+     * Getting an ArrayList of all favourite Drinks
+     * @return
+     */
     public ArrayList<String> getFavs() {
 
         String favoritos = "SELECT * FROM cocktails WHERE favs = 1";
@@ -182,9 +185,12 @@ public class DatabaseAccess {
         return (favList);
     }
 
-    //Method for adding a favourite drink or setting it back to not favourite
-    //1 == fav
-    //0 == not fav
+    /**
+     * Method for adding a favourite drink or setting it back to not favourite
+     * @param setValue
+     * @param inputName
+     * @return
+     */
     public boolean setOrResetHeartDrink(int setValue, String inputName){
         boolean result;
         String query = "UPDATE cocktails SET favs = "
@@ -198,7 +204,12 @@ public class DatabaseAccess {
         return result;
 
     }
-    // method to check if Drink was already added to favorites
+
+    /**
+     * Method to check if Drink was already added to favorites
+     * @param inputName
+     * @return
+     */
     public boolean checkFavs(String inputName) {
         int favDrink = 0;
         boolean check;
@@ -214,7 +225,11 @@ public class DatabaseAccess {
         }
         return check;
     }
-    //Method for getting a list of Recommended Drinks
+
+    /**
+     * Method for getting a list of Recommended Drinks
+     * @return
+     */
     public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
         int count = 0;
@@ -234,7 +249,17 @@ public class DatabaseAccess {
         }
         return (recomList);
     }
-    // method for the user to add a new cocktail to the existing database(Drinks.db)
+
+    /**
+     * Method for the user to add a new cocktail to the existing database(Drinks.db)
+     * @param name
+     * @param spirit
+     * @param taste
+     * @param size
+     * @param strength
+     * @param ingredients
+     * @return
+     */
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();
@@ -258,7 +283,12 @@ public class DatabaseAccess {
         else
             return false;
     }
-    // method to get only spirit name to match with image
+
+    /**
+     * Method to get only spirit name to match with image
+     * @param inputName
+     * @return
+     */
     public String getSpitOnly(String inputName) {
         String getSpit = null;
         String query = "SELECT * FROM cocktails WHERE name LIKE '" + inputName + "%'";
@@ -268,7 +298,11 @@ public class DatabaseAccess {
         }
         return getSpit;
     }
-    // Getting an ArrayList of all chosen Drinks
+
+    /**
+     * Getting an ArrayList of all chosen Drinks
+     * @return
+     */
     public int getChosen() {
         String query = "SELECT * FROM cocktails WHERE counter = 1";
         ingCurs = db.rawQuery(query, null);
@@ -281,12 +315,19 @@ public class DatabaseAccess {
         }
         return favList.size();
     }
-    //Method for adding a drink or setting it back to fuelBar
+
+    /**
+     * Method for adding a drink or setting it back to fuelBar
+     * @param inputName
+     */
     public void setChosen(String inputName){
         String query = "UPDATE cocktails SET counter = 1 WHERE name LIKE '" + inputName + "%'";
             db.execSQL(query);
     }
-    //Method for adding a drink or setting it back to fuelBar
+
+    /**
+     * Method for adding a drink or setting it back to fuelBar
+     */
     public void resetChosen(){
         String query = "UPDATE cocktails SET counter = 0";
         db.execSQL(query);
