@@ -33,6 +33,7 @@ public class DrinkDetail extends AppCompatActivity {
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
 
+  
 
 
     @Override
@@ -118,8 +119,8 @@ public class DrinkDetail extends AppCompatActivity {
             }else {
                 startActivity(getToMain);
             }
-            });
 
+        });
 
 
     }
