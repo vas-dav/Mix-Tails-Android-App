@@ -1,14 +1,4 @@
 package com.example.mix_tailsapp;
-/**
- * Created by Annie (An Huynh) on 24/02/2021
- * authors: Annie, Miguel, Vasily
- * This is the activity created for the app welcome activity and decide what will happen when the three
- * buttons in this activity are clicked
- * @version 1: declare variables and instantiate them (Annie)
- * @version 2: onClick listener method to decide what happen when the buttons are clicked (Annie)
- * @version 3: using SharePreference to get user's name (Vasily)
- * @version 4: added menu button to the activity (Annie)
- */
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,10 +10,21 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mix_tailsapp.UserActivity.Settings;
+
+/**
+ * Created by Annie (An Huynh) on 24/02/2021
+ * authors: Annie, Miguel, Vasily
+ *
+ * If the user is logged in the app will be directed to a user menu with choosing a drink,
+ * drink recommendations and favorites drinks options to click on.
+ *
+ * @version 1: declare variables and instantiate them (Annie)
+ * @version 2: onClick listener method to decide what happen when the buttons are clicked (Annie)
+ * @version 3: using SharePreference to get user's name (Vasily)
+ * @version 4: added menu button to the activity (Annie)
+ */
 
 public class AppWelcomeScreen extends AppCompatActivity {
     //Declare variables
