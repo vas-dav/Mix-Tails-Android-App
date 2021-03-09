@@ -3,8 +3,6 @@ package com.example.mix_tailsapp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -14,7 +12,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -57,22 +54,13 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     private ImageButton menuBtn, drinkBtn1, drinkBtn2, drinkBtn3, drinkBtn4, drinkBtn5, drinkBtn6;
     private Button fuelBarResteButton;
     private SharedPreferences tempStorage;
-    public static final String EXTRA_POSITION = "com.example.mix_tailsapp.EXTRA_POSITION";
-    protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
-    protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
-    protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
-
-    private ListView listView;
-    private List<DatabaseAccess> cocktails;
     private TextView drink1, drink2, drink3, drink4, drink5, drink6;
     private int drinkLimitMax, drinksInsideFuelBar, drinksLeftinFuelBar;
-    int progress = 0;
     ProgressBar fuelBar;
     private ArrayList<String> recommendedDrinksList = new ArrayList<>();
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
-    NotificationManager manager;
-    Notification myNotication;
+
 
 
     //Recycler Searchbar
@@ -292,12 +280,16 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             });
             popupMenu.show();
         });
+/**
+ * The section ofthe fuel bar functionality
+ */
 
-
+        //Assigning variables
         drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
         drinksInsideFuelBar = drinksAccess.getChosen();
         drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
-        //When the resetFuel Image(top right in recommendation page) Button clicked
+
+        //When the resetFuel Image(top right in recommendation page) Button clicked the method resets the bar
         fuelBarResteButton = findViewById(R.id.imageButton);
         fuelBarResteButton.setOnClickListener(v -> {
             SharedPreferences.Editor fuelResetter = tempStorage.edit();
@@ -310,7 +302,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         });
 
-
+        //Checking if the Fuel bar is set or not
         if (drinkLimitMax == 0) {
             fuelBar.setProgress(0);
             fuelBar.setMax(25);
@@ -327,6 +319,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
     }
 
+    //Toasting fuel bar on pause of the activity
     @Override
     protected void onPause() {
 
