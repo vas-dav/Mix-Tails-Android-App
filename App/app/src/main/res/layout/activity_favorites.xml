@@ -10,7 +10,10 @@
         <ListView
             android:id="@+id/favoriteList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:divider="@color/cocktail3"
+            android:dividerHeight="1dp"
+            android:listSelector="@color/egg_shell2"/>
 
 
 </RelativeLayout>

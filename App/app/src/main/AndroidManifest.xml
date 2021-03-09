@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
         <activity android:name=".FuelBarSet"></activity>
-        <activity android:name=".FavoritesActivity" />
+        <activity android:name=".FavoritesActivity" android:parentActivityName=".HomePage" />
         <activity android:name=".AddingDrink" />
         <activity
             android:name=".UserActivity.Settings"
