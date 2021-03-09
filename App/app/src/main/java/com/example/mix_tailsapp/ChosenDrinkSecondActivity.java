@@ -72,8 +72,6 @@ public class ChosenDrinkSecondActivity extends AppCompatActivity {
                 startActivity(backToHome);
             }));
         }
-
-
     }
 
     /**

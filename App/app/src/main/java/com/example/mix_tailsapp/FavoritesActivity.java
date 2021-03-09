@@ -33,7 +33,6 @@ public class FavoritesActivity extends AppCompatActivity {
         favoriteDrinksList = new ArrayList<String>();
         favoriteDrinksList = db.getFavs();
 
-
         ListView show = findViewById(R.id.favoriteList);
         show.setAdapter(new ArrayAdapter<String>(
                 this, //activity instance
@@ -44,7 +43,7 @@ public class FavoritesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(FavoritesActivity.this,
-                        db.getDrinkIngs2(favoriteDrinksList.get(position)),
+                        db.getDrinkIngs(favoriteDrinksList.get(position)),
                         Toast.LENGTH_LONG).show();
 
             }

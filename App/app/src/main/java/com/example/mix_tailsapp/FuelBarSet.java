@@ -91,9 +91,5 @@ public class FuelBarSet extends AppCompatActivity {
                 });
             }
         });
-
-
     }
-
-
 }

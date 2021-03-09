@@ -38,10 +38,6 @@ public class DrinkDetail extends AppCompatActivity {
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
 
-  
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +49,10 @@ public class DrinkDetail extends AppCompatActivity {
 
         db = new DatabaseAccess(this);
 
-
         //Instantiate variable
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = findViewById(R.id.img_drink);
-
         goBack = findViewById(R.id.gobackBtn);
 
         //onClickListener for go back button
@@ -76,7 +70,6 @@ public class DrinkDetail extends AppCompatActivity {
         String details = getIntent().getStringExtra(ChosenDrinkSecondActivity.DETAIL_KEY);
         show_ingredient.setText(details);
 
-
     if(drinksAccess.checkFavs(drinkName)){
     addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
     }
@@ -88,8 +81,6 @@ public class DrinkDetail extends AppCompatActivity {
                 addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
             }
         });
-
-
 
         // if/else statements to check for spirit names in the
         // database and assigns each with a drawable/image
@@ -127,6 +118,5 @@ public class DrinkDetail extends AppCompatActivity {
             }
 
         });
-
     }
 }

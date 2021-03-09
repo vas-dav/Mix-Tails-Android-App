@@ -4,7 +4,10 @@ package com.example.mix_tailsapp;
  * author: Vasily
  *
  * This hasher is made to make you loose your mind,
- * 
+ * the users password will be protected, that is for sure!
+ * so feel to type a 4 or even 11 character password,
+ * either way, it's safe with us :)
+ *
  */
 public class Hasher {
 
@@ -14,7 +17,6 @@ public class Hasher {
     private long gideon = 345678;
 
     public Hasher() {};
-
 
     public long hPSCD (String uPCOE) {
         long longPSCD = 0;
@@ -54,6 +56,5 @@ public class Hasher {
         }
         return crusher;
     }
-
 }
 
