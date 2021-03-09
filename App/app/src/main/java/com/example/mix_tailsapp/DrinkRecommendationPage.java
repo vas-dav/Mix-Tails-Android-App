@@ -1,7 +1,13 @@
 package com.example.mix_tailsapp;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -19,11 +25,14 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mix_tailsapp.Adapter.SearchAdapter;
 import com.example.mix_tailsapp.UserActivity.Settings;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +57,6 @@ import java.util.List;
  */
 
 public class DrinkRecommendationPage extends AppCompatActivity {
-
     //Declare Variables
     private ImageButton menuBtn, drinkBtn1, drinkBtn2, drinkBtn3, drinkBtn4, drinkBtn5, drinkBtn6;
     private Button fuelBarResteButton;
@@ -57,22 +65,28 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
     protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
+
     private ListView listView;
     private List<DatabaseAccess> cocktails;
     private TextView drink1, drink2, drink3, drink4, drink5, drink6;
+    private int drinkLimitMax, drinksInsideFuelBar, drinksLeftinFuelBar;
+    int progress = 0;
     ProgressBar fuelBar;
-    private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
-
+    private ArrayList<String> recommendedDrinksList = new ArrayList<>();
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
+    NotificationManager manager;
+    Notification myNotication;
 
-    //Recycler Search bar
+
+    //Recycler Searchbar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
     MaterialSearchBar materialSearchBar;
     List<String> suggestions = new ArrayList<>();
     DatabaseOpen database;
+
 
     /**
      * This onCreate method contains functions of searchView, pop-up menu and surprise drink buttons
@@ -88,6 +102,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
         recommendedDrinksList = drinksAccess.getRecom();
+
 
         //Initiate variables
         fuelBar = findViewById(R.id.FuelBar);
@@ -161,16 +176,18 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drinkBtn5.setOnClickListener(clicklistener);
         drinkBtn6.setOnClickListener(clicklistener);
 
+
         //Initiate View
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_search);
+        recyclerView = findViewById(R.id.recycle_search);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        materialSearchBar = (MaterialSearchBar) findViewById(R.id.searchView);
+        materialSearchBar = findViewById(R.id.searchView);
 
         //Initiate database
         database = new DatabaseOpen(this);
+
 
         //Set up search bar
         materialSearchBar.setHint("Search");
@@ -229,6 +246,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         //Initiate the search adapter at default to set all the result
         searchAdapter = new SearchAdapter(this, database.getCocktails());
 
+
         //Initiate ImageBtn menu with its id and create a pop-up menu inside it
         menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(v -> {
@@ -257,7 +275,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                     case R.id.favorite:
                         Intent toFavoriteList = new Intent(DrinkRecommendationPage.this, FavoritesActivity.class);
                         startActivity(toFavoriteList);
-                        break;
                     case R.id.settings:
                         Intent settings = new Intent(DrinkRecommendationPage.this,
                                 Settings.class);
@@ -279,6 +296,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             popupMenu.show();
         });
 
+
         //When the resetFuel Image(top right in recommendation page) Button clicked
         fuelBarResteButton = findViewById(R.id.imageButton);
         fuelBarResteButton.setOnClickListener(v -> {
@@ -288,20 +306,40 @@ public class DrinkRecommendationPage extends AppCompatActivity {
                 fuelBar.setProgress(0, true);
                 drinksAccess.resetChosen();
             }
+
+
         });
 
-        int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
-        int drinksInsideFuelBar = drinksAccess.getChosen();
+        drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        drinksInsideFuelBar = drinksAccess.getChosen();
+        drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
         if (drinkLimitMax == 0) {
             fuelBar.setProgress(0);
             fuelBar.setMax(25);
+            drinksAccess.resetChosen();
         } else {
             fuelBar.setMax(drinkLimitMax);
             fuelBar.setProgress(drinksInsideFuelBar);
         }
+
+        if(drinksLeftinFuelBar == 0){
+            Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
+        }
+
     }
 
+    @Override
+    protected void onPause() {
 
+        super.onPause();
+
+
+        if(drinksLeftinFuelBar == 0 && drinkLimitMax != 0){
+            Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "You have " + drinksLeftinFuelBar + " drinks left in your FuelBar", Toast.LENGTH_LONG).show();
+        }
+    }
 
 
     /**

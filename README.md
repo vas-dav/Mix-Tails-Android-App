@@ -14,7 +14,7 @@ This app is only available for Android devices. Further expansion to be consider
 Sometimes it takes two clicks for a button to work (e.g go back button in some activities)
 
 ## LICENSE
-
+This project uses GNU License that can be found [here](https://github.com/vas-dav/Mix-Tails-Android-App/blob/main/LICENSE)
 
  ## First Preview:
  
