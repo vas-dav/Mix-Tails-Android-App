@@ -42,6 +42,7 @@ import java.util.List;
  * References are listed at the end of the activity
  */
 public class DrinkRecommendationPage extends AppCompatActivity {
+
     //Declare Variables
     private ImageButton menuBtn;
     private Button fuelBarResteButton;
@@ -50,18 +51,17 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     protected static final String SURPRISE_KEY = "KEWIOhguyfbvUWIGefyuowUILGYUOAWGYEURFQU3";
     protected static final String DETAIL_KEY = "DIDYOUKNOWTHAT_EINSTEIN_IS_SUPERIOR_THAN_HAWKING";
     protected static final String NAME_KEY = "TOM_CRUISE_HAS_SUPERPOWERS_SUPERIOR_THAN_SUPERMAN";
-
     private ListView listView;
     private List<DatabaseAccess> cocktails;
     private TextView drink1, drink2, drink3, drink4;
     int progress = 0;
     ProgressBar fuelBar;
     private ArrayList <String> recommendedDrinksList = new ArrayList<String>();
+
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
     //Recycler SearchBar
-
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter searchAdapter;
@@ -118,7 +118,7 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Set up search bar
         materialSearchBar.setHint("Search");
-        materialSearchBar.setCardViewElevation(10);
+        materialSearchBar.setCardViewElevation(8);
         loadSuggestions();
         materialSearchBar.addTextChangeListener(new TextWatcher() {
             @Override

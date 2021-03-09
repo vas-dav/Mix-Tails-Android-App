@@ -52,10 +52,12 @@ public class DatabaseAccess {
         return instance;
     }
 
+
     // to open the database
     public void open() {
 
         this.db = openHelper.getWritableDatabase();
+
     }
 
     // closing the database connection
@@ -201,15 +203,16 @@ public class DatabaseAccess {
 
     // Getting an ArrayList of all favourite Drinks
     public ArrayList<String> getFavs() {
-        String query = "SELECT name FROM cocktails WHERE favs = 1";
-        ingCurs = db.rawQuery(query, null);
+
+        String favoritos = "SELECT * FROM cocktails WHERE favs = 1";
+        spitCurs = db.rawQuery(favoritos, null);
         ArrayList<String> favList = new ArrayList<String>();
-        if (ingCurs.moveToFirst()) {
+        if (spitCurs.moveToFirst()) {
             do {
-                String getFavs = ingCurs.getString(1);
+                String getFavs = spitCurs.getString(1);
                 favList.add(getFavs);
 
-            } while (ingCurs.moveToNext());
+            } while (spitCurs.moveToNext());
         }
         return (favList);
     }
@@ -266,7 +269,7 @@ public class DatabaseAccess {
         }
         return (recomList);
     }
-    // method for the user to add a new cocktail to the existing datababse(Drinks.db)
+    // method for the user to add a new cocktail to the existing database(Drinks.db)
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();

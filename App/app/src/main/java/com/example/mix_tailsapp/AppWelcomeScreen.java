@@ -29,10 +29,11 @@ import com.example.mix_tailsapp.UserActivity.Settings;
 
 public class AppWelcomeScreen extends AppCompatActivity {
     //Declare variables
-    private Button decideBtn, recommendBtn, drivingEstimation, favoriteBtn;
+    private Button decideBtn, recommendBtn, favoriteBtn;
     private ImageButton logOut, menuBtn;
     private SharedPreferences tempStoragePut, permStorageGet, tempStorageGet;
     TextView welcomeText;
+
 
     /**
      * create an onClick listener when the buttons are clicked
@@ -52,6 +53,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
             if (v == favoriteBtn) {
                 Intent toFavorites = new Intent(AppWelcomeScreen.this, FavoritesActivity.class);
                 startActivity(toFavorites);
+
             }
             if (v == logOut) {
                 //Deleting the TEMPMEM signed boolean

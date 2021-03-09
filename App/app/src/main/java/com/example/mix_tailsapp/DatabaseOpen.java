@@ -50,7 +50,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength", "ingredients"};
         String tableName = "cocktails";
 
         queryBuilder.setTables(tableName);
@@ -94,7 +94,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength", "ingredients"};
         String tableName = "cocktails";
 
         queryBuilder.setTables(tableName);
