@@ -1,9 +1,4 @@
 package com.example.mix_tailsapp;
-/**
- * Created by Annie on 01/03/2021
- * authors Annie, Miguel, Vasily
- * This class is used to show drink ingredients
- */
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,10 +11,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+/**
+ * Created by Annie on 01/03/2021
+ * authors Annie, Miguel, Vasily
+ * This class is used to show drink ingredients
+ */
+
 
 public class DrinkDetail extends AppCompatActivity {
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * authors: Vasily, Miguel
  *
- * With this class the customer customer creates access the database for choosing
+ * With this class the customer creates access the database for choosing
  * or randomizing a drink from the questionnaire page to find the perfect cocktail :)
  *
  * Reference used:
@@ -19,9 +19,7 @@ import java.util.ArrayList;
  * https://abhiandroid.com/database/operation-sqlite.html
  */
 
-
 public class DatabaseAccess {
-
 
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase db;
@@ -44,9 +42,7 @@ public class DatabaseAccess {
 
     public DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpen(context);
-
     }
-
 
     // for returning the single instance of database
     public static DatabaseAccess getInstance(Context context) {
@@ -55,7 +51,6 @@ public class DatabaseAccess {
         }
         return instance;
     }
-
 
     // to open the database
     public void open() {
@@ -70,9 +65,6 @@ public class DatabaseAccess {
         }
 
     }
-
-
-    // DO NOT TOUCH!!! PLEASE!!!
 
     /**
      * method to query and returning a result from database from drink name limited to 1
@@ -107,9 +99,7 @@ public class DatabaseAccess {
         c = db.rawQuery(query, null);
         if (c.moveToFirst()) {
             getName = c.getString(c.getColumnIndex("name"));
-
         }
-
         return getName;
     }
 
@@ -125,11 +115,8 @@ public class DatabaseAccess {
                 + "%' LIMIT 1";
         c = db.rawQuery(query, null);
         if (c.moveToFirst()) {
-
             getName = c.getString(c.getColumnIndex("name"));
-
         }
-
         return getName;
     }
 
@@ -145,11 +132,8 @@ public class DatabaseAccess {
                 + "%' LIMIT 1";
         c = db.rawQuery(query, null);
         if (c.moveToFirst()) {
-
             getName = c.getString(c.getColumnIndex("name"));
-
         }
-
         return getName;
     }
 
@@ -183,10 +167,8 @@ public class DatabaseAccess {
             do {
                 String getIngs = ingCurs.getString(6);
                 buffer.append(getIngs);
-
             } while (ingCurs.moveToNext());
         }
-
         return buffer.toString();
     }
 
@@ -201,12 +183,9 @@ public class DatabaseAccess {
         StringBuffer buffer = new StringBuffer();
         if (ingCurs.moveToFirst()) {
             getIngs = ingCurs.getString(6);
-
         }
-
         return getIngs;
     }
-
 
     public boolean addFavorite(ContentValues contentValues) {
         long executed = 0;
@@ -218,8 +197,6 @@ public class DatabaseAccess {
             done = false;
         }
         return done;
-
-
     }
 
     // Getting an ArrayList of all favourite Drinks
@@ -234,15 +211,13 @@ public class DatabaseAccess {
 
             } while (ingCurs.moveToNext());
         }
-
         return (favList);
     }
 
-
-//Method for adding a favourite drink or setting it back to not favourite
+    //Method for adding a favourite drink or setting it back to not favourite
     //1 == fav
     //0 == not fav
-public boolean setOrResetHeartDrink(int setValue, String inputName){
+    public boolean setOrResetHeartDrink(int setValue, String inputName){
         boolean result;
         String query = "UPDATE cocktails SET favs = "
                 + setValue + " WHERE name LIKE '" + inputName + "%'";
@@ -271,8 +246,6 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         }
         return check;
     }
-
-
     //Method for getting a list of Recommended Drinks
     public ArrayList<String> getRecom() {
         ArrayList<String> recomList = new ArrayList<String>();
@@ -293,9 +266,7 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         }
         return (recomList);
     }
-
     // method for the user to add a new cocktail to the existing datababse(Drinks.db)
-
     public boolean insertDrink(String name, String spirit, String taste, String size, String strength, String ingredients) {
 
         db.isOpen();
@@ -318,8 +289,6 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
             return true;
         else
             return false;
-
-
     }
     // method to get only spirit name to match with image
     public String getSpitOnly(String inputName) {
@@ -328,13 +297,9 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
         ingCurs = db.rawQuery(query, null);
         if (ingCurs.moveToFirst()) {
             getSpit = ingCurs.getString(2);
-
         }
-
         return getSpit;
-
     }
-
     // Getting an ArrayList of all chosen Drinks
     public int getChosen() {
         String query = "SELECT * FROM cocktails WHERE counter = 1";
@@ -344,30 +309,20 @@ public boolean setOrResetHeartDrink(int setValue, String inputName){
             do {
                 String getChosen = ingCurs.getString(1);
                 favList.add(getChosen);
-
             } while (ingCurs.moveToNext());
         }
-
         return favList.size();
     }
-
-
     //Method for adding a drink or setting it back to fuelBar
     public void setChosen(String inputName){
-
         String query = "UPDATE cocktails SET counter = 1 WHERE name LIKE '" + inputName + "%'";
             db.execSQL(query);
-
     }
-
     //Method for adding a drink or setting it back to fuelBar
     public void resetChosen(){
-
         String query = "UPDATE cocktails SET counter = 0";
         db.execSQL(query);
-
     }
-
 }
 
 

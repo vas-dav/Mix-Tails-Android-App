@@ -15,8 +15,11 @@ import java.util.List;
 
 /**
  * Created on 06/03/2021
- * author: Annie
- * an adapter for search bar
+ * author: Annie, Miguel
+ *
+ * This search bar allows you to search drinks by name in our small database
+ * of classic cocktails. give it a try you might find something you like.
+ *
  * Reference used: https://learningprogramming.net/mobile/android/search-data-with-searchview-and-sqlite/
  */
 class  SearchViewHolder extends RecyclerView.ViewHolder {
@@ -59,8 +62,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
 
     /**
      * getItemCount method
-     * @return cocktails.size()
+     * @return cocktails.ingredients()
      */
+    
     @Override
     public int getItemCount() {
         return cocktails.size();
