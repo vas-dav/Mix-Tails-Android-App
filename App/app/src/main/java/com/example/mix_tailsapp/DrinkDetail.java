@@ -73,14 +73,14 @@ public class DrinkDetail extends AppCompatActivity {
 
 
     if(drinksAccess.checkFavs(drinkName)){
-    addToFavs.setImageResource(R.drawable.favbtn2);
+    addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
     }
         addToFavs.setOnClickListener(v -> {
             if(drinksAccess.checkFavs(drinkName)){
                 Toast.makeText(DrinkDetail.this, "Drink already in favorites", Toast.LENGTH_SHORT).show();
             }else {
                 drinksAccess.setOrResetHeartDrink(1, drinkName);
-                addToFavs.setImageResource(R.drawable.favbtn2);
+                addToFavs.setImageResource(R.drawable.ic_baseline_favorite_24);
             }
         });
 

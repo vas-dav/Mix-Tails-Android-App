@@ -64,8 +64,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
 
-
-
     //Recycler Searchbar
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -124,10 +122,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         //Initiate database
         database = new DatabaseOpen(this);
-
-
-
-
 
         //Set up search bar
         materialSearchBar.setHint("Search");
