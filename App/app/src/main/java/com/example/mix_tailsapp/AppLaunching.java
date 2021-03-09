@@ -1,18 +1,23 @@
 package com.example.mix_tailsapp;
-/**
- * Created by An Huynh on 15/02/2021
- * authors Annie, Miguel, Vasily
- * This is the activity to display the logo and slogan with delay when the app is first launched and
- * decide which activity to open firstly
- * version 1: Adding intent
- * version 2: using SharedPreference to open activity based on the signed boolean
- */
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+
+/**
+ * Created by An Huynh on 15/02/2021
+ * authors Annie, Miguel, Vasily
+ *
+ * This activity is meant to display the logo and slogan of the app mesmerizing
+ * the user with out amazing design and colors. After launch the user will directed
+ * to a small quiz to figure out the perfect drink or randomize one for fun!
+ *
+ * version 1: Adding intent
+ * version 2: using SharedPreference to open activity based on the signed boolean
+ */
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
