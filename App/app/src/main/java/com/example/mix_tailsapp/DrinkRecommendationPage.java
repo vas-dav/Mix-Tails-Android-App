@@ -42,6 +42,16 @@ import java.util.List;
  * This class decides the activities take place in the drink recommended page including ImageButton
  * menu, drink detail, add drink to favorite list and so on.
  *
+ * Here the user can decide which activity takes place in the drink recommended page including
+ * menu, drink detail, add drink to favorite list, set the fuel bar and search for drinks.
+ *
+ * @version 1: declare variables (Annie)
+ * @version 1.2: binding the buttons and write functions for them (Annie)
+ * @version 2: write function for pop up menu and surprise drink button (Annie)
+ * @version 3: write function for search bar and listview
+ * @version 3.1: binding database to search bar (Miguel)
+ * @version 4: delete search bar and write search adapter (Annie)
+ * @version 5: reimplement search bar from scratch, used materialSearchBar (Annie)
  * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
  * References are listed at the end of the activity
  */
@@ -91,13 +101,10 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
         drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
-
         recommendedDrinksList = drinksAccess.getRecom();
 
 
         //Initiate variables
-
-
         fuelBar = findViewById(R.id.FuelBar);
         drink1 = findViewById(R.id.drinkName1);
         drink2 = findViewById(R.id.drinkName2);
@@ -121,13 +128,12 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         drink5.setText(recommendedDrinksList.get(4));
         drink6.setText(recommendedDrinksList.get(5));
 
-        String nameAndIngs1 = recommendedDrinksList.get(0) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(0));
-        String nameAndIngs2 = recommendedDrinksList.get(1) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(1));
-        String nameAndIngs3 = recommendedDrinksList.get(2) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(2));
-        String nameAndIngs4 = recommendedDrinksList.get(3) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(3));
-        String nameAndIngs5 = recommendedDrinksList.get(4) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(4));
-        String nameAndIngs6 = recommendedDrinksList.get(5) + ":\n\n" + drinksAccess.getDrinkIngs2(recommendedDrinksList.get(5));
-
+        String nameAndIngs1 = recommendedDrinksList.get(0) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(0));
+        String nameAndIngs2 = recommendedDrinksList.get(1) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(1));
+        String nameAndIngs3 = recommendedDrinksList.get(2) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(2));
+        String nameAndIngs4 = recommendedDrinksList.get(3) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(3));
+        String nameAndIngs5 = recommendedDrinksList.get(4) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(4));
+        String nameAndIngs6 = recommendedDrinksList.get(5) + ":\n\n" + drinksAccess.getDrinkIngs(recommendedDrinksList.get(5));
 
         View.OnClickListener clicklistener = v -> {
             if (v == drinkBtn1) {
@@ -304,9 +310,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         });
 
-        drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
-        drinksInsideFuelBar = drinksAccess.getChosen();
-        drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
+        int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        int drinksInsideFuelBar = drinksAccess.getChosen();
         if (drinkLimitMax == 0) {
             fuelBar.setProgress(0);
             fuelBar.setMax(25);
@@ -355,8 +360,6 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         materialSearchBar.setLastSuggestions(suggestions);
 
     }
-
-
 }
 
 /*

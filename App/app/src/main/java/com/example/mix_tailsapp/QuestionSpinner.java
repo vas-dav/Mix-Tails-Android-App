@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily, Miguel
- * an activity for the spinner to ask user's preferences from a multiple choice questions range and
- * from that deciding what drinks suit the user's need
+ *
+ * A small quiz to ask the user preferences from a multiple choice questions list and
+ * from this deciding what drinks suit the users wants/needs.
  */
+
 public class QuestionSpinner extends AppCompatActivity {
 
     //Declaring String arrays and Strings for Spinners for algorithm to use them
@@ -68,8 +70,6 @@ public class QuestionSpinner extends AppCompatActivity {
         myAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myStrength.setAdapter(myAdapter4);
         myStrength.setOnItemSelectedListener(new strengthSpinnerClass());
-
-
     }
 
     /**
@@ -92,6 +92,7 @@ public class QuestionSpinner extends AppCompatActivity {
     /**
      * a class for spinner to choose taste from user choosing one option
      */
+
     class tasteSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             tasteChoice = taste[position];
@@ -105,6 +106,7 @@ public class QuestionSpinner extends AppCompatActivity {
     /**
      * a class for spinner to choose size from user choosing one option
      */
+
     class sizeSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             sizeChoice = size[position];
@@ -118,6 +120,7 @@ public class QuestionSpinner extends AppCompatActivity {
     /**
      * a class for spinner to choose the strength from user choosing one option
      */
+
     class strengthSpinnerClass implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
             strengthChoice = strength[position];
@@ -140,14 +143,14 @@ public class QuestionSpinner extends AppCompatActivity {
         //if/else statement for recognising which button is pressed
         if(view.getId() == R.id.surprise){
             String i = drinksAccess.getRandom();
-            ings = drinksAccess.getDrinkIngs2(i);
+            ings = drinksAccess.getDrinkIngs(i);
             chosenDrink.putExtra(SURPRISE_KEY, i);
             chosenDrink.putExtra(INGS_KEY, ings);
 
         } else {
 
             String total = drinksAccess.getDrink(spiritsChoice, tasteChoice, sizeChoice, strengthChoice);
-            ings = drinksAccess.getDrinkIngs2(total);
+            ings = drinksAccess.getDrinkIngs(total);
 
 
             // if database didn't return anything with user choice, the program searches for similarities
@@ -157,15 +160,13 @@ public class QuestionSpinner extends AppCompatActivity {
             }else {
                 //Testing same choice, but without strength input
                 String similarWithOutStr = drinksAccess.getSimilarDrinkwOstr(spiritsChoice, tasteChoice, sizeChoice);
-                ings = drinksAccess.getDrinkIngs2(similarWithOutStr);
+                ings = drinksAccess.getDrinkIngs(similarWithOutStr);
                 //Testing same choice, but without size input
                 String similarWithOutSize = drinksAccess.getSimilarDrinkwOsize(spiritsChoice, tasteChoice, strengthChoice);
-                ings = drinksAccess.getDrinkIngs2(similarWithOutSize);
+                ings = drinksAccess.getDrinkIngs(similarWithOutSize);
                 //Testing same choice, but without taste input
                 String similarWithOutTaste = drinksAccess.getSimilarDrinkwOtaste(spiritsChoice, sizeChoice, strengthChoice);
-                ings = drinksAccess.getDrinkIngs2(similarWithOutTaste);
-
-
+                ings = drinksAccess.getDrinkIngs(similarWithOutTaste);
                 if(similarWithOutStr != null){
 
                     chosenDrink.putExtra(CHOICE_KEY, similarWithOutStr);
