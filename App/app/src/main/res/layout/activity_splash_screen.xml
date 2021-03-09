@@ -23,8 +23,8 @@ tools:context=".SplashScreen">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="336dp"
-        android:layout_height="48dp"
+        android:layout_width="347dp"
+        android:layout_height="60dp"
         android:fontFamily="@font/roboto_black"
         android:gravity="center"
         android:includeFontPadding="false"
