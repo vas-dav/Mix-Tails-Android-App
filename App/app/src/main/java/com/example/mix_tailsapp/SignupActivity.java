@@ -17,8 +17,11 @@ import com.example.mix_tailsapp.UserActivity.SignupConfirmationScreen;
 import static com.example.mix_tailsapp.R.color.red;
 
 /**
- * author: Vasily, Annie
- * Lets the user sign up to the app and prompt the user's basic infomation
+ * author: Vasily, Annie, Miguel
+ *
+ * Lets the user sign up to the app with just a name, email
+ * and password. Then prompt the users basic information.
+ *
  * @version 1.1: added a Toast when one of the fields is empty (Annie)
  */
 public class SignupActivity extends AppCompatActivity {
@@ -39,7 +42,6 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
 
         //Casting EditText variables to their id:s
         name = findViewById(R.id.name);
@@ -69,20 +71,17 @@ public class SignupActivity extends AppCompatActivity {
         Intent conf = new Intent(SignupActivity.this, SignupConfirmationScreen.class);
 
         //[storagePut] is for storing signed boolean
-
         SharedPreferences storagePut = getSharedPreferences(TEMP_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = storagePut.edit();
         prefEditor.putString(EXTRA_NAME, name.getText().toString());
 
         //[permStoragePut] is for storing name, password, email and  other values, like fuelTank, soberness for future login's
-
         SharedPreferences permStoragePut = getSharedPreferences(PERM_STORAGE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor permPrefEditor = permStoragePut.edit();
         permPrefEditor.putString(EXTRA_NAME, name.getText().toString());
         permPrefEditor.putString(EXTRA_EMAIL, email.getText().toString());
 
         //Checking if passwords match
-
         if (password.getText().toString().equals(confirm_password.getText().toString())) {
             permPrefEditor.putString(EXTRA_PASS, hashpass.CrToBiWL(hashpass.hLtoS(hashpass.hPSCD(password.getText().toString()))));
             prefEditor.putBoolean(SIGNED, true);
@@ -95,7 +94,5 @@ public class SignupActivity extends AppCompatActivity {
             signUp.setTextSize(25);
             confirm_password.setTextColor(red);
         }
-
     }
-
 }

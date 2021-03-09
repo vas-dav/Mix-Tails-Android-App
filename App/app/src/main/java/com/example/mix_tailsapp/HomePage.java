@@ -34,7 +34,6 @@ public class HomePage extends AppCompatActivity {
     private SharedPreferences tempStoragePut, permStorageGet, tempStorageGet;
     TextView welcomeText;
 
-
     /**
      * create an onClick listener when the buttons are clicked
      */
@@ -138,7 +137,6 @@ public class HomePage extends AppCompatActivity {
                         }
                         break;
                 }
-
                 return true;
             });
             popupMenu.show();

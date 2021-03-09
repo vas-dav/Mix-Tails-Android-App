@@ -1,7 +1,5 @@
 package com.example.mix_tailsapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * authors: Vasily
@@ -27,7 +27,6 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
 
         email = findViewById(R.id.editTextTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
@@ -65,9 +64,5 @@ public class SignInActivity extends AppCompatActivity {
             Log.d("EMAIL_SP", permStorageGet.getString(SignupActivity.EXTRA_EMAIL, "null"));
             Log.d("EMAIL_WR", email.getText().toString());
         }
-
-
-
-
     }
 }
