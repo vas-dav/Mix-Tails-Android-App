@@ -1,6 +1,4 @@
-
 package com.example.mix_tailsapp;
-
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * Created by Annie on 02/03/2021
  * authors Annie, Miguel, Vasily
- * This is the activity for user adding a new drink
+ *
+ * This is the activity for the user to add a drink in the apps database(Drinks.db)
+ * New drink is added to database and be view by typing the name in search bar.
+ *
  * @version 1: creating java class, declare and instantiate variables (Annie)
  * @version 2: writing onClickListener method (Annie)
  * @version 3: adding drink database to the class by calling (Vasily)

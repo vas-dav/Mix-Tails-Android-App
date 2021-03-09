@@ -5,6 +5,7 @@ package com.example.mix_tailsapp;
  * This class is used to show drink ingredients
  */
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -32,14 +33,14 @@ public class DrinkDetail extends AppCompatActivity {
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
 
-    private ImageButton goBack;
-    private static final String TAG = "misumisu";
+  
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_detail);
+        tempStorage = getSharedPreferences(SignupActivity.TEMP_STORAGE, Activity.MODE_PRIVATE);
 
         DatabaseAccess drinksAccess = DatabaseAccess.getInstance(getApplicationContext());
         drinksAccess.open();
@@ -106,13 +107,21 @@ public class DrinkDetail extends AppCompatActivity {
         }
         drinkMe.setOnClickListener(v -> {
             Intent getToRecoms = new Intent(DrinkDetail.this, DrinkRecommendationPage.class);
-            if (tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) == 0){
-                db.resetChosen();
-                startActivity(getToRecoms);
+            Intent getToMain = new Intent(DrinkDetail.this, MainActivity.class);
+            if(tempStorage.getBoolean(SignupActivity.SIGNED, false)) {
+                if (tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0) == 0) {
+                    db.resetChosen();
+                    startActivity(getToRecoms);
+                } else {
+                    db.setChosen(drinkName);
+                    startActivity(getToRecoms);
+                }
             }else {
-                db.setChosen(drinkName);
-                startActivity(getToRecoms);
+                startActivity(getToMain);
             }
+
         });
+
+
     }
 }
