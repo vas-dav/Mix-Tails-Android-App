@@ -33,7 +33,6 @@ public class DrinkDetail extends AppCompatActivity {
     private TextView drink_name, show_ingredient;
     private ImageView showGlass;
     Button drinkMe;
-    private ImageButton goBack;
     private static final String TAG = "misumisu";
     FloatingActionButton addToFavs;
     SharedPreferences tempStorage;
@@ -53,6 +52,7 @@ public class DrinkDetail extends AppCompatActivity {
         drink_name = findViewById(R.id.drink_name);
         show_ingredient = findViewById(R.id.show_ingredient);
         showGlass = findViewById(R.id.img_drink);
+
         drinkMe = findViewById(R.id.add_me_fuel);
         addToFavs = findViewById(R.id.favBtn);
 

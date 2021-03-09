@@ -40,34 +40,26 @@ public class FavoritesActivity extends AppCompatActivity {
             Intent back = new Intent(FavoritesActivity.this, HomePage.class);
             startActivity(back);
         });
+
         ListView show = findViewById(R.id.favoriteList);
         show.setAdapter(new ArrayAdapter<String>(
                 this, //activity instance
                 android.R.layout.simple_expandable_list_item_1,
                 favoriteDrinksList));
 
-        show.setOnItemClickListener((parent, view, position, id) -> Toast.makeText(FavoritesActivity.this,
-                db.getDrinkIngs(favoriteDrinksList.get(position)),
-                Toast.LENGTH_LONG).show());
-    }
-/*
-    public View FavoritesView(Context context, Cursor c, ViewGroup parent){
-        return LayoutInflater.from(context).inflate(R.layout.activity_favorites, parent,false);
-    }
 
-    public void showFavorites(View v, Context context, Cursor c){
-
-        ListView favs = (ListView)v.findViewById(R.id.favoriteList);
-        String body = c.getString(c.getColumnIndexOrThrow("name"));
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1);
-        favs.setAdapter(body);
-
+        show.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(FavoritesActivity.this,
+                        db.getDrinkIngs(favoriteDrinksList.get(position)),
+                        Toast.LENGTH_LONG).show();
+            }
+            });
 
             }
             });
     }
-*/
 }
 
 
