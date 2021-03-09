@@ -236,7 +236,7 @@
                 app:layout_constraintVertical_bias="0.63" />
 
             <ImageButton
-                android:id="@+id/drinkFrame7"
+                android:id="@+id/drinkFrame3"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:layout_marginStart="32dp"
@@ -254,11 +254,11 @@
                 android:layout_width="65dp"
                 android:layout_height="88dp"
                 android:contentDescription="@string/imgViewContentDesscription"
-                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
+                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.419"
-                app:layout_constraintStart_toStartOf="@+id/drinkFrame7"
-                app:layout_constraintTop_toTopOf="@+id/drinkFrame7"
+                app:layout_constraintStart_toStartOf="@+id/drinkFrame3"
+                app:layout_constraintTop_toTopOf="@+id/drinkFrame3"
                 app:layout_constraintVertical_bias="0.171"
                 app:srcCompat="@drawable/pcosecco" />
 
@@ -270,15 +270,15 @@
                 android:text="@string/drinkName1"
                 android:textColor="@color/text_color"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame7"
-                app:layout_constraintEnd_toEndOf="@+id/drinkFrame7"
+                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame3"
+                app:layout_constraintEnd_toEndOf="@+id/drinkFrame3"
                 app:layout_constraintHorizontal_bias="0.545"
-                app:layout_constraintStart_toStartOf="@+id/drinkFrame7"
-                app:layout_constraintTop_toTopOf="@+id/drinkFrame7"
+                app:layout_constraintStart_toStartOf="@+id/drinkFrame3"
+                app:layout_constraintTop_toTopOf="@+id/drinkFrame3"
                 app:layout_constraintVertical_bias="0.64" />
 
             <ImageButton
-                android:id="@+id/drink_frame"
+                android:id="@+id/drinkFrame4"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:contentDescription="@string/imgViewContentDescription"
@@ -300,17 +300,17 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="33dp"
                 android:contentDescription="@string/imgViewContentDescription"
-                app:layout_constraintBottom_toBottomOf="@+id/drink_frame"
-                app:layout_constraintEnd_toEndOf="@+id/drink_frame"
+                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame4"
+                app:layout_constraintEnd_toEndOf="@+id/drinkFrame4"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/drink_frame"
-                app:layout_constraintTop_toTopOf="@+id/drink_frame"
+                app:layout_constraintStart_toStartOf="@+id/drinkFrame4"
+                app:layout_constraintTop_toTopOf="@+id/drinkFrame4"
                 app:layout_constraintVertical_bias="0.177"
                 app:srcCompat="@drawable/mojito"
                 tools:ignore="MissingConstraints" />
 
             <ImageButton
-                android:id="@+id/drink_frame2"
+                android:id="@+id/drinkFrame5"
                 android:layout_width="154dp"
                 android:layout_height="216dp"
                 android:layout_marginTop="628dp"
@@ -328,11 +328,11 @@
                 android:layout_width="89dp"
                 android:layout_height="88dp"
                 android:contentDescription="@string/imgViewContentDescription"
-                app:layout_constraintBottom_toBottomOf="@+id/drink_frame2"
-                app:layout_constraintEnd_toEndOf="@+id/drink_frame2"
+                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame5"
+                app:layout_constraintEnd_toEndOf="@+id/drinkFrame5"
                 app:layout_constraintHorizontal_bias="0.553"
-                app:layout_constraintStart_toStartOf="@+id/drink_frame2"
-                app:layout_constraintTop_toTopOf="@+id/drink_frame2"
+                app:layout_constraintStart_toStartOf="@+id/drinkFrame5"
+                app:layout_constraintTop_toTopOf="@+id/drinkFrame5"
                 app:layout_constraintVertical_bias="0.101"
                 app:srcCompat="@drawable/gin" />
 
@@ -344,11 +344,11 @@
                 android:text="@string/drinkName1"
                 android:textColor="@color/text_color"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/drink_frame2"
-                app:layout_constraintEnd_toEndOf="@+id/drink_frame2"
+                app:layout_constraintBottom_toBottomOf="@+id/drinkFrame5"
+                app:layout_constraintEnd_toEndOf="@+id/drinkFrame5"
                 app:layout_constraintHorizontal_bias="0.546"
-                app:layout_constraintStart_toStartOf="@+id/drink_frame2"
-                app:layout_constraintTop_toTopOf="@+id/drink_frame2"
+                app:layout_constraintStart_toStartOf="@+id/drinkFrame5"
+                app:layout_constraintTop_toTopOf="@+id/drinkFrame5"
                 app:layout_constraintVertical_bias="0.602" />
 
             <TextView
@@ -360,10 +360,10 @@
                 android:textColor="@color/text_color"
                 android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/drink_frame"
+                app:layout_constraintEnd_toEndOf="@+id/drinkFrame4"
                 app:layout_constraintHorizontal_bias="0.523"
-                app:layout_constraintStart_toStartOf="@+id/drink_frame"
-                app:layout_constraintTop_toTopOf="@+id/drink_frame"
+                app:layout_constraintStart_toStartOf="@+id/drinkFrame4"
+                app:layout_constraintTop_toTopOf="@+id/drinkFrame4"
                 app:layout_constraintVertical_bias="0.553" />
 
 
