@@ -53,7 +53,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength", "ingredients"};
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
         Cursor cursor = queryBuilder.query(db, selectSql, null, null, null, null, null);
@@ -67,7 +67,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
                 cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
-                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
+                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
         }
@@ -98,7 +98,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength"};
+        String[] selectSql = {"id", "name", "spirit", "taste", "size", "strength", "ingredients"};
         String tableName = "cocktails";
         queryBuilder.setTables(tableName);
         /*
@@ -120,9 +120,7 @@ public class DatabaseOpen extends SQLiteAssetHelper {
                 cocktails.setTaste(cursor.getString(cursor.getColumnIndex("taste")));
                 cocktails.setSize(cursor.getString(cursor.getColumnIndex("size")));
                 cocktails.setStrength(cursor.getString(cursor.getColumnIndex("strength")));
-                //cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
-
-                cocktails.setIngredients(cursor.getString(6));
+                cocktails.setIngredients(cursor.getString(cursor.getColumnIndex("ingredients")));
 
                 result.add(cocktails);
             }  while (cursor.moveToNext())   ;
