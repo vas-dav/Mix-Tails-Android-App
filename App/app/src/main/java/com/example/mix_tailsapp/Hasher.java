@@ -5,7 +5,13 @@ import android.content.Intent;
 import java.io.CharArrayReader;
 
 /**
+ * Created on 18/02/2021
  * author: Vasily
+ * This class decides the activities take place in the drink recommended page including ImageButton
+ * menu, drink detail, add drink to favorite list and so on.
+ *
+ * @version 6: set Text for recommended drinks display in the activity from database (Vasily)
+ * References are listed at the end of the activity
  */
 public class Hasher {
 

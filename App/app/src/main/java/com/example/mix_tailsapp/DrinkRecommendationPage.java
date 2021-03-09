@@ -3,6 +3,11 @@ package com.example.mix_tailsapp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -20,6 +25,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,11 +59,14 @@ public class DrinkRecommendationPage extends AppCompatActivity {
     private ListView listView;
     private List<DatabaseAccess> cocktails;
     private TextView drink1, drink2, drink3, drink4, drink5, drink6;
+    private int drinkLimitMax, drinksInsideFuelBar, drinksLeftinFuelBar;
     int progress = 0;
     ProgressBar fuelBar;
     private ArrayList<String> recommendedDrinksList = new ArrayList<>();
     //Accessing database to show surprise drinks
     DatabaseAccess drinksAccess;
+    NotificationManager manager;
+    Notification myNotication;
 
 
     //Recycler Searchbar
@@ -295,8 +304,9 @@ public class DrinkRecommendationPage extends AppCompatActivity {
 
         });
 
-        int drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
-        int drinksInsideFuelBar = drinksAccess.getChosen();
+        drinkLimitMax = tempStorage.getInt(FuelBarSet.LIMIT_AMOUNT, 0);
+        drinksInsideFuelBar = drinksAccess.getChosen();
+        drinksLeftinFuelBar = drinkLimitMax - drinksInsideFuelBar;
         if (drinkLimitMax == 0) {
             fuelBar.setProgress(0);
             fuelBar.setMax(25);
@@ -305,7 +315,23 @@ public class DrinkRecommendationPage extends AppCompatActivity {
             fuelBar.setProgress(drinksInsideFuelBar);
         }
 
+        if(drinksLeftinFuelBar == 0){
+            Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
+        }
 
+    }
+
+    @Override
+    protected void onPause() {
+
+        super.onPause();
+
+
+        if(drinksLeftinFuelBar == 0 && drinkLimitMax != 0){
+            Toast.makeText(DrinkRecommendationPage.this, "You have reached your limit! Don't drink anymore!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "You have " + drinksLeftinFuelBar + " drinks left in your FuelBar", Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -329,6 +355,8 @@ public class DrinkRecommendationPage extends AppCompatActivity {
         materialSearchBar.setLastSuggestions(suggestions);
 
     }
+
+
 }
 
 /*

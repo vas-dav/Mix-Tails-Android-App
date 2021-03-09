@@ -79,7 +79,7 @@ public class HomePage extends AppCompatActivity {
         permStorageGet = getSharedPreferences(SignupActivity.PERM_STORAGE, Activity.MODE_PRIVATE);
         String name = permStorageGet.getString(SignupActivity.EXTRA_NAME, "User");
         welcomeText = findViewById(R.id.welcomeBack);
-        welcomeText.setText(getString(R.string.wecome_back_text) + name);
+        welcomeText.setText(getString(R.string.wecome_back_text) + name + "!");
 
         // Initiate variables with their ids
         decideBtn = findViewById(R.id.decideBtn);
