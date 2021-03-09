@@ -4,13 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mix_tailsapp.UserActivity.Settings;
 
 /**
@@ -62,7 +63,6 @@ public class AppWelcomeScreen extends AppCompatActivity {
                 if (deleter.commit()) {
                     startActivity(signOut);
                 }
-
             }
         }
     };
@@ -71,6 +71,7 @@ public class AppWelcomeScreen extends AppCompatActivity {
      * Initiate and calling the onClick methods
       * @param savedInstanceState
      */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,8 +138,5 @@ public class AppWelcomeScreen extends AppCompatActivity {
             });
             popupMenu.show();
         });
-
-
-
     }
 }
