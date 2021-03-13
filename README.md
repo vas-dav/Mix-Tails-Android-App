@@ -6,6 +6,7 @@ An Android application that not only provides you with a wide range of classic c
 
 ## Development and installation instruction
 Mix-Tails is an app development project that was as part of the Mobiles course at Metropolia University of Applied Sciences
+#### You can [download](https://github.com/vas-dav/Mix-Tails-Android-App/blob/main/app-debug.apk) the APK and install it directly on your mobile phone. 
 
 ## Requirement
 This app is only available for Android devices. Further expansion to be considered in the future.
